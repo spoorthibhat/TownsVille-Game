@@ -213,4 +213,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_flaming_sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_button_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\power_puff_character_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\score_button.png" />
+  </ItemGroup>
 </Project>

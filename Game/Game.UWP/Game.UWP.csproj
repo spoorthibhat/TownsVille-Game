@@ -120,8 +120,11 @@
     <Content Include="icon_save.png" />
     <Content Include="item.png" />
     <Content Include="items.png" />
+    <Content Include="item_flaming_sword.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="monster_button_icon.png" />
+    <Content Include="power_puff_character_button.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -151,6 +154,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="score.png" />
+    <Content Include="score_button.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
