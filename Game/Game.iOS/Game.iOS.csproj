@@ -240,4 +240,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\character_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\score_pad_button.png" />
+  </ItemGroup>
 </Project>
