@@ -170,12 +170,6 @@
     <AndroidResource Include="Resources\drawable\monster_button_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\power_puff_character_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\score_button.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\PowerpuffGirls.png" />
   </ItemGroup>
   <ItemGroup>
