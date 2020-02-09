@@ -179,10 +179,10 @@
     <AndroidResource Include="Resources\drawable\PowerpuffGirls.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\CityUnderAttack.jpg" />
+    <AndroidResource Include="Resources\drawable\CityAttack.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\townsville_city.jpg" />
+    <AndroidResource Include="Resources\drawable\TownsVille.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

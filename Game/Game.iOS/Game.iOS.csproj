@@ -229,9 +229,9 @@
     <BundleResource Include="Resources\PowerpuffGirls.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\CityUnderAttack.jpg" />
+    <BundleResource Include="Resources\CityAttack.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\townsville_city.jpg" />
+    <BundleResource Include="Resources\TownsVille.PNG" />
   </ItemGroup>
 </Project>
