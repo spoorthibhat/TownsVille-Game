@@ -237,4 +237,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\AutoBattle.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\character_button.png" />
+  </ItemGroup>
 </Project>
