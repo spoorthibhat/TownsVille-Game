@@ -8,7 +8,7 @@
 
         <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-            <FlexLayout x:Name="flexLayout"
+            <!--<FlexLayout x:Name="flexLayout"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround">
@@ -48,7 +48,37 @@
                         Text="Auto Battle"
                         Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
-            </FlexLayout>
+            </FlexLayout>-->
+            <StackLayout
+                Orientation="Vertical">
+                <StackLayout
+                    Orientation="Horizontal">
+                    <StackLayout
+                        Style="{StaticResource CardImageTextBox}">
+                        <ImageButton
+                        Source="TownsVille.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="VillageButton_Clicked"
+                        VerticalOptions="CenterAndExpand"/>
+                        <Label
+                            Text="Townsville City"
+                            Style="{StaticResource CenterMessageStyle}"/>
+                    </StackLayout>
+                    <StackLayout
+                        Style="{StaticResource CardImageTextBox}">
+                        <ImageButton
+                        Source="CityAttack.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="DungeonButton_Clicked"
+                            VerticalOptions="CenterAndExpand"/>
+                        <Label
+                            Text="Protect Townsville"
+                            Style="{StaticResource CenterMessageStyle}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+                </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
