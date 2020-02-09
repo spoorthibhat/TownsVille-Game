@@ -228,4 +228,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\PowerpuffGirls.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CityUnderAttack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\townsville_city.jpg" />
+  </ItemGroup>
 </Project>
