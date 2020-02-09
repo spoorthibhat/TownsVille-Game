@@ -83,11 +83,19 @@
                     </StackLayout>
 
                 </StackLayout>
-                <Button
-                    HorizontalOptions="Center"
-                    Text="AutoBattle"
-                    FontSize="Medium"
-                    Clicked="AutobattleButton_Clicked"/>
+                <StackLayout
+                        Style="{StaticResource CardImageTextBox}">
+                    <ImageButton
+                        Source="AutoBattle.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="DungeonButton_Clicked"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"/>
+                    <Label
+                            Text="AutoBattle"
+                            Style="{StaticResource CenterMessageStyle}"
+                            HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
