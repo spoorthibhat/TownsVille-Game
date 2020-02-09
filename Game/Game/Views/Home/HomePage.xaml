@@ -14,13 +14,10 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="knight.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
+                         Source="PowerpuffGirls.png"
+                         Style="{StaticResource ImageLargeStyle}"
+                         BackgroundColor="Transparent"/>
 
-                    <Image
-                         Source="troll.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
-                
                 </StackLayout>
                 
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
