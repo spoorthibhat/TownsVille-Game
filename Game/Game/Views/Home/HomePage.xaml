@@ -38,6 +38,10 @@
                 </StackLayout>
 
                 <Button
+                    Text="Instructions"
+                    />
+                
+                <Button
                     Text="Enter"
                     Clicked="GameButton_Clicked"/>
 
