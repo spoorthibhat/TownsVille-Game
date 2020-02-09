@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AutoBattle.PNG" />
     <Content Include="battleboard.jpg" />
     <Content Include="cauldren.png" />
     <Content Include="CityAttack.PNG" />

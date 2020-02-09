@@ -234,4 +234,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\TownsVille.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AutoBattle.PNG" />
+  </ItemGroup>
 </Project>

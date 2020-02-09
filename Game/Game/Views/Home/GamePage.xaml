@@ -50,7 +50,9 @@
                 </StackLayout>
             </FlexLayout>-->
             <StackLayout
-                Orientation="Vertical">
+                Orientation="Vertical"
+                VerticalOptions="FillAndExpand"
+                Padding="50">
                 <StackLayout
                     Orientation="Horizontal">
                     <StackLayout
@@ -63,7 +65,8 @@
                         HorizontalOptions="CenterAndExpand"/>
                         <Label
                             Text="Townsville City"
-                            Style="{StaticResource CenterMessageStyle}"/>
+                            Style="{StaticResource CenterMessageStyle}"
+                            HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout
                         Style="{StaticResource CardImageTextBox}">
@@ -75,7 +78,8 @@
                          HorizontalOptions="CenterAndExpand"/>
                         <Label
                             Text="Protect Townsville"
-                            Style="{StaticResource CenterMessageStyle}"/>
+                            Style="{StaticResource CenterMessageStyle}"
+                            HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
 
                 </StackLayout>
