@@ -106,6 +106,7 @@
   <ItemGroup>
     <Content Include="battleboard.jpg" />
     <Content Include="cauldren.png" />
+    <Content Include="CityUnderAttack.jpg" />
     <Content Include="d12.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
@@ -156,6 +157,7 @@
     <Content Include="score.png" />
     <Content Include="score_button.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="townsville_city.jpg" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />

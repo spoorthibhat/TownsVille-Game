@@ -225,4 +225,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\score_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\townsville_city.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CityUnderAttack.jpg" />
+  </ItemGroup>
 </Project>
