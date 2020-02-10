@@ -33,16 +33,16 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <!--
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Location : " 
+                    Text="Level : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Location}" 
+                    Text="{Binding Data.Level}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
+            <!--
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Attribute : " 
