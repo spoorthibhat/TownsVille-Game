@@ -31,23 +31,10 @@ namespace Game.Views.Characters
 
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            // LevelValue.Text = String.Format("{0}", e.NewValue);
+            LevelValue.Text = String.Format("{0}", e.NewValue);
         }
 
-        void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            // AttackValue.Text = String.Format("{0}", e.NewValue);
-        }
-
-        void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            // DefenseValue.Text = String.Format("{0}", e.NewValue);
-        }
-
-        void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            // HealthValue.Text = String.Format("{0}", e.NewValue);
-        }
+        
 
     }
 }
