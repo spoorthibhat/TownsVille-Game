@@ -44,12 +44,12 @@
                     <Button
                         Text="Yes"
                         Style="{StaticResource PrimaryButtonStyle}"
-                        />
+                        Clicked="Yes_Clicked"/>
 
                     <Button
                         Text="No"
                         Style="{StaticResource PrimaryButtonStyle}"
-                        />
+                        Clicked="No_Clicked"/>
                 </StackLayout>
 
             </StackLayout>
