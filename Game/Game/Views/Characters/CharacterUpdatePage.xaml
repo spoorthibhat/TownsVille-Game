@@ -112,7 +112,7 @@
                     <Button
                         Text="Save"
                         Style="{StaticResource PrimaryButtonStyle}"
-                        />
+                        Clicked="Save_Clicked"/>
 
                     <Button
                         Text="Cancel"

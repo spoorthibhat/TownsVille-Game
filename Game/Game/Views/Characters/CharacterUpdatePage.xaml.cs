@@ -7,12 +7,12 @@ using Game.Models;
 namespace Game.Views
 {
     /// <summary>
-    /// Item Update Page
+    /// Character Update Page
     /// </summary>
     [DesignTimeVisible(false)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        // View Model for Item
+        // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Game.Views
             //LocationPicker.SelectedItem = data.Data.Location.ToString();
             //AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
-        /*
+        
         /// <summary>
         /// Save calls to Update
         /// </summary>
@@ -47,7 +47,6 @@ namespace Game.Views
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
-        */
 
         /// <summary>
         /// Cancel and close this page
