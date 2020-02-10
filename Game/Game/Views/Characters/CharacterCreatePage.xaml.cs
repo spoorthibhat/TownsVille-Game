@@ -37,7 +37,15 @@ namespace Game.Views.Characters
         async void Save_Clicked(object sender, EventArgs e)
         {
             // TODO : Complete this
-            return;
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+            }
+
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
+            
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
