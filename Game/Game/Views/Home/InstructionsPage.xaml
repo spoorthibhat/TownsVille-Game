@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Game.Views.InstructionsPage"
+			 >
+
+    <ContentPage.Content>
+
+        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
+
+            <StackLayout
+					Style="{StaticResource CardImageTextBox}">
+                
+                <Label
+					Text="Here are the Instructions to play the game."
+					Style="{StaticResource CenterMessageStyle}"
+					HorizontalOptions="CenterAndExpand"
+					FontSize="Medium"
+					LineBreakMode="WordWrap"/>
+
+                <Button
+					Text="OK"
+					Clicked="OkButton_Clicked"/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
