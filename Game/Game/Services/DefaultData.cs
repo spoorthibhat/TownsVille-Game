@@ -64,5 +64,18 @@ namespace Game.Services
 
             return datalist;
         }
+
+        public static List<CharacterModel> LoadData(CharacterModel temp)
+        {
+            var datalist = new List<CharacterModel>()
+            { new CharacterModel{ 
+                Name = "Blossum",
+                Description = "Self-proclaimed leader of the Powerpuff Girls",
+            } 
+            
+            
+            };
+            return datalist;
+        }
     }
 }
