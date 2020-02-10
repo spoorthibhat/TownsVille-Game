@@ -83,8 +83,8 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("SU", "Go RedHawks", "OK");
-            //await Navigation.PushModalAsync(new NavigationPage(new ScoreCreatePage(new GenericViewModel<ScoreModel>())));
+            //await DisplayAlert("SU", "Go RedHawks", "OK");
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
         }
 
     }
