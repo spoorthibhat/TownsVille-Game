@@ -19,5 +19,28 @@ namespace Game.Models
             ImageURI = ItemService.DefaultImageURI;
         }
 
+        public CharacterModel(CharacterModel data)
+        {
+            Update(data);
+        }
+
+        public override void Update(CharacterModel newData)
+        {
+            if (newData == null)
+            {
+                return;
+            }
+            Name = newData.Name;
+            Description = newData.Description;
+            ImageURI = newData.ImageURI;
+            SpecialAbility = newData.SpecialAbility;
+            Alive = newData.Alive;
+            Level = newData.Level;
+            ExperienceTotal = newData.ExperienceTotal;
+            Speed = newData.Speed;
+            CurrentHealth = newData.CurrentHealth;
+            MaxHealth = newData.MaxHealth;
+     
+        }
     }
 }
