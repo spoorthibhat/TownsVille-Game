@@ -68,20 +68,27 @@ namespace Game.Services
         public static List<CharacterModel> LoadData(CharacterModel temp)
         {
             var datalist = new List<CharacterModel>()
-            { new CharacterModel{ 
+            { new CharacterModel{
                 Name = "Blossum",
                 Description = "Self-proclaimed leader of the Powerpuff Girls",
                 ImageURI = "Blossum.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+
             },
             new CharacterModel{
                 Name = "Bubbles",
                 Description = "She is the Joy and the Laughter; she is the emotional glue of the superhero trio",
                 ImageURI = "Bubbles.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.Armour,
             },
             new CharacterModel{
                 Name = "Buttercup",
                 Description = "She is the bravest of the Powerpuff Girls",
                 ImageURI = "Buttercup.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.LaserEyes,
             },
 
             };
