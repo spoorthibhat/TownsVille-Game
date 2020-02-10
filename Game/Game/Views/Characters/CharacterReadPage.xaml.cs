@@ -36,7 +36,7 @@ namespace Game.Views
         async void UpdateCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
-            //await Navigation.PopAsync();
+            await Navigation.PopAsync();
         }
 
         /// <summary>
