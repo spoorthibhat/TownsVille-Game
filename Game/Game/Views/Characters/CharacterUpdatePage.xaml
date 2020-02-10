@@ -67,6 +67,26 @@
                             />
 
                 </StackLayout>
+
+                <Label 
+                        Text="Attack"
+                        Style="{StaticResource LabelStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                    <Label 
+                            Text="{Binding Data.Attack}" 
+                            x:Name="ValueValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    <Stepper 
+                            Value="{Binding Data.Attack, Mode=TwoWay}"
+                            />
+
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>
