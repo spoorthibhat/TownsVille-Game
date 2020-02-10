@@ -104,7 +104,7 @@
 
                     <Stepper 
                             Value="{Binding Data.Defense, Mode=TwoWay}"
-                            />
+                            ValueChanged="Defense_OnStepperValueChanged"/>
 
                 </StackLayout>
 
