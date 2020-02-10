@@ -23,7 +23,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        async void OkButton_Clicked(object sender, EventArgs e)
+        async void HomeButton_Clicked(object sender, EventArgs e)
         {
 			await Navigation.PopModalAsync();
 		}

@@ -19,8 +19,8 @@
 					LineBreakMode="WordWrap"/>
 
                 <Button
-					Text="OK"
-					Clicked="OkButton_Clicked"/>
+					Text="Home"
+					Clicked="HomeButton_Clicked"/>
                 
             </StackLayout>
         </ScrollView>
