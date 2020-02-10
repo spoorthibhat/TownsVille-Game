@@ -78,15 +78,6 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Experience : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.ExperienceTotal}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button
                 Text="Update"
