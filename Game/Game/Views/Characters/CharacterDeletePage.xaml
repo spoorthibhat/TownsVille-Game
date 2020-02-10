@@ -8,7 +8,7 @@
              Title="{Binding Title}">
     
     <ScrollView>
-        <!--
+        
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
@@ -34,7 +34,7 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-
+            <!--
             <StackLayout 
             HorizontalOptions="Center" 
             Padding="20">
@@ -50,9 +50,9 @@
                 BorderColor="black">
                 </Button>
             </StackLayout>
-            
+            -->
         </StackLayout>
-        -->
+        
     </ScrollView>
     
 </ContentPage>
