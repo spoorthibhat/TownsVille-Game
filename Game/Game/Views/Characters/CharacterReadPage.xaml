@@ -78,16 +78,14 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
-            <!--
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Damage : " 
+                    Text="Experience : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Damage}" 
+                    Text="{Binding Data.ExperienceTotal}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
-             -->
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button
