@@ -11,10 +11,17 @@
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand"
          >
-            <Label Text="Characters"   
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Characters"   
                 VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
                 Style="{StaticResource HeaderStyle}"/>
+                <Button
+                Text="Add Character"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="AddCharacter_Clicked"
+                HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding Dataset}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -71,10 +78,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button
-                Text="Add Character"
-                Style="{StaticResource PrimaryButtonStyle}"
-                Clicked="AddCharacter_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
