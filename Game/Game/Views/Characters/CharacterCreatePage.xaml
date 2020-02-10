@@ -17,6 +17,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+            <local_helpers:IntStringConverter x:Key="Int_String"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -68,19 +69,18 @@
                         Text="Special ability" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <!-- TODO: Change the below to special ability enum-->
                     <Picker Grid.Row="2" Grid.Column="1"
                         ItemsSource="{x:Static local_helpers:SpecialAbilityEnumHelper.GetSpecialAbilityList}" 
                         SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="SpecialAbilityPicker"/>
 
-                    <!--
+                    
                     <Label Grid.Row="3" Grid.Column="0"
                         Text="Attack" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="3" Grid.Column="1" 
-                        SelectedItem="{Binding Data.Attack, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.Attack, Converter={StaticResource Int_String}, Mode=TwoWay}" 
                         x:Name="AttackPicker">
                         <Picker.Items>
                             <x:String>0</x:String>
@@ -96,7 +96,7 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="4" Grid.Column="1" 
-                        SelectedItem="{Binding Data.Defense, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.Defense, Converter={StaticResource Int_String}, Mode=TwoWay}" 
                         x:Name="DefensePicker">
                         <Picker.Items>
                             <x:String>0</x:String>
@@ -112,7 +112,7 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="5" Grid.Column="1" 
-                        SelectedItem="{Binding Data.CurrentHealth, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.CurrentHealth, Converter={StaticResource Int_String}, Mode=TwoWay}" 
                         x:Name="HealthPicker">
                         <Picker.Items>
                             <x:String>0</x:String>
@@ -123,7 +123,7 @@
                             <x:String>30</x:String>
                         </Picker.Items>
                     </Picker>
-                    -->
+                    
                 </Grid>
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
