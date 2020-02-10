@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Models;
 using Game.ViewModels;
+using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,8 @@ using Xamarin.Forms.Xaml;
 namespace Game.Views.Characters
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "<Pending>")]
+    [DesignTimeVisible(false)]
     public partial class CharacterIndexPage : ContentPage
     {
         // View Model used for data binding
@@ -29,28 +32,6 @@ namespace Game.Views.Characters
             BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
 
-        /// <summary>
-        /// Refresh the list on page appearing
-        /// </summary>
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
 
-            BindingContext = null;
-
-            // If no data, then set it for needing refresh
-            if (ViewModel.Dataset.Count == 0)
-            {
-                ViewModel.SetNeedsRefresh(true);
-            }
-
-            // If the needs Refresh flag is set update it
-            if (ViewModel.NeedsRefresh())
-            {
-                ViewModel.LoadDatasetCommand.Execute(null);
-            }
-
-            BindingContext = ViewModel;
-        }
     }
 }
