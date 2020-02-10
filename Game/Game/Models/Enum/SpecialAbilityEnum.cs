@@ -5,5 +5,6 @@ namespace Game.Models
     {
         LaserEyes,
         Armour,
+        None,
     }
 }
