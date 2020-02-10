@@ -29,6 +29,11 @@ namespace Game.Views.Characters
             return;
         }
 
+        async void Browse_Clicked(object sender, EventArgs e)
+        {
+            return;
+        }
+
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);

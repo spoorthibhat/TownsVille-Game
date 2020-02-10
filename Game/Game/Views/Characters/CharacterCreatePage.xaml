@@ -30,6 +30,12 @@
 
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
 
+                <Button
+                Text="Pick a character image"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="Browse_Clicked"
+                />
+                
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
