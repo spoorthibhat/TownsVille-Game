@@ -27,8 +27,7 @@ namespace Game.Views
             this.ViewModel.Title = "Update " + data.Title;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
-            //LocationPicker.SelectedItem = data.Data.Location.ToString();
-            //AttributePicker.SelectedItem = data.Data.Attribute.ToString();
+            SpecialAbilityPicker.SelectedItem = data.Data.SpecialAbility.ToString();
         }
         
         /// <summary>
