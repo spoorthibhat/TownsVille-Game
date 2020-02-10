@@ -137,7 +137,10 @@
 
                         <Stepper 
                             Value="{Binding Data.Level, Mode=TwoWay}"
-                            ValueChanged="Level_OnStepperValueChanged"/>
+                            ValueChanged="Level_OnStepperValueChanged"
+                            Minimum="1"
+                            Maximum="20"
+                            Increment="1"/>
 
                     </StackLayout>
 
