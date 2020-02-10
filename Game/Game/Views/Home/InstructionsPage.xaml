@@ -30,6 +30,7 @@
 
                 <Button
 					Text="Home"
+                    Style="{StaticResource PrimaryButtonStyle}"
 					Clicked="HomeButton_Clicked"/>
                 
             </StackLayout>
