@@ -87,6 +87,27 @@
                             />
 
                 </StackLayout>
+
+                <Label 
+                        Text="Defense" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                    <Label 
+                            Text="{Binding Data.Defense}" 
+                            x:Name="DefenseValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    <Stepper 
+                            Value="{Binding Data.Defense, Mode=TwoWay}"
+                            />
+
+                </StackLayout>
+                
             </StackLayout>
         </StackLayout>
     </ScrollView>
