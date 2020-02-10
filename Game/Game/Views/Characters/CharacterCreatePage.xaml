@@ -72,7 +72,7 @@
                     <Picker Grid.Row="2" Grid.Column="1"
                         ItemsSource="{x:Static local_helpers:SpecialAbilityEnumHelper.GetSpecialAbilityList}" 
                         SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="LocationPicker"/>
+                        x:Name="SpecialAbilityPicker"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
                         Text="Attack" 
