@@ -237,4 +237,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\score_pad_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Blossum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bubbles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Buttercup.png" />
+  </ItemGroup>
 </Project>
