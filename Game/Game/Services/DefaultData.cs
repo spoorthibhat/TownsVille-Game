@@ -71,9 +71,19 @@ namespace Game.Services
             { new CharacterModel{ 
                 Name = "Blossum",
                 Description = "Self-proclaimed leader of the Powerpuff Girls",
-            } 
-            
-            
+                ImageURI = "Blossum.png",
+            },
+            new CharacterModel{
+                Name = "Bubbles",
+                Description = "She is the Joy and the Laughter; she is the emotional glue of the superhero trio",
+                ImageURI = "Bubbles.png",
+            },
+            new CharacterModel{
+                Name = "Buttercup",
+                Description = "She is the bravest of the Powerpuff Girls",
+                ImageURI = "Buttercup.png",
+            },
+
             };
             return datalist;
         }
