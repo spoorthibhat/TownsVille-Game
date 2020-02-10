@@ -11,6 +11,34 @@ namespace Game.ViewModels
 {
     class CharacterIndexViewModel: BaseViewModel<CharacterModel>
     {
+        #region Singleton
+
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static volatile CharacterIndexViewModel instance;
+        private static readonly object syncRoot = new Object();
+
+        public static CharacterIndexViewModel Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new CharacterIndexViewModel();
+                            instance.Initialize();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
         public CharacterIndexViewModel()
         {
             Title = "Character";
