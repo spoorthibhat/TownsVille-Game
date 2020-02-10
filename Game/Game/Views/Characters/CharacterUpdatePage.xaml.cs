@@ -47,6 +47,7 @@ namespace Game.Views
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
+        */
 
         /// <summary>
         /// Cancel and close this page
@@ -57,7 +58,7 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
-
+        /*
         /// <summary>
         /// Catch the change to the Stepper for Range
         /// </summary>
