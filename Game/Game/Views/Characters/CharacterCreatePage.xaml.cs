@@ -50,8 +50,7 @@ namespace Game.Views.Characters
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            // TODO : Complete this
-            return;
+            await Navigation.PopModalAsync();
         }
 
         async void Browse_Clicked(object sender, EventArgs e)
