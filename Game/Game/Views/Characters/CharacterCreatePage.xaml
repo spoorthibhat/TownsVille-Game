@@ -71,7 +71,7 @@
 
                     <Picker Grid.Row="2" Grid.Column="1"
                         ItemsSource="{x:Static local_helpers:SpecialAbilityEnumHelper.GetSpecialAbilityList}" 
-                        SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.SpecialAbility, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="SpecialAbilityPicker"/>
 
                     
