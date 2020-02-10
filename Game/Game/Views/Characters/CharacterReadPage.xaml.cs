@@ -46,13 +46,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void DeleteCharacter_Clicked(object sender, EventArgs e)
         {
-            bool delete = await DisplayAlert("Delete!", "Are you sure you want to delete this character", "Yes", "No");
-            
-            if(delete)
-            {
-                MessagingCenter.Send(this, "Delete", ViewModel.Data);
-            }
-
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
     }
