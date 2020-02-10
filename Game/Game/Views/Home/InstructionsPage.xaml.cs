@@ -19,13 +19,13 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Dungeon
+		/// Back to the HomePage
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
         async void OkButton_Clicked(object sender, EventArgs e)
         {
-			
+			await Navigation.PopModalAsync();
 		}
 	}
 }
