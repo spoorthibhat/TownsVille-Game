@@ -7,7 +7,9 @@
              x:Class="Game.Views.Characters.CharacterIndexPage">
     <ContentPage.Content>
         <StackLayout
-            Orientation="Vertical"
+            Style="{StaticResource OuterBoxStack}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
          >
             <Label Text="Characters"   
                 VerticalOptions="Start" 
@@ -51,10 +53,10 @@
                                     Orientation="Horizontal">
 
                                     <Label 
-                                       Text="{Binding Attribute}" 
+                                       Text="{Binding Level}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                    <Label Text="{Binding Value}" 
+                                    <Label Text="{Binding SpecialAbility}" 
                                         Style="{StaticResource ListStyle}"/>
 
                                 </StackLayout>
@@ -71,8 +73,6 @@
             </ListView>
             <Button
                 Text="Add Character"
-                VerticalOptions="Start"
-                HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource PrimaryButtonStyle}"
                 Clicked="AddCharacter_Clicked"/>
         </StackLayout>
