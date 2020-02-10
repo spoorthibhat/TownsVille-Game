@@ -33,11 +33,11 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //async void Update_Clicked(object sender, EventArgs e)
-        //{
-            //await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+        async void UpdateCharacter_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             //await Navigation.PopAsync();
-        //}
+        }
 
         /// <summary>
         /// Calls for Delete

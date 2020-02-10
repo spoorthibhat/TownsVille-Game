@@ -91,7 +91,7 @@
                 <Button
                 Text="Update"
                 Style="{StaticResource PrimaryButtonStyle}"
-                />
+                Clicked="UpdateCharacter_Clicked"/>
 
                 <Button
                 Text="Delete"
