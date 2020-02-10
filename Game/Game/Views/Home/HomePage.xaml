@@ -39,10 +39,12 @@
 
                 <Button
                     Text="Instructions"
+                    Style="{StaticResource PrimaryButtonStyle}"
                     Clicked="InstructionsButton_Clicked"/>
                 
                 <Button
                     Text="Enter"
+                    Style="{StaticResource PrimaryButtonStyle}"
                     Clicked="GameButton_Clicked"/>
 
             </StackLayout>
