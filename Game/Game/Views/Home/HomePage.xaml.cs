@@ -27,5 +27,9 @@ namespace Game.Views
         {
 			await Navigation.PushAsync(new GamePage());
 		}
-    }
+		public async void InstructionsButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new InstructionsPage());
+		}
+	}
 }
