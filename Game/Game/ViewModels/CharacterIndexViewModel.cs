@@ -43,6 +43,11 @@ namespace Game.ViewModels
         public CharacterIndexViewModel()
         {
             Title = "Character";
+            // Register the create message
+            MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as CharacterModel);
+            });
 
             // Register the Update Message
             MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
