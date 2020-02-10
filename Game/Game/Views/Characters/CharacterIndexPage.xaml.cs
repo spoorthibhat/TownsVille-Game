@@ -31,7 +31,49 @@ namespace Game.Views.Characters
             InitializeComponent();
             BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
+        /// <summary>
+        /// Refresh the list on page appearing
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            BindingContext = null;
+
+            // If no data, then set it for needing refresh
+            if (ViewModel.Dataset.Count == 0)
+            {
+                ViewModel.SetNeedsRefresh(true);
+            }
+
+            // If the needs Refresh flag is set update it
+            if (ViewModel.NeedsRefresh())
+            {
+                ViewModel.LoadDatasetCommand.Execute(null);
+            }
+
+            BindingContext = ViewModel;
+        }
+
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            CharacterModel data = args.SelectedItem as CharacterModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+           // await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<CharacterModel>(data)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
 
     }
 }

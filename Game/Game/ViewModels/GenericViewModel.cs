@@ -28,5 +28,7 @@ namespace Game.ViewModels
         public GenericViewModel()
         {
         }
+
+       
     }
 }
