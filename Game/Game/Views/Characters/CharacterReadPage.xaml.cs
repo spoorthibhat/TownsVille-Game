@@ -44,10 +44,16 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //async void Delete_Clicked(object sender, EventArgs e)
-        //{
-            //await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
-            //await Navigation.PopAsync();
-        //}
+        async void DeleteCharacter_Clicked(object sender, EventArgs e)
+        {
+            bool delete = await DisplayAlert("Delete!", "Are you sure you want to delete this character", "Yes", "No");
+            
+            if(delete)
+            {
+                MessagingCenter.Send(this, "Delete", ViewModel.Data);
+            }
+
+            await Navigation.PopAsync();
+        }
     }
 }

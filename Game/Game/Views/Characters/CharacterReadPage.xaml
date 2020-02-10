@@ -96,7 +96,7 @@
                 <Button
                 Text="Delete"
                 Style="{StaticResource PrimaryButtonStyle}"
-                />
+                Clicked="DeleteCharacter_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

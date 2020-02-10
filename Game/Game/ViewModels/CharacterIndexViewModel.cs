@@ -39,10 +39,19 @@ namespace Game.ViewModels
 
         #endregion Singleton
 
+        #region Constructor
         public CharacterIndexViewModel()
         {
             Title = "Character";
+
+
+            // Register the Delete Message
+            MessagingCenter.Subscribe<CharacterReadPage, CharacterModel>(this, "Delete", async (obj, data) =>
+            {
+                await DeleteAsync(data as CharacterModel);
+            });
         }
+        #endregion Constructor
 
         /// <summary>
         /// Returns the Character passed in
