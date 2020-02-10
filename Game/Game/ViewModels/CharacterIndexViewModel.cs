@@ -11,6 +11,9 @@ namespace Game.ViewModels
 {
     class CharacterIndexViewModel: BaseViewModel<CharacterModel>
     {
-
+        public CharacterIndexViewModel()
+        {
+            Title = "Character";
+        }
     }
 }
