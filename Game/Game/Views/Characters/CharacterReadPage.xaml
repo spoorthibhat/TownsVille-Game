@@ -35,6 +35,15 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
+                    Text="SpecialAbility : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.SpecialAbility}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
                     Text="Level : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
@@ -70,15 +79,6 @@
             </StackLayout>
 
             <!--
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Value : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Value}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Damage : " 
