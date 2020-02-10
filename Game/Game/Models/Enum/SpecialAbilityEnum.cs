@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Game.Models.Enum
+﻿
+namespace Game.Models
 {
-    enum SpecialAbilityEnum
+    public enum SpecialAbilityEnum
     {
         LaserEyes,
         Armour,
