@@ -226,6 +226,16 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
 
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="CornflowerBlue" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="TextColor" Value="Yellow" />
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
