@@ -79,7 +79,9 @@ namespace Game.Views.Characters
             var image = args.SelectedItem as Image;
 
             ViewModel.Data.ImageURI = image.Url;
-            
+            CharacterImage.Source = image.Url;
+
+
         }
 
     }
