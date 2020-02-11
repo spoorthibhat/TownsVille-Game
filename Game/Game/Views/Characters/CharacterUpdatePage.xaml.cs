@@ -82,6 +82,18 @@ namespace Game.Views
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
-        
+
+        /// <summary>
+        /// Catch the change for image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var image = args.SelectedItem as Image;
+
+            ViewModel.Data.ImageURI = image.Url;
+            CharacterImage.Source = image.Url;
+        }
     }
 }

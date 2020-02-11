@@ -23,7 +23,7 @@
 
             <Label Text="Update Character" Style="{StaticResource HeaderStyle}"/>
 
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand" x:Name="CharacterImage"/>
 
             <Label
                 Text="Update the image for your character: " 
@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
 
-                <ListView x:Name="ImageView"   Grid.Row ="0" Grid.Column="0" Rotation="270" RowHeight="40" >
+                <ListView x:Name="ImageView"   Grid.Row ="0" Grid.Column="0" Rotation="270" RowHeight="40" ItemSelected="OnCharacterImageSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
