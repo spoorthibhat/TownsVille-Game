@@ -60,11 +60,13 @@
                                     Orientation="Horizontal">
 
                                     <Label 
-                                       Text="{Binding Level}" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Text="Special-Ability: " 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
 
                                     <Label Text="{Binding SpecialAbility}" 
-                                        Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
 
                                 </StackLayout>
 
