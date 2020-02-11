@@ -255,4 +255,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\ms_keane.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mayor.png" />
+  </ItemGroup>
 </Project>

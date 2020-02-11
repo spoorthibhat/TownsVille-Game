@@ -129,6 +129,7 @@
     <Content Include="item_flaming_sword.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="mayor.png" />
     <Content Include="monster_button_icon.png" />
     <Content Include="ms_keane.png" />
     <Content Include="PowerpuffGirls.png" />
