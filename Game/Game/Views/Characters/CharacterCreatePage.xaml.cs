@@ -44,14 +44,13 @@ namespace Game.Views.Characters
             this.ViewModel.Title = "Create";
 
             SpecialAbilityPicker.SelectedItem = data.Data.SpecialAbility.ToString();
-            //AttackPicker.SelectedItem = data.Data.Attack.ToString();
-            //DefensePicker.SelectedItem = data.Data.Defense.ToString();
-            //HealthPicker.SelectedItem = data.Data.MaxHealth.ToString();
+            AttackPicker.SelectedItem = data.Data.Attack.ToString();
+            DefensePicker.SelectedItem = data.Data.Defense.ToString();
+            HealthPicker.SelectedItem = data.Data.MaxHealth.ToString();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            // TODO : Complete this
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
@@ -68,10 +67,7 @@ namespace Game.Views.Characters
             await Navigation.PopModalAsync();
         }
 
-        //async void Browse_Clicked(object sender, EventArgs e)
-        //{
-          //  return;
-        //}
+        
 
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
