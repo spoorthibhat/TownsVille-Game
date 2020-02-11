@@ -24,10 +24,47 @@
             <Label Text="Update Character" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
-            <Grid
-                    RowSpacing="1"
+
+            <Label
+                Text="Update the image for your character: " 
+                Style="{StaticResource LabelStyle}"/>
+
+            <Grid RowSpacing="1"
                     ColumnSpacing="2"
-                    VerticalOptions="Center">
+                    HorizontalOptions="Start" 
+                      Padding="30,0,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView x:Name="ImageView"   Grid.Row ="0" Grid.Column="0" Rotation="270" RowHeight="40" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Image Source="{Binding Url}"
+                                                WidthRequest="40" 
+                                                HeightRequest ="40"
+                                                MinimumHeightRequest = "40"
+                                                MinimumWidthRequest = "40"
+                                                Rotation="90"></Image>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <Grid
+                RowSpacing="1"
+                ColumnSpacing="2"
+                VerticalOptions="Center">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />

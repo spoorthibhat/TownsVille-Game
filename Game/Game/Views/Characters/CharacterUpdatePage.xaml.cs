@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Game.ViewModels;
 using Game.Models;
+using System.Collections.ObjectModel;
 
 namespace Game.Views
 {
@@ -12,8 +13,15 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class CharacterUpdatePage : ContentPage
     {
+        private class Image
+        {
+            public string Url { get; set; }
+        }
+
         // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
+
+        ObservableCollection<Image> imageList = new ObservableCollection<Image>();
 
         /// <summary>
         /// Constructor that takes and existing data item
@@ -23,6 +31,12 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            imageList.Add(new Image { Url = "Blossum.png" });
+            imageList.Add(new Image { Url = "Bubbles.png" });
+            imageList.Add(new Image { Url = "Buttercup.png" });
+
+            ImageView.ItemsSource = imageList;
 
             this.ViewModel.Title = "Update " + data.Title;
 
