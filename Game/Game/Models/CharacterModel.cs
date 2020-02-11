@@ -9,8 +9,8 @@ namespace Game.Models
         public int Level { get; set; } = 1;
         public int ExperienceTotal { get; set; } = 300;
         public int Speed { get; set; } = 1;
-        public int Attack { get; set; } = 1;
-        public int Defense { get; set; } = 1;
+        public int Attack { get; set; } = 0;
+        public int Defense { get; set; } = 0;
         public int CurrentHealth { get; set; } = 1;
         public int MaxHealth { get; set; } = 1;
 
