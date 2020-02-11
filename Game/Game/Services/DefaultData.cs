@@ -78,7 +78,7 @@ namespace Game.Services
             },
             new CharacterModel{
                 Name = "Bubbles",
-                Description = "She is the Joy and the Laughter; she is the emotional glue of the superhero trio",
+                Description = "She is the Joy and the Laughter.She is the emotional glue of the superhero trio",
                 ImageURI = "Bubbles.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Armour,
