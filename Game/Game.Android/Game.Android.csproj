@@ -196,5 +196,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Buttercup.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\professor_utonium.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
