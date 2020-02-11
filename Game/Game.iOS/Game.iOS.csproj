@@ -220,7 +220,7 @@
     <BundleResource Include="Resources\monster_button_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\PowerpuffGirls.png" />
+    <BundleResource Include="Resources\powerpuff_girls.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\CityAttack.PNG" />

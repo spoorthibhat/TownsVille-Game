@@ -14,7 +14,7 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="PowerpuffGirls.png"
+                         Source="powerpuff_girls.png"
                          Style="{StaticResource ImageLargeStyle}"
                          BackgroundColor="Transparent"/>
 
