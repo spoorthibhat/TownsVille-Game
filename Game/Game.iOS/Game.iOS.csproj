@@ -252,4 +252,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\utonium.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ms_keane.png" />
+  </ItemGroup>
 </Project>
