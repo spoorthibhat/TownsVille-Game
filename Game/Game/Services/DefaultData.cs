@@ -90,6 +90,20 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.LaserEyes,
             },
+             new CharacterModel{
+                Name = "Mayor",
+                Description = "He is the mayor of townsville",
+                ImageURI = "mayor.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+            },
+                new CharacterModel{
+                Name = "Professor",
+                Description = "He is creator of powerpuff girls",
+                ImageURI = "professor_utonium.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+            },
 
             };
             return datalist;
