@@ -258,4 +258,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\mayor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\default_character.png" />
+  </ItemGroup>
 </Project>

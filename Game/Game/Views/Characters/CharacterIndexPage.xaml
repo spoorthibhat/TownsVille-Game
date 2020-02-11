@@ -37,7 +37,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid ColumnSpacing="5" RowSpacing="1" Padding="5" >
-                                <Grid.ColumnDefinitions
+                                <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
