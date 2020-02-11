@@ -74,7 +74,13 @@ namespace Game.Views.Characters
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
 
-        
+        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var image = args.SelectedItem as Image;
+
+            ViewModel.Data.ImageURI = image.Url;
+            
+        }
 
     }
 }

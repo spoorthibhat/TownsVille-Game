@@ -29,7 +29,10 @@
 
                 <Label Text="Create your character" Style="{StaticResource HeaderStyle}"/>
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="{Binding Data.ImageURI}" 
+                       Style="{StaticResource ImageLargeStyle}" 
+                       HorizontalOptions="CenterAndExpand"
+                       />
 
                 <Label
                         Text="Select the image for your character: " 
@@ -37,7 +40,7 @@
                 <StackLayout
                     HorizontalOptions="StartAndExpand"
                     >
-                <ListView x:Name="ImageView"   Rotation="270" RowHeight="40">
+                    <ListView x:Name="ImageView"   Rotation="270" RowHeight="40" ItemSelected="OnCharacterImageSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
