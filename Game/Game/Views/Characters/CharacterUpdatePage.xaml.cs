@@ -28,6 +28,7 @@ namespace Game.Views
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             SpecialAbilityPicker.SelectedItem = data.Data.SpecialAbility.ToString();
+            AttackPicker.SelectedItem = data.Data.Attack.ToString();
         }
         
         /// <summary>
@@ -65,16 +66,6 @@ namespace Game.Views
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
-        }
-        
-        /// <summary>
-        /// Catch the change to the stepper for Attack
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            AttackValue.Text = String.Format("{0}", e.NewValue);
         }
         
         /// <summary>
