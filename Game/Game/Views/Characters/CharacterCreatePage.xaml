@@ -31,11 +31,37 @@
 
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
 
+                <Label
+                        Text="Select the image for your character: " 
+                        Style="{StaticResource LabelStyle}"/>
+                <StackLayout
+                    HorizontalOptions="StartAndExpand"
+                    >
+                <ListView x:Name="ImageView"   Rotation="270" RowHeight="40">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Image Source="{Binding Url}"
+                                               WidthRequest="40" 
+                                               HeightRequest ="40"
+                                                MinimumHeightRequest = "10"
+                                            MinimumWidthRequest = "10"
+                                               Rotation="90"></Image>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </StackLayout>
+                <!--
                 <Button
                 Text="Pick a character image"
                 Style="{StaticResource PrimaryButtonStyle}"
                 Clicked="Browse_Clicked"
-                />
+                /> -->
                 
                 <Grid
                     RowSpacing="1"

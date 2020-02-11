@@ -9,6 +9,7 @@ using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.ObjectModel;
 
 namespace Game.Views.Characters
 {
@@ -16,13 +17,27 @@ namespace Game.Views.Characters
     [DesignTimeVisible(false)]
     public partial class CharacterCreatePage : ContentPage
     {
+        private class Image
+        {
+            public string Url { get; set; }
+        }
         // the character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
+
+        ObservableCollection<Image> imageList = new ObservableCollection<Image>();
+
+        // public ObservableCollection<Image> Images { get { return imageList; } }
 
         public CharacterCreatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
             data.Data = new CharacterModel();
+            imageList.Add(new Image { Url = "Blossum.png" });
+            imageList.Add(new Image { Url = "Bubbles.png" });
+            imageList.Add(new Image { Url = "Buttercup.png" });
+
+            ImageView.ItemsSource = imageList;
+            
 
             BindingContext = this.ViewModel = data;
 
@@ -53,10 +68,10 @@ namespace Game.Views.Characters
             await Navigation.PopModalAsync();
         }
 
-        async void Browse_Clicked(object sender, EventArgs e)
-        {
-            return;
-        }
+        //async void Browse_Clicked(object sender, EventArgs e)
+        //{
+          //  return;
+        //}
 
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
