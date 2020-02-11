@@ -29,40 +29,49 @@
 
                 <Label Text="Create your character" Style="{StaticResource HeaderStyle}"/>
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="{Binding Data.ImageURI}" 
+                       Style="{StaticResource ImageLargeStyle}" 
+                       HorizontalOptions="CenterAndExpand"
+                       x:Name="CharacterImage"
+                       />
 
                 <Label
                         Text="Select the image for your character: " 
                         Style="{StaticResource LabelStyle}"/>
-                <StackLayout
-                    HorizontalOptions="StartAndExpand"
-                    >
-                <ListView x:Name="ImageView"   Rotation="270" RowHeight="40">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <StackLayout>
-                                        <Image Source="{Binding Url}"
+
+                <Grid RowSpacing="1"
+                    ColumnSpacing="2"
+                    HorizontalOptions="Start" 
+                      Padding="30,0,0,0">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListView x:Name="ImageView"   Grid.Row ="0" Grid.Column="0" Rotation="270" RowHeight="40" ItemSelected="OnCharacterImageSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout>
+                                            <Image Source="{Binding Url}"
                                                WidthRequest="40" 
                                                HeightRequest ="40"
-                                                MinimumHeightRequest = "10"
-                                            MinimumWidthRequest = "10"
+                                                MinimumHeightRequest = "40"
+                                            MinimumWidthRequest = "40"
                                                Rotation="90"></Image>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                </StackLayout>
-                <!--
-                <Button
-                Text="Pick a character image"
-                Style="{StaticResource PrimaryButtonStyle}"
-                Clicked="Browse_Clicked"
-                /> -->
-                
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
@@ -100,7 +109,7 @@
                         SelectedItem="{Binding Data.SpecialAbility, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="SpecialAbilityPicker"/>
 
-                    
+
                     <Label Grid.Row="3" Grid.Column="0"
                         Text="Attack" 
                         Style="{StaticResource LabelStyle}"/>
@@ -149,12 +158,12 @@
                             <x:String>30</x:String>
                         </Picker.Items>
                     </Picker>
-                    
+
                 </Grid>
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
-                    
+
                     <Label 
                             Text="Level" 
                             Style="{StaticResource LabelStyle}"/>
@@ -178,68 +187,7 @@
 
                     </StackLayout>
 
-                    <!--
-                    <Label 
-                        Text="Attack"
-                        Style="{StaticResource LabelStyle}"/>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Attack}" 
-                            x:Name="AttackValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Attack, Mode=TwoWay}"
-                            ValueChanged="Attack_OnStepperValueChanged"/>
-
-                    </StackLayout>
-
-                    <Label 
-                        Text="Defense"
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Defense}" 
-                            x:Name="DefenseValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Defense, Mode=TwoWay}"
-                            ValueChanged="Defense_OnStepperValueChanged"/>
-
-                    </StackLayout>
-
-                    <Label 
-                        Text="Health"
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Health}" 
-                            x:Name="HealthValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Health, Mode=TwoWay}"
-                            ValueChanged="Health_OnStepperValueChanged"/>
-
-                    </StackLayout>
-
-                    -->
                 </StackLayout>
             </StackLayout>
         </ScrollView>
