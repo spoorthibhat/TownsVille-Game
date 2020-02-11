@@ -47,7 +47,7 @@ namespace Game.Views.Characters
             SpecialAbilityPicker.SelectedItem = data.Data.SpecialAbility.ToString();
             AttackPicker.SelectedItem = data.Data.Attack.ToString();
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
-            HealthPicker.SelectedItem = data.Data.MaxHealth.ToString();
+            // HealthPicker.SelectedItem = data.Data.MaxHealth.ToString();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
