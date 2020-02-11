@@ -249,4 +249,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\professor_utonium.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\utonium.png" />
+  </ItemGroup>
 </Project>
