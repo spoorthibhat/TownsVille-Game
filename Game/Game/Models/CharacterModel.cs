@@ -19,6 +19,8 @@ namespace Game.Models
         public CharacterModel()
         {
             ImageURI = ItemService.DefaultImageURI;
+            this.Name = "This is a Character";
+            this.Description = "Character Description";
         }
 
         public CharacterModel(CharacterModel data)
