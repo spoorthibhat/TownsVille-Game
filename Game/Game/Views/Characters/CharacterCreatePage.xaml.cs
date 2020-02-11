@@ -36,6 +36,7 @@ namespace Game.Views.Characters
             imageList.Add(new Image { Url = "Bubbles.png" });
             imageList.Add(new Image { Url = "Buttercup.png" });
             imageList.Add(new Image { Url = "utonium.png" });
+            imageList.Add(new Image { Url = "ms_keane.png" });
 
             ImageView.ItemsSource = imageList;
             

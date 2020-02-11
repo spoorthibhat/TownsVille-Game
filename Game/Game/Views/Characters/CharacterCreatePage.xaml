@@ -39,7 +39,7 @@
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start" 
-                      Padding="30,0,0,0">
+                      Padding="70,0,0,0">
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
