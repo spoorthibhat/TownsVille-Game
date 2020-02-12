@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.ViewModels;
+using Game.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using System.Collections;
+using Image = Game.Models.Image;
 
 namespace Game.Views.Characters
 {
@@ -22,17 +24,7 @@ namespace Game.Views.Characters
     public partial class CharacterCreatePage : ContentPage
     {
 
-        /// <summary>
-        /// Image class needed for the list view
-        /// </summary>
-        private class Image
-        {
-
-            /// <summary>
-            /// The source url of the image
-            /// </summary>
-            public string Url { get; set; }
-        }
+        
         // the character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
 
@@ -49,12 +41,10 @@ namespace Game.Views.Characters
         {
             InitializeComponent();
             data.Data = new CharacterModel();
-            imageList.Add(new Image { Url = "Blossum.png" });
-            imageList.Add(new Image { Url = "Bubbles.png" });
-            imageList.Add(new Image { Url = "Buttercup.png" });
-            imageList.Add(new Image { Url = "utonium.png" });
-            imageList.Add(new Image { Url = "ms_keane.png" });
-            imageList.Add(new Image { Url = "mayor.png" });
+            foreach(Image image in DefaultData.LoadCharacterImages())
+            {
+                imageList.Add(image);
+            }
 
             ImageView.ItemsSource = imageList;
             
