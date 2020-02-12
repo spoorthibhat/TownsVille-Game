@@ -78,7 +78,7 @@ namespace Game.ViewModels
             });
         }
         #endregion Constructor
-
+        #region DataOperations_CRUDi
         /// <summary>
         /// Returns the Character passed in
         /// </summary>
@@ -125,5 +125,8 @@ namespace Game.ViewModels
                     .ThenBy(a => a.Description)
                     .ToList();
         }
+        #endregion
+        #endregion
+
     }
 }
