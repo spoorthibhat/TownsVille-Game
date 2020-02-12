@@ -25,7 +25,8 @@
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="VillageButton_Clicked"
 						VerticalOptions="CenterAndExpand"
-						HorizontalOptions="CenterAndExpand">
+						HorizontalOptions="CenterAndExpand"
+                            CornerRadius="25">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
@@ -50,7 +51,7 @@
 							Text="Townsville City"
 							Style="{StaticResource CenterMessageStyle}"
 							HorizontalOptions="CenterAndExpand"
-							FontSize="Medium"
+							FontSize="Small"
 							LineBreakMode="WordWrap"/>
                 </StackLayout>
 
@@ -66,7 +67,8 @@
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="DungeonButton_Clicked"
 						 VerticalOptions="CenterAndExpand"
-						 HorizontalOptions="CenterAndExpand">
+						 HorizontalOptions="CenterAndExpand"
+                            CornerRadius="25">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
@@ -92,7 +94,7 @@
 							Text="City Attacked"
 							Style="{StaticResource CenterMessageStyle}"
 							HorizontalOptions="CenterAndExpand"
-							FontSize="Medium"
+							FontSize="Small"
 							LineBreakMode="WordWrap"/>
                 </StackLayout>
                 <StackLayout
@@ -107,7 +109,8 @@
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="DungeonButton_Clicked"
 						 VerticalOptions="CenterAndExpand"
-						 HorizontalOptions="CenterAndExpand">
+						 HorizontalOptions="CenterAndExpand"
+                         CornerRadius="25">
                         </ImageButton>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -132,7 +135,7 @@
 							Text="AutoBattle"
 							Style="{StaticResource CenterMessageStyle}"
 							HorizontalOptions="CenterAndExpand"
-							FontSize="Medium"
+							FontSize="Small"
 							LineBreakMode="WordWrap"/>
                 </StackLayout>
             </FlexLayout>
