@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="amoeba_boys.png" />
     <Content Include="AutoBattle.PNG" />
     <Content Include="battleboard.jpg" />
     <Content Include="Blossum.png" />
@@ -121,6 +122,7 @@
     <Content Include="grey_door.png" />
     <Content Include="heat_shield.png" />
     <Content Include="helmet.png" />
+    <Content Include="him.png" />
     <Content Include="home_background.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
@@ -133,6 +135,7 @@
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
     <Content Include="mayor.png" />
+    <Content Include="mojo-jojo.png" />
     <Content Include="monster_button_icon.png" />
     <Content Include="ms_keane.png" />
     <Content Include="powerpuff_girls.png" />
@@ -165,6 +168,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="rowdy_boys.png" />
     <Content Include="score.png" />
     <Content Include="score_pad_button.png" />
     <Content Include="slashing_knives.png" />
