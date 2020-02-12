@@ -1,6 +1,7 @@
 ﻿using Game.Models;
 using Game.ViewModels;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -12,6 +13,21 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class ItemCreatePage : ContentPage
     {
+        /// <summary>
+        /// Image class needed for the list view
+        /// </summary>
+        private class Image
+        {
+
+            /// <summary>
+            /// The source url of the image
+            /// </summary>
+            public string Url { get; set; }
+        }
+
+        // The image list holding all the Image objects
+        ObservableCollection<Image> imageList = new ObservableCollection<Image>();
+
         // The item to create
         GenericViewModel<ItemModel> ViewModel { get; set; }
 
@@ -27,6 +43,16 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
+
+            // TODO: To be changed
+            imageList.Add(new Image { Url = "Blossum.png" });
+            imageList.Add(new Image { Url = "Bubbles.png" });
+            imageList.Add(new Image { Url = "Buttercup.png" });
+            imageList.Add(new Image { Url = "utonium.png" });
+            imageList.Add(new Image { Url = "ms_keane.png" });
+            imageList.Add(new Image { Url = "mayor.png" });
+
+            ImageView.ItemsSource = imageList;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
@@ -88,6 +114,13 @@ namespace Game.Views
         void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             DamageValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        void OnItemImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            return;
+
+
         }
     }
 }
