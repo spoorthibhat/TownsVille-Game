@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace Game.Views.Characters
 {
@@ -37,6 +38,7 @@ namespace Game.Views.Characters
 
         // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
+        ArrayList itemNames = new ArrayList();
 
 
         /// <summary>
@@ -64,6 +66,15 @@ namespace Game.Views.Characters
             SpecialAbilityPicker.SelectedItem = data.Data.SpecialAbility.ToString();
             AttackPicker.SelectedItem = data.Data.Attack.ToString();
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
+
+            var ItemViewModelInstance = ItemIndexViewModel.Instance;
+            ObservableCollection<ItemModel> itemCollection = ItemViewModelInstance.Dataset;
+            
+            foreach(ItemModel item in itemCollection)
+            {
+                itemNames.Add(item.Name);
+            }
+
         }
 
         /// <summary>
