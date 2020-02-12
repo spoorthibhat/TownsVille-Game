@@ -166,6 +166,7 @@
     <Content Include="score.png" />
     <Content Include="score_pad_button.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="thunderbolt.png" />
     <Content Include="TownsVille.PNG" />
     <Content Include="troll.png" />
     <Content Include="utonium.png" />

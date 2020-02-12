@@ -261,4 +261,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\default_character.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thunderbolt.png" />
+  </ItemGroup>
 </Project>
