@@ -25,6 +25,11 @@ namespace Game.Models
 
         // Items to be added
 
+        /// <summary>
+        /// Default CharacterModel
+        /// Initialize Values
+        /// </summary>
+
         public CharacterModel()
         {
             ImageURI = ItemService.DefaultImageURI;
@@ -33,11 +38,19 @@ namespace Game.Models
             this.ImageURI = "default_character.png";
         }
 
+        /// <summary>
+        /// Constructor to create character based on what is passed in
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterModel(CharacterModel data)
         {
             Update(data);
         }
 
+        /// <summary>
+        /// Update character
+        /// </summary>
+        /// <param name="newdata"></param>
         public override void Update(CharacterModel newData)
         {
             if (newData == null)
