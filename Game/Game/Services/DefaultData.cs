@@ -69,7 +69,7 @@ namespace Game.Services
         {
             var datalist = new List<CharacterModel>()
             { new CharacterModel{
-                Name = "Blossum",
+                Name = "Blossom",
                 Description = "Self-proclaimed leader of the Powerpuff Girls",
                 ImageURI = "Blossum.png",
                 Level = 1,
