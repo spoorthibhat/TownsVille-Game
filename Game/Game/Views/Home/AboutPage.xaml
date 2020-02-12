@@ -24,7 +24,7 @@
                        IsClippedToBounds="True">
                     <Image Source="powerpuff_girls.png" Style="{StaticResource ImageLargeStyle}"></Image>
                 </Frame>
-                <Label Text="PowerPuff Girls protect Townsville" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                <Label Text="GamesVille" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label Text="Code Warriors" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
             </StackLayout>
