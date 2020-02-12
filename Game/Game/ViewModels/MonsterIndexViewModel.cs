@@ -79,28 +79,28 @@ namespace Game.ViewModels
         }
         #endregion Constructor
         //#region DataOperations_CRUDi
-        ///// <summary>
-        ///// Returns the Character passed in
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
-        //public CharacterModel CheckIfCharacterExists(CharacterModel data)
-        //{
-        //    // This will walk the items and find if there is one that is the same.
-        //    // If so, it returns the item...
+        /// <summary>
+        /// Returns the Character passed in
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public MonsterModel CheckIfMonsterExists(MonsterModel data)
+        {
+            // This will walk the items and find if there is one that is the same.
+            // If so, it returns the item...
 
-        //    var myList = Dataset.Where(a =>
-        //                                a.Name == data.Name)
-        //                                .FirstOrDefault();
+            var myList = Dataset.Where(a =>
+                                        a.Name == data.Name)
+                                        .FirstOrDefault();
 
-        //    if (myList == null)
-        //    {
-        //        // it's not a match, return false;
-        //        return null;
-        //    }
+            if (myList == null)
+            {
+                // it's not a match, return false;
+                return null;
+            }
 
-        //    return myList;
-        //}
+            return myList;
+        }
 
         ///// <summary>
         ///// Load the Default Data
