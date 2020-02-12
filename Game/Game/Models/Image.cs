@@ -7,7 +7,7 @@ namespace Game.Models
     /// <summary>
     /// Image class needed for the list view in the create and update pages
     /// </summary>
-    class Image
+    public class Image
     {
         /// <summary>
         /// The source url of the image

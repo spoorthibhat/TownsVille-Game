@@ -108,5 +108,19 @@ namespace Game.Services
             };
             return datalist;
         }
+
+        public static List<Image> LoadCharacterImages()
+        {
+            var imageList = new List<Image>()
+            {
+                new Image { Url = "Blossum.png" },
+                new Image { Url = "Bubbles.png" },
+                new Image { Url = "Buttercup.png" },
+                new Image { Url = "utonium.png" },
+                new Image { Url = "ms_keane.png" },
+                new Image { Url = "mayor.png" },
+            };
+            return imageList;
+        }
     }
 }
