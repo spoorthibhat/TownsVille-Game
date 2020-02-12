@@ -17,17 +17,19 @@ namespace Game.Views.Characters
     [DesignTimeVisible(false)]
     public partial class CharacterCreatePage : ContentPage
     {
+        // Image class needed for the list view
         private class Image
         {
+            // The source url of the image
             public string Url { get; set; }
         }
         // the character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
 
+        // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
 
-        // public ObservableCollection<Image> Images { get { return imageList; } }
-
+        // Constructor that initializes the character create page with default values.
         public CharacterCreatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
@@ -52,6 +54,8 @@ namespace Game.Views.Characters
             // HealthPicker.SelectedItem = data.Data.MaxHealth.ToString();
         }
 
+        // Function that is invoked when save button was clicked in the UI. 
+        // The method sends the Character object with the Create message through messaging center publishing.
         async void Save_Clicked(object sender, EventArgs e)
         {
             // If the image in the data box is empty, use the default one..
@@ -65,18 +69,22 @@ namespace Game.Views.Characters
             
         }
 
+        // Function that is invoked when cancel button was clicked in the UI. 
+        // It pops the current page from the stack
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
 
         
-
+        // Method inviked when stepper value is changed
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
 
+        // When the image is selected, assigns the image on UI source to the clicked image's URL
+        // and updates the ImageURI field on the Data
         void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var image = args.SelectedItem as Image;
