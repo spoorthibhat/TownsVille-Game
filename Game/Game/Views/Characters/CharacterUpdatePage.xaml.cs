@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Game.ViewModels;
 using Game.Models;
 using System.Collections.ObjectModel;
+using Image = Game.Models.Image;
+using Game.Services;
 
 namespace Game.Views
 {
@@ -13,10 +15,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        private class Image
-        {
-            public string Url { get; set; }
-        }
+        
 
         // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
@@ -33,12 +32,11 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             // Adding image data 
-            imageList.Add(new Image { Url = "Blossum.png" });
-            imageList.Add(new Image { Url = "Bubbles.png" });
-            imageList.Add(new Image { Url = "Buttercup.png" });
-            imageList.Add(new Image { Url = "utonium.png" });
-            imageList.Add(new Image { Url = "ms_keane.png" });
-            imageList.Add(new Image { Url = "mayor.png" });
+            foreach (Image image in DefaultData.LoadCharacterImages())
+            {
+                imageList.Add(image);
+            }
+ 
 
             ImageView.ItemsSource = imageList;
 
