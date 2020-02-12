@@ -6,8 +6,12 @@ namespace Game.Models
     /// </summary>
     public enum SpecialAbilityEnum
     {
-        LaserEyes,
-        Armour,
-        None,
+        Unknown = 0,
+        //Characters can have laser eyes as attack weapon
+        LaserEyes = 1,
+        //Charaters wearing armour can protect themselves from attack
+        Armour = 2,
+        //User can choose to have no special abilities
+        None = 3,
     }
 }
