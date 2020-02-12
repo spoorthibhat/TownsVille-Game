@@ -32,6 +32,7 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
 
+            // Adding image data 
             imageList.Add(new Image { Url = "Blossum.png" });
             imageList.Add(new Image { Url = "Bubbles.png" });
             imageList.Add(new Image { Url = "Buttercup.png" });
