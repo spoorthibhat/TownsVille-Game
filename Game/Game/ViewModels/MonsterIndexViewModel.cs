@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using Game.Models;
 
 
 namespace Game.ViewModels
@@ -102,30 +103,30 @@ namespace Game.ViewModels
             return myList;
         }
 
-        ///// <summary>
-        ///// Load the Default Data
-        ///// </summary>
-        ///// <returns></returns>
-        //public override List<CharacterModel> GetDefaultData()
-        //{
-        //    return DefaultData.LoadData(new CharacterModel());
-        //}
+        /// <summary>
+        /// Load the Default Data
+        /// </summary>
+        /// <returns></returns>
+        public override List<MonsterModel> GetDefaultData()
+        {
+            return DefaultData.LoadData(new MonsterModel());
+        }
 
-        //#region SortDataSet
+        #region SortDataSet
 
-        ///// <summary>
-        ///// The Sort Order for the CharacterModel
-        ///// </summary>
-        ///// <param name="dataset"></param>
-        ///// <returns></returns>
-        //public override List<CharacterModel> SortDataset(List<CharacterModel> dataset)
-        //{
-        //    return dataset
-        //            .OrderBy(a => a.Name)
-        //            .ThenBy(a => a.Description)
-        //            .ToList();
-        //}
-        //#endregion
+        /// <summary>
+        /// The Sort Order for the CharacterModel
+        /// </summary>
+        /// <param name="dataset"></param>
+        /// <returns></returns>
+        public override List<MonsterModel> SortDataset(List<MonsterModel> dataset)
+        {
+            return dataset
+                    .OrderBy(a => a.Name)
+                    .ThenBy(a => a.Description)
+                    .ToList();
+        }
+        #endregion
         //#endregion
 
     }
