@@ -37,7 +37,7 @@ namespace Game.Views
             this.ViewModel.Title = "Create";
 
             // TODO: To be changed
-            foreach (Image image in DefaultData.LoadCharacterImages())
+            foreach (Image image in DefaultData.LoadItemImages())
             {
                 imageList.Add(image);
             }
