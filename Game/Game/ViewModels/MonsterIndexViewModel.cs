@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
-using Game.Models;
+
 
 
 namespace Game.ViewModels
