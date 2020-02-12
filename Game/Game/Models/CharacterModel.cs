@@ -4,14 +4,23 @@ namespace Game.Models
 {
     public class CharacterModel : BaseModel<CharacterModel>
     {
+        //Character special ability
         public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.None;
+        //Flag to check if the character is alive
         public bool Alive { get; set; } = true;
+        //Level of the character
         public int Level { get; set; } = 1;
+        //Total Experience of the character
         public int ExperienceTotal { get; set; } = 300;
+        //Speed of the character
         public int Speed { get; set; } = 1;
+        //Attack caused by character
         public int Attack { get; set; } = 0;
+        //Characters defense
         public int Defense { get; set; } = 0;
+        //Current health of character
         public int CurrentHealth { get; set; } = 1;
+        //Max health of character
         public int MaxHealth { get; set; } = 1;
 
         // Items to be added
