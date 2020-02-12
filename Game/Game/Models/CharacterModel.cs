@@ -23,6 +23,9 @@ namespace Game.Models
         //Max health of character
         public int MaxHealth { get; set; } = 1;
 
+        // Item possessed by the character
+        public ItemModel ItemPossesed { get; set; } = null;
+
         // Items to be added
 
         /// <summary>
@@ -69,6 +72,7 @@ namespace Game.Models
             Defense = newData.Defense;
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
+            ItemPossesed = newData.ItemPossesed;
      
         }
     }
