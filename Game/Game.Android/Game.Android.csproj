@@ -217,5 +217,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\slashing_knives.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\heat_shield.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
