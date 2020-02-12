@@ -108,7 +108,48 @@ namespace Game.Services
             };
             return datalist;
         }
+        public static List<MonsterModel> LoadData(MonsterModel temp)
+        {
+            var datalist = new List<MonsterModel>()
+            { new MonsterModel{
+                Name = "Blossom",
+                Description = "Self-proclaimed leader of the Powerpuff Girls",
+                ImageURI = "Blossum.png",
+                Level = 1,
 
+            },
+            new MonsterModel{
+                Name = "Mojo jojo",
+                Description = "He is the master mind",
+                ImageURI = "mojo-jojo.png",
+                Level = 1,
+
+            },
+            new MonsterModel{
+                Name = "Him",
+                Description = "He is most evil",
+                ImageURI = "him.png",
+                Level = 1,
+             
+            },
+             new MonsterModel{
+                Name = "Amoeba boys",
+                Description = "They spread ill ness",
+                ImageURI = "amoeba_boys.png",
+                Level = 1,
+               
+            },
+                new MonsterModel{
+                Name = "Rowdy boys",
+                Description = "They are rough",
+                ImageURI = "rowdy_boys.png",
+                Level = 1,
+                
+            },
+
+            };
+            return datalist;
+        }
         /// <summary>
         /// Loads the default available character images
         /// </summary>
