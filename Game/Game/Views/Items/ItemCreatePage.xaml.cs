@@ -1,9 +1,11 @@
 ﻿using Game.Models;
+using Game.Services;
 using Game.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Image = Game.Models.Image;
 
 namespace Game.Views
 {
@@ -13,17 +15,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class ItemCreatePage : ContentPage
     {
-        /// <summary>
-        /// Image class needed for the list view
-        /// </summary>
-        private class Image
-        {
-
-            /// <summary>
-            /// The source url of the image
-            /// </summary>
-            public string Url { get; set; }
-        }
+        
 
         // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
@@ -45,12 +37,10 @@ namespace Game.Views
             this.ViewModel.Title = "Create";
 
             // TODO: To be changed
-            imageList.Add(new Image { Url = "Blossum.png" });
-            imageList.Add(new Image { Url = "Bubbles.png" });
-            imageList.Add(new Image { Url = "Buttercup.png" });
-            imageList.Add(new Image { Url = "utonium.png" });
-            imageList.Add(new Image { Url = "ms_keane.png" });
-            imageList.Add(new Image { Url = "mayor.png" });
+            foreach (Image image in DefaultData.LoadCharacterImages())
+            {
+                imageList.Add(image);
+            }
 
             ImageView.ItemsSource = imageList;
 
