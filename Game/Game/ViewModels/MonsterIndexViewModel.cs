@@ -42,12 +42,12 @@ namespace Game.ViewModels
         #region Constructor
         public MonsterIndexViewModel()
         {
-            //Title = "Character";
-            //// Register the create message
-            //MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
-            //{
-            //    await CreateAsync(data as CharacterModel);
-            //});
+            Title = "Character";
+            // Register the create message
+            MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as MonsterModel);
+            });
 
             //// Register the Update Message
             //MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
