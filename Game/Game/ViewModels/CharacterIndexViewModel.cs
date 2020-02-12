@@ -70,7 +70,12 @@ namespace Game.ViewModels
                 await SetDataSource(data);
             });
 
-         
+      
+            // Register the Wipe Data List Message
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            {
+                await WipeDataListAsync();
+            });
         }
         #endregion Constructor
 
