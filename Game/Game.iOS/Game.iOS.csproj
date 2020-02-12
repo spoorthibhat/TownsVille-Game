@@ -273,4 +273,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\helmet.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\amoeba_boys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\him.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mojo-jojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rowdy_boys.png" />
+  </ItemGroup>
 </Project>
