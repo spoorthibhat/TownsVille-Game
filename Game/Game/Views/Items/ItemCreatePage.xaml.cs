@@ -108,9 +108,10 @@ namespace Game.Views
 
         void OnItemImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            return;
+            var image = args.SelectedItem as Image;
 
-
+            ViewModel.Data.ImageURI = image.Url;
+            ItemImage.Source = image.Url;
         }
     }
 }
