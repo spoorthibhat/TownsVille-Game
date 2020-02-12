@@ -127,10 +127,10 @@ namespace Game.Services
         {
             var imageList = new List<Image>()
             {
-                new Image { Url = "Blossum.png" },
-                new Image { Url = "Bubbles.png" },
-                new Image { Url = "Buttercup.png" },
-                new Image { Url = "utonium.png" },
+                new Image { Url = "item_flaming_sword.png" },
+                new Image { Url = "slashing_knives.png" },
+                new Image { Url = "heat_shield.png" },
+                new Image { Url = "thunderbolt.png" },
                 new Image { Url = "ms_keane.png" },
                 new Image { Url = "mayor.png" },
             };
