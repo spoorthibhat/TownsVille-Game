@@ -109,6 +109,10 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Loads the default available character images
+        /// </summary>
+        /// <returns></returns>
         public static List<Image> LoadCharacterImages()
         {
             var imageList = new List<Image>()
@@ -123,6 +127,10 @@ namespace Game.Services
             return imageList;
         }
 
+        /// <summary>
+        /// Loads the default available item images
+        /// </summary>
+        /// <returns></returns>
         public static List<Image> LoadItemImages()
         {
             var imageList = new List<Image>()
