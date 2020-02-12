@@ -39,45 +39,45 @@ namespace Game.ViewModels
 
         //#endregion Singleton
 
-        //#region Constructor
-        //public CharacterIndexViewModel()
-        //{
-        //    Title = "Character";
-        //    // Register the create message
-        //    MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
-        //    {
-        //        await CreateAsync(data as CharacterModel);
-        //    });
+        #region Constructor
+        public MonsterIndexViewModel()
+        {
+            //Title = "Character";
+            //// Register the create message
+            //MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
+            //{
+            //    await CreateAsync(data as CharacterModel);
+            //});
 
-        //    // Register the Update Message
-        //    MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
-        //    {
-        //        // Have the item update itself
-        //        data.Update(data);
+            //// Register the Update Message
+            //MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
+            //{
+            //    // Have the item update itself
+            //    data.Update(data);
 
-        //        await UpdateAsync(data as CharacterModel);
-        //    });
+            //    await UpdateAsync(data as CharacterModel);
+            //});
 
-        //    // Register the Delete Message
-        //    MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
-        //    {
-        //        await DeleteAsync(data as CharacterModel);
-        //    });
+            //// Register the Delete Message
+            //MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
+            //{
+            //    await DeleteAsync(data as CharacterModel);
+            //});
 
-        //    // Register the Set Data Source Message
-        //    MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
-        //    {
-        //        await SetDataSource(data);
-        //    });
+            //// Register the Set Data Source Message
+            //MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
+            //{
+            //    await SetDataSource(data);
+            //});
 
-      
-        //    // Register the Wipe Data List Message
-        //    MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
-        //    {
-        //        await WipeDataListAsync();
-        //    });
-        //}
-        //#endregion Constructor
+
+            //// Register the Wipe Data List Message
+            //MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            //{
+            //    await WipeDataListAsync();
+            //});
+        }
+        #endregion Constructor
         //#region DataOperations_CRUDi
         ///// <summary>
         ///// Returns the Character passed in
