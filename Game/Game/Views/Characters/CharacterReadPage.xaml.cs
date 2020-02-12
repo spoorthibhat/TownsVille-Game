@@ -12,7 +12,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class CharacterReadPage : ContentPage
     {
-        // View Model for Item
+        // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
         /// <summary>
