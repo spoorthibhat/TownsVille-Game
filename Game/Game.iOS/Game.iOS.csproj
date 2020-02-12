@@ -264,4 +264,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\thunderbolt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\slashing_knives.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heat_shield.png" />
+  </ItemGroup>
 </Project>
