@@ -13,14 +13,39 @@
 						JustifyContent="SpaceAround"
 						AlignContent="SpaceAround">
 
-                <StackLayout
-						Style="{StaticResource CardImageTextBox}">
-                    <ImageButton
+                <StackLayout>
+                    <Frame CornerRadius="200"
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                        IsClippedToBounds="True">
+                        <ImageButton
 						Source="TownsVille.png"
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="VillageButton_Clicked"
 						VerticalOptions="CenterAndExpand"
-						HorizontalOptions="CenterAndExpand"/>
+						HorizontalOptions="CenterAndExpand">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="0.8" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ImageButton>
+                    </Frame>
                     <Label
 							Text="Townsville City"
 							Style="{StaticResource CenterMessageStyle}"
@@ -28,14 +53,41 @@
 							FontSize="Medium"
 							LineBreakMode="WordWrap"/>
                 </StackLayout>
+
                 <StackLayout
 						Style="{StaticResource CardImageTextBox}">
-                    <ImageButton
+                    <Frame CornerRadius="200"
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0">
+                        <ImageButton
 						Source="CityAttack.png"
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="DungeonButton_Clicked"
 						 VerticalOptions="CenterAndExpand"
-						 HorizontalOptions="CenterAndExpand"/>
+						 HorizontalOptions="CenterAndExpand">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="0.8" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ImageButton>
+                    </Frame>
+
                     <Label
 							Text="City Attacked"
 							Style="{StaticResource CenterMessageStyle}"
@@ -45,12 +97,37 @@
                 </StackLayout>
                 <StackLayout
 						Style="{StaticResource CardImageTextBox}">
-                    <ImageButton
+                    <Frame CornerRadius="200"
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0">
+                        <ImageButton
 						Source="AutoBattle.png"
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="DungeonButton_Clicked"
 						 VerticalOptions="CenterAndExpand"
-						 HorizontalOptions="CenterAndExpand"/>
+						 HorizontalOptions="CenterAndExpand">
+                        </ImageButton>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"
+                            Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"
+                            Value="0.8" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Frame>
                     <Label
 							Text="AutoBattle"
 							Style="{StaticResource CenterMessageStyle}"
