@@ -131,7 +131,7 @@ namespace Game.Services
                 new Image { Url = "slashing_knives.png" },
                 new Image { Url = "heat_shield.png" },
                 new Image { Url = "thunderbolt.png" },
-                new Image { Url = "ms_keane.png" },
+                new Image { Url = "helmet.png" },
                 new Image { Url = "mayor.png" },
             };
             return imageList;
