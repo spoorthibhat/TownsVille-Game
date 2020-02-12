@@ -7,12 +7,6 @@
              x:Class="Game.Views.ItemReadPage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
-
-
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
