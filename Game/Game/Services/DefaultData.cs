@@ -20,20 +20,20 @@ namespace Game.Services
                     Description = "Attack with Sharp knives",
                     ImageURI = "slashing_knives.png",
                     Range = 0,
-                    Damage = 9,
-                    Value = 9,
+                    Damage = 10,
+                    Value = 10,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Thunder bold",
+                    Name = "Thunder bolt",
                     Description = "Electric shock attack",
                     ImageURI = "thunderbolt.png",
                     Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Defense},
+                    Damage = 5,
+                    Value = 5,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
                     Name = "Helmet",
@@ -44,7 +44,27 @@ namespace Game.Services
                     Value = 9,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
+                new ItemModel {
+                    Name = "Absorbing Shoes",
+                    Description = "Protect against powerful radiation",
+                    ImageURI = "absorbing_shoes.png",
+                    Range = 0,
+                    Damage = 5,
+                    Value = 5,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Defense},
+                new ItemModel {
+                    Name = "Heat shield",
+                    Description = "Protect against heat",
+                    ImageURI = "heat_shield.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 10,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
             };
+
+                
 
             return datalist;
         }
