@@ -11,7 +11,7 @@
         <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
 
-            <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Item Details" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
 
@@ -86,7 +86,18 @@
                     Text="{Binding Data.Damage}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button
+                        Text="Update"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Clicked="Update_Clicked"/>
 
+                <Button
+                        Text="Delete"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Clicked="Delete_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
