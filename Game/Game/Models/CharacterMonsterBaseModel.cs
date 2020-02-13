@@ -50,7 +50,7 @@ namespace Game.Models
         public ItemModel PrimaryHand { get; set; } = null;
 
         // Item on Body
-        public ItemModel Body { get; set; } = null;
+        public ItemModel OffHand { get; set; } = null;
 
         /// <summary>
         /// Scales the level of the monster
@@ -151,13 +151,36 @@ namespace Game.Models
                 this.PrimaryHand = null;
             }
 
-            if (this.Body != null)
+            if (this.OffHand != null)
             {
-                DroppedItems.Add(this.Body);
-                this.Body = null;
+                DroppedItems.Add(this.OffHand);
+                this.OffHand = null;
             }
 
             return DroppedItems;
+        }
+
+        public ItemModel GetItemByLocation(ItemLocationEnum location)
+        {
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    return this.Head;
+                case ItemLocationEnum.Feet:
+                    return this.Feet;
+                case ItemLocationEnum.LeftFinger:
+                    return this.LeftFinger;
+                case ItemLocationEnum.RightFinger:
+                    return this.RightFinger;
+                case ItemLocationEnum.PrimaryHand:
+                    return this.PrimaryHand;
+                case ItemLocationEnum.Necklass:
+                    return this.Necklace;
+                case ItemLocationEnum.OffHand:
+                    return this.OffHand;
+                default:
+                    return null;
+            }
         }
     }
 }
