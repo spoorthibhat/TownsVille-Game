@@ -3,6 +3,9 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Game.ViewModels;
 using Game.Models;
+using System.Collections.ObjectModel;
+using Image = Game.Models.Image;
+using Game.Services;
 
 namespace Game.Views
 {
@@ -12,6 +15,10 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class ItemUpdatePage : ContentPage
     {
+
+        // The image list holding all the Image objects
+        ObservableCollection<Image> imageList = new ObservableCollection<Image>();
+
         // View Model for Item
         readonly GenericViewModel<ItemModel> ViewModel;
 
@@ -25,6 +32,13 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Update " + data.Title;
+            
+            foreach (Image image in DefaultData.LoadItemImages())
+            {
+                imageList.Add(image);
+            }
+
+            ImageView.ItemsSource = imageList;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
@@ -87,5 +101,14 @@ namespace Game.Views
         {
             DamageValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        void OnItemImageSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var image = args.SelectedItem as Image;
+
+            ViewModel.Data.ImageURI = image.Url;
+            ItemImage.Source = image.Url;
+        }
+
     }
 }
