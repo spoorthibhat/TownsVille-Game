@@ -104,6 +104,15 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Force level up to particular value on the monster
+        /// </summary>
+        /// <param name="Level"></param>
+        public void LevelUpToValue(int Level)
+        {
+            this.Level = Level;
+        }
+
+        /// <summary>
         /// Adds the input value to the expereince of the monster.
         /// This is needed during the game play
         /// </summary>
