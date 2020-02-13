@@ -43,7 +43,7 @@ namespace Game.ViewModels
         #region Constructor
         public MonsterIndexViewModel()
         {
-            Title = "Monster";
+            Title = "Monsters";
             // Register the create message
             MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
