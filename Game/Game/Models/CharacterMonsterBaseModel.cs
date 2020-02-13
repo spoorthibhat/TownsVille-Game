@@ -31,6 +31,27 @@ namespace Game.Models
         //Max health of monster
         public int MaxHealth { get; set; } = 1;
 
+        // Item in head
+        public ItemModel Head { get; set; } = null;
+
+        // Item in feet
+        public ItemModel Feet { get; set; } = null;
+
+        // Item in Necklace
+        public ItemModel Necklace { get; set; } = null;
+
+        // Item in right finger
+        public ItemModel RightFinger { get; set; } = null;
+
+        //  Item in LeftFinger
+        public ItemModel LeftFinger { get; set; } = null;
+
+        // Item in PrimaryHand
+        public ItemModel PrimaryHand { get; set; } = null;
+
+        // Item on Body
+        public ItemModel Body { get; set; } = null;
+
         /// <summary>
         /// Scales the level of the monster
         /// </summary>
