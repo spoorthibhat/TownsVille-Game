@@ -39,6 +39,13 @@ namespace Game.Views
  
 
             ImageView.ItemsSource = imageList;
+            HeadItemPicker.ItemsSource = DefaultData.LoadItems();
+            NecklaceItemPicker.ItemsSource = DefaultData.LoadItems();
+            PrimaryHandItemPicker.ItemsSource = DefaultData.LoadItems();
+            OffHandItemPicker.ItemsSource = DefaultData.LoadItems();
+            RightFingerItemPicker.ItemsSource = DefaultData.LoadItems();
+            LeftFingerItemPicker.ItemsSource = DefaultData.LoadItems();
+            FeetItemPicker.ItemsSource = DefaultData.LoadItems();
 
             this.ViewModel.Title = "Update " + data.Title;
 
