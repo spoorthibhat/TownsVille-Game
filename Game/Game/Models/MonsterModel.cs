@@ -6,31 +6,31 @@ namespace Game.Models
     public class MonsterModel : BaseModel<MonsterModel>
     {
         
-        //Flag to check if the character is alive
+        //Flag to check if the monster is alive
         public bool Alive { get; set; } = true;
-        //Level of the character
+        //Level of the monster
         public int Level { get; set; } = 1;
-        //Total Experience of the character
+        //Total Experience of the monster
         public int ExperienceTotal { get; set; } = 300;
-        //Speed of the character
+        //Speed of the monster
         public int Speed { get; set; } = 1;
-        //Attack caused by character
+        //Attack caused by monster
         public int Attack { get; set; } = 0;
-        //Characters defense
+        //monsters defense
         public int Defense { get; set; } = 0;
-        //Current health of character
+        //Current health of monster
         public int CurrentHealth { get; set; } = 1;
-        //Max health of character
+        //Max health of monster
         public int MaxHealth { get; set; } = 1;
 
-        // Item possessed by the character
+        // Item possessed by the monster
         [Ignore]
         public ItemModel ItemPossesed { get; set; } = null;
 
         // Items to be added
 
         /// <summary>
-        /// Default CharacterModel
+        /// Default MonsterModel
         /// Initialize Values
         /// </summary>
 
@@ -43,7 +43,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Constructor to create character based on what is passed in
+        /// Constructor to create monster based on what is passed in
         /// </summary>
         /// <param name="data"></param>
         public MonsterModel(MonsterModel data)
@@ -52,7 +52,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Update character
+        /// Update monster
         /// </summary>
         /// <param name="newdata"></param>
         public override void Update(MonsterModel newData)
