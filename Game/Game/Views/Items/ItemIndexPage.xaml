@@ -18,7 +18,7 @@
                 HorizontalOptions="StartAndExpand"
                 Style="{StaticResource HeaderStyle}"/>
                 <Button
-                Text="Add Monster"
+                Text="Add Item"
                 Style="{StaticResource PrimaryButtonStyle}"
                 Clicked="AddItem_Clicked"
                 HorizontalOptions="EndAndExpand"/>
