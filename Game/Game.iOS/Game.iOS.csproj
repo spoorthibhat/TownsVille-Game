@@ -280,7 +280,7 @@
     <BundleResource Include="Resources\him.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\mojo-jojo.png" />
+    <BundleResource Include="Resources\mojo_jojo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rowdy_boys.png" />
