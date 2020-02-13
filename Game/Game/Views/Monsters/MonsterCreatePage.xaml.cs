@@ -56,5 +56,24 @@ namespace Game.Views.Monsters
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        /// Function that is invoked when save button was clicked in the UI. 
+        /// The method sends the Monster object with the Create message through messaging center publishing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = ItemService.DefaultImageURI;
+            }
+
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
+
+        }
     }
 }
