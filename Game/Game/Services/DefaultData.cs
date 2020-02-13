@@ -62,6 +62,15 @@ namespace Game.Services
                     Value = 10,
                     Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Defense},
+                new ItemModel {
+                    Name = "Ring of Blocking",
+                    Description = "Creates a wall of blocking",
+                    ImageURI = "ring_of_blocking.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.LeftFinger,
+                    Attribute = AttributeEnum.Defense},
             };
 
                 
