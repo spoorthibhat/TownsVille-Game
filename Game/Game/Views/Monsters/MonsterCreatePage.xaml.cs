@@ -46,5 +46,15 @@ namespace Game.Views.Monsters
             MonsterImage.Source = image.Url;
 
         }
+
+        /// <summary>
+        /// Method inviked when stepper value is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            LevelValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }

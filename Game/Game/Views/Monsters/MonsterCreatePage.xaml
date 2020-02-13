@@ -67,7 +67,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
-                <!--
+
 
                 <Grid
                     RowSpacing="1"
@@ -96,6 +96,8 @@
                     <Entry Grid.Row="1" Grid.Column="1"
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
+
+                
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Attack" 
@@ -130,6 +132,7 @@
                     </Picker>
 
                 </Grid>
+                
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
@@ -159,6 +162,7 @@
 
 
                 </StackLayout>
+                <!--
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button
                         Text="Save"
