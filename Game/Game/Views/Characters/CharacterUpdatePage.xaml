@@ -19,7 +19,7 @@
 
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
+                Spacing="10" Padding="0,0,20,0">
 
             <Label Text="Update Character" Style="{StaticResource HeaderStyle}"/>
 
