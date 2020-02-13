@@ -107,5 +107,57 @@ namespace Game.Models
             int TotalDamage = LevelDamage + DamageFromItem;
             this.CurrentHealth = this.CurrentHealth - TotalDamage;
         }
+
+        /// <summary>
+        /// Returns list of all items possessed.
+        /// </summary>
+        /// <returns></returns>
+        public List<ItemModel> DropAllItems()
+        {
+            var DroppedItems = new List<ItemModel>();
+            if(this.Head != null)
+            {
+                DroppedItems.Add(this.Head);
+                this.Head = null;
+            }
+
+            if (this.Feet != null)
+            {
+                DroppedItems.Add(this.Feet);
+                this.Feet = null;
+            }
+
+            if (this.Necklace != null)
+            {
+                DroppedItems.Add(this.Necklace);
+                this.Necklace = null;
+            }
+
+            if (this.LeftFinger != null)
+            {
+                DroppedItems.Add(this.LeftFinger);
+                this.LeftFinger = null;
+            }
+
+            if (this.RightFinger != null)
+            {
+                DroppedItems.Add(this.RightFinger);
+                this.RightFinger = null;
+            }
+
+            if (this.PrimaryHand != null)
+            {
+                DroppedItems.Add(this.PrimaryHand);
+                this.PrimaryHand = null;
+            }
+
+            if (this.Body != null)
+            {
+                DroppedItems.Add(this.Body);
+                this.Body = null;
+            }
+
+            return DroppedItems;
+        }
     }
 }
