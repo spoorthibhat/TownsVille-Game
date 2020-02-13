@@ -222,5 +222,39 @@ namespace Game.Models
                     break;
             }
         }
+
+        /// <summary>
+        /// Removes the Item from the given location
+        /// </summary>
+        /// <param name="Location"></param>
+        public void RemoveItemFromLocation(ItemLocationEnum Location)
+        {
+            switch (Location)
+            {
+                case ItemLocationEnum.Head:
+                    this.Head = null;
+                    break;
+                case ItemLocationEnum.Feet:
+                    this.Feet = null;
+                    break;
+                case ItemLocationEnum.LeftFinger:
+                    this.LeftFinger = null;
+                    break;
+                case ItemLocationEnum.RightFinger:
+                    this.RightFinger = null;
+                    break;
+                case ItemLocationEnum.PrimaryHand:
+                    this.PrimaryHand = null;
+                    break;
+                case ItemLocationEnum.Necklass:
+                    this.Necklace = null;
+                    break;
+                case ItemLocationEnum.OffHand:
+                    this.OffHand = null;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
