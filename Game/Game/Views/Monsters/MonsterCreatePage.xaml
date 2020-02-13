@@ -131,6 +131,22 @@
                         </Picker.Items>
                     </Picker>
 
+                    <Label Grid.Row="4" Grid.Column="0"
+                        Text="Speed" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="4" Grid.Column="1" 
+                        SelectedItem="{Binding Data.Speed, Converter={StaticResource Int_String}, Mode=TwoWay}" 
+                        x:Name="SpeedPicker">
+                        <Picker.Items>
+                            <x:String>0</x:String>
+                            <x:String>5</x:String>
+                            <x:String>10</x:String>
+                            <x:String>20</x:String>
+                            <x:String>25</x:String>
+                        </Picker.Items>
+                    </Picker>
+
                 </Grid>
                 
 
@@ -159,6 +175,8 @@
                             Increment="1"/>
 
                     </StackLayout>
+
+                    
 
 
                 </StackLayout>
