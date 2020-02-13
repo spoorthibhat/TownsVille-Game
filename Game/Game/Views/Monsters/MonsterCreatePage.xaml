@@ -32,7 +32,7 @@
                         Text="Select the image for your character: " 
                         Style="{StaticResource LabelStyle}"/>
                 
-                <!--
+                
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start" 
@@ -45,7 +45,10 @@
                         <ColumnDefinition Width="70"/>
                     </Grid.ColumnDefinitions>
 
-                    <ListView x:Name="ImageView"   Grid.Row ="0" Grid.Column="0" Rotation="270" RowHeight="40" ItemSelected="OnCharacterImageSelected">
+                    <ListView x:Name="ImageView"   
+                              Grid.Row ="0" Grid.Column="0" 
+                              Rotation="270" RowHeight="40" 
+                              ItemSelected="OnMonsterImageSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -64,6 +67,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
+                <!--
 
                 <Grid
                     RowSpacing="1"
