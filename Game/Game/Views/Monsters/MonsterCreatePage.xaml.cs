@@ -33,6 +33,7 @@ namespace Game.Views.Monsters
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
+            ItemPicker.ItemsSource = DefaultData.LoadItems();
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";

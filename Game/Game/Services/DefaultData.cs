@@ -1,5 +1,7 @@
 ﻿using Game.Models;
+using Game.ViewModels;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Game.Services
 {
@@ -197,5 +199,13 @@ namespace Game.Services
             };
             return imageList;
         }
+        public static ObservableCollection<ItemModel> LoadItems()
+        {
+            var ItemViewModelInstance = ItemIndexViewModel.Instance;
+            ObservableCollection<ItemModel> itemCollection = ItemViewModelInstance.Dataset;
+
+            return itemCollection;
+        }
+
     }
 }
