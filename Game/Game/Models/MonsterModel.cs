@@ -1,4 +1,5 @@
 ﻿using Game.Services;
+using Game.Helpers;
 using SQLite;
 
 namespace Game.Models
@@ -84,6 +85,21 @@ namespace Game.Models
         public bool ScaleLevel(int level)
         {
             return true;
+        }
+
+        /// <summary>
+        /// Levels up the monster if it is time to level up
+        /// </summary>
+        /// <returns></returns>
+        public bool LevelUp()
+        {
+            int newLevel = ExperienceMappingHelper.GetLevelPerExperience(this.ExperienceTotal);
+            if(newLevel > this.Level)
+            {
+                this.Level = newLevel;
+                return true;
+            }
+            return false;
         }
     }
 }
