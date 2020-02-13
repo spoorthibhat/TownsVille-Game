@@ -33,7 +33,14 @@ namespace Game.Views.Monsters
                 imageList.Add(image);
             }
             ImageView.ItemsSource = imageList;
-            ItemPicker.ItemsSource = DefaultData.LoadItems();
+            HeadItemPicker.ItemsSource = DefaultData.LoadItems();
+            NecklaceItemPicker.ItemsSource = DefaultData.LoadItems();
+            PrimaryHandItemPicker.ItemsSource = DefaultData.LoadItems();
+            OffHandItemPicker.ItemsSource = DefaultData.LoadItems();
+            RightFingerItemPicker.ItemsSource = DefaultData.LoadItems();
+            LeftFingerItemPicker.ItemsSource = DefaultData.LoadItems();
+            FeetItemPicker.ItemsSource = DefaultData.LoadItems();
+
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
