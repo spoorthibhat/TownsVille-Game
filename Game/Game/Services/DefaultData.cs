@@ -115,7 +115,7 @@ namespace Game.Services
             new MonsterModel{
                 Name = "Mojo jojo",
                 Description = "He is the master mind",
-                ImageURI = "mojo-jojo.png",
+                ImageURI = "mojo_jojo.png",
                 Level = 1,
 
             },
