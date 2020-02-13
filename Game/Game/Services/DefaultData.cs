@@ -171,11 +171,11 @@ namespace Game.Services
             var imageList = new List<Image>()
             {
                 new Image { Url = "item_flaming_sword.png" },
+                new Image { Url = "safe_bubble.png" },
                 new Image { Url = "slashing_knives.png" },
                 new Image { Url = "heat_shield.png" },
                 new Image { Url = "thunderbolt.png" },
                 new Image { Url = "helmet.png" },
-                new Image { Url = "mayor.png" },
             };
             return imageList;
         }

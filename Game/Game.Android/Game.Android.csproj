@@ -235,5 +235,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rowdy_boys.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\safe_bubble.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
