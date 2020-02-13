@@ -22,7 +22,7 @@
                 Clicked="AddCharacter_Clicked"
                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
-            <ListView x:Name="ItemsListView" 
+            <ListView x:Name="CharacterListView" 
                     ItemsSource="{Binding Dataset}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
