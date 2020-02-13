@@ -72,7 +72,7 @@
                     <Button
                         Text="Wipe"
                         Clicked="WipeDataList_Clicked"
-                        />
+                        Style="{StaticResource PrimaryButtonStyle}"/>
 
                 </StackLayout>
             </StackLayout>
