@@ -13,7 +13,7 @@ namespace Game.Models
         //Total Experience of the monster
         public int ExperienceTotal { get; set; } = 300;
         //Speed of the monster
-        public int Speed { get; set; } = 1;
+        public int Speed { get; set; } = 0;
         //Attack caused by monster
         public int Attack { get; set; } = 0;
         //monsters defense
