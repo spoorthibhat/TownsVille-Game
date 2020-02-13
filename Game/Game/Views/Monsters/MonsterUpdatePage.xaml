@@ -21,12 +21,12 @@
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10" Padding="0,0,20,0">
 
-            <Label Text="Update Monster" Style="{StaticResource HeaderStyle}"/>
+            <Label Text="Update Character" Style="{StaticResource HeaderStyle}"/>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand" x:Name="CharacterImage"/>
 
             <Label
-                Text="Update the image for your Monster: " 
+                Text="Update the image for your character: " 
                 Style="{StaticResource LabelStyle}"/>
 
             <Grid RowSpacing="1"

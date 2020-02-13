@@ -32,7 +32,7 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             // Adding image data 
-            foreach (Image image in DefaultData.LoadMonsterImages())
+            foreach (Image image in DefaultData.LoadCharacterImages())
             {
                 imageList.Add(image);
             }
