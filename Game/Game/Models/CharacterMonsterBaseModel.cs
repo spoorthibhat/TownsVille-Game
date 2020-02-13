@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Game.Models
 {
-    class CharacterMonsterBaseModel<T> : BaseModel<T>
+    public class CharacterMonsterBaseModel<T> : BaseModel<T>
     {
         //Flag to check if the character/monster is alive
         public bool Alive { get; set; } = true;
