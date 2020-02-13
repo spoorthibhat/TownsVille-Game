@@ -15,7 +15,18 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Items List Page" Style="{StaticResource HeaderStyle}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Items"   
+                VerticalOptions="Start" 
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource HeaderStyle}"/>
+                <Button
+                Text="Add Monster"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="AddItem_Clicked"
+                HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
 
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding Dataset}"
