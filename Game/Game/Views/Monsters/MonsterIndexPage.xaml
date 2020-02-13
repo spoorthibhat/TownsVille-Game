@@ -25,7 +25,7 @@
                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
-            <ListView x:Name="ItemsListView" 
+            <ListView x:Name="MonstersListView" 
                     ItemsSource="{Binding Dataset}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
