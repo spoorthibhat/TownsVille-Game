@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Game.Models;
 using Game.ViewModels;
+using Game.Views.Monsters;
 
 namespace Game.Views
 {
@@ -55,7 +56,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void AddMonster_Clicked(object sender, EventArgs e)
         {
-           //await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
+           await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<MonsterModel>())));
         }
 
         /// <summary>
