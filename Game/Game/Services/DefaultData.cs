@@ -71,6 +71,15 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.LeftFinger,
                     Attribute = AttributeEnum.Defense},
+                new ItemModel {
+                    Name = "Ring of Attack",
+                    Description = "Sends a beam of fire from the ring",
+                    ImageURI = "bracelet_of_attack.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.RightFinger,
+                    Attribute = AttributeEnum.Attack},
             };
 
                 
