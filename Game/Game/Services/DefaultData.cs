@@ -14,9 +14,9 @@ namespace Game.Services
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = "Gold Sword",
-                    Description = "Sword made of Gold, really expensive looking",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    Name = "Slashing Knives",
+                    Description = "Attack with Sharp knives",
+                    ImageURI = "slashing_knives.png",
                     Range = 0,
                     Damage = 9,
                     Value = 9,
@@ -24,9 +24,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Strong Shield",
-                    Description = "Enough to hide behind",
-                    ImageURI = "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png",
+                    Name = "Thunder bold",
+                    Description = "Electric shock attack",
+                    ImageURI = "thunderbolt.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
@@ -34,9 +34,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Bunny Hat",
-                    Description = "Pink hat with fluffy ears",
-                    ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
+                    Name = "Helmet",
+                    Description = "Protect head from attack",
+                    ImageURI = "helmet.png",
                     Range = 0,
                     Damage = 0,
                     Value = 9,
