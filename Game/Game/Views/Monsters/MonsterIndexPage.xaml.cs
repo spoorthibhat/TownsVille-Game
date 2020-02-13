@@ -53,7 +53,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddItem_Clicked(object sender, EventArgs e)
+        async void AddMonster_Clicked(object sender, EventArgs e)
         {
            // await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
         }

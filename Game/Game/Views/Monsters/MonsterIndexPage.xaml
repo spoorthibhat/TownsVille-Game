@@ -8,14 +8,22 @@
              x:Class="Game.Views.MonsterIndexPage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
-    </ContentPage.ToolbarItems>
+
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-            <Label Text="Items List Page" Style="{StaticResource HeaderStyle}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Monsters"   
+                VerticalOptions="Start" 
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource HeaderStyle}"/>
+                <Button
+                Text="Add Monster"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="AddMonster_Clicked"
+                HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
 
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding Dataset}"
@@ -42,9 +50,10 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
+
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageSmallStyle}"
+                                        Style="{StaticResource ImageMediumStyle}"
                                         VerticalOptions="CenterAndExpand"/>
 
                                 <Label Grid.Column="1" Grid.Row="0"
@@ -53,14 +62,16 @@
 
                                 <StackLayout Grid.Column="1" Grid.Row="1"
                                     Orientation="Horizontal">
-                                    
-                                    <Label 
-                                       Text="{Binding Attribute}" 
-                                       Style="{StaticResource ListStyle}"/>
 
-                                    <Label Text="{Binding Value}" 
-                                        Style="{StaticResource ListStyle}"/>
-                                
+                                    <Label 
+                                       Text="Level: " 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                    <Label Text="{Binding Level}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
+
                                 </StackLayout>
 
                                 <Label Grid.Column="1" Grid.Row="2"
