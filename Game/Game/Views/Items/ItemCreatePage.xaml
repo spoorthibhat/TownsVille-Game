@@ -24,16 +24,18 @@
                 Spacing="10" Padding="0,0,20,0">
 
                 <Label Text="Create your item" Style="{StaticResource HeaderStyle}"/>
+                
 
                 <Image Source="{Binding Data.ImageURI}" 
                        Style="{StaticResource ImageLargeStyle}" 
                        HorizontalOptions="CenterAndExpand"
                        x:Name="ItemImage"/>
+                <Label Text="Select an image" Style="{StaticResource LabelStyle}"/>
 
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start" 
-                      Padding="90,-80,-80,-80">
+                      Padding="140,-120,-120,-120">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -44,7 +46,7 @@
 
                     <ListView x:Name="ImageView"   
                               Grid.Row ="0" Grid.Column="0" 
-                              Rotation="270" RowHeight="40" 
+                              Rotation="270" RowHeight="50" 
                               ItemSelected="OnItemImageSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
