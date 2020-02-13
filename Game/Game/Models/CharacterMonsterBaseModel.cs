@@ -160,9 +160,14 @@ namespace Game.Models
             return DroppedItems;
         }
 
-        public ItemModel GetItemByLocation(ItemLocationEnum location)
+        /// <summary>
+        /// Gets item per the location input
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public ItemModel GetItemByLocation(ItemLocationEnum Location)
         {
-            switch (location)
+            switch (Location)
             {
                 case ItemLocationEnum.Head:
                     return this.Head;
@@ -180,6 +185,41 @@ namespace Game.Models
                     return this.OffHand;
                 default:
                     return null;
+            }
+        }
+
+        /// <summary>
+        /// Adds the Item to the location
+        /// </summary>
+        /// <param name="Location"></param>
+        /// <param name="ToBeAdded"></param>
+        public void AddItem(ItemLocationEnum Location, ItemModel ToBeAdded)
+        {
+            switch (Location)
+            {
+                case ItemLocationEnum.Head:
+                    this.Head = ToBeAdded;
+                    break;
+                case ItemLocationEnum.Feet:
+                    this.Feet = ToBeAdded;
+                    break;
+                case ItemLocationEnum.LeftFinger:
+                    this.LeftFinger = ToBeAdded;
+                    break;
+                case ItemLocationEnum.RightFinger:
+                    this.RightFinger = ToBeAdded;
+                    break;
+                case ItemLocationEnum.PrimaryHand:
+                    this.PrimaryHand = ToBeAdded;
+                    break;
+                case ItemLocationEnum.Necklass:
+                    this.Necklace = ToBeAdded;
+                    break;
+                case ItemLocationEnum.OffHand:
+                    this.OffHand = ToBeAdded;
+                    break;
+                default:
+                    break;
             }
         }
     }
