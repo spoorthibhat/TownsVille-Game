@@ -12,33 +12,33 @@ namespace Game.ViewModels
 {
     class MonsterIndexViewModel: BaseViewModel<MonsterModel>
     {
-        //#region Singleton
+        #region Singleton
 
-        //// Make this a singleton so it only exist one time because holds all the data records in memory
-        //private static volatile CharacterIndexViewModel instance;
-        //private static readonly object syncRoot = new Object();
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static volatile MonsterIndexViewModel instance;
+        private static readonly object syncRoot = new Object();
 
-        //public static CharacterIndexViewModel Instance
-        //{
-        //    get
-        //    {
-        //        if (instance == null)
-        //        {
-        //            lock (syncRoot)
-        //            {
-        //                if (instance == null)
-        //                {
-        //                    instance = new CharacterIndexViewModel();
-        //                    instance.Initialize();
-        //                }
-        //            }
-        //        }
+        public static MonsterIndexViewModel Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new MonsterIndexViewModel();
+                            instance.Initialize();
+                        }
+                    }
+                }
 
-        //        return instance;
-        //    }
-        //}
+                return instance;
+            }
+        }
 
-        //#endregion Singleton
+        #endregion Singleton
 
         #region Constructor
         public MonsterIndexViewModel()
