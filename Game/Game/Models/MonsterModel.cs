@@ -111,5 +111,16 @@ namespace Game.Models
         {
             this.ExperienceTotal += ExtraExperienceToAdd;
         }
+
+        /// <summary>
+        /// Based on the weapon damage input, makes changes in the monster's health
+        /// </summary>
+        /// <param name="DamageFromItem"></param>
+        public void TakeDamage(int DamageFromItem)
+        {
+            int LevelDamage = this.Level * 1 / 4;
+            int TotalDamage = LevelDamage + DamageFromItem;
+            this.CurrentHealth = this.CurrentHealth - TotalDamage;
+        }
     }
 }
