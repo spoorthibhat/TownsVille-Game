@@ -25,7 +25,7 @@
                 <Image Source="{Binding Data.ImageURI}" 
                        Style="{StaticResource ImageLargeStyle}" 
                        HorizontalOptions="CenterAndExpand"
-                       x:Name="CharacterImage"
+                       x:Name="MonsterImage"
                        />
 
                 <Label

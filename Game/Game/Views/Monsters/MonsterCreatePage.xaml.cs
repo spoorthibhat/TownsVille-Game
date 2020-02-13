@@ -40,6 +40,10 @@ namespace Game.Views.Monsters
 
         void OnMonsterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            var image = args.SelectedItem as Image;
+
+            ViewModel.Data.ImageURI = image.Url;
+            MonsterImage.Source = image.Url;
 
         }
     }
