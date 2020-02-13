@@ -101,5 +101,15 @@ namespace Game.Models
             }
             return false;
         }
+
+        /// <summary>
+        /// Adds the input value to the expereince of the monster.
+        /// This is needed during the game play
+        /// </summary>
+        /// <param name="ExtraExperienceToAdd"></param>
+        public void AddExperience(int ExtraExperienceToAdd)
+        {
+            this.ExperienceTotal += ExtraExperienceToAdd;
+        }
     }
 }
