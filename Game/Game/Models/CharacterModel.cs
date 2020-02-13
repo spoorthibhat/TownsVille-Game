@@ -1,10 +1,13 @@
 ﻿using Game.Services;
+using SQLite;
 
 namespace Game.Models
 {
     public class CharacterModel : BaseModel<CharacterModel>
     {
+        
         //Character special ability
+       
         public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.None;
         //Flag to check if the character is alive
         public bool Alive { get; set; } = true;
@@ -24,6 +27,7 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 1;
 
         // Item possessed by the character
+        [Ignore]
         public ItemModel ItemPossesed { get; set; } = null;
 
         // Items to be added

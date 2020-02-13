@@ -1,4 +1,5 @@
 ﻿using Game.Services;
+using SQLite;
 
 namespace Game.Models
 {
@@ -23,6 +24,7 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 1;
 
         // Item possessed by the character
+        [Ignore]
         public ItemModel ItemPossesed { get; set; } = null;
 
         // Items to be added
