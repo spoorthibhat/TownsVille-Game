@@ -178,6 +178,7 @@ namespace Game.Services
                 new Image { Url = "heat_shield.png" },
                 new Image { Url = "thunderbolt.png" },
                 new Image { Url = "helmet.png" },
+                new Image { Url = "absorbing_shoes.png" },
             };
             return imageList;
         }
