@@ -75,5 +75,16 @@ namespace Game.Views.Monsters
             await Navigation.PopModalAsync();
 
         }
+
+        /// <summary>
+        /// Function that is invoked when cancel button was clicked in the UI.
+        /// It pops the current page from the stack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }

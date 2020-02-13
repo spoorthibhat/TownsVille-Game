@@ -169,12 +169,12 @@
                         Style="{StaticResource PrimaryButtonStyle}"
                         Clicked="Save_Clicked"/>
 
-                    <!--
+                    
                     <Button
                         Text="Cancel"
                         Style="{StaticResource PrimaryButtonStyle}"
                         Clicked="Cancel_Clicked"/>
-                    -->
+                    
                 </StackLayout>
                 
             </StackLayout>
