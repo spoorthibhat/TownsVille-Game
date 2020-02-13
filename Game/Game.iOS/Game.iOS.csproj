@@ -291,4 +291,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\absorbing_shoes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ring_of_blocking.png" />
+  </ItemGroup>
 </Project>

@@ -169,6 +169,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="ring_of_blocking.png" />
     <Content Include="rowdy_boys.png" />
     <Content Include="safe_bubble.png" />
     <Content Include="score.png" />
