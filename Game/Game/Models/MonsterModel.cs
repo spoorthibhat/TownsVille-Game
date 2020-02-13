@@ -82,8 +82,9 @@ namespace Game.Models
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
-        public bool ScaleLevel(int level)
+        public bool ScaleLevel(int Level)
         {
+            this.Level = Level;
             return true;
         }
 
