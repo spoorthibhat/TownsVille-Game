@@ -69,6 +69,15 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Item : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.ItemPossesed.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button
                         Text="Update"

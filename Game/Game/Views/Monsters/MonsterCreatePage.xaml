@@ -147,6 +147,15 @@
                         </Picker.Items>
                     </Picker>
 
+                    <Label Grid.Row="5" Grid.Column="0"
+                        Text="Item" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="5" Grid.Column="1" 
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding Data.ItemPossesed, Mode=TwoWay}" 
+                        x:Name="ItemPicker"
+                        />
                 </Grid>
                 
 
