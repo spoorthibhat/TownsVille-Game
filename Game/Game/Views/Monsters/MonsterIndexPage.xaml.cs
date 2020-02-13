@@ -58,28 +58,28 @@ namespace Game.Views
            // await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
         }
 
-        ///// <summary>
-        ///// Refresh the list on page appearing
-        ///// </summary>
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
+        /// <summary>
+        /// Refresh the list on page appearing
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-        //    BindingContext = null;
+            BindingContext = null;
 
-        //    // If no data, then set it for needing refresh
-        //    if (ViewModel.Dataset.Count == 0)
-        //    {
-        //        ViewModel.SetNeedsRefresh(true);
-        //    }
+            // If no data, then set it for needing refresh
+            if (ViewModel.Dataset.Count == 0)
+            {
+                ViewModel.SetNeedsRefresh(true);
+            }
 
-        //    // If the needs Refresh flag is set update it
-        //    if (ViewModel.NeedsRefresh())
-        //    {
-        //        ViewModel.LoadDatasetCommand.Execute(null);
-        //    }
+            // If the needs Refresh flag is set update it
+            if (ViewModel.NeedsRefresh())
+            {
+                ViewModel.LoadDatasetCommand.Execute(null);
+            }
 
-        //    BindingContext = ViewModel;
-        //}
+            BindingContext = ViewModel;
+        }
     }
 }
