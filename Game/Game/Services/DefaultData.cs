@@ -111,17 +111,11 @@ namespace Game.Services
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
             var datalist = new List<MonsterModel>()
-            { new MonsterModel{
-                Name = "Blossom",
-                Description = "Self-proclaimed leader of the Powerpuff Girls",
-                ImageURI = "Blossum.png",
-                Level = 1,
-
-            },
+            { 
             new MonsterModel{
                 Name = "Mojo jojo",
                 Description = "He is the master mind",
-                ImageURI = "mojo-jojo.png",
+                ImageURI = "mojo_jojo.png",
                 Level = 1,
 
             },
