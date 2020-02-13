@@ -179,5 +179,23 @@ namespace Game.Services
             };
             return imageList;
         }
+
+        /// <summary>
+        /// Loads the default available Monster images
+        /// </summary>
+        /// <returns></returns>
+        public static List<Image> LoadMonsterImages()
+        {
+            var imageList = new List<Image>()
+            {
+                new Image { Url = "mojo_jojo.png" },
+                new Image { Url = "him.png" },
+                new Image { Url = "amoeba_boys.png" },
+                new Image { Url = "rowdy_boys.png" },
+                new Image { Url = "ms_keane.png" },
+                new Image { Url = "mayor.png" },
+            };
+            return imageList;
+        }
     }
 }

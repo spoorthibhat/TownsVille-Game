@@ -28,7 +28,7 @@ namespace Game.Views.Monsters
             InitializeComponent();
             data.Data = new MonsterModel();
 
-            foreach (Image image in DefaultData.LoadCharacterImages())
+            foreach (Image image in DefaultData.LoadMonsterImages())
             {
                 imageList.Add(image);
             }
