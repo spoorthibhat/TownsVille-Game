@@ -45,7 +45,7 @@ namespace Game.ViewModels
         {
             Title = "Monsters";
             // Register the create message
-            MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<Views.Monsters.MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as MonsterModel);
             });
