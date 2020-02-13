@@ -97,8 +97,7 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                </Grid>
-                <!--
+                
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Attack" 
@@ -133,6 +132,7 @@
                     </Picker>
 
                 </Grid>
+                <!--
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
