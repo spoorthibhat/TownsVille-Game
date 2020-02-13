@@ -28,25 +28,25 @@ namespace Game.Views
             //BindingContext = ViewModel = ItemIndexViewModel.Instance;
         }
 
-        /// <summary>
-        /// The row selected from the list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        //{
-        //    MonsterModel data = args.SelectedItem as MonsterModel;
-        //    if (data == null)
-        //    {
-        //        return;
-        //    }
+        // <summary>
+        // The row selected from the list
+        // </summary>
+        // <param name = "sender" ></ param >
+        // < param name="args"></param>
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            MonsterModel data = args.SelectedItem as MonsterModel;
+            if (data == null)
+            {
+                return;
+            }
 
-        //    // Open the Read Page
-        //   // await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
+            // Open the Read Page
+            // await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
 
-        //    // Manually deselect item.
-        //    ItemsListView.SelectedItem = null;
-        //}
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
 
         /// <summary>
         /// Call to Add a new record
