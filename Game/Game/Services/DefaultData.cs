@@ -80,6 +80,15 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.RightFinger,
                     Attribute = AttributeEnum.Attack},
+                new ItemModel {
+                    Name = "Firing Crown",
+                    Description = "Attacks from the crown gem",
+                    ImageURI = "firing_crown.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Attack},
             };
 
                 
