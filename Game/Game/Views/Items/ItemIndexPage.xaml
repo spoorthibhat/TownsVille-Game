@@ -8,9 +8,6 @@
              x:Class="Game.Views.ItemIndexPage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
