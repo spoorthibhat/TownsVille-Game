@@ -75,5 +75,15 @@ namespace Game.Models
             ItemPossesed = newData.ItemPossesed;
      
         }
+
+        /// <summary>
+        /// Scales the level of the monster
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public bool ScaleLevel(int level)
+        {
+            return true;
+        }
     }
 }
