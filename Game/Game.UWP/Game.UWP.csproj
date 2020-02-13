@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="absorbing_shoes.png" />
     <Content Include="amoeba_boys.png" />
     <Content Include="AutoBattle.PNG" />
     <Content Include="battleboard.jpg" />

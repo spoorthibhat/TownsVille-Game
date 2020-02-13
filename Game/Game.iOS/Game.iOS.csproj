@@ -288,4 +288,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\safe_bubble.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\absorbing_shoes.png" />
+  </ItemGroup>
 </Project>
