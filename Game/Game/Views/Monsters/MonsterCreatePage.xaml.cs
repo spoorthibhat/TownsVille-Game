@@ -36,6 +36,11 @@ namespace Game.Views.Monsters
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
+
+            //Need to make the SelectedItem a string, so it can select the correct item.
+            AttackPicker.SelectedItem = data.Data.Attack.ToString();
+            DefensePicker.SelectedItem = data.Data.Defense.ToString();
+            SpeedPicker.SelectedItem = data.Data.Speed.ToString();
         }
 
         void OnMonsterImageSelected(object sender, SelectedItemChangedEventArgs args)
