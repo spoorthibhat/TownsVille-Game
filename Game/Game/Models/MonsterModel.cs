@@ -58,6 +58,8 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
             ItemPossesed = newData.ItemPossesed;
+            Head = newData.Head;
+
      
         }
 
