@@ -11,6 +11,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:IntStringConverter x:Key="Int_String"/>
+            <local_helpers:ItemModelGuidConvertor x:Key="ItemModel_GUID"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -157,9 +158,8 @@
 
                     <Picker Grid.Row="6" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Head, Mode=TwoWay}" 
-                        x:Name="HeadItemPicker"
-                        />
+                        SelectedItem="{Binding Data.Head, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        x:Name="HeadItemPicker"/>
 
                     <Label Grid.Row="7" Grid.Column="0"
                         Text="Necklace" 
