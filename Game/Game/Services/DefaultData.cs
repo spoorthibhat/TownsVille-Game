@@ -270,8 +270,8 @@ namespace Game.Services
                 new Image { Url = "him.png" },
                 new Image { Url = "amoeba_boys.png" },
                 new Image { Url = "rowdy_boys.png" },
-                new Image { Url = "ms_keane.png" },
-                new Image { Url = "mayor.png" },
+                new Image { Url = "princess_morbucks.png" },
+                new Image { Url = "gang_green.png" },
             };
             return imageList;
         }

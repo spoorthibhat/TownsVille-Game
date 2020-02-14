@@ -122,6 +122,7 @@
     <Content Include="dungeon_door.png" />
     <Content Include="firing_crown.png" />
     <Content Include="gameover.png" />
+    <Content Include="gang_green.png" />
     <Content Include="grey_door.png" />
     <Content Include="heat_shield.png" />
     <Content Include="helmet.png" />
@@ -144,6 +145,7 @@
     <Content Include="muffler.png" />
     <Content Include="poisonous_pearls.png" />
     <Content Include="powerpuff_girls.png" />
+    <Content Include="princess_morbucks.png" />
     <Content Include="professor_utonium.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
