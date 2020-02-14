@@ -31,6 +31,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+            HeadItemPicker.BindingContext = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
 
             // Adding image data 
             foreach (Image image in DefaultData.LoadMonsterImages())
@@ -43,7 +44,7 @@ namespace Game.Views
 
 
             HeadItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Head);
-            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
+            //HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
 
 
 
@@ -83,7 +84,7 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
-            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(ViewModel.Data.Head);
+           // HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(ViewModel.Data.Head);
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
