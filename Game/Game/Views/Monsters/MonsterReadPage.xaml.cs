@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Game.ViewModels;
 using System;
 using Game.Models;
+using Game.Helpers;
 
 namespace Game.Views
 {
@@ -26,6 +27,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+            HeadItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
         }
 
         /// <summary>
