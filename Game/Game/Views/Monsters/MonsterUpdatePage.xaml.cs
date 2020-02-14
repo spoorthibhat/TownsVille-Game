@@ -6,7 +6,6 @@ using Game.Models;
 using System.Collections.ObjectModel;
 using Image = Game.Models.Image;
 using Game.Services;
-using Game.Helpers;
 
 namespace Game.Views
 {
@@ -16,9 +15,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class MonsterUpdatePage : ContentPage
     {
-        
-
-        // View Model for Character
+        // View Model for Monster
         readonly GenericViewModel<MonsterModel> ViewModel;
 
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
@@ -31,13 +28,11 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            
             // Adding image data 
             foreach (Image image in DefaultData.LoadMonsterImages())
             {
                 imageList.Add(image);
             }
- 
 
             ImageView.ItemsSource = imageList;
 
@@ -62,7 +57,6 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
-           // HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(ViewModel.Data.Head);
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
@@ -77,7 +71,7 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
-        
+
         /// <summary>
         /// Catch the change to the Stepper for Level
         /// </summary>
@@ -100,6 +94,5 @@ namespace Game.Views
             ViewModel.Data.ImageURI = image.Url;
             CharacterImage.Source = image.Url;
         }
-        
     }
 }
