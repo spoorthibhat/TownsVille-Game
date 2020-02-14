@@ -6,14 +6,15 @@
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              xmlns:local="using:Game.Models"
+             xmlns:local_service ="clr-namespace:Game.Services"
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.MonsterUpdatePage"
              Title="{Binding Title}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
             <local_helpers:IntStringConverter x:Key="Int_String"/>
+            <local_helpers:ItemModelGuidConvertor x:Key="ItemModel_GUID"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -136,8 +137,6 @@
                         <x:String>25</x:String>
                     </Picker.Items>
                 </Picker>
-
-
                 <Label Grid.Row="5" Grid.Column="0"
                         Text="Items Holding" Grid.ColumnSpan="2"
                         Style="{StaticResource LabelStyle}"/>
@@ -147,10 +146,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="6" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
+                        ItemDisplayBinding="{Binding Name}" 
                         SelectedItem="{Binding Data.Head, Mode=TwoWay}" 
-                        x:Name="HeadItemPicker"
-                        />
+                        x:Name="HeadItemPicker"/>
 
                 <Label Grid.Row="7" Grid.Column="0"
                         Text="Necklace" 

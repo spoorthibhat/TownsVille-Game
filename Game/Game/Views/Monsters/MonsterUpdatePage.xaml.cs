@@ -6,6 +6,7 @@ using Game.Models;
 using System.Collections.ObjectModel;
 using Image = Game.Models.Image;
 using Game.Services;
+using Game.Helpers;
 
 namespace Game.Views
 {
@@ -39,7 +40,13 @@ namespace Game.Views
  
 
             ImageView.ItemsSource = imageList;
+
+
             HeadItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Head);
+            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
+
+
+
             NecklaceItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Necklass);
             PrimaryHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.PrimaryHand);
             OffHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.OffHand);
@@ -54,7 +61,7 @@ namespace Game.Views
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
             SpeedPicker.SelectedItem = data.Data.Speed.ToString();
 
-            HeadItemPicker.SelectedItem = data.Data.Head;
+            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
             NecklaceItemPicker.SelectedItem = data.Data.Necklace;
             PrimaryHandItemPicker.SelectedItem = data.Data.PrimaryHand;
             OffHandItemPicker.SelectedItem = data.Data.OffHand;
@@ -76,6 +83,7 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
+            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(ViewModel.Data.Head);
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
