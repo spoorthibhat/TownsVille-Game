@@ -306,4 +306,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\poisonous_pearls.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\muffler.png" />
+  </ItemGroup>
 </Project>

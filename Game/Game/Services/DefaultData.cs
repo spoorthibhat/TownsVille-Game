@@ -105,7 +105,16 @@ namespace Game.Services
                     Range = 0,
                     Damage = 0,
                     Value = 5,
-                    Location = ItemLocationEnum.Feet,
+                    Location = ItemLocationEnum.Necklass,
+                    Attribute = AttributeEnum.Attack},
+                new ItemModel {
+                    Name = "Muffler",
+                    Description = "Protects against heat and cold",
+                    ImageURI = "muffler.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.Necklass,
                     Attribute = AttributeEnum.Defense},
             };
 
