@@ -190,7 +190,7 @@ namespace Game.Models
             }
         }
 
-        /*
+        
         /// <summary>
         /// Adds the Item to the location
         /// </summary>
@@ -201,25 +201,25 @@ namespace Game.Models
             switch (Location)
             {
                 case ItemLocationEnum.Head:
-                    this.Head = ToBeAdded;
+                    this.Head = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.Feet:
-                    this.Feet = ToBeAdded;
+                    this.Feet = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.LeftFinger:
-                    this.LeftFinger = ToBeAdded;
+                    this.LeftFinger = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.RightFinger:
-                    this.RightFinger = ToBeAdded;
+                    this.RightFinger = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.PrimaryHand:
-                    this.PrimaryHand = ToBeAdded;
+                    this.PrimaryHand = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.Necklass:
-                    this.Necklace = ToBeAdded;
+                    this.Necklace = ToBeAdded.Id;
                     break;
                 case ItemLocationEnum.OffHand:
-                    this.OffHand = ToBeAdded;
+                    this.OffHand = ToBeAdded.Id;
                     break;
                 default:
                     break;
@@ -260,6 +260,6 @@ namespace Game.Models
             }
             
         }
-        */
+        
     }
 }
