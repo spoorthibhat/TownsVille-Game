@@ -150,7 +150,7 @@ namespace Game.Services
                 Description = "Self-proclaimed leader of the Powerpuff Girls",
                 ImageURI = "Blossum.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+                SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
 
             },
             new CharacterModel{
@@ -165,21 +165,21 @@ namespace Game.Services
                 Description = "She is the bravest of the Powerpuff Girls",
                 ImageURI = "Buttercup.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+                SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
             },
              new CharacterModel{
                 Name = "Mayor",
                 Description = "He is the mayor of townsville",
                 ImageURI = "mayor.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+                SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
             },
                 new CharacterModel{
                 Name = "Professor",
                 Description = "He is creator of powerpuff girls",
                 ImageURI = "professor_utonium.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.LaserEyes,
+                SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
             },
 
             };
