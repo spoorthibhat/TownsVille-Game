@@ -9,7 +9,7 @@ namespace Game.Helpers
 {
     public static class ItemModelHelper
     {
-        public static ItemModel GetItemModel(string id)
+        public static ItemModel GetItemModelFromGuid(string id)
         {
             if(id != null)
             {
@@ -18,6 +18,17 @@ namespace Game.Helpers
                                         .FirstOrDefault();
             }
 
+            return null;
+        }
+        public static string GetItemModelNameFromGuid(string id)
+        {
+            if (id != null)
+            {
+                ItemModel item = GetItemModelFromGuid(id);
+                if (item == null)
+                    return null;
+                return item.Name;
+            }
             return null;
         }
     }
