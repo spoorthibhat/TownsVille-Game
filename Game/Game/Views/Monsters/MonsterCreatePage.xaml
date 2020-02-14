@@ -11,7 +11,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:IntStringConverter x:Key="Int_String"/>
-            <local_helpers:ItemModelGuidConvertor x:Key="ItemModel_GUID"/>
+            <local_helpers:ItemLocationPickerConverter x:Key="ItemGUID_Name"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -32,8 +32,8 @@
                 <Label
                         Text="Select the image for your character: " 
                         Style="{StaticResource LabelStyle}"/>
-                
-                
+
+
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start" 
@@ -157,8 +157,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="6" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Head, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetHeadItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Head, Mode=TwoWay}" 
                         x:Name="HeadItemPicker"/>
 
                     <Label Grid.Row="7" Grid.Column="0"
@@ -166,8 +167,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="7" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Necklace, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetNecklaceItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Necklace, Mode=TwoWay}" 
                         x:Name="NecklaceItemPicker"
                         />
 
@@ -176,8 +178,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="8" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.PrimaryHand, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetPrimaryHandItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.PrimaryHand, Mode=TwoWay}" 
                         x:Name="PrimaryHandItemPicker"
                         />
 
@@ -186,8 +189,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="9" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.OffHand, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetOffHandItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.OffHand, Mode=TwoWay}" 
                         x:Name="OffHandItemPicker"
                         />
 
@@ -196,8 +200,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="10" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.RightFinger, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetRightFingerItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.RightFinger, Mode=TwoWay}" 
                         x:Name="RightFingerItemPicker"
                         />
 
@@ -206,8 +211,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="11" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.LeftFinger, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetLeftFingerItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.LeftFinger, Mode=TwoWay}" 
                         x:Name="LeftFingerItemPicker"
                         />
 
@@ -216,8 +222,9 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="12" Grid.Column="1" 
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Feet, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetFeetItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Feet, Mode=TwoWay}" 
                         x:Name="FeetItemPicker"
                         />
                 </Grid>
@@ -246,9 +253,9 @@
                             Increment="1"/>
 
                     </StackLayout>
-                    
+
                 </StackLayout>
-                
+
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button
                         Text="Save"
@@ -259,9 +266,9 @@
                         Text="Cancel"
                         Style="{StaticResource PrimaryButtonStyle}"
                         Clicked="Cancel_Clicked"/>
-                    
+
                 </StackLayout>
-                
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

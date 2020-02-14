@@ -2,12 +2,7 @@
 using Game.Services;
 using Game.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Image = Game.Models.Image;
@@ -21,7 +16,7 @@ namespace Game.Views.Monsters
 
         // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
-        
+
 
         public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         {
@@ -34,8 +29,6 @@ namespace Game.Views.Monsters
             }
             ImageView.ItemsSource = imageList;
 
-            LoadValues();
-
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
@@ -44,21 +37,6 @@ namespace Game.Views.Monsters
             AttackPicker.SelectedItem = data.Data.Attack.ToString();
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
             SpeedPicker.SelectedItem = data.Data.Speed.ToString();
-        }
-
-        /// <summary>
-        /// Binding ItemModels as itemSource for the itempickers
-        /// </summary>
-        /// <param name="data"></param>
-        public void LoadValues()
-        {
-            HeadItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Head);
-            NecklaceItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Necklass);
-            PrimaryHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.PrimaryHand);
-            OffHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.OffHand);
-            RightFingerItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.RightFinger);
-            LeftFingerItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.LeftFinger);
-            FeetItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Feet);
         }
 
         void OnMonsterImageSelected(object sender, SelectedItemChangedEventArgs args)
