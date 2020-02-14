@@ -108,6 +108,7 @@ namespace Game.Models
             this.CurrentHealth = this.CurrentHealth - TotalDamage;
         }
 
+        /*
         /// <summary>
         /// Returns list of all items possessed.
         /// </summary>
@@ -159,6 +160,7 @@ namespace Game.Models
 
             return DroppedItems;
         }
+        
 
         /// <summary>
         /// Gets item per the location input
@@ -170,7 +172,7 @@ namespace Game.Models
             switch (Location)
             {
                 case ItemLocationEnum.Head:
-                    return this.Head;
+                    
                 case ItemLocationEnum.Feet:
                     return this.Feet;
                 case ItemLocationEnum.LeftFinger:
@@ -188,6 +190,7 @@ namespace Game.Models
             }
         }
 
+        /*
         /// <summary>
         /// Adds the Item to the location
         /// </summary>
@@ -255,6 +258,8 @@ namespace Game.Models
                 default:
                     break;
             }
+            
         }
+        */
     }
 }
