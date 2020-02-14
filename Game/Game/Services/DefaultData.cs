@@ -2,6 +2,7 @@
 using Game.ViewModels;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Game.Services
 {
@@ -274,12 +275,15 @@ namespace Game.Services
             };
             return imageList;
         }
-        public static ObservableCollection<ItemModel> LoadItems()
+        public static List<ItemModel> LoadItems(ItemLocationEnum val)
         {
             var ItemViewModelInstance = ItemIndexViewModel.Instance;
             ObservableCollection<ItemModel> itemCollection = ItemViewModelInstance.Dataset;
 
-            return itemCollection;
+            var res = itemCollection.Where(item => item.Location.Equals(val));
+
+
+            return res.ToList();
         }
 
     }
