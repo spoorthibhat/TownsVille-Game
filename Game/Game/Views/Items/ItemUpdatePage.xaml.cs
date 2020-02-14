@@ -33,6 +33,7 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
             
+            //Adding images for updating the item image 
             foreach (Image image in DefaultData.LoadItemImages())
             {
                 imageList.Add(image);
