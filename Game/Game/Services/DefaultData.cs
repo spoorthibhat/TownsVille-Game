@@ -98,6 +98,15 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Defense},
+                new ItemModel {
+                    Name = "Poisonous pearls",
+                    Description = "Pearls thrown from this release poisonous gas",
+                    ImageURI = "poisonous_pearls.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Defense},
             };
 
                 

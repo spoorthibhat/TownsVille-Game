@@ -303,4 +303,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\warm_sock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\poisonous_pearls.png" />
+  </ItemGroup>
 </Project>

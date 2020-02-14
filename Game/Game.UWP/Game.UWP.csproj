@@ -141,6 +141,7 @@
     <Content Include="mojo_jojo.png" />
     <Content Include="monster_button_icon.png" />
     <Content Include="ms_keane.png" />
+    <Content Include="poisonous_pearls.png" />
     <Content Include="powerpuff_girls.png" />
     <Content Include="professor_utonium.png" />
     <Content Include="Properties\Default.rd.xml" />
