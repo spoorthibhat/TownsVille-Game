@@ -59,7 +59,12 @@ namespace Game.Models
             MaxHealth = newData.MaxHealth;
             ItemPossesed = newData.ItemPossesed;
             Head = newData.Head;
-
+            Necklace = newData.Necklace;
+            PrimaryHand = newData.PrimaryHand;
+            OffHand = newData.OffHand;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
      
         }
 
