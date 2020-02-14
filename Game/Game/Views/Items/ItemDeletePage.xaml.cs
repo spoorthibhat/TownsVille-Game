@@ -7,7 +7,7 @@ using Game.Models;
 namespace Game.Views
 {
     /// <summary>
-    /// The Read Page
+    /// The Delete Page
     /// </summary>
     [DesignTimeVisible(false)]
     public partial class ItemDeletePage : ContentPage
@@ -44,16 +44,6 @@ namespace Game.Views
         async void No_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
-        }
-
-        /// <summary>
-        /// Trap the Back Button on the Phone
-        /// </summary>
-        /// <returns></returns>
-        protected override bool OnBackButtonPressed()
-        {
-            // Add your code here...
-            return true;
         }
     }
 }
