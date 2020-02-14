@@ -27,7 +27,7 @@ namespace Game.Helpers
             if (value == null)
                 return null;
             return ItemIndexViewModel.Instance.Dataset.Where(a =>
-                        a.Id == ((ItemModel)value).Id)
+                        a.Id == value.ToString())
                         .FirstOrDefault(); 
         }
 
