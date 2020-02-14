@@ -53,8 +53,17 @@ namespace Game.Views
             AttackPicker.SelectedItem = data.Data.Attack.ToString();
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
             SpeedPicker.SelectedItem = data.Data.Speed.ToString();
+
+            HeadItemPicker.SelectedItem = data.Data.Head;
+            NecklaceItemPicker.SelectedItem = data.Data.Necklace;
+            PrimaryHandItemPicker.SelectedItem = data.Data.PrimaryHand;
+            OffHandItemPicker.SelectedItem = data.Data.OffHand;
+            RightFingerItemPicker.SelectedItem = data.Data.RightFinger;
+            LeftFingerItemPicker.SelectedItem = data.Data.LeftFinger;
+            FeetItemPicker.SelectedItem = data.Data.Feet;
+
         }
-        
+
         /// <summary>
         /// Save calls to Update
         /// </summary>
@@ -103,6 +112,10 @@ namespace Game.Views
 
             ViewModel.Data.ImageURI = image.Url;
             CharacterImage.Source = image.Url;
+        }
+        void picker_Changed(object sender, SelectedItemChangedEventArgs args)
+        {
+
         }
     }
 }
