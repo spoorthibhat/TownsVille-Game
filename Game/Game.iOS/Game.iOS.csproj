@@ -309,4 +309,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\muffler.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\princess_morbucks.png" />
+  </ItemGroup>
 </Project>
