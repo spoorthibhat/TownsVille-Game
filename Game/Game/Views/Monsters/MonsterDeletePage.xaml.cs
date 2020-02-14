@@ -12,7 +12,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class MonsterDeletePage : ContentPage
     {
-        // View Model for Character
+        // View Model for Monster
         readonly GenericViewModel<MonsterModel> viewModel;
 
         // Constructor for Delete takes a view model of what to delete

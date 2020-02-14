@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local_helpers="clr-namespace:Game.Helpers"
              mc:Ignorable="d"
              x:Class="Game.Views.MonsterReadPage"
              Title="{Binding Title}">
@@ -84,7 +83,7 @@
                     Text="Necklace : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Necklace.Name}" 
+                    x:Name="NecklaceItem" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -93,7 +92,7 @@
                     Text="PrimaryHand : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.PrimaryHand.Name}" 
+                    x:Name="PrimaryHandItem" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -102,7 +101,7 @@
                     Text="OffHand : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.OffHand.Name}" 
+                    x:Name="OffHandItem"  
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -111,7 +110,7 @@
                     Text="RightFinger : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.RightFinger.Name}" 
+                    x:Name="RightFingerItem" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -120,7 +119,7 @@
                     Text="LeftFinger : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.LeftFinger.Name}" 
+                    x:Name="LeftFingerItem"  
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -129,7 +128,7 @@
                     Text="Feet : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Feet.Name}" 
+                    x:Name="FeetItem" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 

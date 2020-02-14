@@ -98,7 +98,7 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                
+
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Attack" 
@@ -151,7 +151,7 @@
                     <Label Grid.Row="5" Grid.Column="0"
                         Text="Items Holding" Grid.ColumnSpan="2"
                         Style="{StaticResource LabelStyle}"/>
-                    
+
                     <Label Grid.Row="6" Grid.Column="0"
                         Text="Head" 
                         Style="{StaticResource LabelStyle}"/>
@@ -167,7 +167,7 @@
 
                     <Picker Grid.Row="7" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Necklace, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.Necklace, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="NecklaceItemPicker"
                         />
 
@@ -177,7 +177,7 @@
 
                     <Picker Grid.Row="8" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.PrimaryHand, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.PrimaryHand, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="PrimaryHandItemPicker"
                         />
 
@@ -187,7 +187,7 @@
 
                     <Picker Grid.Row="9" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.OffHand, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.OffHand, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="OffHandItemPicker"
                         />
 
@@ -197,7 +197,7 @@
 
                     <Picker Grid.Row="10" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.RightFinger, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.RightFinger, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="RightFingerItemPicker"
                         />
 
@@ -207,7 +207,7 @@
 
                     <Picker Grid.Row="11" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.LeftFinger, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.LeftFinger, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="LeftFingerItemPicker"
                         />
 
@@ -217,14 +217,12 @@
 
                     <Picker Grid.Row="12" Grid.Column="1" 
                         ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding Data.Feet, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.Feet, Converter={StaticResource ItemModel_GUID}, Mode=TwoWay}" 
                         x:Name="FeetItemPicker"
                         />
                 </Grid>
-                
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
-
 
                     <Label 
                             Text="Level" 
@@ -248,10 +246,7 @@
                             Increment="1"/>
 
                     </StackLayout>
-
                     
-
-
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
@@ -260,7 +255,6 @@
                         Style="{StaticResource PrimaryButtonStyle}"
                         Clicked="Save_Clicked"/>
 
-                    
                     <Button
                         Text="Cancel"
                         Style="{StaticResource PrimaryButtonStyle}"

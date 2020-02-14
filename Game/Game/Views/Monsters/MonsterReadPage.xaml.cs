@@ -13,7 +13,7 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class MonsterReadPage : ContentPage
     {
-        // View Model for Item
+        // View Model for Monster
         readonly GenericViewModel<MonsterModel> ViewModel;
 
         /// <summary>
@@ -27,9 +27,23 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            HeadItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
-        }
 
+            LoadValues(data);
+        }
+        /// <summary>
+        /// Loading Item values to the labels
+        /// </summary>
+        /// <param name="data"></param>
+        public void LoadValues(GenericViewModel<MonsterModel> data)
+        {
+            HeadItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
+            NecklaceItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Necklace);
+            PrimaryHandItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.PrimaryHand);
+            OffHandItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.OffHand);
+            RightFingerItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.RightFinger);
+            LeftFingerItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.LeftFinger);
+            FeetItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Feet);
+        }
         /// <summary>
         /// Save calls to Update
         /// </summary>
