@@ -31,8 +31,7 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            HeadItemPicker.BindingContext = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
-
+            
             // Adding image data 
             foreach (Image image in DefaultData.LoadMonsterImages())
             {
@@ -42,33 +41,12 @@ namespace Game.Views
 
             ImageView.ItemsSource = imageList;
 
-
-            HeadItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Head);
-            //HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
-
-
-
-            NecklaceItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Necklass);
-            PrimaryHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.PrimaryHand);
-            OffHandItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.OffHand);
-            RightFingerItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.RightFinger);
-            LeftFingerItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.LeftFinger);
-            FeetItemPicker.ItemsSource = DefaultData.LoadItems(ItemLocationEnum.Feet);
-
             this.ViewModel.Title = "Update " + data.Title;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             AttackPicker.SelectedItem = data.Data.Attack.ToString();
             DefensePicker.SelectedItem = data.Data.Defense.ToString();
             SpeedPicker.SelectedItem = data.Data.Speed.ToString();
-
-            HeadItemPicker.SelectedItem = ItemModelHelper.GetItemModelFromGuid(data.Data.Head);
-            NecklaceItemPicker.SelectedItem = data.Data.Necklace;
-            PrimaryHandItemPicker.SelectedItem = data.Data.PrimaryHand;
-            OffHandItemPicker.SelectedItem = data.Data.OffHand;
-            RightFingerItemPicker.SelectedItem = data.Data.RightFinger;
-            LeftFingerItemPicker.SelectedItem = data.Data.LeftFinger;
-            FeetItemPicker.SelectedItem = data.Data.Feet;
 
         }
 
@@ -122,9 +100,6 @@ namespace Game.Views
             ViewModel.Data.ImageURI = image.Url;
             CharacterImage.Source = image.Url;
         }
-        void picker_Changed(object sender, SelectedItemChangedEventArgs args)
-        {
-
-        }
+        
     }
 }
