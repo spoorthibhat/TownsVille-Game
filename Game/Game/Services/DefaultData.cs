@@ -89,6 +89,15 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
+                new ItemModel {
+                    Name = "Warm sock",
+                    Description = "Protects against ice and fire attacks",
+                    ImageURI = "warm_sock.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Defense},
             };
 
                 

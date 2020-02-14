@@ -300,4 +300,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\firing_crown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\warm_sock.png" />
+  </ItemGroup>
 </Project>

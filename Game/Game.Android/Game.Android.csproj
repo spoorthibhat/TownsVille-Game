@@ -250,5 +250,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\firing_crown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\warm_sock.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
