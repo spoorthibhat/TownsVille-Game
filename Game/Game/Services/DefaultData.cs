@@ -275,6 +275,10 @@ namespace Game.Services
             };
             return imageList;
         }
+        /// <summary>
+        /// Loads the items based on their location value
+        /// </summary>
+        /// <returns></returns>
         public static List<ItemModel> LoadItems(ItemLocationEnum val)
         {
             var ItemViewModelInstance = ItemIndexViewModel.Instance;
