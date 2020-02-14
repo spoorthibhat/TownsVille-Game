@@ -29,11 +29,10 @@
                 <Label
                     Text="Update the image for your item: " 
                     Style="{StaticResource LabelStyle}"/>
-
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="Start" 
-                      Padding="90,-80,-80,-80">
+                      Padding="140,-120,-120,-120">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -44,7 +43,7 @@
 
                     <ListView x:Name="ImageView"   
                               Grid.Row ="0" Grid.Column="0" 
-                              Rotation="270" RowHeight="40" 
+                              Rotation="270" RowHeight="50" 
                               ItemSelected="OnItemImageSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -55,8 +54,8 @@
                                                WidthRequest="40" 
                                                HeightRequest ="40"
                                                 MinimumHeightRequest = "40"
-                                                MinimumWidthRequest = "40"
-                                                Rotation="90"></Image>
+                                            MinimumWidthRequest = "40"
+                                               Rotation="90"></Image>
                                         </StackLayout>
                                     </ViewCell.View>
                                 </ViewCell>
@@ -64,7 +63,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
-                
+
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
