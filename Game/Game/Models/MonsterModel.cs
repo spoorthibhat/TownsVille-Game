@@ -8,10 +8,7 @@ namespace Game.Models
     {
     
         
-        // Item possessed by the monster
-        [Ignore]
-        public ItemModel ItemPossesed { get; set; } = null;
-
+        
         // Items to be added
 
         /// <summary>
@@ -57,7 +54,6 @@ namespace Game.Models
             Defense = newData.Defense;
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
-            ItemPossesed = newData.ItemPossesed;
             Head = newData.Head;
             Necklace = newData.Necklace;
             PrimaryHand = newData.PrimaryHand;

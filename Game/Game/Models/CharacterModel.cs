@@ -11,10 +11,7 @@ namespace Game.Models
         public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.None;
         
 
-        // Item possessed by the character
-        [Ignore]
-        public ItemModel ItemPossesed { get; set; } = null;
-
+        
         // Items to be added
 
         /// <summary>
@@ -61,8 +58,7 @@ namespace Game.Models
             Defense = newData.Defense;
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
-            ItemPossesed = newData.ItemPossesed;
-     
+            
         }
     }
 }
