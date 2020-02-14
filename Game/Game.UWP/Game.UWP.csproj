@@ -122,6 +122,7 @@
     <Content Include="dungeon_door.png" />
     <Content Include="firing_crown.png" />
     <Content Include="gameover.png" />
+    <Content Include="gang_green.png" />
     <Content Include="grey_door.png" />
     <Content Include="heat_shield.png" />
     <Content Include="helmet.png" />
