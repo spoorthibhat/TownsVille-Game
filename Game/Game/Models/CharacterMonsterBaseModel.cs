@@ -108,7 +108,7 @@ namespace Game.Models
             this.CurrentHealth = this.CurrentHealth - TotalDamage;
         }
 
-        /*
+        
         /// <summary>
         /// Returns list of all items possessed.
         /// </summary>
@@ -118,43 +118,43 @@ namespace Game.Models
             var DroppedItems = new List<ItemModel>();
             if(this.Head != null)
             {
-                DroppedItems.Add(this.Head);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.Head));
                 this.Head = null;
             }
 
             if (this.Feet != null)
             {
-                DroppedItems.Add(this.Feet);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.Feet));
                 this.Feet = null;
             }
 
             if (this.Necklace != null)
             {
-                DroppedItems.Add(this.Necklace);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.Necklace));
                 this.Necklace = null;
             }
 
             if (this.LeftFinger != null)
             {
-                DroppedItems.Add(this.LeftFinger);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.LeftFinger));
                 this.LeftFinger = null;
             }
 
             if (this.RightFinger != null)
             {
-                DroppedItems.Add(this.RightFinger);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.RightFinger));
                 this.RightFinger = null;
             }
 
             if (this.PrimaryHand != null)
             {
-                DroppedItems.Add(this.PrimaryHand);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.PrimaryHand));
                 this.PrimaryHand = null;
             }
 
             if (this.OffHand != null)
             {
-                DroppedItems.Add(this.OffHand);
+                DroppedItems.Add(ItemModelHelper.GetItemModelFromGuid(this.OffHand));
                 this.OffHand = null;
             }
 
@@ -172,19 +172,19 @@ namespace Game.Models
             switch (Location)
             {
                 case ItemLocationEnum.Head:
-                    
+                    return ItemModelHelper.GetItemModelFromGuid(this.Head);
                 case ItemLocationEnum.Feet:
-                    return this.Feet;
+                    return ItemModelHelper.GetItemModelFromGuid(this.Feet);
                 case ItemLocationEnum.LeftFinger:
-                    return this.LeftFinger;
+                    return ItemModelHelper.GetItemModelFromGuid(this.LeftFinger);
                 case ItemLocationEnum.RightFinger:
-                    return this.RightFinger;
+                    return ItemModelHelper.GetItemModelFromGuid(this.RightFinger);
                 case ItemLocationEnum.PrimaryHand:
-                    return this.PrimaryHand;
+                    return ItemModelHelper.GetItemModelFromGuid(this.PrimaryHand);
                 case ItemLocationEnum.Necklass:
-                    return this.Necklace;
+                    return ItemModelHelper.GetItemModelFromGuid(this.Necklace);
                 case ItemLocationEnum.OffHand:
-                    return this.OffHand;
+                    return ItemModelHelper.GetItemModelFromGuid(this.OffHand);
                 default:
                     return null;
             }
