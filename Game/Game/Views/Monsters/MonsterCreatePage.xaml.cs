@@ -9,6 +9,9 @@ using Image = Game.Models.Image;
 
 namespace Game.Views.Monsters
 {
+    /// <summary>
+    /// Monster create page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterCreatePage : ContentPage
     {
@@ -18,6 +21,7 @@ namespace Game.Views.Monsters
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
 
 
+        // Constructor
         public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();
@@ -39,6 +43,11 @@ namespace Game.Views.Monsters
             SpeedPicker.SelectedItem = data.Data.Speed.ToString();
         }
 
+        /// <summary>
+        /// Triggers when a monster image is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void OnMonsterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var image = args.SelectedItem as Image;
