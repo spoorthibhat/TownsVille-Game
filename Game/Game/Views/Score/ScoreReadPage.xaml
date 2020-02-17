@@ -7,12 +7,6 @@
              x:Class="Game.Views.ScoreReadPage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
-
-
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
@@ -117,6 +111,20 @@
                 Text="{Binding Data.ItemsDroppedList}"
                 Style="{StaticResource ValueStyle}"/>
 
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button
+                Text="Update"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="Update_Clicked"/>
+
+                <Button
+                Text="Delete"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="Delete_Clicked"/>
+            </StackLayout>
+
         </StackLayout>
+        
     </ScrollView>
 </ContentPage>
