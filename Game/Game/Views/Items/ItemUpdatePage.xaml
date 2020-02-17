@@ -31,8 +31,8 @@
                     Style="{StaticResource LabelStyle}"/>
                 <Grid RowSpacing="1"
                     ColumnSpacing="2"
-                    HorizontalOptions="Start" 
-                      Padding="140,-120,-120,-120">
+                    HorizontalOptions="StartAndExpand" 
+                      Padding="200,-200,-200,-200">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -43,7 +43,7 @@
 
                     <ListView x:Name="ImageView"   
                               Grid.Row ="0" Grid.Column="0" 
-                              Rotation="270" RowHeight="50" 
+                              Rotation="270" RowHeight="40" 
                               ItemSelected="OnItemImageSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -51,10 +51,10 @@
                                     <ViewCell.View>
                                         <StackLayout>
                                             <Image Source="{Binding Url}"
-                                               WidthRequest="40" 
-                                               HeightRequest ="40"
-                                                MinimumHeightRequest = "40"
-                                            MinimumWidthRequest = "40"
+                                               WidthRequest="30" 
+                                               HeightRequest ="30"
+                                                MinimumHeightRequest = "30"
+                                            MinimumWidthRequest = "30"
                                                Rotation="90"></Image>
                                         </StackLayout>
                                     </ViewCell.View>

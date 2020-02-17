@@ -251,6 +251,11 @@ namespace Game.Services
                 new Image { Url = "thunderbolt.png" },
                 new Image { Url = "helmet.png" },
                 new Image { Url = "absorbing_shoes.png" },
+                new Image {Url = "bracelet_of_attack.png"},
+                new Image {Url = "muffler.png"},
+                new Image {Url = "poisonous_pearls.png"},
+                new Image {Url = "warm_sock.png"},
+                new Image {Url = "firing_crown.png"}
             };
             return imageList;
         }
