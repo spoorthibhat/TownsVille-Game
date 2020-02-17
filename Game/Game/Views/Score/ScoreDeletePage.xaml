@@ -6,11 +6,6 @@
              mc:Ignorable="d"
              x:Class="Game.Views.ScoreDeletePage"
              Title="{Binding Title}">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
 
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
@@ -69,22 +64,27 @@
    
             </StackLayout>
 
+
             <StackLayout 
                 HorizontalOptions="Center" 
                 Padding="20">
 
                 <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
 
-                <Button 
-                    Text="Yes" 
-                    Clicked="Delete_Clicked" 
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    BorderWidth="1" 
-                    BorderColor="black">
-                </Button>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 
+                    <Button
+                        Text="Yes"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Clicked="Delete_Clicked"/>
+
+                    <Button
+                        Text="No"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Clicked="Cancel_Clicked"/>
+                </StackLayout>
             </StackLayout>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
