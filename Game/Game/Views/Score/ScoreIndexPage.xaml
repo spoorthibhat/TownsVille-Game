@@ -13,11 +13,26 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource OuterBoxStack}">
+   
 
-            <Label Text="Score List Page" Style="{StaticResource HeaderStyle}"/>
+            <StackLayout
+            Style="{StaticResource OuterBoxStack}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+         >
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Scores List Page"   
+                VerticalOptions="Start" 
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource HeaderStyle}"/>
+                    <Button
+                Text="Add Score"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Clicked="AddItem_Clicked"
+                HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
 
-            <ListView x:Name="DataListView" 
+                <ListView x:Name="DataListView" 
                     ItemsSource="{Binding Dataset}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
