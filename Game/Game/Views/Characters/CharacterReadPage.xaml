@@ -69,6 +69,69 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Head : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="HeadItem" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Necklace : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="NecklaceItem" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="PrimaryHand : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="PrimaryHandItem" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="OffHand : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="OffHandItem"  
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="RightFinger : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="RightFingerItem" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="LeftFinger : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="LeftFingerItem"  
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Feet : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    x:Name="FeetItem" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button
                 Text="Update"
