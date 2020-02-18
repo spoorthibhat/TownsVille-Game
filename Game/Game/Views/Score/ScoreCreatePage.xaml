@@ -69,6 +69,13 @@
                     <Label Grid.Row="3" Grid.Column="0"
                         Text="Number of monsters slained" 
                         Style="{StaticResource LabelStyle}"/>
+                    <Entry Grid.Row="4" Grid.Column="1"
+                        Text="{Binding Data.ExperienceGainedTotal}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                        Text="Total experience gained" 
+                        Style="{StaticResource LabelStyle}"/>
 
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
