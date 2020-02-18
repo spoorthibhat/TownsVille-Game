@@ -27,9 +27,9 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
             LoadValues(data);
         }
-
         /// <summary>
         /// Loading Item values to the labels
         /// </summary>
@@ -44,7 +44,6 @@ namespace Game.Views
             LeftFingerItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.LeftFinger);
             FeetItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Feet);
         }
-
         /// <summary>
         /// Save calls to Update
         /// </summary>
