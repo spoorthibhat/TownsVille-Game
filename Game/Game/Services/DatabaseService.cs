@@ -26,6 +26,9 @@ namespace Game.Services
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
         static bool initialized = false;
 
+        // Set Needs Init to False, so toggles to true 
+        public bool NeedsInitialization = true;
+
         /// <summary>
         /// Constructor
         /// All the database to start up
@@ -144,6 +147,22 @@ namespace Game.Services
         public async Task<List<T>> IndexAsync()
         {
             return await Database.Table<T>().ToListAsync();
+        }
+
+        /// <summary>
+        /// First time toggled, returns true.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
         }
     }
 }
