@@ -42,6 +42,8 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
+            ViewModel.Data.ScoreTotal = ScoreCalculation();
+
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
@@ -55,5 +57,18 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// Calculates the score based on other attributes
+        /// </summary>
+        /// <returns></returns>
+        int ScoreCalculation()
+        {
+            // TODO: To be changed if this is not acceptable
+            int score = (ViewModel.Data.MonsterSlainNumber * 100) + ViewModel.Data.ExperienceGainedTotal
+                - (ViewModel.Data.RoundCount * 10) - ViewModel.Data.TurnCount;
+            return score;
+        }
+        
     }
 }
