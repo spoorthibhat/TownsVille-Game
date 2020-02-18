@@ -6,10 +6,10 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterReadPage"
              Title="{Binding Title}">
-    
+
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
-            Spacing="10">
+            Spacing="10" Padding="0,0,20,0">
 
             <Label Text="Character Details" Style="{StaticResource HeaderStyle}"/>
 
