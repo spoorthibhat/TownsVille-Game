@@ -25,7 +25,7 @@
                 Spacing="10">
 
                 <Label Text="Create Page" Style="{StaticResource HeaderStyle}"/>
-
+                
                 <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
@@ -46,36 +46,49 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    
                     <Entry Grid.Row="1" Grid.Column="1"
-                        Text="{Binding Data.TurnCount}" 
-                        Style="{StaticResource EntryStyle}"/>
+                        Text="{Binding Data.MonsterSlainNumber}" 
+                        Style="{StaticResource EntryStyle}"
+                           TextChanged="OnEntryChange"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
-                        Text="Number of turns" 
+                        Text="Number of monsters slained" 
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="2" Grid.Column="1"
-                        Text="{Binding Data.RoundCount}" 
-                        Style="{StaticResource EntryStyle}"/>
+                        Text="{Binding Data.TurnCount}" 
+                        Style="{StaticResource EntryStyle}"
+                           TextChanged="OnEntryChange"/>
 
                     <Label Grid.Row="2" Grid.Column="0"
-                        Text="Number of rounds" 
+                        Text="Number of turns" 
                         Style="{StaticResource LabelStyle}"/>
+                    
                     <Entry Grid.Row="3" Grid.Column="1"
-                        Text="{Binding Data.MonsterSlainNumber}" 
-                        Style="{StaticResource EntryStyle}"/>
+                        Text="{Binding Data.RoundCount}" 
+                        Style="{StaticResource EntryStyle}"
+                           TextChanged="OnEntryChange"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
-                        Text="Number of monsters slained" 
+                        Text="Number of rounds" 
                         Style="{StaticResource LabelStyle}"/>
+                    
                     <Entry Grid.Row="4" Grid.Column="1"
                         Text="{Binding Data.ExperienceGainedTotal}" 
-                        Style="{StaticResource EntryStyle}"/>
+                        Style="{StaticResource EntryStyle}"
+                           TextChanged="OnEntryChange"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Total experience gained" 
                         Style="{StaticResource LabelStyle}"/>
+                    <Label Grid.Row="5" Grid.Column="0"
+                           Text="Total Score:"
+                           Style="{StaticResource HeaderStyle}"/>
+                    <Label x:Name="ScoreLabel" 
+                           Grid.Row="5" Grid.Column="1"
+                           Text="{Binding Data.ScoreTotal}" 
+                           Style="{StaticResource HeaderStyle}"/>
+
 
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

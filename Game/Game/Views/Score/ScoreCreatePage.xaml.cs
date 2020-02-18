@@ -42,8 +42,7 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
-            ViewModel.Data.ScoreTotal = ScoreCalculation();
-
+            
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
@@ -56,6 +55,17 @@ namespace Game.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Triggers when entry changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnEntryChange(object sender, TextChangedEventArgs e)
+        {
+            ViewModel.Data.ScoreTotal = ScoreCalculation();
+            ScoreLabel.Text = ViewModel.Data.ScoreTotal.ToString();
         }
 
         /// <summary>
