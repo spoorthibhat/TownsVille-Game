@@ -46,9 +46,6 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    <Label Grid.Row="1" Grid.Column="0"
-                        Text="Score" 
-                        Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="1" Grid.Column="1"
                         Text="{Binding Data.TurnCount}" 
@@ -64,6 +61,13 @@
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Number of rounds" 
+                        Style="{StaticResource LabelStyle}"/>
+                    <Entry Grid.Row="3" Grid.Column="1"
+                        Text="{Binding Data.MonsterSlainNumber}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                        Text="Number of monsters slained" 
                         Style="{StaticResource LabelStyle}"/>
 
                 </Grid>
