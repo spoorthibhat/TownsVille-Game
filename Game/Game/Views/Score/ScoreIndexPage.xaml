@@ -56,7 +56,7 @@
                                        Style="{StaticResource ListStyle}"/>
 
                                 <Label Grid.Column="0" Grid.Row="1"
-                                       Text="Rounds" 
+                                       Text="Rounds: " 
                                        Style="{StaticResource ListStyle}"/>
 
                                 <Label Grid.Column="1" Grid.Row="1"
@@ -64,7 +64,7 @@
                                        Style="{StaticResource ListStyle}"/>
 
                                 <Label Grid.Column="0" Grid.Row="2"
-                                       Text="Score" 
+                                       Text="Score: " 
                                        Style="{StaticResource ListStyle}"/>
                                 
                                 <Label Grid.Column="1" Grid.Row="2"
