@@ -51,11 +51,19 @@
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="1" Grid.Column="1"
-                        Text="{Binding Data.ScoreTotal}" 
+                        Text="{Binding Data.TurnCount}" 
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
-                        Text="Score" 
+                        Text="Number of turns" 
+                        Style="{StaticResource LabelStyle}"/>
+                    
+                    <Entry Grid.Row="2" Grid.Column="1"
+                        Text="{Binding Data.RoundCount}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0"
+                        Text="Number of rounds" 
                         Style="{StaticResource LabelStyle}"/>
 
                 </Grid>
