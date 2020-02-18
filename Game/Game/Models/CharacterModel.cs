@@ -8,7 +8,7 @@ namespace Game.Models
         
         //Character special ability
        
-        public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.None;
+        public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.Unknown;
         
 
         

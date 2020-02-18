@@ -155,7 +155,7 @@ namespace Game.Services
                 Description = "She is the emotional glue of the superhero trio",
                 ImageURI = "Bubbles.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.Armour,
+                SpecialAbility = SpecialAbilityEnum.Freeze,
             },
             new CharacterModel{
                 Name = "Buttercup",
