@@ -179,7 +179,18 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<List<T>> IndexAsync()
         {
-            return await Database.Table<T>().ToListAsync();
+            List<T> result;
+            try
+            {
+                result = await Database.Table<T>().ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return null;
+            }
+
+            return result;
         }
 
         /// <summary>
