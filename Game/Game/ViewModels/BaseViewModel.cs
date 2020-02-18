@@ -126,7 +126,7 @@ namespace Game.ViewModels
                 
                 // Load the Data from the DataStore
                 await ExecuteLoadDataCommand();
-                return true;
+                
             }
             // If data exists, do not run
             if (Dataset.Count>0)
