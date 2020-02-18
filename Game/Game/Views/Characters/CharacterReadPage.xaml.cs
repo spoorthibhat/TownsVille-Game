@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Game.ViewModels;
 using System;
 using Game.Models;
+using Game.Helpers;
 
 namespace Game.Views
 {
@@ -26,6 +27,22 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+            LoadValues(data);
+        }
+
+        /// <summary>
+        /// Loading Item values to the labels
+        /// </summary>
+        /// <param name="data"></param>
+        public void LoadValues(GenericViewModel<CharacterModel> data)
+        {
+            HeadItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Head);
+            NecklaceItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Necklace);
+            PrimaryHandItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.PrimaryHand);
+            OffHandItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.OffHand);
+            RightFingerItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.RightFinger);
+            LeftFingerItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.LeftFinger);
+            FeetItem.Text = ItemModelHelper.GetItemModelNameFromGuid(data.Data.Feet);
         }
 
         /// <summary>
