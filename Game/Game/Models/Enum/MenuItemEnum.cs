@@ -7,6 +7,8 @@
     {
         Battle,
         Village,
+        Characters,
+        Monsters,
         Score,
         Items,
         Game,

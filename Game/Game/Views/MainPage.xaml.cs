@@ -1,4 +1,5 @@
 ﻿using Game.Models;
+using Game.Views.Characters;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -43,6 +44,14 @@ namespace Game.Views
 
                     case (int)MenuItemEnum.Items:
                         MenuPages.Add(id, new NavigationPage(new ItemIndexPage()));
+                        break;
+
+                    case (int)MenuItemEnum.Characters:
+                        MenuPages.Add(id, new NavigationPage(new CharacterIndexPage()));
+                        break;
+
+                    case (int)MenuItemEnum.Monsters:
+                        MenuPages.Add(id, new NavigationPage(new MonsterIndexPage()));
                         break;
 
                     case (int)MenuItemEnum.Village:
