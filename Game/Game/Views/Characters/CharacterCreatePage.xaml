@@ -15,6 +15,7 @@
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
             <local_helpers:IntStringConverter x:Key="Int_String"/>
+            <local_helpers:ItemLocationPickerConverter x:Key="ItemGUID_Name"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -139,24 +140,85 @@
                         </Picker.Items>
                     </Picker>
 
-                    <!--
                     <Label Grid.Row="5" Grid.Column="0"
-                        Text="Health" 
+                        Text="Items Holding" Grid.ColumnSpan="2"
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Picker Grid.Row="5" Grid.Column="1" 
-                        SelectedItem="{Binding Data.CurrentHealth, Converter={StaticResource Int_String}, Mode=TwoWay}" 
-                        x:Name="HealthPicker">
-                        <Picker.Items>
-                            <x:String>0</x:String>
-                            <x:String>5</x:String>
-                            <x:String>10</x:String>
-                            <x:String>20</x:String>
-                            <x:String>25</x:String>
-                            <x:String>30</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    -->
+                    <Label Grid.Row="6" Grid.Column="0"
+                        Text="Head" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="6" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetHeadItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Head, Mode=TwoWay}" 
+                        x:Name="HeadItemPicker"/>
+
+                    <Label Grid.Row="7" Grid.Column="0"
+                        Text="Necklace" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="7" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetNecklaceItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Necklace, Mode=TwoWay}" 
+                        x:Name="NecklaceItemPicker"
+                        />
+
+                    <Label Grid.Row="8" Grid.Column="0"
+                        Text="PrimaryHand" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="8" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetPrimaryHandItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.PrimaryHand, Mode=TwoWay}" 
+                        x:Name="PrimaryHandItemPicker"
+                        />
+
+                    <Label Grid.Row="9" Grid.Column="0"
+                        Text="OffHand" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="9" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetOffHandItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.OffHand, Mode=TwoWay}" 
+                        x:Name="OffHandItemPicker"
+                        />
+
+                    <Label Grid.Row="10" Grid.Column="0"
+                        Text="RightFinger" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="10" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetRightFingerItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.RightFinger, Mode=TwoWay}" 
+                        x:Name="RightFingerItemPicker"
+                        />
+
+                    <Label Grid.Row="11" Grid.Column="0"
+                        Text="LeftFinger" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="11" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetLeftFingerItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.LeftFinger, Mode=TwoWay}" 
+                        x:Name="LeftFingerItemPicker"
+                        />
+
+                    <Label Grid.Row="12" Grid.Column="0"
+                        Text="Feet" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="12" Grid.Column="1" 
+                        ItemsSource="{x:Static local_helpers:ItemModelHelper.GetFeetItemList}" 
+                        ItemDisplayBinding="{Binding ., Converter={StaticResource ItemGUID_Name}}"
+                        SelectedItem="{Binding Data.Feet, Mode=TwoWay}" 
+                        x:Name="FeetItemPicker"
+                        />
 
                 </Grid>
 
