@@ -123,9 +123,10 @@ namespace Game.ViewModels
             if (await DataStore.GetNeedsInitializationAsync())
             {
                 Dataset.Clear();
-
+                
                 // Load the Data from the DataStore
                 await ExecuteLoadDataCommand();
+                return true;
             }
             // If data exists, do not run
             if (Dataset.Count>0)
