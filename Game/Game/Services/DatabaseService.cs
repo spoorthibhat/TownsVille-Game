@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Game.Services
 {
@@ -28,6 +29,9 @@ namespace Game.Services
 
         // Set Needs Init to False, so toggles to true 
         public bool NeedsInitialization = true;
+
+        // Semaphore to track transactions
+        private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(initialCount: 1);
 
         /// <summary>
         /// Constructor
