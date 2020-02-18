@@ -132,7 +132,16 @@ namespace Game.Services
                 return false;
             }
 
-            var result = await Database.UpdateAsync(data);
+            int result = 0;
+            try
+            {
+                result = await Database.UpdateAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return (result == 0);
+            }
 
             return (result == 1);
         }
