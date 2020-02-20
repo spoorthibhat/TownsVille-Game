@@ -21,7 +21,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data) 
         {
-            /*
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -37,11 +37,11 @@ namespace Game.Models
             // Set the strings for the items
             Head = data.Head;
             Feet = data.Feet;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(CharacterModel data)
         {
-            /*
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -66,11 +66,11 @@ namespace Game.Models
             // Set the strings for the items
             Head = data.Head;
             Feet = data.Feet;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(MonsterModel data)
         {
-            /*
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -95,11 +95,11 @@ namespace Game.Models
             // Set the strings for the items
             Head = data.Head;
             Feet = data.Feet;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
     }
 }

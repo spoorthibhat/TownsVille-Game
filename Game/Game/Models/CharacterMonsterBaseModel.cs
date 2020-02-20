@@ -369,6 +369,27 @@ namespace Game.Models
             return true;
         }
 
+        /// <summary>
+        /// Roll the Damage Dice, and add to the Damage
+        /// </summary>
+        /// <returns></returns>
+        public int GetDamageRollValue()
+        {
+            var myReturn = 0;
+
+            var myItem = ItemModelHelper.GetItemModelFromGuid(PrimaryHand);
+            if (myItem != null)
+            {
+                // Dice of the weapon.  So sword of Damage 10 is d10
+                myReturn += DiceHelper.RollDice(1, myItem.Damage);
+            }
+
+            // Add in the Level as extra damage per game rules
+            myReturn += GetDamageLevelBonus;
+
+            return myReturn;
+        }
+
         // Death
         // Alive turns to False
         public bool CauseDeath()
