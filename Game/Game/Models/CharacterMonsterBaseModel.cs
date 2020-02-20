@@ -481,40 +481,59 @@ namespace Game.Models
             }
         }
 
-        
-        /// <summary>
-        /// Adds the Item to the location
-        /// </summary>
-        /// <param name="Location"></param>
-        /// <param name="ToBeAdded"></param>
-        public void AddItem(ItemLocationEnum Location, ItemModel ToBeAdded)
+
+        // Add ItemModel
+        // Looks up the ItemModel
+        // Puts the ItemModel ID as a string in the location slot
+        // If ItemModel is null, then puts null in the slot
+        // Returns the ItemModel that was in the location
+        public ItemModel AddItem(ItemLocationEnum itemlocation, string itemID)
         {
-            switch (Location)
+            ItemModel myReturn;
+
+            switch (itemlocation)
             {
-                case ItemLocationEnum.Head:
-                    this.Head = ToBeAdded.Id;
-                    break;
                 case ItemLocationEnum.Feet:
-                    this.Feet = ToBeAdded.Id;
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(Feet);
+                    Feet = itemID;
                     break;
-                case ItemLocationEnum.LeftFinger:
-                    this.LeftFinger = ToBeAdded.Id;
+
+                case ItemLocationEnum.Head:
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(Head);
+                    Head = itemID;
                     break;
-                case ItemLocationEnum.RightFinger:
-                    this.RightFinger = ToBeAdded.Id;
-                    break;
-                case ItemLocationEnum.PrimaryHand:
-                    this.PrimaryHand = ToBeAdded.Id;
-                    break;
+
                 case ItemLocationEnum.Necklass:
-                    this.Necklace = ToBeAdded.Id;
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(Necklace);
+                    Necklace = itemID;
                     break;
+
+                case ItemLocationEnum.PrimaryHand:
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(PrimaryHand);
+                    PrimaryHand = itemID;
+                    break;
+
                 case ItemLocationEnum.OffHand:
-                    this.OffHand = ToBeAdded.Id;
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(OffHand);
+                    OffHand = itemID;
                     break;
+
+                case ItemLocationEnum.RightFinger:
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(RightFinger);
+                    RightFinger = itemID;
+                    break;
+
+                case ItemLocationEnum.LeftFinger:
+                    myReturn = ItemModelHelper.GetItemModelFromGuid(LeftFinger);
+                    LeftFinger = itemID;
+                    break;
+
                 default:
+                    myReturn = null;
                     break;
             }
+
+            return myReturn;
         }
 
         /// <summary>
