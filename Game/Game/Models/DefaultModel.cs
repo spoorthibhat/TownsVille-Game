@@ -21,5 +21,8 @@ namespace Game.Models
         // The Descirption of the Item
         public string Description { get; set; } = "Item Description";
 
+        // Guid, passed from the server
+        public string Guid { get; set; } = "";
+
     }
 }
