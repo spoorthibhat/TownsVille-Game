@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using System.Collections.Generic;
 
 namespace Game.Services
@@ -148,14 +149,16 @@ namespace Game.Services
                 ImageURI = "Blossum.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
+                Head = ItemModelHelper.GetHeadItemList[0],
 
-            },
+        },
             new CharacterModel{
                 Name = "Bubbles",
                 Description = "She is the emotional glue of the superhero trio",
                 ImageURI = "Bubbles.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Freeze,
+                Feet = ItemModelHelper.GetFeetItemList[0],
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -163,6 +166,7 @@ namespace Game.Services
                 ImageURI = "Buttercup.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
+                PrimaryHand = ItemModelHelper.GetPrimaryHandItemList[0],
             },
              new CharacterModel{
                 Name = "Mayor",
@@ -170,6 +174,7 @@ namespace Game.Services
                 ImageURI = "mayor.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
+                Necklace = ItemModelHelper.GetNecklaceItemList[0],
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -177,6 +182,7 @@ namespace Game.Services
                 ImageURI = "professor_utonium.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
+                RightFinger = ItemModelHelper.GetRightFingerItemList[0],
             },
 
             };
@@ -191,6 +197,7 @@ namespace Game.Services
                 Description = "He is the master mind",
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
+                Head = ItemModelHelper.GetHeadItemList[0],
 
             },
             new MonsterModel{
@@ -198,21 +205,23 @@ namespace Game.Services
                 Description = "He is most evil",
                 ImageURI = "him.png",
                 Level = 1,
-             
+                Feet = ItemModelHelper.GetFeetItemList[0],
+
             },
              new MonsterModel{
                 Name = "Amoeba boys",
                 Description = "They spread ill ness",
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
-               
+                PrimaryHand = ItemModelHelper.GetPrimaryHandItemList[0],
+
             },
                 new MonsterModel{
                 Name = "Rowdy boys",
                 Description = "They are rough",
                 ImageURI = "rowdy_boys.png",
                 Level = 1,
-                
+                Necklace = ItemModelHelper.GetNecklaceItemList[0],
             },
 
             };
