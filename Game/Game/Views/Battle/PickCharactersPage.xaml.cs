@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,14 +13,30 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PickCharactersPage : ContentPage
 	{
+		readonly CharacterIndexViewModel ViewModel;
+
+		public List<CharacterModel> CharacterSelectedList = new List<CharacterModel>();
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public PickCharactersPage()
 		{
 			InitializeComponent ();
+			BindingContext = ViewModel = CharacterIndexViewModel.Instance;
 		}
 
+		/// <summary>
+		/// The row selected from the list
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="args"></param>
+		private void OnCharacter_Checked(object sender, CheckedChangedEventArgs e)
+		{
+			var checkBoxItem = (CheckBox)sender;
+			CharacterModel selectedCharacter= (CharacterModel)checkBoxItem.BindingContext;
+			CharacterSelectedList.Add(selectedCharacter);
+			
+		}
 		/// <summary>
 		/// Jump to the Battle
 		/// 
@@ -27,6 +46,8 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleButton_Clicked(object sender, EventArgs e)
 		{
+			//await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
+
 			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
 			await Navigation.PopAsync();
 		}

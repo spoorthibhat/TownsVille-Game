@@ -5,10 +5,86 @@
              >
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Characters Page..."></Label>
+        <StackLayout
+            Style="{StaticResource OuterBoxStack}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+         >
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pick Characters"   
+                VerticalOptions="Start" 
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource HeaderStyle}"/>
+                <Button
+                Text="Ok"
+                Style="{StaticResource PrimaryButtonStyle}"
+                HorizontalOptions="EndAndExpand"
+                Clicked="BattleButton_Clicked"/>
+            </StackLayout>
+            <ListView x:Name="CharacterListView" 
+                    ItemsSource="{Binding Dataset}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0"
+                    RowHeight="80"
+                    >
 
-            <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="5" RowSpacing="1" Padding="5" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
+
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Special-Ability: " 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                    <Label Text="{Binding SpecialAbility}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
+
+                                </StackLayout>
+
+                                <Label Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding Description}" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+                                
+                                <CheckBox x:Name="chooseItem" VerticalOptions="Center" 
+                                    Grid.Column="2" Grid.Row="0"
+                                    IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                    CheckedChanged="OnCharacter_Checked"
+                                    />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
         
     </ContentPage.Content>
