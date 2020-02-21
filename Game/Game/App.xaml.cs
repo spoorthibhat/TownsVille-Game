@@ -17,10 +17,7 @@ namespace Game
             InitializeComponent();
 
             // Add each model here to warm up and load it.
-            ItemIndexViewModel.Instance.GetCurrentDataSource();
-            CharacterIndexViewModel.Instance.GetCurrentDataSource();
-            MonsterIndexViewModel.Instance.GetCurrentDataSource();
-            ScoreIndexViewModel.Instance.GetCurrentDataSource();
+            Helpers.DataSetsHelper.WarmUp();
 
             // Call the Main Page to open
             MainPage = new MainPage();
