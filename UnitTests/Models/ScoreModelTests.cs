@@ -149,22 +149,22 @@ namespace UnitTests.Models
         //    Assert.AreEqual("items", dataNew.ItemsDroppedList);
         //}
 
-        //[Test]
-        //public void ScoreModel_Update_InValid_Null_Should_Fail()
-        //{
-        //    // Arrange
-        //    var dataOriginal = new ScoreModel();
-        //    dataOriginal.TurnCount = 2;
+        [Test]
+        public void ScoreModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new ScoreModel();
+            dataOriginal.TurnCount = 2;
 
-        //    // Act
-        //    var result = dataOriginal.Update(null);
+            // Act
+            var result = dataOriginal.Update(null);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert 
-        //    Assert.AreEqual(false, result);
-        //    Assert.AreEqual(2, dataOriginal.TurnCount);
-        //}
+            // Assert 
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, dataOriginal.TurnCount);
+        }
 
         [Test]
         public void ScoreModel_AddToList_Default_Should_Pass()
