@@ -55,7 +55,7 @@ namespace Game.Services
 
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
         // Track if Initialized or Not
-        static bool initialized = false;
+        public static bool initialized = false;
 
         // Set Needs Init to False, so toggles to true 
         public bool NeedsInitialization = true;
@@ -89,6 +89,10 @@ namespace Game.Services
         }
 
         public static bool TestMode = false;
+        public int ForceExceptionOnNumber = -1;
+
+        // Track if Initialized or Not
+        //public static bool initialized = false;
 
         public static SQLiteAsyncConnection GetDataConnection()
         {
