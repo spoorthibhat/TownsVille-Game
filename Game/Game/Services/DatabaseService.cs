@@ -138,6 +138,7 @@ namespace Game.Services
         {
             try
             {
+                GetForceExceptionCount();
                 var result = await Database.InsertAsync(data);
                 return (result == 1);
             }
@@ -159,6 +160,8 @@ namespace Game.Services
 
             try
             {
+                GetForceExceptionCount();
+
                 var dataList = await IndexAsync();
 
                 data = dataList.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
@@ -188,6 +191,7 @@ namespace Game.Services
             int result = 0;
             try
             {
+                GetForceExceptionCount();
                 result = await Database.UpdateAsync(data);
             }
             catch (Exception e)
@@ -215,6 +219,7 @@ namespace Game.Services
             int result;
             try
             {
+                GetForceExceptionCount();
                 result = await Database.DeleteAsync(data);
             }
             catch (Exception e)
@@ -235,6 +240,7 @@ namespace Game.Services
             List<T> result;
             try
             {
+                GetForceExceptionCount();
                 result = await Database.Table<T>().ToListAsync();
             }
             catch (Exception e)
@@ -260,6 +266,25 @@ namespace Game.Services
             }
 
             return await Task.FromResult(NeedsInitialization);
+        }
+
+        /// <summary>
+        /// Keeps track of the Forced execption Count
+        /// </summary>
+        /// <returns></returns>
+        public int GetForceExceptionCount()
+        {
+            if (ForceExceptionOnNumber > 0)
+            {
+                if (ForceExceptionOnNumber == 1)
+                {
+                    throw new NotImplementedException();
+                }
+
+                ForceExceptionOnNumber--;
+            }
+
+            return ForceExceptionOnNumber;
         }
     }
 }
