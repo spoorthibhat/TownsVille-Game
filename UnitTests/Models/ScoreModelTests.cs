@@ -111,60 +111,60 @@ namespace UnitTests.Models
             Assert.AreEqual("items",result.ItemsDroppedList);
         }
 
-        //[Test]
-        //public void ScoreModel_Update_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var dataOriginal = new ScoreModel();
+        [Test]
+        public void ScoreModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var dataOriginal = new ScoreModel();
 
-        //    var dataNew = new ScoreModel();
-        //    dataNew.BattleNumber = 100;
-        //    dataNew.ScoreTotal = 200;
-        //    dataNew.GameDate = System.DateTime.MinValue;
-        //    dataNew.AutoBattle = true;
-        //    dataNew.TurnCount = 300;
-        //    dataNew.RoundCount = 400;
-        //    dataNew.MonsterSlainNumber = 500;
-        //    dataNew.ExperienceGainedTotal = 600;
-        //    dataNew.CharacterAtDeathList = "characters";
-        //    dataNew.MonstersKilledList = "monsters";
-        //    dataNew.ItemsDroppedList = "items";
+            var dataNew = new ScoreModel();
+            dataNew.BattleNumber = 100;
+            dataNew.ScoreTotal = 200;
+            dataNew.GameDate = System.DateTime.MinValue;
+            dataNew.AutoBattle = true;
+            dataNew.TurnCount = 300;
+            dataNew.RoundCount = 400;
+            dataNew.MonsterSlainNumber = 500;
+            dataNew.ExperienceGainedTotal = 600;
+            dataNew.CharacterAtDeathList = "characters";
+            dataNew.MonstersKilledList = "monsters";
+            dataNew.ItemsDroppedList = "items";
 
-        //    // Act
-        //    var result = dataOriginal.Update(dataNew);
+            // Act
+            var result = dataOriginal.Update(dataNew);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert 
-        //    Assert.AreEqual(100, dataNew.BattleNumber);
-        //    Assert.AreEqual(200, dataNew.ScoreTotal);
-        //    Assert.AreEqual(System.DateTime.MinValue, dataNew.GameDate);
-        //    Assert.AreEqual(true, dataNew.AutoBattle);
-        //    Assert.AreEqual(300, dataNew.TurnCount);
-        //    Assert.AreEqual(400, dataNew.RoundCount);
-        //    Assert.AreEqual(500, dataNew.MonsterSlainNumber);
-        //    Assert.AreEqual(600, dataNew.ExperienceGainedTotal);
-        //    Assert.AreEqual("characters", dataNew.CharacterAtDeathList);
-        //    Assert.AreEqual("monsters", dataNew.MonstersKilledList);
-        //    Assert.AreEqual("items", dataNew.ItemsDroppedList);
-        //}
+            // Assert 
+            Assert.AreEqual(100, dataNew.BattleNumber);
+            Assert.AreEqual(200, dataNew.ScoreTotal);
+            Assert.AreEqual(System.DateTime.MinValue, dataNew.GameDate);
+            Assert.AreEqual(true, dataNew.AutoBattle);
+            Assert.AreEqual(300, dataNew.TurnCount);
+            Assert.AreEqual(400, dataNew.RoundCount);
+            Assert.AreEqual(500, dataNew.MonsterSlainNumber);
+            Assert.AreEqual(600, dataNew.ExperienceGainedTotal);
+            Assert.AreEqual("characters", dataNew.CharacterAtDeathList);
+            Assert.AreEqual("monsters", dataNew.MonstersKilledList);
+            Assert.AreEqual("items", dataNew.ItemsDroppedList);
+        }
 
-        //[Test]
-        //public void ScoreModel_Update_InValid_Null_Should_Fail()
-        //{
-        //    // Arrange
-        //    var dataOriginal = new ScoreModel();
-        //    dataOriginal.TurnCount = 2;
+        [Test]
+        public void ScoreModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new ScoreModel();
+            dataOriginal.TurnCount = 2;
 
-        //    // Act
-        //    var result = dataOriginal.Update(null);
+            // Act
+            var result = dataOriginal.Update(null);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert 
-        //    Assert.AreEqual(false, result);
-        //    Assert.AreEqual(2, dataOriginal.TurnCount);
-        //}
+            // Assert 
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, dataOriginal.TurnCount);
+        }
 
         [Test]
         public void ScoreModel_AddToList_Default_Should_Pass()
