@@ -49,9 +49,9 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result.Speed);
             Assert.AreEqual(1, result.Level);
             Assert.AreEqual(0, result.ExperiencePoints);
-            Assert.AreEqual(0, result.CurrentHealth);
-            Assert.AreEqual(0, result.MaxHealth);
-            Assert.AreEqual(0, result.ExperienceTotal);
+            Assert.AreEqual(1, result.CurrentHealth);
+            Assert.AreEqual(1, result.MaxHealth);
+            Assert.AreEqual(300, result.ExperienceTotal);
             Assert.AreEqual(0, result.Defense);
             Assert.AreEqual(0, result.Attack);
             Assert.AreEqual(null, result.Head);
