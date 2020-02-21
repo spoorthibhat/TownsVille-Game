@@ -122,20 +122,20 @@ namespace UnitTests.Models
 
 
 
-        //[Test]
-        //public void BasePlayerModel_Update_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.Update(null);
+            // Act
+            var result = data.Update(null);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(true, result);
-        //}
+            // Assert
+            Assert.AreEqual(true, result);
+        }
 
         //[Test]
         //public void BasePlayerModel_GetAttack_Default_Should_Pass()

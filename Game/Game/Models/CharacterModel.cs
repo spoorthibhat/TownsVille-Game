@@ -40,11 +40,11 @@ namespace Game.Models
         /// Update character
         /// </summary>
         /// <param name="newdata"></param>
-        public override void Update(CharacterModel newData)
+        public override bool Update(CharacterModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
             Name = newData.Name;
             Description = newData.Description;
@@ -65,6 +65,8 @@ namespace Game.Models
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
+
+            return true;
         }
     }
 }
