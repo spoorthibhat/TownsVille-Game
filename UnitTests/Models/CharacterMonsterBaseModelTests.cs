@@ -152,20 +152,20 @@ namespace UnitTests.Models
             Assert.AreEqual(1, result);
         }
 
-        //[Test]
-        //public void BasePlayerModel_GetDefense_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetDefense_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetDefense();
+            // Act
+            var result = data.GetDefense();
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
+            // Assert
+            Assert.AreEqual(1, result);
+        }
 
         //[Test]
         //public void BasePlayerModel_GetSpeed_Default_Should_Pass()
