@@ -167,20 +167,20 @@ namespace UnitTests.Models
             Assert.AreEqual(1, result);
         }
 
-        //[Test]
-        //public void BasePlayerModel_GetSpeed_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetSpeed_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetSpeed();
+            // Act
+            var result = data.GetSpeed();
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
+            // Assert
+            Assert.AreEqual(1, result);
+        }
 
         //[Test]
         //public void BasePlayerModel_GetHealthCurrent_Default_Should_Pass()
