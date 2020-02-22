@@ -91,7 +91,7 @@
                     </Frame>
 
                     <Label
-							Text="City Attacked"
+							Text="Save TownsVille"
 							Style="{StaticResource CenterMessageStyle}"
 							HorizontalOptions="CenterAndExpand"
 							FontSize="Small"
@@ -107,7 +107,7 @@
                         <ImageButton
 						Source="AutoBattle.png"
 						Style="{StaticResource ImageLargeStyle}"
-						Clicked="DungeonButton_Clicked"
+						Clicked="AutobattleButton_Clicked"
 						 VerticalOptions="CenterAndExpand"
 						 HorizontalOptions="CenterAndExpand"
                          CornerRadius="25">

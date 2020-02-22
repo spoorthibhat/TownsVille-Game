@@ -9,7 +9,7 @@ using Game.Services;
 
 namespace Game.ViewModels
 {
-    class CharacterIndexViewModel: BaseViewModel<CharacterModel>
+    public class CharacterIndexViewModel: BaseViewModel<CharacterModel>
     {
         #region Singleton
 
@@ -44,7 +44,7 @@ namespace Game.ViewModels
         {
             Title = "Character";
             // Register the create message
-            MessagingCenter.Subscribe<Views.Characters.CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as CharacterModel);
             });

@@ -14,7 +14,7 @@ using System.Collections.ObjectModel;
 using System.Collections;
 using Image = Game.Models.Image;
 
-namespace Game.Views.Characters
+namespace Game.Views
 {
     /// <summary>
     /// The Character create page
@@ -27,6 +27,9 @@ namespace Game.Views.Characters
         
         // the character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
+
+        // Empty Constructor for UTs
+        public CharacterCreatePage(bool UnitTest) { }
 
         // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
