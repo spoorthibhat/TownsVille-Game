@@ -20,6 +20,9 @@ namespace Game.Views
         // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
+        // Empty Constructor for UTs
+        public CharacterUpdatePage(bool UnitTest) { }
+
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
 
         /// <summary>
