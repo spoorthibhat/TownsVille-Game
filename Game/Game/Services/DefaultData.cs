@@ -6,35 +6,10 @@ namespace Game.Services
 {
     public static class DefaultData
     {
-        /// <summary>
-        /// Load the Default data
-        /// </summary>
-        /// <returns></returns>
-        public static List<ItemModel> LoadData(ItemModel temp)
+
+        public static List<ItemModel> HeadList = new List<ItemModel>()
         {
-            var datalist = new List<ItemModel>()
-            {
-                new ItemModel {
-                    Name = "Slashing Knives",
-                    Description = "Attack with Sharp knives",
-                    ImageURI = "slashing_knives.png",
-                    Range = 0,
-                    Damage = 10,
-                    Value = 10,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Thunder bolt",
-                    Description = "Electric shock attack",
-                    ImageURI = "thunderbolt.png",
-                    Range = 0,
-                    Damage = 5,
-                    Value = 5,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
+            new ItemModel {
                     Name = "Helmet",
                     Description = "Protect head from attack",
                     ImageURI = "helmet.png",
@@ -43,43 +18,7 @@ namespace Game.Services
                     Value = 9,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
-                new ItemModel {
-                    Name = "Absorbing Shoes",
-                    Description = "Protect against powerful radiation",
-                    ImageURI = "absorbing_shoes.png",
-                    Range = 0,
-                    Damage = 5,
-                    Value = 5,
-                    Location = ItemLocationEnum.Feet,
-                    Attribute = AttributeEnum.Defense},
-                new ItemModel {
-                    Name = "Heat shield",
-                    Description = "Protect against heat",
-                    ImageURI = "heat_shield.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 10,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Defense},
-                new ItemModel {
-                    Name = "Ring of Blocking",
-                    Description = "Creates a wall of blocking",
-                    ImageURI = "ring_of_blocking.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 5,
-                    Location = ItemLocationEnum.LeftFinger,
-                    Attribute = AttributeEnum.Defense},
-                new ItemModel {
-                    Name = "Ring of Attack",
-                    Description = "Sends a beam of fire from the ring",
-                    ImageURI = "bracelet_of_attack.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 5,
-                    Location = ItemLocationEnum.RightFinger,
-                    Attribute = AttributeEnum.Attack},
-                new ItemModel {
+            new ItemModel {
                     Name = "Firing Crown",
                     Description = "Attacks from the crown gem",
                     ImageURI = "firing_crown.png",
@@ -88,7 +27,20 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
-                new ItemModel {
+        };
+
+        public static List<ItemModel> FeetList = new List<ItemModel>()
+        {
+            new ItemModel {
+                    Name = "Absorbing Shoes",
+                    Description = "Protect against powerful radiation",
+                    ImageURI = "absorbing_shoes.png",
+                    Range = 0,
+                    Damage = 5,
+                    Value = 5,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Defense},
+            new ItemModel {
                     Name = "Warm sock",
                     Description = "Protects against ice and fire attacks",
                     ImageURI = "warm_sock.png",
@@ -97,7 +49,46 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Defense},
-                new ItemModel {
+        };
+
+        public static List<ItemModel> PrimaryHandList = new List<ItemModel>()
+        {
+            new ItemModel {
+                    Name = "Slashing Knives",
+                    Description = "Attack with Sharp knives",
+                    ImageURI = "slashing_knives.png",
+                    Range = 0,
+                    Damage = 10,
+                    Value = 10,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+            new ItemModel {
+                    Name = "Thunder bolt",
+                    Description = "Electric shock attack",
+                    ImageURI = "thunderbolt.png",
+                    Range = 0,
+                    Damage = 5,
+                    Value = 5,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+        };
+
+        public static List<ItemModel> OffHandList = new List<ItemModel>()
+        {
+            new ItemModel {
+                    Name = "Heat shield",
+                    Description = "Protect against heat",
+                    ImageURI = "heat_shield.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 10,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
+        };
+
+        public static List<ItemModel> NecklassList = new List<ItemModel>()
+        {
+        new ItemModel {
                     Name = "Poisonous pearls",
                     Description = "Pearls thrown from this release poisonous gas",
                     ImageURI = "poisonous_pearls.png",
@@ -105,7 +96,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.Attack
+    },
                 new ItemModel {
                     Name = "Muffler",
                     Description = "Protects against heat and cold",
@@ -114,7 +106,56 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Defense
+},
+        };
+
+        public static List<ItemModel> LeftFingerList = new List<ItemModel>()
+            {
+            new ItemModel {
+                    Name = "Ring of Blocking",
+                    Description = "Creates a wall of blocking",
+                    ImageURI = "ring_of_blocking.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.LeftFinger,
+                    Attribute = AttributeEnum.Defense
+    },
+            };
+
+        public static List<ItemModel> RightFingerList = new List<ItemModel>()
+        {
+            new ItemModel {
+                    Name = "Ring of Attack",
+                    Description = "Sends a beam of fire from the ring",
+                    ImageURI = "bracelet_of_attack.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 5,
+                    Location = ItemLocationEnum.RightFinger,
+                    Attribute = AttributeEnum.Attack},
+        };
+        /// <summary>
+        /// Load the Default data
+        /// </summary>
+        /// <returns></returns>
+        public static List<ItemModel> LoadData(ItemModel temp)
+        {
+            var datalist = new List<ItemModel>()
+            {
+                HeadList[0],
+                HeadList[1],
+                FeetList[0],
+                FeetList[1],
+                NecklassList[0],
+                NecklassList[1],
+                RightFingerList[0],
+                LeftFingerList[0],
+                PrimaryHandList[0],
+                PrimaryHandList[1],
+                OffHandList[0],
+
             };
 
                 
@@ -149,7 +190,7 @@ namespace Game.Services
                 ImageURI = "Blossum.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                Head = ItemModelHelper.GetHeadItemList[0],
+                Head = HeadList[0].Id,
 
         },
             new CharacterModel{
@@ -158,7 +199,7 @@ namespace Game.Services
                 ImageURI = "Bubbles.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Freeze,
-                Feet = ItemModelHelper.GetFeetItemList[0],
+                Feet = FeetList[0].Id,
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -166,7 +207,7 @@ namespace Game.Services
                 ImageURI = "Buttercup.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                PrimaryHand = ItemModelHelper.GetPrimaryHandItemList[0],
+                PrimaryHand = PrimaryHandList[0].Id,
             },
              new CharacterModel{
                 Name = "Mayor",
@@ -174,7 +215,7 @@ namespace Game.Services
                 ImageURI = "mayor.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                Necklace = ItemModelHelper.GetNecklaceItemList[0],
+                Necklace = NecklassList[0].Id,
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -182,7 +223,7 @@ namespace Game.Services
                 ImageURI = "professor_utonium.png",
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                RightFinger = ItemModelHelper.GetRightFingerItemList[0],
+                RightFinger = RightFingerList[0].Id,
             },
 
             };
@@ -197,7 +238,7 @@ namespace Game.Services
                 Description = "He is the master mind",
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
-                Head = ItemModelHelper.GetHeadItemList[0],
+                Head = HeadList[0].Id,
 
             },
             new MonsterModel{
@@ -205,7 +246,7 @@ namespace Game.Services
                 Description = "He is most evil",
                 ImageURI = "him.png",
                 Level = 1,
-                Feet = ItemModelHelper.GetFeetItemList[0],
+                Feet = FeetList[0].Id,
 
             },
              new MonsterModel{
@@ -213,7 +254,7 @@ namespace Game.Services
                 Description = "They spread ill ness",
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
-                PrimaryHand = ItemModelHelper.GetPrimaryHandItemList[0],
+                PrimaryHand = PrimaryHandList[1].Id,
 
             },
                 new MonsterModel{
@@ -221,7 +262,7 @@ namespace Game.Services
                 Description = "They are rough",
                 ImageURI = "rowdy_boys.png",
                 Level = 1,
-                Necklace = ItemModelHelper.GetNecklaceItemList[0],
+                Necklace = NecklassList[1].Id,
             },
 
             };

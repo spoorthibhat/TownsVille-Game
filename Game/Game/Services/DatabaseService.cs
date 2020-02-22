@@ -113,13 +113,16 @@ namespace Game.Services
             await semaphoreSlim.WaitAsync();
             try
             {
+                GetForceExceptionCount();
+
                 NeedsInitialization = true;
                 await Database.DropTableAsync<T>().ConfigureAwait(false);
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error WipeData" + e.Message);
+                Debug.WriteLine("Error WipeData" + e.Message);
+                return await Task.FromResult(false);
             }
             finally
             {
