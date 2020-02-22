@@ -137,20 +137,20 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result);
         }
 
-        //[Test]
-        //public void BasePlayerModel_GetAttack_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetAttack_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetAttack();
+            // Act
+            var result = data.GetAttack();
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
+            // Assert
+            Assert.AreEqual(1, result);
+        }
 
         //[Test]
         //public void BasePlayerModel_GetDefense_Default_Should_Pass()
