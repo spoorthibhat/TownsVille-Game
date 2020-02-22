@@ -182,20 +182,20 @@ namespace UnitTests.Models
             Assert.AreEqual(1, result);
         }
 
-        //[Test]
-        //public void BasePlayerModel_GetHealthCurrent_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetHealthCurrent_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetCurrentHealthTotal;
+            // Act
+            var result = data.GetCurrentHealthTotal;
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(0, result);
-        //}
+            // Assert
+            Assert.AreEqual(0, result);
+        }
 
         //[Test]
         //public void BasePlayerModel_GetHealthMax_Default_Should_Pass()
