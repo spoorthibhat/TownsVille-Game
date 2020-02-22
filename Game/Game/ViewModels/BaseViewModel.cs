@@ -283,6 +283,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             Dataset.Add(data);
             var result = await DataStore.CreateAsync(data);
 
@@ -429,6 +434,10 @@ namespace Game.ViewModels
         /// <returns></returns>
         public bool Create_Sync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
             Dataset.Add(data);
             SetNeedsRefresh(true);
             return true;
