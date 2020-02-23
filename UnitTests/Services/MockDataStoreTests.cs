@@ -154,6 +154,22 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(null, result);
         }
+
+        [Test]
+        public async Task MockDataStore_Read_InValid_Null_List_Should_Fail()
+        {
+            // Arrange
+            var item = new ItemModel();
+            await DataStore.CreateAsync(item);
+
+            // Act
+            var result = await DataStore.ReadAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 
     
