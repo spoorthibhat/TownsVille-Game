@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Image = Game.Models.Image;
 
-namespace Game.Views.Monsters
+namespace Game.Views
 {
     /// <summary>
     /// Monster create page
@@ -16,10 +16,11 @@ namespace Game.Views.Monsters
     public partial class MonsterCreatePage : ContentPage
     {
         GenericViewModel<MonsterModel> ViewModel { get; set; }
-
+      
         // The image list holding all the Image objects
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
-
+        // Empty Constructor for UTs
+        public MonsterCreatePage(bool UnitTest) { }
 
         // Constructor
         public MonsterCreatePage(GenericViewModel<MonsterModel> data)

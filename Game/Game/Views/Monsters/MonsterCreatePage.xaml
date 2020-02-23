@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              mc:Ignorable="d"
-             x:Class="Game.Views.Monsters.MonsterCreatePage"
+             x:Class="Game.Views.MonsterCreatePage"
              Title="{Binding Title}">
 
     <ContentPage.Resources>
