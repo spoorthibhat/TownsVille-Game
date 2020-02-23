@@ -16,5 +16,10 @@ namespace Game.Views.Battle
         {
             InitializeComponent();
         }
+
+        async void Pick_Characters_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PickCharactersPage());
+        }
     }
 }

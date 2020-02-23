@@ -7,9 +7,13 @@
              x:Class="Game.Views.Battle.BattleThemePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ImageButton
+						Source="CityAttack.png"
+						Style="{StaticResource ImageLargeStyle}"
+						Clicked="Pick_Characters_Clicked"
+						 VerticalOptions="CenterAndExpand"
+						 HorizontalOptions="CenterAndExpand"
+                            CornerRadius="25"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
