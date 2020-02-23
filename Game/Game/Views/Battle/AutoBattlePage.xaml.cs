@@ -17,7 +17,9 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 		}
-
+		/// <summary>
+		/// Auto battle button to call auto battle engine and display the results
+		/// </summary>
 		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Call into Auto Battle from here to do the Battle...
