@@ -324,6 +324,34 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public async Task MockDataStore_Update_InValid_ID_Should_Fail()
+        {
+            // Arrange
+            var item1 = new ItemModel
+            {
+                Name = "a"
+            };
+
+            var item2 = new ItemModel
+            {
+                Name = "b"
+            };
+
+            await DataStore.CreateAsync(item1);
+            //await DataStore.CreateAsync(item2);   // Don't put 2 in the list
+
+            // Act
+            var result = await DataStore.UpdateAsync(item2);
+            var name = await DataStore.ReadAsync(item1.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual("a", name.Name);
+        }
     }
 
     
