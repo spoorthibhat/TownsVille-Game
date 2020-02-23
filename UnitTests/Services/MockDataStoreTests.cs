@@ -57,6 +57,26 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(true, newState);
         }
+
+        [Test]
+        public async Task MockDataStore_SetNeedsRefresh_Twice_True_Should_Pass()
+        {
+            // Arrange
+            var originalState = await DataStore.GetNeedsInitializationAsync();
+
+            // Act
+            DataStore.NeedsInitialization = true;
+            var newState = await DataStore.GetNeedsInitializationAsync();
+            var newState2 = await DataStore.GetNeedsInitializationAsync();
+
+            // Reset
+
+            // Turn it back to the original state
+            DataStore.NeedsInitialization = originalState;
+
+            // Assert
+            Assert.AreEqual(false, newState2);
+        }
     }
 
     
