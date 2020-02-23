@@ -77,6 +77,22 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, newState2);
         }
+
+        [Test]
+        public async Task MockDataStore_WipeDataListAsync_Valid_True_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var newState = await DataStore.WipeDataListAsync();
+
+            // Reset
+
+            // Turn it back to the original state
+
+            // Assert
+            Assert.AreEqual(true, newState);
+        }
     }
 
     
