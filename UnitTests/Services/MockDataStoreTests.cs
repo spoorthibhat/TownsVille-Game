@@ -121,6 +121,22 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public async Task MockDataStore_Read_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel();
+            await DataStore.CreateAsync(item);
+
+            // Act
+            var result = await DataStore.ReadAsync(item.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(item.Id, result.Id);
+        }
     }
 
     
