@@ -10,7 +10,7 @@ using Game.Services;
 
 namespace Game.ViewModels
 {
-    class MonsterIndexViewModel: BaseViewModel<MonsterModel>
+    public class MonsterIndexViewModel: BaseViewModel<MonsterModel>
     {
         #region Singleton
 
@@ -45,7 +45,7 @@ namespace Game.ViewModels
         {
             Title = "Monsters";
             // Register the create message
-            MessagingCenter.Subscribe<Views.Monsters.MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as MonsterModel);
             });
