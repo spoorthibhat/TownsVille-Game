@@ -241,6 +241,33 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
             Assert.AreEqual(2, DataStore.datalist.Count());
         }
+
+        [Test]
+        public async Task MockDataStore_Delete_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var item1 = new ItemModel
+            {
+                Name = "a"
+            };
+
+            var item2 = new ItemModel
+            {
+                Name = "b"
+            };
+
+            await DataStore.CreateAsync(item1);
+            await DataStore.CreateAsync(item2);
+
+            // Act
+            var result = await DataStore.DeleteAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, DataStore.datalist.Count());
+        }
     }
 
     
