@@ -113,6 +113,11 @@ namespace Game.Services
         /// <returns>True for pass, else fail</returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return await Task.FromResult(false);
+            }
+
             T oldData = await ReadAsync(((BaseModel<T>)(object)data).Id);
             if (oldData == null)
             {
