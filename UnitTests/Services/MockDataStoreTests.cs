@@ -3,6 +3,7 @@ using Game.Services;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -169,6 +170,22 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public async Task MockDataStore_Index_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel();
+            await DataStore.CreateAsync(item);
+
+            // Act
+            var result = await DataStore.IndexAsync();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count());
         }
     }
 
