@@ -14,6 +14,41 @@
 						 VerticalOptions="CenterAndExpand"
 						 HorizontalOptions="CenterAndExpand"
                             CornerRadius="25"/>
+
+            <Grid RowSpacing="1"
+                    ColumnSpacing="2"
+                    HorizontalOptions="Start" 
+                      Padding="90,-80,-80,-80">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView x:Name="ImageView"   
+                          Grid.Row ="0" Grid.Column="0" 
+                          Rotation="270" RowHeight="40" 
+                          ItemSelected="OnThemeImageSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Image Source="{Binding Url}"
+                                               WidthRequest="40" 
+                                               HeightRequest ="40"
+                                                MinimumHeightRequest = "40"
+                                            MinimumWidthRequest = "40"
+                                               Rotation="90"></Image>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
