@@ -18,10 +18,12 @@ namespace Game.Models
 
         public MonsterModel()
         {
+            this.PlayerType = PlayerTypeEnum.Monster;
             ImageURI = ItemService.DefaultImageURI;
             this.Name = "This is a Monster";
             this.Description = "Monster Description";
             this.ImageURI = "default_character.png";
+            this.Attack = 100;
         }
 
         /// <summary>

@@ -21,10 +21,12 @@ namespace Game.Models
 
         public CharacterModel()
         {
+            this.PlayerType = PlayerTypeEnum.Character;
             ImageURI = ItemService.DefaultImageURI;
             this.Name = "This is a Character";
             this.Description = "Character Description";
             this.ImageURI = "default_character.png";
+            this.Level = 1;
         }
 
         /// <summary>
