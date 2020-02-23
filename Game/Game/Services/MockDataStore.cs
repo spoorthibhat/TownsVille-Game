@@ -77,6 +77,12 @@ namespace Game.Services
         /// <returns>True for pass, else fail</returns>
         public async Task<bool> CreateAsync(T data)
         {
+
+            if (data == null)
+            {
+                return await Task.FromResult(false);
+            }
+
             datalist.Add(data);
 
             return await Task.FromResult(true);

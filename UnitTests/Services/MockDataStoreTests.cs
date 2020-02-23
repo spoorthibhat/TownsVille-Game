@@ -107,6 +107,20 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public async Task MockDataStore_CreateAsync_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await DataStore.CreateAsync(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 
     
