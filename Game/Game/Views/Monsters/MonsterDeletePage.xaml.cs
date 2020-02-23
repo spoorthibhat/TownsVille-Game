@@ -14,7 +14,8 @@ namespace Game.Views
     {
         // View Model for Monster
         readonly GenericViewModel<MonsterModel> viewModel;
-
+        // Empty Constructor for UTs
+        public MonsterDeletePage(bool UnitTest) { }
         // Constructor for Delete takes a view model of what to delete
         public MonsterDeletePage(GenericViewModel<MonsterModel> data)
         {

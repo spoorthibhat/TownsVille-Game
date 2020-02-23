@@ -19,7 +19,8 @@ namespace Game.Views
         readonly GenericViewModel<MonsterModel> ViewModel;
 
         ObservableCollection<Image> imageList = new ObservableCollection<Image>();
-
+        // Empty Constructor for UTs
+        public MonsterUpdatePage(bool UnitTest) { }
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
