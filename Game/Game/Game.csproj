@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Battle\BattleThemePage.xaml.cs">
+      <DependentUpon>BattleThemePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Battle\BattleThemePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Characters\CharacterIndexPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
