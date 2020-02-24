@@ -58,6 +58,7 @@
 
             <Label
 							Text="Choose your Battle Field Theme"
+                Padding="0,30,0,0"
 							Style="{StaticResource CenterMessageStyle}"
 							HorizontalOptions="CenterAndExpand"
 							FontSize="Small"
@@ -65,19 +66,19 @@
 
             <Grid RowSpacing="1"
                     ColumnSpacing="2"
-                    HorizontalOptions="Start" 
-                      Padding="90,-80,-80,-80">
+                    HorizontalOptions="CenterAndExpand" 
+                      Padding="0,-110,0,0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
 
                 <ListView x:Name="ImageView"   
                           Grid.Row ="0" Grid.Column="0" 
-                          Rotation="270" RowHeight="40" 
+                          Rotation="270" RowHeight="100" 
                           ItemSelected="OnThemeImageSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -85,10 +86,10 @@
                                 <ViewCell.View>
                                     <StackLayout>
                                         <Image Source="{Binding Url}"
-                                               WidthRequest="40" 
-                                               HeightRequest ="40"
-                                                MinimumHeightRequest = "40"
-                                            MinimumWidthRequest = "40"
+                                               WidthRequest="100" 
+                                               HeightRequest ="100"
+                                                MinimumHeightRequest = "80"
+                                            MinimumWidthRequest = "80"
                                                Rotation="90"></Image>
                                     </StackLayout>
                                 </ViewCell.View>
