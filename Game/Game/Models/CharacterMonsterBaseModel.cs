@@ -297,16 +297,7 @@ namespace Game.Models
         }
         #endregion GetAttributeValues
 
-        /// <summary>
-        /// Scales the level of the monster
-        /// </summary>
-        /// <param name="level"></param>
-        /// <returns></returns>
-        public bool ScaleLevel(int Level)
-        {
-            this.Level = Level;
-            return true;
-        }
+
 
         /// <summary>
         /// Levels up the monster if it is time to level up
@@ -314,7 +305,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            int newLevel = ExperienceMappingHelper.GetLevelPerExperience(this.ExperienceTotal);
+            int newLevel = LevelTableHelper.Instance.LevelDetailsList[this.ExperienceTotal].Level;
             if (newLevel > this.Level)
             {
                 this.Level = newLevel;

@@ -54,7 +54,7 @@ namespace Game.Views
                         MenuPages.Add(id, new NavigationPage(new MonsterIndexPage()));
                         break;
 
-                    case (int)MenuItemEnum.Village:
+                    case (int)MenuItemEnum.Townsville:
                         MenuPages.Add(id, new NavigationPage(new VillagePage()));
                         break;
 

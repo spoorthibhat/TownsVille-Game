@@ -66,6 +66,21 @@ namespace Game.Models
             return true;
         }
 
-    
+        /// <summary>
+        /// Scales the level of the monster
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public bool ScaleLevel(int Level)
+        {
+            this.Level = Level;
+            this.ExperiencePoints = LevelTableHelper.Instance.LevelDetailsList[Level].Experience;
+            this.Attack = LevelTableHelper.Instance.LevelDetailsList[Level].Attack;
+            this.Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
+            this.Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
+            return true;
+        }
+
+
     }
 }
