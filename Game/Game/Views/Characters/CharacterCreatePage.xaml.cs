@@ -84,6 +84,8 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
+            ViewModel.Data.CurrentHealth = ViewModel.Data.MaxHealth;
+
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
             
@@ -104,13 +106,16 @@ namespace Game.Views
 
 
         /// <summary>
-        /// Method inviked when stepper value is changed
+        /// Method invoked when stepper value is changed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
+            int SelectedLevel = (int)e.NewValue;
+            var x = CharacterIndexViewModel.Instance.GetPlayerMaxHealth(SelectedLevel);
+            MaxLevelLabel.Text = x.ToString();
         }
 
 

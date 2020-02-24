@@ -94,6 +94,10 @@ namespace Game.ViewModels
         /// <returns></returns>
         public int GetPlayerMaxHealth(int level)
         {
+            if(level < 0)
+            {
+                return 0;
+            }
             return (level * 10 + level);
         }
 

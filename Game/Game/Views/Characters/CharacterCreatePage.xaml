@@ -250,6 +250,18 @@
 
 
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
+                    <Label 
+                            Text="Max health: " 
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Label
+                        x:Name="MaxLevelLabel"
+                        Text="{Binding Data.MaxHealth, Converter={StaticResource Int_String}, Mode=TwoWay}"
+                        Style="{StaticResource LabelStyle}"/>
+
+                </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button
                         Text="Save"
