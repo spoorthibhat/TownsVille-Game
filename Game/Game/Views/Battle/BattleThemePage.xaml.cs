@@ -22,7 +22,7 @@ namespace Game.Views.Battle
         public BattleThemePage()
         {
             InitializeComponent();
-            foreach (Image image in DefaultData.LoadCharacterImages())
+            foreach (Image image in DefaultData.LoadThemeImages())
             {
                 ImageList.Add(image);
             }
