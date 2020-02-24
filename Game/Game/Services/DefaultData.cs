@@ -191,6 +191,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 Head = HeadList[0].Id,
+                Attack = 45,
 
         },
             new CharacterModel{
@@ -200,6 +201,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Freeze,
                 Feet = FeetList[0].Id,
+                Attack = 35,
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -208,6 +210,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 PrimaryHand = PrimaryHandList[0].Id,
+                Attack = 30,
             },
              new CharacterModel{
                 Name = "Ms Keane",
@@ -216,6 +219,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 Necklace = NecklassList[0].Id,
+                Attack = 5,
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -224,6 +228,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 RightFinger = RightFingerList[0].Id,
+                Attack = 10,
             },
                 new CharacterModel{
                 Name = "Mayor",
@@ -232,6 +237,7 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 PrimaryHand = PrimaryHandList[0].Id,
+                Attack = 5
             }
 
             };
