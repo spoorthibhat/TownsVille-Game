@@ -2,6 +2,7 @@
 using System.Linq;
 
 using Game.Models;
+using Game.Services;
 
 namespace Game.Engine
 {
@@ -55,14 +56,11 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound()
         {
-            for (var i = 0; i < MaxNumberPartyMonsters; i++)
+            List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
+            for (int i = 0; i < MaxNumberPartyMonsters; i++)
             {
-                var data = new MonsterModel();
-                // Help identify which Monster it is
-                data.Name += " " + MonsterList.Count() + 1;
-                MonsterList.Add(new PlayerInfoModel(data));
+                MonsterList.Add(new PlayerInfoModel(SelectedMonsterList[i]));
             }
-
             return MonsterList.Count();
         }
 

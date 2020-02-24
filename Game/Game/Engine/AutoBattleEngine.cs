@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
 using Game.Models;
+using Game.Services;
 
 namespace Game.Engine
 {
@@ -56,10 +58,12 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Picks 6 Characters
-            var data = new CharacterModel();
-            for (int i=CharacterList.Count(); i<MaxNumberPartyCharacters; i++) {
-                PopulateCharacterList(data);
+            List<CharacterModel> SelectedCharacterList = DefaultData.LoadData(new CharacterModel());
+            for(int i= 0; i < MaxNumberPartyCharacters; i++)
+            {
+                PopulateCharacterList(SelectedCharacterList[i]);
             }
+
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
