@@ -210,11 +210,11 @@ namespace Game.Services
                 PrimaryHand = PrimaryHandList[0].Id,
             },
              new CharacterModel{
-                Name = "Mayor",
-                Description = "He is the mayor of townsville",
-                ImageURI = "mayor.png",
+                Name = "Ms Keane",
+                Description = "She is the kindergarten teacher",
+                ImageURI = "ms_keane.png",
                 Level = 1,
-                SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
+                SpecialAbility = SpecialAbilityEnum.Unknown,
                 Necklace = NecklassList[0].Id,
             },
                 new CharacterModel{
@@ -225,6 +225,14 @@ namespace Game.Services
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 RightFinger = RightFingerList[0].Id,
             },
+                new CharacterModel{
+                Name = "Mayor",
+                Description = "He is the mayor of the town",
+                ImageURI = "mayor.png",
+                Level = 1,
+                SpecialAbility = SpecialAbilityEnum.Unknown,
+                PrimaryHand = PrimaryHandList[0].Id,
+            }
 
             };
             return datalist;
@@ -239,6 +247,7 @@ namespace Game.Services
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
                 Head = HeadList[0].Id,
+                Attack = 40,
 
             },
             new MonsterModel{
@@ -247,6 +256,7 @@ namespace Game.Services
                 ImageURI = "him.png",
                 Level = 1,
                 Feet = FeetList[0].Id,
+                Attack = 50,
 
             },
              new MonsterModel{
@@ -255,6 +265,7 @@ namespace Game.Services
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
                 PrimaryHand = PrimaryHandList[1].Id,
+                Attack = 30,
 
             },
                 new MonsterModel{
@@ -263,6 +274,23 @@ namespace Game.Services
                 ImageURI = "rowdy_boys.png",
                 Level = 1,
                 Necklace = NecklassList[1].Id,
+                Attack = 60,
+            },
+                new MonsterModel{
+                Name = "Gang green",
+                Description = "They are the green monster",
+                ImageURI = "gang_green.png",
+                Level = 1,
+                Feet = FeetList[0].Id,
+                Attack = 35,
+            },
+                new MonsterModel{
+                Name = "Princess Morbucks",
+                Description = "She is the evil princess",
+                ImageURI = "princess_morbucks.png",
+                Level = 1,
+                Head = HeadList[1].Id,
+                Attack = 45
             },
 
             };
