@@ -180,6 +180,7 @@
     <Content Include="safe_bubble.png" />
     <Content Include="score.png" />
     <Content Include="score_pad_button.png" />
+    <Content Include="sky_theme.png" />
     <Content Include="slashing_knives.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="thunderbolt.png" />
