@@ -7,13 +7,61 @@
              x:Class="Game.Views.Battle.BattleThemePage">
     <ContentPage.Content>
         <StackLayout>
-            <ImageButton
+            <FlexLayout x:Name="flexLayout"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround">
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <Label
+							Text="Choose your characters"
+							Style="{StaticResource CenterMessageStyle}"
+							HorizontalOptions="CenterAndExpand"
+							FontSize="Small"
+							LineBreakMode="WordWrap"/>
+                    <Frame CornerRadius="200"
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                        IsClippedToBounds="True">
+                        <ImageButton
 						Source="CityAttack.png"
 						Style="{StaticResource ImageLargeStyle}"
 						Clicked="Pick_Characters_Clicked"
 						 VerticalOptions="CenterAndExpand"
 						 HorizontalOptions="CenterAndExpand"
-                            CornerRadius="25"/>
+                            CornerRadius="25">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale"
+                            Value="0.8" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ImageButton>
+
+                    </Frame>
+                    
+                </StackLayout>
+            </FlexLayout>
+
+            <Label
+							Text="Choose your Battle Field Theme"
+							Style="{StaticResource CenterMessageStyle}"
+							HorizontalOptions="CenterAndExpand"
+							FontSize="Small"
+							LineBreakMode="WordWrap"/>
 
             <Grid RowSpacing="1"
                     ColumnSpacing="2"
