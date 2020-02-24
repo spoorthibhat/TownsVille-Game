@@ -87,6 +87,16 @@ namespace Game.ViewModels
 
         #endregion Constructor
 
+        /// <summary>
+        /// Calculates the health based on level
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public int GetPlayerMaxHealth(int level)
+        {
+            return (level * 10 + level);
+        }
+
         #region DataSourceManagement
         /// <summary>
         /// Sets the DataSource to use (SQL or Mock)
@@ -253,6 +263,7 @@ namespace Game.ViewModels
             LoadDatasetCommand.Execute(null);
         }
 
+        
         #endregion Refresh
         
         #region DataSourceManagement
