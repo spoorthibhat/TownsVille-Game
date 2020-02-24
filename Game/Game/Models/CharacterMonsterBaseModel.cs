@@ -305,7 +305,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            int newLevel = ExperienceMappingHelper.GetLevelPerExperience(this.ExperienceTotal);
+            int newLevel = LevelTableHelper.Instance.LevelDetailsList[this.ExperienceTotal].Level;
             if (newLevel > this.Level)
             {
                 this.Level = newLevel;
