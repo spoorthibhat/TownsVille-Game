@@ -328,5 +328,22 @@ namespace Game.Services
             return imageList;
         }
 
+        /// <summary>
+        /// Loads the available Theme images
+        /// </summary>
+        /// <returns></returns>
+        public static List<Image> LoadThemeImages()
+        {
+            var imageList = new List<Image>()
+            {
+                new Image { Url = "sky_theme.png" },
+                new Image { Url = "him.png" },
+                new Image { Url = "amoeba_boys.png" },
+                new Image { Url = "rowdy_boys.png" },
+                
+            };
+            return imageList;
+        }
+
     }
 }
