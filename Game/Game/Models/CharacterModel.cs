@@ -7,11 +7,10 @@ namespace Game.Models
     {
         
         //Character special ability
-       
         public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.Unknown;
-        
+        //Character Using Special Ability in the battle
+        public bool ISSpecialAbilityNotUsed { get; set; } = true;
 
-        
         // Items to be added
 
         /// <summary>
@@ -69,6 +68,44 @@ namespace Game.Models
             Feet = newData.Feet;
 
             return true;
+        }
+
+        [Ignore]
+        // Return the Attack with SpecialAbility Bonus
+        public int GetAttackSpecialAbilityBonus { get { return GetSpecialAbilityBonus(this.SpecialAbility); } }
+
+        // Return the specialAbility value
+        public int GetSpecialAbilityBonus(SpecialAbilityEnum specialAbilityEnum)
+        {
+            return (int)specialAbilityEnum;
+        }
+        /// <summary>
+        /// Return the Total Attack Value
+        /// </summary>
+        /// <returns></returns>
+        public override int GetAttack(bool SpecialAbilityToBeUsedInAttack)
+        {
+            // Base Attack
+            var myReturn = Attack;
+
+            // Attack Bonus from Level
+            myReturn += GetAttackLevelBonus;
+
+            
+            if (SpecialAbilityToBeUsedInAttack && ISSpecialAbilityNotUsed)
+            {
+                // Get Attack bonus from Special Ability
+                myReturn += GetAttackSpecialAbilityBonus;
+                ISSpecialAbilityNotUsed = false;
+
+                return myReturn;
+            }
+
+            // Get Attack bonus from Items
+            myReturn += GetAttackItemBonus;
+
+            return myReturn;
+
         }
     }
 }

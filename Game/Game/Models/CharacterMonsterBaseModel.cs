@@ -83,7 +83,7 @@ namespace Game.Models
         [Ignore]
         // Return the Attack with Item Bonus
         public int GetAttackItemBonus { get { return GetItemBonus(AttributeEnum.Attack); } }
-
+        
         [Ignore]
         // Return the Total of All Attack
         public int GetAttackTotal { get { return GetAttack(); } }
@@ -210,14 +210,14 @@ namespace Game.Models
         /// Return the Total Attack Value
         /// </summary>
         /// <returns></returns>
-        public int GetAttack()
+        public virtual int GetAttack(bool SpecialAbilityToBeUsedInAttack = false)
         {
             // Base Attack
             var myReturn = Attack;
-
+            
             // Attack Bonus from Level
             myReturn += GetAttackLevelBonus;
-
+            
             // Get Attack bonus from Items
             myReturn += GetAttackItemBonus;
 

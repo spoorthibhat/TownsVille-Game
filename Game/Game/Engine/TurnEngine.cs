@@ -171,9 +171,23 @@ namespace Game.Engine
             BattleMessagesModel.TurnMessageSpecial = string.Empty;
             BattleMessagesModel.AttackStatus = string.Empty;
 
+            //TODO
             BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+            var AttackScore = 0;
 
-            var AttackScore = Attacker.Level + Attacker.GetAttack();
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
+                //TODO
+                Debug.WriteLine(string.Format("UseSpecialAbility :----------------{0}",UseSpecialAbility));
+                AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
+            }
+
+            if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                AttackScore = Attacker.Level + Attacker.GetAttack();
+            }
+
             var DefenseScore = Target.GetDefense() + Target.Level;
 
             // Choose who to attack
@@ -334,7 +348,22 @@ namespace Game.Engine
             BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
             return BattleMessagesModel.HitStatus;
         }
+        /// <summary>
+        /// Roll To Use SpecialAbility
+        /// </summary>
+        /// <returns></returns>
+        public bool RollToUseSpecialAbilityOnTarget()
+        {
+            var d20 = DiceHelper.RollDice(1, 20);
 
+            if (d20 < 10)
+            {
+                //Do not Use Special Ability
+                return false;
+            }
+            //Use Special Ability
+            return true;
+        }
         /// <summary>
         /// Will drop between 1 and 4 items from the ItemModel set...
         /// </summary>
