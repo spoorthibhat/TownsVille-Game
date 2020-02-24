@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Views.Battle;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +26,7 @@ namespace Game.Views
 		/// <param name="e"></param>
         async void DungeonButton_Clicked(object sender, EventArgs e)
         {
-			await Navigation.PushAsync(new PickCharactersPage());
+			await Navigation.PushAsync(new BattleThemePage());
 		}
 
 		/// <summary>
