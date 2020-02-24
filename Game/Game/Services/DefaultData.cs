@@ -234,7 +234,7 @@ namespace Game.Services
                 Name = "Mayor",
                 Description = "He is the mayor of the town",
                 ImageURI = "mayor.png",
-                Level = 1,
+                Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 5
