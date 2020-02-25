@@ -189,6 +189,30 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
+        public void BaseViewModel_GetPlayerMaxHealth_NegativeLevel_Should_ReturnZero()
+        {
+            var result = ViewModel.GetPlayerMaxHealth(-1);
+
+            Assert.AreEqual(0,result);
+        }
+
+        [Test]
+        public void BaseViewModel_GetPlayerMaxHealth_ValidLevel_Should_ReturnExpected()
+        {
+            var result = ViewModel.GetPlayerMaxHealth(3);
+
+            Assert.AreEqual(33, result);
+        }
+
+        [Test]
+        public void BaseViewModel_GetPlayerMaxHealth_LevelZero_Should_ReturnZero()
+        {
+            var result = ViewModel.GetPlayerMaxHealth(0);
+
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
         public void BaseViewModel_SetNeedsRefresh_Valid_True_Should_Pass()
         {
             // Arrange
