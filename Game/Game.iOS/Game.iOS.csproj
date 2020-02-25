@@ -327,4 +327,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\lab.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playground.png" />
+  </ItemGroup>
 </Project>
