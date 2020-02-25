@@ -927,5 +927,21 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newRightFinger);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.PrimaryHand = "Flaming Sword";
+            data.RemoveItemFromLocation(ItemLocationEnum.PrimaryHand);
+            var newPrimaryHand = data.PrimaryHand;
+            // Reset
+            data.RightFinger = null;
+            // Assert
+            Assert.AreEqual(null, newPrimaryHand);
+        }
+
     }
 }
