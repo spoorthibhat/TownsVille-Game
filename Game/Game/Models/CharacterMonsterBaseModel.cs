@@ -332,10 +332,6 @@ namespace Game.Models
         {
             this.ExperienceTotal += ExtraExperienceToAdd;
 
-            if (this.ExperienceTotal == 0)
-            {
-                return false;
-            }
             return true;
         }
 
