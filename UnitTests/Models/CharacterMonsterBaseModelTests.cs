@@ -212,117 +212,117 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_GetDamageRollValue_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            data.Level = 1;
+
+            // Act
+            var result = data.GetDamageRollValue();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_TakeDamage_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.TakeDamage(1);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_TakeDamage_InValid_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.TakeDamage(0);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_CauseDeath_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.CauseDeath();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_FormatOutput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("", result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_AddExperience_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.AddExperience(0);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_CalculateExperienceEarned_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.CalculateExperienceEarned(0);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
         //[Test]
-        //public void BasePlayerModel_GetDamageRollValue_Default_Should_Pass()
+        //public void BCharacterMonsterBaseModel_GetItem_Default_Should_Pass()
         //{
         //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    data.Level = 1;
-
-        //    // Act
-        //    var result = data.GetDamageRollValue();
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_TakeDamage_Valid_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.TakeDamage(1);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(true, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_TakeDamage_InValid_Should_Fail()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.TakeDamage(0);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(false, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_CauseDeath_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.CauseDeath();
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(false, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_FormatOutput_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.FormatOutput();
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual("", result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_AddExperience_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.AddExperience(0);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(true, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_CalculateExperienceEarned_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.CalculateExperienceEarned(0);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(0, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_GetItem_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        //    var data = new CharacterMonsterBaseModel<CharacterModel>();
 
         //    // Act
         //    var result = data.GetItem("test");
@@ -333,516 +333,514 @@ namespace UnitTests.Models
         //    Assert.AreEqual(null, result);
         //}
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_Head_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_Head_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.Head);
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Head);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_Feet_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_Feet_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.Feet);
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Feet);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_Necklass_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.Necklass);
-
-        //    // Reset
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_Necklass_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Necklass);
+
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_PrimaryHand_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.PrimaryHand);
-
-        //    // Reset
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_PrimaryHand_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.PrimaryHand);
+
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_OffHand_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.OffHand);
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_OffHand_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.OffHand);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_RightFinger_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_RightFinger_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.RightFinger);
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.RightFinger);
 
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
-
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_LeftFinger_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_LeftFinger_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.LeftFinger);
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.LeftFinger);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(null, result);
+        }
 
-        //[Test]
-        //public void BasePlayerModel_GetItemByLocation_Unknown_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_GetItemByLocation_Unknown_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItemByLocation(ItemLocationEnum.Unknown);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Act
+            var result = data.GetItemByLocation(ItemLocationEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_DropAllItems_Default_Should_Pass()
+        {
+            var item = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>
+            {
+                Head = item.Id,
+                Necklace = item.Id,
+                PrimaryHand = item.Id,
+                OffHand = item.Id,
+                RightFinger = item.Id,
+                LeftFinger = item.Id,
+                Feet = item.Id,
+            };
+
+            // Act
+            var result = data.DropAllItems();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_AddItem_Unknown_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            var result = data.AddItem(ItemLocationEnum.Unknown, "bogus");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_AddItem_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced which is null
+            var result = data.AddItem(ItemLocationEnum.Head, itemOld.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public async Task CharacterMonsterBaseModel_AddItem_Default_Replace_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, itemOld.Id);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.AddItem(ItemLocationEnum.Head, itemNew.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(itemOld.Id, result.Id);
+        }
+
+
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetItemBonus_Default_Attack_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            _ = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetItemBonus(AttributeEnum.Attack);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(7654321, result);
+        }
+
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetAttackTotal_Default_Attack_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+
+
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetAttackTotal;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(7654322, result);
+        }
+
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetDefenseTotal_Default_Defense_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 7000000, Id = "feet" });
+
+
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDefenseTotal;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(7654322, result);
+        }
+
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetSpeedTotal_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 7000000, Id = "feet" });
+
+
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //[Test]
-        //public void BasePlayerModel_DropAllItems_Default_Should_Pass()
-        //{
-        //    var item = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>
-        //    {
-        //        Head = item.Id,
-        //        Necklass = item.Id,
-        //        PrimaryHand = item.Id,
-        //        OffHand = item.Id,
-        //        RightFinger = item.Id,
-        //        LeftFinger = item.Id,
-        //        Feet = item.Id,
-        //    };
+            // Act
+
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetSpeedTotal;
+
+            // Reset
 
-        //    // Act
-        //    var result = data.DropAllItems();
+            // Assert
+            Assert.AreEqual(7654322, result);
+        }
 
-        //    // Reset
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetDamageRollValue_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
 
-        //    // Assert
-        //    Assert.IsNotNull(result);
-        //}
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
 
-        //[Test]
-        //public void BasePlayerModel_AddItem_Unknown_Should_Fail()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.AddItem(ItemLocationEnum.Unknown, "bogus");
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
 
-        //[Test]
-        //public void BasePlayerModel_AddItem_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            data.Level = 1;
 
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced which is null
-        //    var result = data.AddItem(ItemLocationEnum.Head, itemOld.Id);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Add the first item
+            data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
-        //[Test]
-        //public async Task BasePlayerModel_AddItem_Default_Replace_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, itemOld.Id);
-
-        //    // Act
+            // Act
 
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.AddItem(ItemLocationEnum.Head, itemNew.Id);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(itemOld.Id, result.Id);
-        //}
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageRollValue();
 
-
-        //[Test]
-        //public async Task BasePlayerModel_GetItemBonus_Default_Attack_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
 
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            // Assert
+            Assert.AreEqual(1, result);
+        }
 
-
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetDamageItemBonus_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
 
-        //    var data = new BasePlayerModel<CharacterModel>();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-        //    data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-        //    data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-        //    data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetItemBonus(AttributeEnum.Attack);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(7654321, result);
-        //}
-
-        //[Test]
-        //public async Task BasePlayerModel_GetAttackTotal_Default_Attack_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
-
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
-
-
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
-
-        //    var data = new BasePlayerModel<CharacterModel>();
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-        //    data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-        //    data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-        //    data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetAttackTotal;
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(7654322, result);
-        //}
-
-        //[Test]
-        //public async Task BasePlayerModel_GetDefenseTotal_Default_Defense_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
-
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 1, Id = "head" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 20, Id = "necklass" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 300, Id = "PrimaryHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 4000, Id = "OffHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 50000, Id = "RightFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 600000, Id = "LeftFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 7000000, Id = "feet" });
-
-
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
-
-        //    var data = new BasePlayerModel<CharacterModel>();
-
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-        //    data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-        //    data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-        //    data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetDefenseTotal;
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.AreEqual(7654322, result);
-        //}
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            data.Level = 1;
 
-        //[Test]
-        //public async Task BasePlayerModel_GetSpeedTotal_Default_Speed_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
+            // Add the first item
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 1, Id = "head" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 20, Id = "necklass" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 300, Id = "PrimaryHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 4000, Id = "OffHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 50000, Id = "RightFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 600000, Id = "LeftFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 7000000, Id = "feet" });
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
 
+            // Act
 
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageItemBonus;
 
-        //    var data = new BasePlayerModel<CharacterModel>();
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-        //    data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-        //    data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-        //    data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            // Assert
+            Assert.AreEqual(1, result);
+        }
 
-        //    // Act
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetDamageItemBonusString_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
 
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetSpeedTotal;
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
-        //    // Reset
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
 
-        //    // Assert
-        //    Assert.AreEqual(7654322, result);
-        //}
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            data.Level = 1;
 
-        //[Test]
-        //public async Task BasePlayerModel_GetDamageRollValue_Default_Speed_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
+            // Add the first item
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
 
+            // Act
 
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageItemBonusString;
 
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    data.Level = 1;
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.Head, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-        //    data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-        //    data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-        //    data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-        //    data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            // Assert
+            Assert.AreEqual("1D 1", result);
+        }
 
-        //    Game.Helpers.DiceHelper.EnableRandomValues();
-        //    Game.Helpers.DiceHelper.SetForcedRandomValue(1);
+        [Test]
+        public async Task CharacterMonsterBaseModel_GetDamageTotalString_Default_Speed_Should_Pass()
+        {
+            // Arrange
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
 
-        //    // Act
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetDamageRollValue();
+            var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
+            var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
 
-        //    // Reset
-        //    Game.Helpers.DiceHelper.DisableRandomValues();
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            data.Level = 1;
 
-        //    // Assert
-        //    Assert.AreEqual(2, result);
-        //}
+            // Add the first item
+            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
-        //[Test]
-        //public async Task BasePlayerModel_GetDamageItemBonus_Default_Speed_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
+            Game.Helpers.DiceHelper.EnableRandomValues();
+            Game.Helpers.DiceHelper.SetForcedRandomValue(1);
 
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
+            // Act
 
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
+            // Add the second item, this will return the first item as the one replaced
+            var result = data.GetDamageTotalString;
 
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    data.Level = 1;
+            // Reset
+            Game.Helpers.DiceHelper.DisableRandomValues();
 
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-
-        //    Game.Helpers.DiceHelper.EnableRandomValues();
-        //    Game.Helpers.DiceHelper.SetForcedRandomValue(1);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetDamageItemBonus;
-
-        //    // Reset
-        //    Game.Helpers.DiceHelper.DisableRandomValues();
-
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
-
-        //[Test]
-        //public async Task BasePlayerModel_GetDamageItemBonusString_Default_Speed_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
-
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
-
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
-
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    data.Level = 1;
-
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-
-        //    Game.Helpers.DiceHelper.EnableRandomValues();
-        //    Game.Helpers.DiceHelper.SetForcedRandomValue(1);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetDamageItemBonusString;
-
-        //    // Reset
-        //    Game.Helpers.DiceHelper.DisableRandomValues();
-
-        //    // Assert
-        //    Assert.AreEqual("1D 1", result);
-        //}
-
-        //[Test]
-        //public async Task BasePlayerModel_GetDamageTotalString_Default_Speed_Should_Pass()
-        //{
-        //    // Arrange
-        //    // Add each model here to warm up and load it.
-        //    Game.Helpers.DataSetsHelper.WarmUp();
-
-        //    await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
-
-        //    var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
-        //    var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
-
-        //    var data = new BasePlayerModel<CharacterModel>();
-        //    data.Level = 1;
-
-        //    // Add the first item
-        //    data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-
-        //    Game.Helpers.DiceHelper.EnableRandomValues();
-        //    Game.Helpers.DiceHelper.SetForcedRandomValue(1);
-
-        //    // Act
-
-        //    // Add the second item, this will return the first item as the one replaced
-        //    var result = data.GetDamageTotalString;
-
-        //    // Reset
-        //    Game.Helpers.DiceHelper.DisableRandomValues();
-
-        //    // Assert
-        //    Assert.AreEqual("1 + 1D 1", result);
-        //}
+            // Assert
+            Assert.AreEqual("1 + 1D 1", result);
+        }
 
     }
 }

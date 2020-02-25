@@ -348,7 +348,7 @@ namespace Game.Models
                 return false;
             }
 
-            CurrentHealth = CurrentHealth - damage;
+            CurrentHealth -= damage;
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
