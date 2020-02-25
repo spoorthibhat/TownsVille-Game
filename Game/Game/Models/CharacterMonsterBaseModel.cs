@@ -305,12 +305,22 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            int newLevel = LevelTableHelper.Instance.LevelDetailsList[this.ExperienceTotal].Level;
-            if (newLevel > this.Level)
+
+            // Walk the Level Table descending order
+            // Stop when experience is >= experience in the table
+            for (var i = LevelTableHelper.Instance.LevelDetailsList.Count - 1; i > 0; i--)
             {
-                this.Level = newLevel;
-                return true;
+                if (LevelTableHelper.Instance.LevelDetailsList[i].Experience >= ExperienceTotal)
+                {
+                    var NewLevel = LevelTableHelper.Instance.LevelDetailsList[i].Level;
+                    if (NewLevel > this.Level)
+                    {
+                        this.Level = NewLevel;
+                        return true;
+                    }
+                }
             }
+   
             return false;
         }
 
