@@ -114,6 +114,7 @@
     <Content Include="Buttercup.png" />
     <Content Include="cauldren.png" />
     <Content Include="character_button.png" />
+    <Content Include="city.png" />
     <Content Include="CityAttack.PNG" />
     <Content Include="cloud.png" />
     <Content Include="d12.png" />
@@ -139,6 +140,7 @@
     <Content Include="item_flaming_sword.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="lab.png" />
     <Content Include="mayor.png" />
     <Content Include="mojo_jojo.png" />
     <Content Include="monster_button_icon.png" />
