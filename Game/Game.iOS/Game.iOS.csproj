@@ -318,4 +318,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\sky_theme.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud.png" />
+  </ItemGroup>
 </Project>

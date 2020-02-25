@@ -10,6 +10,9 @@ namespace Game.Helpers
     /// </summary>
     static class SpecialAbilityEnumHelper
     {
+        /// <summary>
+        /// Gets the list of special abilities in the form of a list of strings
+        /// </summary>
         public static List<string> GetSpecialAbilityList
         {
             get
