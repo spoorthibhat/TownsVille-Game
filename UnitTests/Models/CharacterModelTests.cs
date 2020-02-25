@@ -75,6 +75,7 @@ namespace UnitTests.Models
             result.Attack = 6;
             result.Defense = 7;
             result.Speed = 8;
+            result.SpecialAbility = SpecialAbilityEnum.Freeze;
 
             // Reset
 
@@ -82,11 +83,12 @@ namespace UnitTests.Models
             Assert.AreEqual(6, result.Attack);
             Assert.AreEqual(7, result.Defense);
             Assert.AreEqual(8, result.Speed);
+            Assert.AreEqual(SpecialAbilityEnum.Freeze, result.SpecialAbility);
 
             Assert.IsNotNull(result.Id);
             Assert.AreEqual(result.Id, result.Guid);
 
-            Assert.AreEqual("knight.png", result.ImageURI);
+            Assert.AreEqual("default_character.png", result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Character, result.PlayerType);
 
             Assert.AreEqual(true, result.Alive);
@@ -94,9 +96,9 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result.ListOrder);
             Assert.AreEqual(1, result.Level);
             Assert.AreEqual(0, result.ExperiencePoints);
-            Assert.AreEqual(0, result.CurrentHealth);
-            Assert.AreEqual(0, result.MaxHealth);
-            Assert.AreEqual(0, result.ExperienceTotal);
+            Assert.AreEqual(1, result.CurrentHealth);
+            Assert.AreEqual(1, result.MaxHealth);
+            Assert.AreEqual(300, result.ExperienceTotal);
 
             Assert.AreEqual(null, result.Head);
             Assert.AreEqual(null, result.Feet);
@@ -115,9 +117,11 @@ namespace UnitTests.Models
             // ArDefense
             var dataOriginal = new CharacterModel();
             dataOriginal.Attack = 1;
+            dataOriginal.SpecialAbility = SpecialAbilityEnum.Freeze;
 
             var dataNew = new CharacterModel();
             dataNew.Attack = 2;
+            dataNew.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
 
             // Act
             var result = dataOriginal.Update(dataNew);
@@ -126,6 +130,7 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.AreEqual(2, dataOriginal.Attack);
+            Assert.AreEqual(SpecialAbilityEnum.Laser_Eyes, dataOriginal.SpecialAbility);
         }
 
         [Test]
@@ -157,7 +162,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(true, result.Contains("Elf"));
+            Assert.AreEqual(true, result.Contains("This is a Character"));
         }
 
         [Test]
@@ -274,7 +279,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -289,7 +294,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -319,7 +324,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Contains("Elf"));
+            Assert.AreEqual(true, result.Contains("This is a Character"));
         }
 
         [Test]
@@ -334,7 +339,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
 
         [Test]
@@ -768,7 +773,7 @@ namespace UnitTests.Models
             Game.Helpers.DiceHelper.DisableRandomValues();
 
             // Assert
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]

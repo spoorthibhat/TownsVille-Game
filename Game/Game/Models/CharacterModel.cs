@@ -107,5 +107,20 @@ namespace Game.Models
             return myReturn;
 
         }
+
+        /// <summary>
+        /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
+        /// </summary>
+        /// <returns></returns>
+        public override string FormatOutput()
+        {
+            var myReturn = Name;
+            myReturn += " , " + Description;
+            myReturn += " , Level : " + Level.ToString();
+            myReturn += " , Total Experience : " + ExperienceTotal;
+            myReturn += " , Damage : " + GetDamageTotalString;
+
+            return myReturn;
+        }
     }
 }

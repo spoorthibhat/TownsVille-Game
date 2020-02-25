@@ -331,6 +331,7 @@ namespace Game.Models
         public bool AddExperience(int ExtraExperienceToAdd)
         {
             this.ExperienceTotal += ExtraExperienceToAdd;
+
             return true;
         }
 
