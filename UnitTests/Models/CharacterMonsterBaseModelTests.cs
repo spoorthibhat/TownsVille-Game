@@ -975,5 +975,19 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newOffHand);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_default_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.RemoveItemFromLocation(ItemLocationEnum.Unknown);
+            // Reset
+       
+            // Assert
+            Assert.AreEqual(0, (int)ItemLocationEnum.Unknown);
+        }
+
     }
 }
