@@ -238,6 +238,90 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void CharacterModel_GetAttack_SpecialAbilityDefaultChanged_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
+
+            // Act
+            var result = data.GetAttack(true);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(11, result);
+            Assert.IsFalse(data.ISSpecialAbilityNotUsed);
+        }
+
+        [Test]
+        public void CharacterModel_GetAttack_SpecialAbilityAlreadyUsed_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
+            data.ISSpecialAbilityNotUsed = false;
+
+            // Act
+            var result = data.GetAttack(true);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+            Assert.IsFalse(data.ISSpecialAbilityNotUsed);
+        }
+
+        [Test]
+        public void CharacterModel_GetAttack_SpecialAbilityNotUsed_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
+            
+
+            // Act
+            var result = data.GetAttack(false);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+            Assert.IsTrue(data.ISSpecialAbilityNotUsed);
+        }
+
+        [Test]
+        public void CharacterModel_GetAttackSpecialAbilityBonus_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+
+            // Act
+            var result = data.GetAttackSpecialAbilityBonus;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
+        public void CharacterModel_GetAttackSpecialAbilityBonus_DifferentSpecialAbility_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
+
+            // Act
+            var result = data.GetAttackSpecialAbilityBonus;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(10, result);
+        }
+
+        [Test]
         public void CharacterModel_GetDefense_Default_Should_Pass()
         {
             // ArDefense
@@ -270,7 +354,7 @@ namespace UnitTests.Models
         [Test]
         public void CharacterModel_GetHealthCurrent_Default_Should_Pass()
         {
-            // ArDefense
+            // Arrange
             var data = new CharacterModel();
 
             // Act
