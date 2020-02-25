@@ -71,13 +71,28 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0"
-                        Text="Name" 
-                        Style="{StaticResource LabelStyle}"/>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0"
+                            Text="Name" 
+                            Style="{StaticResource LabelStyle}"/>
+                    <Label Grid.Row="0" Grid.Column="1"
+                            Style="{StaticResource ValidationLabelStyle}" 
+                            x:Name="NameValidationLabel"/>
+                </Grid>
 
                 <Entry Grid.Row="0" Grid.Column="1"
-                        Text="{Binding Data.Name}" 
-                        Style="{StaticResource EntryStyle}"/>
+                            Text="{Binding Data.Name}"  
+                            x:Name="NameEntry"
+                            Style="{StaticResource EntryStyle}"
+                            TextChanged="NameEntry_Changed"/>
 
                 <Label Grid.Row="1" Grid.Column="0"
                         Text="Description" 
@@ -255,7 +270,8 @@
                     <Button
                         Text="Save"
                         Style="{StaticResource PrimaryButtonStyle}"
-                        Clicked="Save_Clicked"/>
+                        Clicked="Save_Clicked"
+                        x:Name="SaveButton"/>
 
                     <Button
                         Text="Cancel"
