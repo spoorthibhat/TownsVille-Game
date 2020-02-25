@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 using Game.Models;
 using Game.Helpers;
+using System;
 
 namespace Game.Engine
 {
@@ -219,7 +220,7 @@ namespace Game.Engine
 
             RemoveIfDead(Target);
 
-            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
+            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial.Replace("\n", Environment.NewLine);
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
@@ -302,7 +303,7 @@ namespace Game.Engine
             foreach (var ItemModel in myItemList)
             {
                 BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+                BattleMessagesModel.TurnMessageSpecial += "\n ItemModel " + ItemModel.Name + " dropped";
             }
 
             ItemPool.AddRange(myItemList);
@@ -322,6 +323,8 @@ namespace Game.Engine
 
             if (d20 == 1)
             {
+                BattleMessagesModel.AttackStatus = " rolls 1 to completly miss ";
+
                 // Force Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
                 return BattleMessagesModel.HitStatus;
@@ -329,6 +332,9 @@ namespace Game.Engine
 
             if (d20 == 20)
             {
+
+                BattleMessagesModel.AttackStatus = " rolls 20 for lucky hit ";
+
                 // Force Hit
                 BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
                 return BattleMessagesModel.HitStatus;
@@ -337,13 +343,15 @@ namespace Game.Engine
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                BattleMessagesModel.AttackStatus = " misses ";
+                BattleMessagesModel.AttackStatus = " rolls " + d20 + " and misses ";
+
                 // Miss
                 BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
                 BattleMessagesModel.DamageAmount = 0;
                 return BattleMessagesModel.HitStatus;
             }
 
+            BattleMessagesModel.AttackStatus = " rolls " + d20 + " and hits ";
             // Hit
             BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
             return BattleMessagesModel.HitStatus;
