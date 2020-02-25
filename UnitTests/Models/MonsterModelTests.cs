@@ -855,5 +855,19 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("1 + 1D 1", result);
         }
+
+        [Test]
+        public void MonsterModel_Scale_level_Invalid_Should_Fail()
+        {
+            // Arrange
+            var data = new MonsterModel();
+            // Act
+            var result = data.ScaleLevel(-1);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false,result);
+        }
     }
 }
