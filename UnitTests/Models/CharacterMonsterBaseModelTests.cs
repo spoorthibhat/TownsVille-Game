@@ -318,20 +318,39 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result);
         }
 
-        //[Test]
-        //public void BCharacterMonsterBaseModel_GetItem_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new CharacterMonsterBaseModel<CharacterModel>();
+        [Test]
+        public void CharacterMonsterBaseModel_LevelUp_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
 
-        //    // Act
-        //    var result = data.GetItem("test");
+            // Act
+            data.Level = 1;
+            data.ExperienceTotal = -1;
+            var result = data.LevelUp();
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(null, result);
-        //}
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_LevelUp_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            data.Level = 1;
+            data.ExperienceTotal = 300;
+            var result = data.LevelUp();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
 
         [Test]
         public void CharacterMonsterBaseModel_GetItemByLocation_Head_Default_Should_Pass()
