@@ -7,6 +7,9 @@ namespace Game.Services
     public static class DefaultData
     {
 
+        /// <summary>
+        /// Returns the default list of head items
+        /// </summary>
         public static List<ItemModel> HeadList = new List<ItemModel>()
         {
             new ItemModel {
@@ -29,6 +32,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Attack},
         };
 
+        /// <summary>
+        /// Returns the default list of feet items
+        /// </summary>
         public static List<ItemModel> FeetList = new List<ItemModel>()
         {
             new ItemModel {
@@ -51,6 +57,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
         };
 
+        /// <summary>
+        /// Returns the default list of primary hand items
+        /// </summary>
         public static List<ItemModel> PrimaryHandList = new List<ItemModel>()
         {
             new ItemModel {
@@ -73,6 +82,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Attack},
         };
 
+        /// <summary>
+        /// Returns the default list of offlist items
+        /// </summary>
         public static List<ItemModel> OffHandList = new List<ItemModel>()
         {
             new ItemModel {
@@ -86,6 +98,9 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
         };
 
+        /// <summary>
+        /// Returns the default list of necklass items
+        /// </summary>
         public static List<ItemModel> NecklassList = new List<ItemModel>()
         {
         new ItemModel {
@@ -110,6 +125,9 @@ namespace Game.Services
 },
         };
 
+        /// <summary>
+        /// Returns the default list of left finger items
+        /// </summary>
         public static List<ItemModel> LeftFingerList = new List<ItemModel>()
             {
             new ItemModel {
@@ -124,6 +142,9 @@ namespace Game.Services
     },
             };
 
+        /// <summary>
+        /// Returns the default list of right finger items
+        /// </summary>
         public static List<ItemModel> RightFingerList = new List<ItemModel>()
         {
             new ItemModel {
@@ -136,6 +157,7 @@ namespace Game.Services
                     Location = ItemLocationEnum.RightFinger,
                     Attribute = AttributeEnum.Attack},
         };
+
         /// <summary>
         /// Load the Default data
         /// </summary>
@@ -158,11 +180,14 @@ namespace Game.Services
 
             };
 
-                
-
             return datalist;
         }
 
+        /// <summary>
+        /// Loads the data related to scores
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()
@@ -181,6 +206,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Loads the default characters data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<CharacterModel> LoadData(CharacterModel temp)
         {
             var datalist = new List<CharacterModel>()
@@ -243,6 +273,12 @@ namespace Game.Services
             };
             return datalist;
         }
+
+        /// <summary>
+        /// Loads the default monster data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
             var datalist = new List<MonsterModel>()
@@ -302,6 +338,7 @@ namespace Game.Services
             };
             return datalist;
         }
+
         /// <summary>
         /// Loads the default available character images
         /// </summary>
