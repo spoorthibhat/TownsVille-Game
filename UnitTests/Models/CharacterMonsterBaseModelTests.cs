@@ -943,5 +943,21 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newPrimaryHand);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_NeckLass_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.Necklace = "Posinous pearls";
+            data.RemoveItemFromLocation(ItemLocationEnum.Necklass);
+            var newNecklace = data.Necklace;
+            // Reset
+            data.Necklace = null;
+            // Assert
+            Assert.AreEqual(null, newNecklace);
+        }
+
     }
 }
