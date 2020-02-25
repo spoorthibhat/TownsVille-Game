@@ -330,7 +330,8 @@ namespace UnitTests.Models
             var result = data.LevelUp();
 
             // Reset
-
+            data.Level = 1; //default value
+            data.ExperienceTotal = 300; // default value
             // Assert
             Assert.AreEqual(true, result);
         }
@@ -347,7 +348,8 @@ namespace UnitTests.Models
             var result = data.LevelUp();
 
             // Reset
-
+            data.Level = 1; // default value
+            data.ExperienceTotal = 300; // default value
             // Assert
             Assert.AreEqual(true, result);
         }
@@ -860,6 +862,39 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("1 + 1D 1", result);
         }
+
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocation_Head_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.Head = "Helmet";
+            data.RemoveItemFromLocation(ItemLocationEnum.Head);
+            var newHead = data.Head;
+            // Reset
+            data.Head = null;
+            // Assert
+            Assert.AreEqual(null, newHead);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocation_Feet_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.Feet = "Helmet";
+            data.RemoveItemFromLocation(ItemLocationEnum.Feet);
+            var newFeet = data.Feet;
+            // Reset
+            data.Head = null;
+            // Assert
+            Assert.AreEqual(null, newFeet);
+        }
+
 
     }
 }
