@@ -886,15 +886,30 @@ namespace UnitTests.Models
 
             var data = new CharacterMonsterBaseModel<CharacterModel>();
             // Act
-            data.Feet = "Helmet";
+            data.Feet = "Absorption Shoes";
             data.RemoveItemFromLocation(ItemLocationEnum.Feet);
             var newFeet = data.Feet;
             // Reset
-            data.Head = null;
+            data.Feet = null;
             // Assert
             Assert.AreEqual(null, newFeet);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocation_LeftFinger_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.LeftFinger = "Ring";
+            data.RemoveItemFromLocation(ItemLocationEnum.LeftFinger);
+            var newLeftFinger = data.LeftFinger;
+            // Reset
+            data.LeftFinger = null;
+            // Assert
+            Assert.AreEqual(null, newLeftFinger);
+        }
 
     }
 }
