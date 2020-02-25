@@ -25,16 +25,16 @@ namespace Game.Views
 			// Call into Auto Battle from here to do the Battle...
 
 			var Engine = new Game.Engine.AutoBattleEngine();
-
-			string BattleMessage = "";
-
+            
 			var result = await Engine.RunAutoBattle();
 			
 			var Score = Engine.GetScoreObject();
 
-			BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
-
-			BattleMessageValue.Text = BattleMessage;
+            string RoundMessage = string.Format("No of Rounds: {0}\n", Score.RoundCount);
+            string TurnMessage = string.Format("No of Turns: {0}\n", Score.TurnCount);
+            string BattleDetails = "Game Over\n"+ RoundMessage + TurnMessage;
+            BattleDetails = BattleDetails.Replace("\n", Environment.NewLine);
+            BattleMessageValue.Text = BattleDetails;
 		}
 	}
 }
