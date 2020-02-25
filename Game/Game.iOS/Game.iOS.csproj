@@ -321,4 +321,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\cloud.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lab.png" />
+  </ItemGroup>
 </Project>

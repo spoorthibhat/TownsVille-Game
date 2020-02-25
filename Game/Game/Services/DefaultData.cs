@@ -409,8 +409,8 @@ namespace Game.Services
             var imageList = new List<Image>()
             {
                 new Image { Url = "cloud.png" },
-                new Image { Url = "him.png" },
-                new Image { Url = "amoeba_boys.png" },
+                new Image { Url = "city.png" },
+                new Image { Url = "lab.png" },
                 new Image { Url = "rowdy_boys.png" },
                 
 
