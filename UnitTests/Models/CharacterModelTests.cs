@@ -150,6 +150,7 @@ namespace UnitTests.Models
             // ArDefense
             var data = new CharacterModel();
 
+          
             // Act
             var result = data.FormatOutput();
 

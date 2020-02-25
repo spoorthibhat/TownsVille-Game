@@ -389,7 +389,7 @@ namespace Game.Models
             return Alive;
         }
 
-        public string FormatOutput() { return ""; }
+        public virtual string FormatOutput() { return ""; }
 
         /// <summary>
         /// Returns list of all items possessed.
