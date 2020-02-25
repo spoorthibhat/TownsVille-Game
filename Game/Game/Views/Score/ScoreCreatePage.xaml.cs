@@ -82,6 +82,22 @@ namespace Game.Views
                 - (ViewModel.Data.RoundCount * 10) - ViewModel.Data.TurnCount;
             return score;
         }
-        
+        /// <summary>
+        /// Validation check on Name field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NameEntry_Changed(object sender, TextChangedEventArgs e)
+        {
+            if (NameEntry.Text.Equals(""))
+            {
+                SaveButton.IsEnabled = false;
+                NameValidationLabel.IsVisible = true;
+                return;
+            }
+            SaveButton.IsEnabled = true;
+            NameValidationLabel.IsVisible = false;
+        }
+
     }
 }
