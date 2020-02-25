@@ -115,6 +115,7 @@
     <Content Include="cauldren.png" />
     <Content Include="character_button.png" />
     <Content Include="CityAttack.PNG" />
+    <Content Include="cloud.png" />
     <Content Include="d12.png" />
     <Content Include="default_character.png" />
     <Content Include="dice_20.png" />
