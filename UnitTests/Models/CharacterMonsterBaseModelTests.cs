@@ -355,6 +355,24 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void CharacterMonsterBaseModel_HighestLevelReached_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+
+            // Act
+            data.Level = 29;
+            data.ExperienceTotal = 300;
+            var result = data.LevelUp();
+
+            // Reset
+            data.Level = 1; // default value
+            data.ExperienceTotal = 300; // default value
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
         public void CharacterMonsterBaseModel_GetItemByLocation_Head_Default_Should_Pass()
         {
             // Arrange
