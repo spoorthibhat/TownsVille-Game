@@ -12,6 +12,6 @@ namespace Game.Models
         /// <summary>
         /// The source url of the image
         /// </summary>
-        public string Url { get; set; }
+        public string Url { get; set; } = null;
     }
 }

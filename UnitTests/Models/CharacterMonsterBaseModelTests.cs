@@ -911,5 +911,69 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newLeftFinger);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_RightFinger_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.RightFinger = "Ring";
+            data.RemoveItemFromLocation(ItemLocationEnum.RightFinger);
+            var newRightFinger = data.RightFinger;
+            // Reset
+            data.RightFinger = null;
+            // Assert
+            Assert.AreEqual(null, newRightFinger);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.PrimaryHand = "Flaming Sword";
+            data.RemoveItemFromLocation(ItemLocationEnum.PrimaryHand);
+            var newPrimaryHand = data.PrimaryHand;
+            // Reset
+            data.RightFinger = null;
+            // Assert
+            Assert.AreEqual(null, newPrimaryHand);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_NeckLass_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.Necklace = "Posinous pearls";
+            data.RemoveItemFromLocation(ItemLocationEnum.Necklass);
+            var newNecklace = data.Necklace;
+            // Reset
+            data.Necklace = null;
+            // Assert
+            Assert.AreEqual(null, newNecklace);
+        }
+
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_OffHand_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.OffHand = "Thunder bolt";
+            data.RemoveItemFromLocation(ItemLocationEnum.OffHand);
+            var newOffHand = data.OffHand;
+            // Reset
+            data.OffHand = null;
+            // Assert
+            Assert.AreEqual(null, newOffHand);
+        }
+
     }
 }
