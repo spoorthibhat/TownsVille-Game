@@ -68,6 +68,14 @@
         {
             return AttackerName + GetSwingResult() + TargetName;
         }
+        /// <summary>
+        /// Returns the String Attacker using special ability to attack Defender
+        /// </summary>
+        /// <returns></returns>
+        public string GetSpecialAbilityMessage()
+        {
+            return AttackerName + " using Special Ability to attack " + TargetName;
+        }
 
         /// <summary>
         /// Remaining Health Message

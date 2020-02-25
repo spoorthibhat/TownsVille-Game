@@ -175,11 +175,16 @@ namespace Game.Engine
             BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
             var AttackScore = 0;
 
+            // Choose who to attack
+
+            BattleMessagesModel.TargetName = Target.Name;
+            BattleMessagesModel.AttackerName = Attacker.Name;
+
             if (Attacker.PlayerType == PlayerTypeEnum.Character)
             {
                 bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
-                //TODO
-                Debug.WriteLine(string.Format("UseSpecialAbility :----------------{0}",UseSpecialAbility));
+                if(UseSpecialAbility)
+                    Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
                 AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
             }
 
@@ -189,11 +194,6 @@ namespace Game.Engine
             }
 
             var DefenseScore = Target.GetDefense() + Target.Level;
-
-            // Choose who to attack
-
-            BattleMessagesModel.TargetName = Target.Name;
-            BattleMessagesModel.AttackerName = Attacker.Name;
 
             BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
 
