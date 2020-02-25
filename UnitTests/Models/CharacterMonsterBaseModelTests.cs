@@ -911,5 +911,21 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newLeftFinger);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_RightFinger_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.RightFinger = "Ring";
+            data.RemoveItemFromLocation(ItemLocationEnum.RightFinger);
+            var newRightFinger = data.RightFinger;
+            // Reset
+            data.RightFinger = null;
+            // Assert
+            Assert.AreEqual(null, newRightFinger);
+        }
+
     }
 }
