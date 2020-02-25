@@ -869,5 +869,18 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(false,result);
         }
+
+        [Test]
+        public void MonsterModel_Scale_level_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+            // Act
+            var result = data.ScaleLevel(1);
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+        }
     }
 }
