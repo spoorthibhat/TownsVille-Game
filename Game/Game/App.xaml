@@ -236,6 +236,16 @@
                 <Setter Property="FontSize" Value="Medium"/>
             </Style>
             
+            <Style TargetType="Label"
+                x:Key="ValidationLabelStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="Text" Value="*"/>
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
