@@ -75,6 +75,7 @@ namespace UnitTests.Models
             result.Attack = 6;
             result.Defense = 7;
             result.Speed = 8;
+            result.SpecialAbility = SpecialAbilityEnum.Freeze;
 
             // Reset
 
@@ -82,6 +83,7 @@ namespace UnitTests.Models
             Assert.AreEqual(6, result.Attack);
             Assert.AreEqual(7, result.Defense);
             Assert.AreEqual(8, result.Speed);
+            Assert.AreEqual(SpecialAbilityEnum.Freeze, result.SpecialAbility);
 
             Assert.IsNotNull(result.Id);
             Assert.AreEqual(result.Id, result.Guid);
@@ -115,9 +117,11 @@ namespace UnitTests.Models
             // ArDefense
             var dataOriginal = new CharacterModel();
             dataOriginal.Attack = 1;
+            dataOriginal.SpecialAbility = SpecialAbilityEnum.Freeze;
 
             var dataNew = new CharacterModel();
             dataNew.Attack = 2;
+            dataNew.SpecialAbility = SpecialAbilityEnum.Laser_Eyes;
 
             // Act
             var result = dataOriginal.Update(dataNew);
@@ -126,6 +130,7 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.AreEqual(2, dataOriginal.Attack);
+            Assert.AreEqual(SpecialAbilityEnum.Laser_Eyes, dataOriginal.SpecialAbility);
         }
 
         [Test]
