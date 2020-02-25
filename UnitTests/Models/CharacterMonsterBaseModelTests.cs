@@ -959,5 +959,21 @@ namespace UnitTests.Models
             Assert.AreEqual(null, newNecklace);
         }
 
+        [Test]
+        public void CharacterMonsterBaseModel_RemoveItemFromLocatio_OffHand_Should_Pass()
+        {
+            // Arrange
+
+            var data = new CharacterMonsterBaseModel<CharacterModel>();
+            // Act
+            data.OffHand = "Thunder bolt";
+            data.RemoveItemFromLocation(ItemLocationEnum.OffHand);
+            var newOffHand = data.OffHand;
+            // Reset
+            data.OffHand = null;
+            // Assert
+            Assert.AreEqual(null, newOffHand);
+        }
+
     }
 }
