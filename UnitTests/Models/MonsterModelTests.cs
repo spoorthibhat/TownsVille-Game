@@ -84,7 +84,7 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Id);
             Assert.AreEqual(result.Id, result.Guid);
 
-            Assert.AreEqual("troll.png", result.ImageURI);
+            Assert.AreEqual("default_character.png", result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Monster, result.PlayerType);
 
             Assert.AreEqual(true, result.Alive);
@@ -92,9 +92,9 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result.ListOrder);
             Assert.AreEqual(1, result.Level);
             Assert.AreEqual(0, result.ExperiencePoints);
-            Assert.AreEqual(0, result.CurrentHealth);
-            Assert.AreEqual(0, result.MaxHealth);
-            Assert.AreEqual(0, result.ExperienceTotal);
+            Assert.AreEqual(1, result.CurrentHealth);
+            Assert.AreEqual(1, result.MaxHealth);
+            Assert.AreEqual(300, result.ExperienceTotal);
 
             Assert.AreEqual(null, result.Head);
             Assert.AreEqual(null, result.Feet);
@@ -226,7 +226,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(101, result);
         }
 
         [Test]
@@ -271,7 +271,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -286,7 +286,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -649,7 +649,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(7654323, result);
+            Assert.AreEqual(7654422, result);
         }
 
         [Test]
@@ -723,7 +723,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(7654323, result);
+            Assert.AreEqual(7654322, result);
         }
 
         [Test]
@@ -764,7 +764,7 @@ namespace UnitTests.Models
             Game.Helpers.DiceHelper.DisableRandomValues();
 
             // Assert
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
