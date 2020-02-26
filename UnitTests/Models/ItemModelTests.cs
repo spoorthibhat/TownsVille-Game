@@ -25,5 +25,34 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void ItemModel_CopyConstructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new ItemModel();
+            var newData = new ItemModel(result);
+          
+            // Reset
+
+            // Assert
+            Assert.AreEqual(result.Name,newData.Name);
+            Assert.AreEqual(result.Description,newData.Description);
+            Assert.AreEqual(result.Value,newData.Value);
+            Assert.AreEqual(result.Attribute,newData.Attribute);
+            Assert.AreEqual(result.Location,newData.Location);
+            Assert.AreEqual(result.Name,newData.Name);
+            Assert.AreEqual(result.Description,newData.Description);
+            Assert.AreEqual(result.ImageURI,newData.ImageURI);
+            Assert.AreEqual(result.Range,newData.Range);
+            Assert.AreEqual(result.Damage,newData.Damage);
+        }
+
+
+
+       
+ 
     }
 }
