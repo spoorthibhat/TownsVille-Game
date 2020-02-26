@@ -56,9 +56,21 @@ namespace Game.Views
             currentCharacter = SelectedCharacterList[row];
             currentPosition[0] = row;
             currentPosition[1] = 0;
+            DisableOtherCharacterSelection();
         }
+
+        private void DisableOtherCharacterSelection()
+        {
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) != currentPosition[0] && Grid.GetColumn(child) == 0))
+            {
+                child.IsEnabled = false;
+            }
+        }
+
         private void MoveBack_Clicked(object sender, EventArgs e)
         {
+            if (currentPosition[1] - 1 < 1)
+                return;
             currentPosition[1]--;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
             img.Source = currentCharacter.ImageURI;
@@ -72,6 +84,8 @@ namespace Game.Views
         }
         private void MoveFront_Clicked(object sender, EventArgs e)
         {
+            if (currentPosition[1] + 1 > 3)
+                return;
             currentPosition[1]++;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
             img.Source = currentCharacter.ImageURI;
@@ -85,6 +99,8 @@ namespace Game.Views
         }
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
+            if (currentPosition[0] - 1 < 0)
+                return;
             currentPosition[0]--;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
             img.Source = currentCharacter.ImageURI;
@@ -98,7 +114,8 @@ namespace Game.Views
         }
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
-
+            if (currentPosition[0] + 1 > 5)
+                return;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
             img.Source = currentCharacter.ImageURI;
             currentPosition[0]++;
