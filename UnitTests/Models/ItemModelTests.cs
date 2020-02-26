@@ -50,9 +50,21 @@ namespace UnitTests.Models
             Assert.AreEqual(result.Damage,newData.Damage);
         }
 
+        [Test]
+        public void ItemModel_Update_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = new ItemModel();
+            var data = result.Update(null);
+            // Reset
+
+            // Assert
+            Assert.IsFalse(data);
+        }
 
 
-       
- 
+
     }
 }
