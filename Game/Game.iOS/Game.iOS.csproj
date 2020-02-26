@@ -330,4 +330,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\playground.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\forward_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backward_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\down_arrow.png" />
+  </ItemGroup>
 </Project>
