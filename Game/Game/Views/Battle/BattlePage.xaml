@@ -1,26 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.BattlePage">
+             x:Class="Game.Views.BattlePage"
+             Title="Battle Time!">
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Battle Page..."></Label>
-
-            <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-
-            <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
-
-            <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
-
-            <Button Clicked="RoundOverButton_Clicked" Text="Round Over"></Button>
-            
-            <Button Clicked="BattleOverButton_Clicked" Text="Battle Over"></Button>
-            
-            <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
-
-            <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
+            <Grid x:Name="BattleGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HeightRequest="100">
+                <Grid WidthRequest="150">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="backward_arrow.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Clicked="MoveBack_Clicked"/>
+                    <ImageButton Source="forward_arrow.png" Grid.Row="1" Grid.Column="2" HorizontalOptions="Start" Clicked="MoveFront_Clicked"/>
+                    <ImageButton Source="up_arrow.png" Grid.Row="0" Grid.Column="1" Clicked="MoveUp_Clicked"/>
+                    <ImageButton Source="down_arrow.png" Grid.Row="2" Grid.Column="1" Clicked="MoveDown_Clicked"/>
+                </Grid>
+                <Button Text="Special Ability" Style="{StaticResource PrimaryButtonStyle}"></Button>
+                <Button Clicked="AttackButton_Clicked" Text="Attack" Style="{StaticResource PrimaryButtonStyle}"></Button>
+                
+            </StackLayout>
 
         </StackLayout>
         

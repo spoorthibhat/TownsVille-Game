@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Game.Models;
+using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Engine;
+using Game.Services;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -10,86 +15,121 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public BattlePage ()
+        public List<CharacterModel> SelectedCharacterList = DefaultData.LoadData(new CharacterModel());
+
+        public List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
+
+        public CharacterModel currentCharacter;
+
+        public int[] currentPosition = new int[2];
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public BattlePage ()
 		{
 			InitializeComponent ();
+
+            LoadCharacters();
+            LoadMonsters();
+
 		}
 
-		/// <summary>
-		/// Attack Action
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void AttackButton_Clicked(object sender, EventArgs e)
+        private void LoadCharacters()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
+                img.Source = SelectedCharacterList[i].ImageURI;
+                img.StyleId = i.ToString();
+                img.Clicked += Character_Clicked;
+                Grid.SetRow(img, i);
+                Grid.SetColumn(img, 0);
+                BattleGrid.Children.Add(img);
+            }
+        }
+
+        private void Character_Clicked(object sender, EventArgs e)
+        {
+            ImageButton imgButton = (ImageButton)sender;
+            int row = Int32.Parse(imgButton.StyleId);
+            currentCharacter = SelectedCharacterList[row];
+            currentPosition[0] = row;
+            currentPosition[1] = 0;
+        }
+        private void MoveBack_Clicked(object sender, EventArgs e)
+        {
+            currentPosition[1]--;
+            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
+            img.Source = currentCharacter.ImageURI;
+            Grid.SetRow(img, currentPosition[0]);
+            Grid.SetColumn(img, currentPosition[1]);
+            BattleGrid.Children.Add(img);
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] && Grid.GetColumn(child) == currentPosition[1] + 1))
+            {
+                child.IsVisible = false;
+            }
+        }
+        private void MoveFront_Clicked(object sender, EventArgs e)
+        {
+            currentPosition[1]++;
+            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
+            img.Source = currentCharacter.ImageURI;
+            Grid.SetRow(img, currentPosition[0]);
+            Grid.SetColumn(img, currentPosition[1]);
+            BattleGrid.Children.Add(img);
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] && Grid.GetColumn(child) == currentPosition[1]-1))
+            {
+                child.IsVisible = false;
+            }
+        }
+        private void MoveUp_Clicked(object sender, EventArgs e)
+        {
+            currentPosition[0]--;
+            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
+            img.Source = currentCharacter.ImageURI;
+            Grid.SetRow(img, currentPosition[0]);
+            Grid.SetColumn(img, currentPosition[1]);
+            BattleGrid.Children.Add(img);
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] + 1 && Grid.GetColumn(child) == currentPosition[1]))
+            {
+                child.IsVisible = false;
+            }
+        }
+        private void MoveDown_Clicked(object sender, EventArgs e)
+        {
+
+            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
+            img.Source = currentCharacter.ImageURI;
+            currentPosition[0]++;
+            Grid.SetRow(img, currentPosition[0]);
+            Grid.SetColumn(img, currentPosition[1]);
+            BattleGrid.Children.Add(img);
+
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0]-1 && Grid.GetColumn(child) == currentPosition[1]))
+            {
+                child.IsVisible= false;
+            }
+        }
+        private void LoadMonsters()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
+                img.Source = SelectedMonsterList[i].ImageURI;
+                Grid.SetRow(img, i);
+                Grid.SetColumn(img, 4);
+                BattleGrid.Children.Add(img);
+            }
+        }
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			DisplayAlert("SU", "Attack !!!", "OK");
 		}
-
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void RoundOverButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new RoundOverPage());
-		}
-
-
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void NewRoundButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new NewRoundPage());
-		}
-		
-
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void BattleOverButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new ScorePage());
-		}
-
-		/// <summary>
-		/// Battle Over, so Exit Button
-		/// Need to show this for the user to click on.
-		/// The Quit does a prompt, exit just exits
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void ExitButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PopModalAsync();
-		}
-
-		/// <summary>
-		/// Quit the Battle
-		/// 
-		/// Quitting out
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void QuitButton_Clicked(object sender, EventArgs e)
-		{
-			bool answer = await DisplayAlert("Battle", "Are you sure you want to Quit?", "Yes", "No");
-
-			if (answer)
-			{
-				await Navigation.PopModalAsync();
-			}
-		}
-	}
+    }
 }
