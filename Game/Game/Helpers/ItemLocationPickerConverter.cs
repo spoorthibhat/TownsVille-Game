@@ -23,8 +23,8 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
-                return null;
+            if (value.Equals("0"))
+                return "None";
             return ItemIndexViewModel.Instance.Dataset.Where(a =>
                         a.Id == value.ToString())
                         .FirstOrDefault().Name;

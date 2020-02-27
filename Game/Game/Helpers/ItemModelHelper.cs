@@ -54,6 +54,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.Head)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -65,6 +66,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.Necklass)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -76,6 +78,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.PrimaryHand)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -87,6 +90,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.OffHand)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -98,6 +102,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.RightFinger)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -109,6 +114,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.LeftFinger)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
@@ -120,6 +126,7 @@ namespace Game.Helpers
             get
             {
                 var myList = ItemIndexViewModel.Instance.Dataset.Where(item => item.Location.Equals(ItemLocationEnum.Feet)).Select(item => item.Id).ToList();
+                myList.Add("0");
                 return myList;
             }
         }
