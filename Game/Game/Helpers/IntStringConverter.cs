@@ -9,7 +9,7 @@ namespace Game.Helpers
     /// from string or vice versa. This allows the convert in the picker to be data bound back and forth the model
     /// the picker requires this because the picker must be a string, but the enum is a value...
     /// </summary>
-    class IntStringConverter : IValueConverter
+    public class IntStringConverter : IValueConverter
     {
         /// <summary>
         /// Parses the string to integer.
@@ -21,7 +21,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (int)value;
+            if(value is string)
+            {
+                return (int)value;
+            }
+
+            return 0;
         }
 
 
@@ -35,7 +40,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value.ToString();
+            if(value is int)
+            {
+                return value.ToString();
+            }
+
+            return 0;
         }
     }
 }
