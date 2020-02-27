@@ -23,7 +23,6 @@ namespace Game.Models
             this.Name = "This is a Monster";
             this.Description = "Monster Description";
             this.ImageURI = "default_character.png";
-            this.Attack = 100;
         }
 
         /// <summary>
