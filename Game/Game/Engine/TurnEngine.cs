@@ -185,7 +185,9 @@ namespace Game.Engine
             {
                 bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
                 if(UseSpecialAbility)
+                {
                     Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
+                }
                 AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
             }
 
