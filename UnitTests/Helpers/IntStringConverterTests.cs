@@ -22,5 +22,20 @@ namespace UnitTests.Helpers
 
             Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
         }
+
+        [Test]
+        public void IntString_Convert_Should_Pass()
+        {
+            var myConverter = new IntStringConverter();
+
+            var myObject = 20;
+
+            var Result = myConverter.Convert(myObject, null, null, null);
+            var Expected = 20;
+
+            Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
+        }
+
+        
     }
 }
