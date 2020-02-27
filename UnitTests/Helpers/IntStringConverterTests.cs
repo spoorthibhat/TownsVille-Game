@@ -36,6 +36,17 @@ namespace UnitTests.Helpers
             Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
         }
 
-        
+        [Test]
+        public void IntString_ConvertBack_Should_Skip()
+        {
+            var myConverter = new IntStringConverter();
+
+            var myObject = new ItemModel();
+
+            var Result = myConverter.Convert(myObject, null, null, null);
+            var Expected = 0;
+
+            Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
+        }
     }
 }
