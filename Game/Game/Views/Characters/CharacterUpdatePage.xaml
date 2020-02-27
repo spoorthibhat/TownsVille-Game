@@ -171,7 +171,7 @@
                         />
 
                 <Label Grid.Row="8" Grid.Column="0"
-                        Text="PrimaryHand" 
+                        Text="Primary Hand" 
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="8" Grid.Column="1" 
@@ -182,7 +182,7 @@
                         />
 
                 <Label Grid.Row="9" Grid.Column="0"
-                        Text="OffHand" 
+                        Text="Off Hand" 
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="9" Grid.Column="1" 
@@ -193,7 +193,7 @@
                         />
 
                 <Label Grid.Row="10" Grid.Column="0"
-                        Text="RightFinger" 
+                        Text="Right Finger" 
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="10" Grid.Column="1" 
@@ -204,7 +204,7 @@
                         />
 
                 <Label Grid.Row="11" Grid.Column="0"
-                        Text="LeftFinger" 
+                        Text="Left Finger" 
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="11" Grid.Column="1" 

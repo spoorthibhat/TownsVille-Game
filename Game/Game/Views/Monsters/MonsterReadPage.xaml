@@ -98,7 +98,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="PrimaryHand : " 
+                    Text="Primary Hand : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     x:Name="PrimaryHandItem" 
@@ -107,7 +107,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="OffHand : " 
+                    Text="Off Hand : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     x:Name="OffHandItem"  
@@ -116,7 +116,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="RightFinger : " 
+                    Text="Right Finger : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     x:Name="RightFingerItem" 
@@ -125,7 +125,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="LeftFinger : " 
+                    Text="Left Finger : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     x:Name="LeftFingerItem"  
