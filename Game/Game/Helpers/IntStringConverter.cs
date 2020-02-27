@@ -21,7 +21,7 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is string)
+            if(value is int)
             {
                 return (int)value;
             }
@@ -40,7 +40,7 @@ namespace Game.Helpers
         /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is int)
+            if(value is string)
             {
                 return value.ToString();
             }
