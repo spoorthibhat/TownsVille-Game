@@ -2,13 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.PickItemsPage"
-             >
+             Title="Pick Items">
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Items Page..."></Label>
-
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+            <Grid x:Name="CharactersGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Label Text="List of Dropped Items"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Clicked="AutoPickUpButton_Clicked" Text="Auto PickUp" Style="{StaticResource PrimaryButtonStyle}"></Button>
+                <Button Clicked="CloseButton_Clicked" Text="Close" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            </StackLayout>
         </StackLayout>
         
     </ContentPage.Content>
