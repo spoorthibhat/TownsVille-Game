@@ -147,6 +147,16 @@ namespace Game.Views
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			DisplayAlert("SU", "Attack !!!", "OK");
-		}
+        }
+        /// <summary>
+        /// Special Ability Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
+        {
+            //Just for testing
+            await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
+        }
     }
 }
