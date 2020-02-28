@@ -132,5 +132,19 @@ namespace UnitTests.Helpers
             Assert.Greater(result.Count, 0);
 
         }
+
+        [Test]
+        public void ItemModelHelper_GetRightFingerItemList_Returns_More_Than_Zero()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+
+            // Act
+            var result = ItemModelHelper.GetRightFingerItemList;
+
+            //Assert
+            Assert.Greater(result.Count, 0);
+
+        }
     }
 }
