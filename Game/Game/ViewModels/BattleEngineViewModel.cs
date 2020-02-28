@@ -61,16 +61,21 @@ namespace Game.ViewModels
             {
                 await PickCharactersAsync(data as List<CharacterModel>);
             });
-
         }
+        #endregion Constructor
 
+        /// <summary>
+        /// Registering the selected characters
+        /// </summary>
+        /// <param name="SelectedCharacterList"></param>
+        /// <returns></returns>
         private async Task<bool> PickCharactersAsync(List<CharacterModel> SelectedCharacterList)
         {
             foreach (CharacterModel character in SelectedCharacterList)
+            {
                 SelectedCharacters.Add(character);
+            }
             return await Task.FromResult(true);
         }
-
-        #endregion Constructor
     }
 }
