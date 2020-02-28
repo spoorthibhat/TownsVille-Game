@@ -11,7 +11,7 @@ namespace Game.Helpers
     /// This converter is used by the Pickers, to change from the picker value to the Name value 
     /// from id or vice versa. This allows the convert in the picker to be data bound back and forth the model
     /// </summary>
-    class ItemLocationPickerConverter : IValueConverter
+    public class ItemLocationPickerConverter : IValueConverter
     {
         /// <summary>
         /// Parses the id to name.
