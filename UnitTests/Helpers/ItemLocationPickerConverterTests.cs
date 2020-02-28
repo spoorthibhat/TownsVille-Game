@@ -40,5 +40,19 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(dataTest.Name, result);
         }
+
+        [Test]
+        public void ItemLocationPickerConverter_ConvertBack_Should_Pass()
+        {
+            // Arrange
+            var ItemLocationConverter = new ItemLocationPickerConverter();
+            
+
+            // Act
+            var result = ItemLocationConverter.ConvertBack(null, null, null, null);
+
+            // Assert
+            Assert.IsNull(result);
+        }
     }
 }
