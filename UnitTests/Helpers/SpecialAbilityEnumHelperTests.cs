@@ -19,5 +19,19 @@ namespace UnitTests.Helpers
             // Assert
             Assert.Greater(result.Count, 0);
         }
+
+        [Test]
+        public void SpecialAbilityEnumHelper_GetSpecialAbilityList_Should_Pass()
+        {
+            // Arrange
+            var expected = new List<string>() { "Unknown", "Laser_Eyes", "Freeze" };
+
+
+            // Act
+            var result = SpecialAbilityEnumHelper.GetSpecialAbilityList;
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
