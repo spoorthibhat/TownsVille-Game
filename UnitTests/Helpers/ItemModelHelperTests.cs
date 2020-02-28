@@ -36,5 +36,15 @@ namespace UnitTests.Helpers
             // assert
             Assert.AreEqual(dataTest, result);
         }
+
+        [Test]
+        public void ItemModelHelper_GetItemModelNameFromGuid_Null_Should_ReturnNull()
+        {
+            // act
+            var result = ItemModelHelper.GetItemModelNameFromGuid(null);
+
+            // assert
+            Assert.IsNull(result);
+        }
     }
 }
