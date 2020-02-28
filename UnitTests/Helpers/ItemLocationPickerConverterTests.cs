@@ -1,8 +1,11 @@
 ﻿using Game.Helpers;
+using Game.Models;
+using Game.ViewModels;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace UnitTests.Helpers
 {
@@ -20,6 +23,22 @@ namespace UnitTests.Helpers
 
             // Assert
             Assert.AreEqual("None", result);
+        }
+
+        [Test]
+        public async Task ItemLocationPickerConverter_Convert_valid_Should_Pass()
+        {
+            // Arrange
+            var ItemLocationConverter = new ItemLocationPickerConverter();
+            var ViewModel = ItemIndexViewModel.Instance;
+            var dataTest = new ItemModel { Name = "test" };
+            await ViewModel.CreateAsync(dataTest);
+
+            // Act
+            var result = ItemLocationConverter.Convert(dataTest.Id, null, null, null);
+
+            // Assert
+            Assert.AreEqual(dataTest.Name, result);
         }
     }
 }
