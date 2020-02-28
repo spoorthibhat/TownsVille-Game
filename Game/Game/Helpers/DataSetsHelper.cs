@@ -17,7 +17,8 @@ namespace Game.Helpers
             ScoreIndexViewModel.Instance.GetCurrentDataSource();
             ItemIndexViewModel.Instance.GetCurrentDataSource();
             CharacterIndexViewModel.Instance.GetCurrentDataSource();
-
+            MonsterIndexViewModel.Instance.GetCurrentDataSource();
+            var battle = BattleEngineViewModel.Instance;
             return true;
         }
 
@@ -30,7 +31,7 @@ namespace Game.Helpers
             await ScoreIndexViewModel.Instance.WipeDataListAsync();
             await ItemIndexViewModel.Instance.WipeDataListAsync();
             await CharacterIndexViewModel.Instance.WipeDataListAsync();
-
+            await MonsterIndexViewModel.Instance.WipeDataListAsync();
             return true;
         }
     }
