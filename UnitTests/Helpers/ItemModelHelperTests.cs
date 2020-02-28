@@ -46,5 +46,20 @@ namespace UnitTests.Helpers
             // assert
             Assert.IsNull(result);
         }
+
+        [Test]
+        public async Task ItemModelHelper_GetItemModelNameFromGuid_IdDoesNotExist_Should_ReturnNull()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+            var dataTest = new ItemModel { Name = "test" };
+            await ViewModel.CreateAsync(dataTest);
+
+            // act
+            var result = ItemModelHelper.GetItemModelFromGuid("abcd");
+
+            // assert
+            Assert.IsNull(result);
+        }
     }
 }
