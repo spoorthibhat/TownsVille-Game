@@ -56,10 +56,25 @@ namespace UnitTests.Helpers
             await ViewModel.CreateAsync(dataTest);
 
             // act
-            var result = ItemModelHelper.GetItemModelFromGuid("abcd");
+            var result = ItemModelHelper.GetItemModelNameFromGuid("abcd");
 
             // assert
             Assert.IsNull(result);
+        }
+
+        [Test]
+        public async Task ItemModelHelper_GetItemModelNameFromGuid_ValidId_Should_Pass()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+            var dataTest = new ItemModel { Name = "test" };
+            await ViewModel.CreateAsync(dataTest);
+
+            // act
+            var result = ItemModelHelper.GetItemModelNameFromGuid(dataTest.Id);
+
+            // assert
+            Assert.AreEqual(dataTest.Name, result);
         }
     }
 }
