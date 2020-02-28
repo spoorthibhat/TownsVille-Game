@@ -104,5 +104,19 @@ namespace UnitTests.Helpers
             Assert.Greater(result.Count, 0);
 
         }
+
+        [Test]
+        public void ItemModelHelper_GetPrimaryHandItemList_Returns_More_Than_Zero()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+
+            // Act
+            var result = ItemModelHelper.GetPrimaryHandItemList;
+
+            //Assert
+            Assert.Greater(result.Count, 0);
+
+        }
     }
 }
