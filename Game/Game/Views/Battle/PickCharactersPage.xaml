@@ -19,7 +19,7 @@
                 Text="Ok"
                 Style="{StaticResource PrimaryButtonStyle}"
                 HorizontalOptions="EndAndExpand"
-                Clicked="BattleButton_Clicked"/>
+                Clicked="Ok_Clicked"/>
             </StackLayout>
             <ListView x:Name="CharacterListView" 
                     ItemsSource="{Binding Dataset}"

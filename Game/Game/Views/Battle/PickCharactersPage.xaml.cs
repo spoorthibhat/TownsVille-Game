@@ -44,11 +44,10 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void BattleButton_Clicked(object sender, EventArgs e)
+		async void Ok_Clicked(object sender, EventArgs e)
 		{
-			//await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
 
-			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            MessagingCenter.Send(this, "PickCharacters", CharacterSelectedList);
 			await Navigation.PopAsync();
 		}
 	}
