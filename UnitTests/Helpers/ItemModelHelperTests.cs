@@ -160,5 +160,19 @@ namespace UnitTests.Helpers
             Assert.Greater(result.Count, 0);
 
         }
+
+        [Test]
+        public void ItemModelHelper_GetFeetItemList_Returns_More_Than_Zero()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+
+            // Act
+            var result = ItemModelHelper.GetFeetItemList;
+
+            //Assert
+            Assert.Greater(result.Count, 0);
+
+        }
     }
 }
