@@ -94,7 +94,7 @@ namespace Game.Views
         }
         private void MoveFront_Clicked(object sender, EventArgs e)
         {
-            if (currentPosition[1] + 1 > 3)
+            if (currentPosition[1] + 1 > 4)
                 return;
             currentPosition[1]++;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
@@ -145,7 +145,7 @@ namespace Game.Views
                 Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
                 img.Source = SelectedMonsterList[i].ImageURI;
                 Grid.SetRow(img, i);
-                Grid.SetColumn(img, 4);
+                Grid.SetColumn(img, 5);
                 BattleGrid.Children.Add(img);
             }
         }
