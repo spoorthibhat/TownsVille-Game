@@ -21,6 +21,8 @@ namespace Game.ViewModels
         private static volatile BattleEngineViewModel instance;
         private static readonly object syncRoot = new Object();
         public List<CharacterModel> SelectedCharacters = new List<CharacterModel>();
+        public int AvgCharacterLevel = 1;
+        public List<MonsterModel> SelectedMonsters = new List<MonsterModel>();
 
         public static BattleEngineViewModel Instance
         {
@@ -60,7 +62,32 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<PickCharactersPage, List<CharacterModel>>(this, "PickCharacters", async (obj, data) =>
             {
                 await PickCharactersAsync(data as List<CharacterModel>);
+
+                SelectMonsters();
+                ScaleUpMonsters();
             });
+        }
+        /// <summary>
+        /// Scaling up monsters level to match Characters
+        /// </summary>
+        private void ScaleUpMonsters()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                SelectedMonsters[i].ScaleLevel(AvgCharacterLevel); ;
+            }
+        }
+
+        /// <summary>
+        /// Selecting default 6 monsters for battle
+        /// </summary>
+        private void SelectMonsters()
+        {
+            List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
+            for(int i = 0; i < 6; i++)
+            {
+                SelectedMonsters.Add(SelectedMonsterList[i]);
+            }
         }
         #endregion Constructor
 
@@ -71,10 +98,13 @@ namespace Game.ViewModels
         /// <returns></returns>
         private async Task<bool> PickCharactersAsync(List<CharacterModel> SelectedCharacterList)
         {
-            foreach (CharacterModel character in SelectedCharacterList)
+            int TotalLevel = 0;
+            foreach (CharacterModel Character in SelectedCharacterList)
             {
-                SelectedCharacters.Add(character);
+                SelectedCharacters.Add(Character);
+                TotalLevel += Character.Level;
             }
+            AvgCharacterLevel = (int) Math.Ceiling((double)TotalLevel / (double)SelectedCharacterList.Count);
             return await Task.FromResult(true);
         }
     }
