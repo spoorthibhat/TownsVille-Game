@@ -39,6 +39,7 @@ namespace Game.Views.Battle
         async void Pick_Characters_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PickCharactersPage());
+            BeginBattleButton.IsEnabled = true;
         }
         /// <summary>
         /// Navigating to battle page

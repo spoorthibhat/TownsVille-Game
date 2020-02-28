@@ -99,7 +99,7 @@
                 </ListView>
             </Grid>
             <StackLayout HorizontalOptions="CenterAndExpand">
-                <Button Text="Begin Battle" Clicked="BeginBattle_Clicked" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Button x:Name="BeginBattleButton" Text="Begin Battle" Clicked="BeginBattle_Clicked" Style="{StaticResource PrimaryButtonStyle}" IsEnabled="False"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
