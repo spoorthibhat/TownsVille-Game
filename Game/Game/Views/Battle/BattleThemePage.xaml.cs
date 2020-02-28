@@ -18,6 +18,8 @@ namespace Game.Views.Battle
 
         // The image list holding all the Image objects
         ObservableCollection<Image> ImageList = new ObservableCollection<Image>();
+        // Selected Theme
+        int SeletedTheme = 0;
 
         public BattleThemePage()
         {
@@ -29,12 +31,24 @@ namespace Game.Views.Battle
 
             ImageView.ItemsSource = ImageList;
         }
-
+        /// <summary>
+        /// Navigating to Pick Characters Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Pick_Characters_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PickCharactersPage());
         }
-
+        /// <summary>
+        /// Navigating to battle page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void BeginBattle_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BattlePage(SeletedTheme));
+        }
         /// <summary>
         /// When the image is selected, assigns this theme 
         /// </summary>to be used duing battle
@@ -42,10 +56,7 @@ namespace Game.Views.Battle
         /// <param name="args"></param>
         void OnThemeImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var image = args.SelectedItem as Image;
-
-            
-
+            SeletedTheme = args.SelectedItemIndex;
         }
     }
 }

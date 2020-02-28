@@ -67,7 +67,7 @@
             <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="CenterAndExpand" 
-                      Padding="0,-110,0,0">
+                      Padding="0,-110,0,-100">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -98,6 +98,9 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Button Text="Begin Battle" Clicked="BeginBattle_Clicked" Style="{StaticResource PrimaryButtonStyle}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
