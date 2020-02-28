@@ -8,7 +8,7 @@ namespace Game.Helpers
     /// <summary>
     /// Helper class that will be used to get special abilities from enum 
     /// </summary>
-    static class SpecialAbilityEnumHelper
+    public static class SpecialAbilityEnumHelper
     {
         /// <summary>
         /// Gets the list of special abilities in the form of a list of strings
