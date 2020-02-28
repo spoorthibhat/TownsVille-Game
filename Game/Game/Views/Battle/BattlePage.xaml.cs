@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Game.Engine;
 using Game.Services;
 using System.Linq;
+using Game.ViewModels;
 
 namespace Game.Views
 {
@@ -15,9 +16,9 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
-        public List<CharacterModel> SelectedCharacterList = DefaultData.LoadData(new CharacterModel());
+        public List<CharacterModel> SelectedCharacterList = BattleEngineViewModel.Instance.SelectedCharacters;
 
-        public List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
+        public List<MonsterModel> SelectedMonsterList = BattleEngineViewModel.Instance.SelectedMonsters;
 
         public CharacterModel currentCharacter;
 
@@ -26,18 +27,27 @@ namespace Game.Views
         /// <summary>
         /// Constructor
         /// </summary>
-        public BattlePage ()
+        public BattlePage (int ThemeIndex)
 		{
 			InitializeComponent ();
+            SetTheme(ThemeIndex);
 
             LoadCharacters();
             LoadMonsters();
-
 		}
+        /// <summary>
+        /// Setting Battle Field background
+        /// </summary>
+        /// <param name="themeIndex"></param>
+        private void SetTheme(int themeIndex)
+        {
+            //TODO
+        }
 
         private void LoadCharacters()
         {
-            for (int i = 0; i < 6; i++)
+            
+            for (int i = 0; i < SelectedCharacterList.Count; i++)
             {
                 Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
                 img.Source = SelectedCharacterList[i].ImageURI;
@@ -130,7 +140,7 @@ namespace Game.Views
         }
         private void LoadMonsters()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < SelectedMonsterList.Count; i++)
             {
                 Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
                 img.Source = SelectedMonsterList[i].ImageURI;
