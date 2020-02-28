@@ -76,5 +76,19 @@ namespace UnitTests.Helpers
             // assert
             Assert.AreEqual(dataTest.Name, result);
         }
+
+        [Test]
+        public void ItemModelHelper_GetHeadItemList_Returns_More_Than_Zero()
+        {
+            // Arrange
+            var ViewModel = ItemIndexViewModel.Instance;
+
+            // Act
+            var result = ItemModelHelper.GetHeadItemList;
+
+            //Assert
+            Assert.Greater(result.Count, 0);
+            
+        }
     }
 }
