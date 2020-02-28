@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using System.Threading.Tasks;
 
 namespace Game.ViewModels
 {
@@ -19,6 +20,7 @@ namespace Game.ViewModels
         // Make this a singleton so it only exist one time because holds all the data records in memory
         private static volatile BattleEngineViewModel instance;
         private static readonly object syncRoot = new Object();
+        public List<CharacterModel> SelectedCharacters = new List<CharacterModel>();
 
         public static BattleEngineViewModel Instance
         {
@@ -54,6 +56,19 @@ namespace Game.ViewModels
         /// </summary>
         public BattleEngineViewModel()
         {
+            // Register the Character pick up message
+            MessagingCenter.Subscribe<PickCharactersPage, List<CharacterModel>>(this, "PickCharacters", async (obj, data) =>
+            {
+                await PickCharactersAsync(data as List<CharacterModel>);
+            });
+
+        }
+
+        private async Task<bool> PickCharactersAsync(List<CharacterModel> SelectedCharacterList)
+        {
+            foreach (CharacterModel character in SelectedCharacterList)
+                SelectedCharacters.Add(character);
+            return await Task.FromResult(true);
         }
 
         #endregion Constructor
