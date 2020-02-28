@@ -33,10 +33,19 @@ namespace Game.Views
 		private void OnCharacter_Checked(object sender, CheckedChangedEventArgs e)
 		{
 			var checkBoxItem = (CheckBox)sender;
-			CharacterModel selectedCharacter= (CharacterModel)checkBoxItem.BindingContext;
-			CharacterSelectedList.Add(selectedCharacter);
-			
-		}
+            CharacterModel selectedCharacter = (CharacterModel)checkBoxItem.BindingContext;
+            if (checkBoxItem.IsChecked)
+            {
+                CharacterSelectedList.Add(selectedCharacter);
+                OKButton.IsEnabled = true;
+                return;
+            }
+            CharacterSelectedList.Remove(selectedCharacter);
+            if(CharacterSelectedList.Count== 0)
+            {
+                OKButton.IsEnabled = false;
+            }
+        }
 		/// <summary>
 		/// Jump to the Battle
 		/// 
@@ -46,7 +55,6 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void Ok_Clicked(object sender, EventArgs e)
 		{
-
             MessagingCenter.Send(this, "PickCharacters", CharacterSelectedList);
 			await Navigation.PopAsync();
 		}

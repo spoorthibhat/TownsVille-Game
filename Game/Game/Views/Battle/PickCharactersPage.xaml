@@ -12,14 +12,16 @@
          >
             <StackLayout Orientation="Horizontal">
                 <Label Text="Pick Characters"   
-                VerticalOptions="Start" 
-                HorizontalOptions="StartAndExpand"
-                Style="{StaticResource HeaderStyle}"/>
+                    VerticalOptions="Start" 
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource HeaderStyle}"/>
                 <Button
                 Text="Ok"
-                Style="{StaticResource PrimaryButtonStyle}"
-                HorizontalOptions="EndAndExpand"
-                Clicked="Ok_Clicked"/>
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    HorizontalOptions="EndAndExpand"
+                    Clicked="Ok_Clicked"
+                    x:Name="OKButton"
+                    IsEnabled="False"/>
             </StackLayout>
             <ListView x:Name="CharacterListView" 
                     ItemsSource="{Binding Dataset}"
@@ -29,7 +31,7 @@
                     HasUnevenRows="true"
                     Margin="5,0,5,0"
                     RowHeight="80"
-                    >
+                    SelectionMode="None">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
