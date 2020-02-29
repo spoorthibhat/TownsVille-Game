@@ -23,8 +23,9 @@ namespace Game.Views
         public CharacterModel currentCharacter;
 
         public BattleEngine Battle;
+        public bool UseSpecialAbility = false;
 
-     
+
 
         public int[] currentPosition = new int[2];
 
@@ -59,7 +60,7 @@ namespace Game.Views
         public async void playBattle()
         {
             
-            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
+            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, UseSpecialAbility);
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
@@ -219,8 +220,9 @@ namespace Game.Views
         async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
-            await Navigation.PushModalAsync(new NavigationPage(new 
-                Page()));
+            UseSpecialAbility = true;
+            playBattle();
+            UseSpecialAbility = false;
         }
     }
 }

@@ -73,7 +73,8 @@ namespace Game.Engine
             }
 
             // Do Attack
-            TurnAsAttack(Attacker,Target);
+            bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
+            TurnAsAttack(Attacker,Target, UseSpecialAbility);
 
             CurrentAttacker = new PlayerInfoModel(Attacker);
             CurrentDefender = new PlayerInfoModel(Target);
@@ -156,7 +157,7 @@ namespace Game.Engine
         /// <param name="Target"></param>
         /// <param name="DefenseScore"></param>
         /// <returns></returns>
-        public bool TurnAsAttack(PlayerInfoModel Attacker, PlayerInfoModel Target)
+        public bool TurnAsAttack(PlayerInfoModel Attacker, PlayerInfoModel Target, bool UseSpecialAbility)
         {
             if (Attacker == null)
             {
@@ -183,7 +184,7 @@ namespace Game.Engine
 
             if (Attacker.PlayerType == PlayerTypeEnum.Character)
             {
-                bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
+               // bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
                 if(UseSpecialAbility)
                 {
                     Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
