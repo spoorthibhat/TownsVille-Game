@@ -56,6 +56,7 @@ namespace Game.Views
         public void PickPlayers()
         {
             Battle.CurrentAttacker = Battle.GetNextPlayerTurn(); //get the attacker
+            Frame00.IsVisible = true;
             Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
 
         }

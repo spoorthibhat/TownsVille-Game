@@ -22,6 +22,45 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                
+                <Frame x:Name ="Frame00" Grid.Row="0" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame10" Grid.Row="1" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame20" Grid.Row="2" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame30" Grid.Row="3" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame40" Grid.Row="4" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame50" Grid.Row="5" Grid.Column="0" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+
+                <Frame x:Name ="Frame05" Grid.Row="0" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame15" Grid.Row="1" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame25" Grid.Row="2" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame35" Grid.Row="3" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame45" Grid.Row="4" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+                <Frame x:Name ="Frame55" Grid.Row="5" Grid.Column="5" Style="{StaticResource BattleOutterFrameStyle}">
+                    <Frame Style="{StaticResource BattleInnerFrameStyle}"/>
+                </Frame>
+
             </Grid>
             <StackLayout Orientation="Horizontal" HeightRequest="150" HorizontalOptions="CenterAndExpand">
                 <Grid WidthRequest="150">
