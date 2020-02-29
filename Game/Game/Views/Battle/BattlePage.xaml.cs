@@ -24,6 +24,8 @@ namespace Game.Views
 
         public BattleEngine Battle;
 
+        public PlayerInfoModel PlayerCurrent;
+
         public int[] currentPosition = new int[2];
 
         /// <summary>
@@ -46,6 +48,8 @@ namespace Game.Views
 
             LoadCharacters();
             LoadMonsters();
+
+            PlayerCurrent = Battle.GetNextPlayerTurn();
 
         }
         /// <summary>
