@@ -324,7 +324,23 @@ namespace Game.Models
             return false;
         }
 
- 
+        /// <summary>
+        /// Scales the level of the monster
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public bool ScaleLevel(int Level)
+        {
+            if (Level < 0)
+                return false;
+            this.Level = Level;
+            this.ExperiencePoints = LevelTableHelper.Instance.LevelDetailsList[Level].Experience;
+            this.Attack = LevelTableHelper.Instance.LevelDetailsList[Level].Attack;
+            this.Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
+            this.Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
+            this.MaxHealth = Level * 10 + Level;
+            return true;
+        }
 
         /// <summary>
         /// Adds the input value to the expereince of the monster.
