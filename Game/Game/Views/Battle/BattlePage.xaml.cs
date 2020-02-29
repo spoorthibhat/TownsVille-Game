@@ -45,12 +45,35 @@ namespace Game.Views
             Battle.StartBattle(false);
 
             SelectedMonsterList = Battle.MonsterList;
+        
 
             LoadCharacters();
             LoadMonsters();
 
             PickPlayers();
 
+        }
+        /// <summary>
+        /// Game logic method, called when attacker attacks defender
+        /// </summary>
+        public void playBattle()
+        {
+            
+            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
+            if (Battle.CharacterList.Count < 1)
+            {
+                DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
+            }
+            if (Battle.MonsterList.Count < 1)
+            {
+                //Todo: logic to pick items
+                DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
+                Battle.NewRound(); // new round begun
+                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
+                LoadMonsters();
+
+            }
+            PickPlayers(); // pick attacker and defender for next turn
         }
 
         public void PickPlayers()
@@ -180,24 +203,7 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			//DisplayAlert("SU", "Attack !!!", "OK");
-            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
-            if (Battle.CharacterList.Count < 1)
-            {
-                DisplayAlert("Game Over", "Attack !!!", "OK");
-            }
-            if (Battle.MonsterList.Count < 1)
-            {
-                //Todo: logic to pick items
-                DisplayAlert("Pick Items", "Attack !!!", "OK");
-                Battle.NewRound(); // new round begun
-                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
-                LoadMonsters();
-
-                PickPlayers();
-
-            }
-
+            playBattle();
 
         }
         /// <summary>
