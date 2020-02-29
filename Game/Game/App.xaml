@@ -246,6 +246,20 @@
                 <Setter Property="IsVisible" Value="False"/>
                 <Setter Property="FontSize" Value="Large" />
             </Style>
+
+            <Style TargetType="Frame" x:Key="BattleOutterFrameStyle">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="IsVisible" Value="False"/>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="BattleInnerFrameStyle">
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PageBackgroundColor}"/>
+                <Setter Property="CornerRadius" Value="12"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
