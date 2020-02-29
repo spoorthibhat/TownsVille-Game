@@ -68,22 +68,35 @@ namespace Game.Views
         {
             //TODO
         }
-
+        /// <summary>
+        /// Loading selected characters into the battle grid
+        /// </summary>
         private void LoadCharacters()
         {
-            
             for (int i = 0; i < SelectedCharacterList.Count; i++)
             {
-                Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
+                Xamarin.Forms.Image img = new Xamarin.Forms.Image();
                 img.Source = SelectedCharacterList[i].ImageURI;
                 img.StyleId = i.ToString();
-                img.Clicked += Character_Clicked;
                 Grid.SetRow(img, i);
                 Grid.SetColumn(img, 0);
                 BattleGrid.Children.Add(img);
             }
         }
-
+        /// <summary>
+        /// Loading Monsters into the battle grid
+        /// </summary>
+        private void LoadMonsters()
+        {
+            for (int i = 0; i < SelectedMonsterList.Count; i++)
+            {
+                Xamarin.Forms.Image img = new Xamarin.Forms.Image();
+                img.Source = SelectedMonsterList[i].ImageURI;
+                Grid.SetRow(img, i);
+                Grid.SetColumn(img, 5);
+                BattleGrid.Children.Add(img);
+            }
+        }
         private void Character_Clicked(object sender, EventArgs e)
         {
             ImageButton imgButton = (ImageButton)sender;
@@ -161,17 +174,6 @@ namespace Game.Views
             foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0]-1 && Grid.GetColumn(child) == currentPosition[1]))
             {
                 child.IsVisible= false;
-            }
-        }
-        private void LoadMonsters()
-        {
-            for (int i = 0; i < SelectedMonsterList.Count; i++)
-            {
-                Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
-                img.Source = SelectedMonsterList[i].ImageURI;
-                Grid.SetRow(img, i);
-                Grid.SetColumn(img, 5);
-                BattleGrid.Children.Add(img);
             }
         }
         /// <summary>
