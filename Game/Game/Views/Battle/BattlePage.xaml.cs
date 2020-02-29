@@ -56,18 +56,20 @@ namespace Game.Views
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
-        public void playBattle()
+        public async void playBattle()
         {
             
             Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
+            //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
-                DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
+                await DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
             }
+            //check if round is over
             if (Battle.MonsterList.Count < 1)
-            {
-                //Todo: logic to pick items
-                DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
+            { 
+                await DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
+                await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage())); //pick drop items when round over
                 Battle.NewRound(); // new round begun
                 SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
                 LoadMonsters();
@@ -217,7 +219,8 @@ namespace Game.Views
         async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
-            await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new 
+                Page()));
         }
     }
 }
