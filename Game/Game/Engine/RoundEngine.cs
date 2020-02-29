@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Game.Models;
@@ -59,11 +60,26 @@ namespace Game.Engine
             List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
             for (int i = 0; i < MaxNumberPartyMonsters; i++)
             {
-                MonsterList.Add(new PlayerInfoModel(SelectedMonsterList[i]));
+                PlayerInfoModel CurrentMonster = new PlayerInfoModel(SelectedMonsterList[i]);
+                CurrentMonster.ScaleLevel(GetAverageCharacterLevel());
+                MonsterList.Add(CurrentMonster);
             }
-            return MonsterList.Count();
+            return MonsterList.Count;
         }
 
+        /// <summary>
+        /// Calculates the average level of the characters
+        /// </summary>
+        /// <returns></returns>
+        public int GetAverageCharacterLevel()
+        {
+            int TotalLevel = 0;
+            foreach (PlayerInfoModel Character in CharacterList)
+            {
+                TotalLevel += Character.Level;
+            }
+            return (int)Math.Ceiling((double)TotalLevel / (double)CharacterList.Count);
+        }
         /// <summary>
         /// At the end of the round
         /// Clear the ItemModel List
