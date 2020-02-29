@@ -18,9 +18,11 @@ namespace Game.Views
 	{
         public List<CharacterModel> SelectedCharacterList = BattleEngineViewModel.Instance.SelectedCharacters;
 
-        public List<MonsterModel> SelectedMonsterList = BattleEngineViewModel.Instance.SelectedMonsters;
+       public List<PlayerInfoModel> SelectedMonsterList ;
 
         public CharacterModel currentCharacter;
+
+        public BattleEngine Battle;
 
         public int[] currentPosition = new int[2];
 
@@ -32,9 +34,20 @@ namespace Game.Views
 			InitializeComponent ();
             SetTheme(ThemeIndex);
 
+            
+            Battle = new BattleEngine();
+            foreach (CharacterModel Character in SelectedCharacterList)
+            {
+                Battle.PopulateCharacterList(Character);
+            }
+            Battle.StartBattle(false);
+
+            SelectedMonsterList = Battle.MonsterList;
+
             LoadCharacters();
             LoadMonsters();
-		}
+
+        }
         /// <summary>
         /// Setting Battle Field background
         /// </summary>

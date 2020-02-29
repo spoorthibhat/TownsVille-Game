@@ -63,32 +63,12 @@ namespace Game.ViewModels
             {
                 await PickCharactersAsync(data as List<CharacterModel>);
 
-                SelectMonsters();
-                ScaleUpMonsters();
+                
             });
         }
-        /// <summary>
-        /// Scaling up monsters level to match Characters
-        /// </summary>
-        private void ScaleUpMonsters()
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                SelectedMonsters[i].ScaleLevel(AvgCharacterLevel); ;
-            }
-        }
+        
 
-        /// <summary>
-        /// Selecting default 6 monsters for battle
-        /// </summary>
-        private void SelectMonsters()
-        {
-            List<MonsterModel> SelectedMonsterList = DefaultData.LoadData(new MonsterModel());
-            for(int i = 0; i < 6; i++)
-            {
-                SelectedMonsters.Add(SelectedMonsterList[i]);
-            }
-        }
+        
         #endregion Constructor
 
         /// <summary>
@@ -98,13 +78,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         private async Task<bool> PickCharactersAsync(List<CharacterModel> SelectedCharacterList)
         {
-            int TotalLevel = 0;
             foreach (CharacterModel Character in SelectedCharacterList)
             {
                 SelectedCharacters.Add(Character);
-                TotalLevel += Character.Level;
+                
             }
-            AvgCharacterLevel = (int) Math.Ceiling((double)TotalLevel / (double)SelectedCharacterList.Count);
             return await Task.FromResult(true);
         }
     }
