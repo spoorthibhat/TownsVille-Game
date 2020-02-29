@@ -57,6 +57,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void AutoPickUpButton_Clicked(object sender, EventArgs e)
         {
+
             await Navigation.PopModalAsync();
         }
     }

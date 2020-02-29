@@ -25,6 +25,7 @@ namespace Game.Views
         public PlayerInfoModel CurrentPlayer;
 
         public BattleEngine Battle;
+        public bool UseSpecialAbility = false;
 
         public int[] AttackerPosition = new int[2];
         public int[] DefenderPosition = new int[2];
@@ -46,6 +47,7 @@ namespace Game.Views
             Battle.StartBattle(false);
 
             SelectedMonsterList = Battle.MonsterList;
+        
 
             LoadCharacters();
             LoadMonsters();
@@ -53,6 +55,32 @@ namespace Game.Views
             PickPlayers();
 
         }
+        
+        /// <summary>
+        /// Game logic method, called when attacker attacks defender
+        /// </summary>
+        public async void playBattle()
+        {
+            
+            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, UseSpecialAbility);
+            //check if battle is over
+            if (Battle.CharacterList.Count < 1)
+            {
+                await DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
+            }
+            //check if round is over
+            if (Battle.MonsterList.Count < 1)
+            { 
+                await DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
+                await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage())); //pick drop items when round over
+                Battle.NewRound(); // new round begun
+                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
+                LoadMonsters();
+
+            }
+            PickPlayers(); // pick attacker and defender for next turn
+        }
+
         /// <summary>
         /// Pick the Attacker and Defender for the turn
         /// </summary>
@@ -215,24 +243,7 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			//DisplayAlert("SU", "Attack !!!", "OK");
-            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
-            if (Battle.CharacterList.Count < 1)
-            {
-                DisplayAlert("Game Over", "Attack !!!", "OK");
-            }
-            if (Battle.MonsterList.Count < 1)
-            {
-                //Todo: logic to pick items
-                DisplayAlert("Pick Items", "Attack !!!", "OK");
-                Battle.NewRound(); // new round begun
-                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
-                LoadMonsters();
-
-                PickPlayers();
-
-            }
-
+            playBattle();
 
         }
         /// <summary>
@@ -243,7 +254,9 @@ namespace Game.Views
         async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
-            await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
+            UseSpecialAbility = true;
+            playBattle();
+            UseSpecialAbility = false;
         }
     }
 }
