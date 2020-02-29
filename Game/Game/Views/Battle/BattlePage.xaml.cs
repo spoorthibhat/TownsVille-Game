@@ -24,7 +24,7 @@ namespace Game.Views
 
         public BattleEngine Battle;
 
-        public PlayerInfoModel PlayerCurrent;
+     
 
         public int[] currentPosition = new int[2];
 
@@ -49,7 +49,14 @@ namespace Game.Views
             LoadCharacters();
             LoadMonsters();
 
-            PlayerCurrent = Battle.GetNextPlayerTurn();
+            PickPlayers();
+
+        }
+
+        public void PickPlayers()
+        {
+            Battle.CurrentAttacker = Battle.GetNextPlayerTurn(); //get the attacker
+            Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
 
         }
         /// <summary>
@@ -173,7 +180,25 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Attack !!!", "OK");
+			//DisplayAlert("SU", "Attack !!!", "OK");
+            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender);
+            if (Battle.CharacterList.Count < 1)
+            {
+                DisplayAlert("Game Over", "Attack !!!", "OK");
+            }
+            if (Battle.MonsterList.Count < 1)
+            {
+                //Todo: logic to pick items
+                DisplayAlert("Pick Items", "Attack !!!", "OK");
+                Battle.NewRound(); // new round begun
+                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
+                LoadMonsters();
+
+                PickPlayers();
+
+            }
+
+
         }
         /// <summary>
         /// Special Ability Action
