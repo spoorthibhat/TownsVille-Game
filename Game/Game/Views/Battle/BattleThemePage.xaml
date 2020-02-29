@@ -57,17 +57,17 @@
             </FlexLayout>
 
             <Label
-							Text="Choose your Battle Field Theme"
+				Text="Choose your Battle Field Theme"
                 Padding="0,30,0,0"
-							Style="{StaticResource CenterMessageStyle}"
-							HorizontalOptions="CenterAndExpand"
-							FontSize="Small"
-							LineBreakMode="WordWrap"/>
+				Style="{StaticResource CenterMessageStyle}"
+				HorizontalOptions="CenterAndExpand"
+				FontSize="Small"
+				LineBreakMode="WordWrap"/>
 
             <Grid RowSpacing="1"
                     ColumnSpacing="2"
                     HorizontalOptions="CenterAndExpand" 
-                      Padding="0,-110,0,-100">
+                    Padding="0,-120,0,-120">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
