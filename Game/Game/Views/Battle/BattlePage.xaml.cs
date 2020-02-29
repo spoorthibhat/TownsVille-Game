@@ -17,16 +17,17 @@ namespace Game.Views
 	public partial class BattlePage: ContentPage
 	{
         public List<CharacterModel> SelectedCharacterList = BattleEngineViewModel.Instance.SelectedCharacters;
+        public Dictionary<CharacterModel,int> SelectedCharacterMap = new Dictionary<CharacterModel, int>();
 
-       public List<PlayerInfoModel> SelectedMonsterList ;
+        public List<PlayerInfoModel> SelectedMonsterList ;
+        public Dictionary<PlayerInfoModel, int> SelectedMonsterMap = new Dictionary<PlayerInfoModel, int>();
 
-        public CharacterModel currentCharacter;
+        public PlayerInfoModel CurrentPlayer;
 
         public BattleEngine Battle;
 
-     
-
-        public int[] currentPosition = new int[2];
+        public int[] AttackerPosition = new int[2];
+        public int[] DefenderPosition = new int[2];
 
         /// <summary>
         /// Constructor
@@ -52,14 +53,59 @@ namespace Game.Views
             PickPlayers();
 
         }
-
+        /// <summary>
+        /// Pick the Attacker and Defender for the turn
+        /// </summary>
         public void PickPlayers()
         {
             Battle.CurrentAttacker = Battle.GetNextPlayerTurn(); //get the attacker
-            Frame00.IsVisible = true;
-            Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
+            SetCurrentAttacker();
 
+            CurrentPlayer = Battle.CurrentAttacker;
+
+            Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
+            SetCurrentDefender();
         }
+        /// <summary>
+        /// Setting the currentDefender position and UI elements
+        /// </summary>
+        private void SetCurrentDefender()
+        {
+            if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
+            {
+                DefenderPosition[1] = 0;
+                DefenderPosition[0] = 0;// SelectedCharacterMap[new CharacterModel(Battle.CurrentAttacker)];
+            }
+            if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
+            {
+                DefenderPosition[1] = 5;
+                DefenderPosition[0] = SelectedMonsterMap[Battle.CurrentDefender];
+            }
+            string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
+            Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
+            DefenderFrame.IsVisible = true;
+        }
+
+        /// <summary>
+        /// Setting the currentAttacker position and UI elements
+        /// </summary>
+        private void SetCurrentAttacker()
+        {
+            if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                AttackerPosition[1] = 0;
+                AttackerPosition[0] = 0; // SelectedCharacterMap[new CharacterModel(Battle.CurrentAttacker)];
+            }
+            if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                AttackerPosition[1] = 5;
+                AttackerPosition[0] = SelectedMonsterMap[Battle.CurrentAttacker];
+            }
+            string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
+            Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
+            AttackerFrame.IsVisible = true;
+        }
+
         /// <summary>
         /// Setting Battle Field background
         /// </summary>
@@ -77,10 +123,11 @@ namespace Game.Views
             {
                 Xamarin.Forms.Image img = new Xamarin.Forms.Image();
                 img.Source = SelectedCharacterList[i].ImageURI;
-                img.StyleId = i.ToString();
                 Grid.SetRow(img, i);
                 Grid.SetColumn(img, 0);
                 BattleGrid.Children.Add(img);
+
+                SelectedCharacterMap.Add(SelectedCharacterList[i], i);
             }
         }
         /// <summary>
@@ -95,83 +142,68 @@ namespace Game.Views
                 Grid.SetRow(img, i);
                 Grid.SetColumn(img, 5);
                 BattleGrid.Children.Add(img);
-            }
-        }
-        private void Character_Clicked(object sender, EventArgs e)
-        {
-            ImageButton imgButton = (ImageButton)sender;
-            int row = Int32.Parse(imgButton.StyleId);
-            currentCharacter = SelectedCharacterList[row];
-            currentPosition[0] = row;
-            currentPosition[1] = 0;
-            DisableOtherCharacterSelection();
-        }
 
-        private void DisableOtherCharacterSelection()
-        {
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) != currentPosition[0] && Grid.GetColumn(child) == 0))
-            {
-                child.IsEnabled = false;
+                SelectedMonsterMap.Add(SelectedMonsterList[i], i);
             }
         }
 
         private void MoveBack_Clicked(object sender, EventArgs e)
         {
-            if (currentPosition[1] - 1 < 1)
+            if (AttackerPosition[1] - 1 < 1)
                 return;
-            currentPosition[1]--;
+            AttackerPosition[1]--;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = currentCharacter.ImageURI;
-            Grid.SetRow(img, currentPosition[0]);
-            Grid.SetColumn(img, currentPosition[1]);
+            img.Source = CurrentPlayer.ImageURI;
+            Grid.SetRow(img, AttackerPosition[0]);
+            Grid.SetColumn(img, AttackerPosition[1]);
             BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] && Grid.GetColumn(child) == currentPosition[1] + 1))
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] && Grid.GetColumn(child) == AttackerPosition[1] + 1))
             {
                 child.IsVisible = false;
             }
         }
         private void MoveFront_Clicked(object sender, EventArgs e)
         {
-            if (currentPosition[1] + 1 > 4)
+            if (AttackerPosition[1] + 1 > 4)
                 return;
-            currentPosition[1]++;
+            AttackerPosition[1]++;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = currentCharacter.ImageURI;
-            Grid.SetRow(img, currentPosition[0]);
-            Grid.SetColumn(img, currentPosition[1]);
+            img.Source = CurrentPlayer.ImageURI;
+            Grid.SetRow(img, AttackerPosition[0]);
+            Grid.SetColumn(img, AttackerPosition[1]);
             BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] && Grid.GetColumn(child) == currentPosition[1]-1))
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] && Grid.GetColumn(child) == AttackerPosition[1]-1))
             {
                 child.IsVisible = false;
             }
         }
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
-            if (currentPosition[0] - 1 < 0)
+            if (AttackerPosition[0] - 1 < 0)
                 return;
-            currentPosition[0]--;
+            AttackerPosition[0]--;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = currentCharacter.ImageURI;
-            Grid.SetRow(img, currentPosition[0]);
-            Grid.SetColumn(img, currentPosition[1]);
+            img.Source = CurrentPlayer.ImageURI;
+            Grid.SetRow(img, AttackerPosition[0]);
+            Grid.SetColumn(img, AttackerPosition[1]);
             BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0] + 1 && Grid.GetColumn(child) == currentPosition[1]))
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] + 1 && Grid.GetColumn(child) == AttackerPosition[1]))
             {
                 child.IsVisible = false;
             }
         }
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
-            if (currentPosition[0] + 1 > 5)
+            if (AttackerPosition[0] + 1 > 5)
                 return;
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = currentCharacter.ImageURI;
-            currentPosition[0]++;
-            Grid.SetRow(img, currentPosition[0]);
-            Grid.SetColumn(img, currentPosition[1]);
+            img.Source = CurrentPlayer.ImageURI;
+            AttackerPosition[0]++;
+            Grid.SetRow(img, AttackerPosition[0]);
+            Grid.SetColumn(img, AttackerPosition[1]);
             BattleGrid.Children.Add(img);
 
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == currentPosition[0]-1 && Grid.GetColumn(child) == currentPosition[1]))
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0]-1 && Grid.GetColumn(child) == AttackerPosition[1]))
             {
                 child.IsVisible= false;
             }
