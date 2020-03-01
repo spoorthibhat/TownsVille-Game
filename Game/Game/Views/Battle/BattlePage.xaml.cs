@@ -62,7 +62,7 @@ namespace Game.Views
         public async void playBattle()
         {
             
-            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, UseSpecialAbility);
+            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, Battle.CurrentAttacker.ISSpecialAbilityNotUsed);
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
@@ -254,9 +254,8 @@ namespace Game.Views
         async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
-            UseSpecialAbility = true;
             playBattle();
-            UseSpecialAbility = false;
+            Battle.CurrentAttacker.ISSpecialAbilityNotUsed = false;
         }
     }
 }
