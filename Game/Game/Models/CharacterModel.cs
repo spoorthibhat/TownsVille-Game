@@ -6,10 +6,7 @@ namespace Game.Models
     public class CharacterModel : CharacterMonsterBaseModel<CharacterModel>
     {
         
-        //Character special ability
-        public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.Unknown;
-        //Character Using Special Ability in the battle
-        public bool ISSpecialAbilityNotUsed { get; set; } = true;
+
 
         // Items to be added
 
