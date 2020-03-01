@@ -79,7 +79,7 @@
                     <ImageButton Source="up_arrow.png" Grid.Row="0" Grid.Column="1" Clicked="MoveUp_Clicked"/>
                     <ImageButton Source="down_arrow.png" Grid.Row="2" Grid.Column="1" Clicked="MoveDown_Clicked"/>
                 </Grid>
-                <Button Clicked="SpecialAbilityButton_Clicked" Text="Special Ability" Style="{StaticResource PrimaryButtonStyle}"></Button>
+                <Button x:Name="SpecialAbility" Clicked="SpecialAbilityButton_Clicked" Text="Special Ability" Style="{StaticResource PrimaryButtonStyle}"></Button>
                 <Button Clicked="AttackButton_Clicked" Text="Attack" Style="{StaticResource PrimaryButtonStyle}"></Button>
                 
             </StackLayout>
