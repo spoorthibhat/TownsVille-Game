@@ -74,6 +74,11 @@ namespace Game.Models
         // Item on Body
         public string OffHand { get; set; } = null;
 
+        //Character special ability
+        public SpecialAbilityEnum SpecialAbility { get; set; } = SpecialAbilityEnum.Unknown;
+        //Character Using Special Ability in the battle
+        public bool ISSpecialAbilityNotUsed { get; set; } = true;
+
 
         #region Attack        
         [Ignore]
