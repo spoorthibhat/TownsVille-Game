@@ -54,7 +54,8 @@ namespace Game.Views
         /// <param name="e"></param>
         async void AutoPickUpButton_Clicked(object sender, EventArgs e)
         {
-
+            // Distribute the Items
+            BattleEngineViewModel.Instance.Engine.PickupItemsForAllCharacters();
             await Navigation.PopModalAsync();
         }
     }
