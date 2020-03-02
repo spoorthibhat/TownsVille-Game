@@ -35,7 +35,7 @@ namespace Game.Views.Battle
             Battle.StartBattle(false);
 
             SelectedMonsterList = Battle.MonsterList;
-            //MonstersListView.ItemsSource = SelectedMonsterList;
+            MonstersListView.ItemsSource = SelectedMonsterList;
         }
 
         /// <summary>
