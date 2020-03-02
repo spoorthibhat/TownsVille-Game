@@ -30,16 +30,17 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid ColumnSpacing="5" RowSpacing="1">
+                            <Grid ColumnSpacing="1" RowSpacing="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
                                     <RowDefinition Height="*"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/> 
                                 </Grid.RowDefinitions>
 
 
@@ -51,8 +52,10 @@
                                 <Label Grid.Column="1" Grid.Row="0"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
-                                <StackLayout Grid.Column="2" Grid.Row="0" Orientation="Vertical">
-                                    <Grid ColumnSpacing="1" RowSpacing="1">
+                                <StackLayout Grid.Column="2" Grid.Row="0" 
+                                             Orientation="Vertical"
+                                             HorizontalOptions="End">
+                                    <Grid ColumnSpacing="1" RowSpacing="1" BackgroundColor="#206980" >
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="*"/>
@@ -69,11 +72,12 @@
                                             <Label 
                                        Text="Level: " 
                                        Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                                       FontSize="Micro"
+                                                Padding="10,0,0,0" TextColor="White"/>
 
                                             <Label Text="{Binding Level}" 
                                         Style="{StaticResource ListStyle}"
-                                        FontSize="Micro"/>
+                                        FontSize="Micro" TextColor="White"/>
 
                                         </StackLayout>
 
@@ -83,11 +87,11 @@
                                             <Label 
                                        Text="Attack: " 
                                        Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                                       FontSize="Micro" Padding="10,0,0,0" TextColor="White"/>
 
                                             <Label Text="{Binding Attack}" 
                                         Style="{StaticResource ListStyle}"
-                                        FontSize="Micro"/>
+                                        FontSize="Micro" TextColor="White"/>
 
                                         </StackLayout>
 
@@ -97,11 +101,11 @@
                                             <Label 
                                        Text="Health: " 
                                        Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                                       FontSize="Micro" Padding="10,0,0,0" TextColor="White"/>
 
                                             <Label Text="{Binding MaxHealth}" 
                                         Style="{StaticResource ListStyle}"
-                                        FontSize="Micro"/>
+                                        FontSize="Micro" TextColor="White"/>
 
                                         </StackLayout>
                                     </Grid>
