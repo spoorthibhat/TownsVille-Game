@@ -23,10 +23,10 @@ namespace Game.Views
         {
             InitializeComponent();
             LoadItems();
-            ItemsListView.ItemsSource = DroppedItemsList;
+            ItemsListView.ItemsSource = DroppedItemsList; // Binding Dropped items to pick items page
         }
         /// <summary>
-        /// Loading Characters in the battle
+        /// Loading dropped items in the battle
         /// </summary>
         private void LoadItems()
         {
