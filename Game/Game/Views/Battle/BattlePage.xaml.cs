@@ -27,7 +27,7 @@ namespace Game.Views
 
         public PlayerInfoModel CurrentPlayer;
 
-        public BattleEngine Battle;
+       // public BattleEngine Battle;
         public bool UseSpecialAbility = false;
 
         public int[] AttackerPosition = new int[2];
@@ -41,15 +41,15 @@ namespace Game.Views
 			InitializeComponent ();
             SetTheme(ThemeIndex);
             
-            Battle = new BattleEngine();
+            //Battle = new BattleEngine();
             foreach (CharacterModel Character in BattleEngineViewModel.Instance.SelectedCharacters)
             {
-                Battle.PopulateCharacterList(Character);
+                EngineViewModel.Engine.PopulateCharacterList(Character);
             }
-            Battle.StartBattle(false);
+            EngineViewModel.Engine.StartBattle(false);
 
-            SelectedCharacterList = Battle.CharacterList;
-            SelectedMonsterList = Battle.MonsterList;
+            SelectedCharacterList = EngineViewModel.Engine.CharacterList;
+            SelectedMonsterList = EngineViewModel.Engine.MonsterList;
 
             LoadCharacters();
             LoadMonsters();
@@ -62,26 +62,26 @@ namespace Game.Views
         /// </summary>
         public async void playBattle()
         {
-            Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, Battle.CurrentAttacker.ISSpecialAbilityNotUsed);
+            EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed);
             //Check if Defender Died 
-            if(Battle.CurrentDefender.Alive == false)
+            if(EngineViewModel.Engine.CurrentDefender.Alive == false)
             {
                 ShowPlayerIsDead();
             }
             //check if battle is over
-            if (Battle.CharacterList.Count < 1)
+            if (EngineViewModel.Engine.CharacterList.Count < 1)
             {
                 GameOver();
 
                 return;
             }
             //check if round is over
-            if (Battle.MonsterList.Count < 1)
+            if (EngineViewModel.Engine.MonsterList.Count < 1)
             {
                 RoundOver();
 
-                Battle.NewRound(); // new round begun
-                SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
+                EngineViewModel.Engine.NewRound(); // new round begun
+                SelectedMonsterList = EngineViewModel.Engine.MonsterList; // initialize monsters based on alive characters
                 LoadMonsters();
 
             }
@@ -105,6 +105,10 @@ namespace Game.Views
         /// </summary>
         public void RoundOver()
         {
+            // Wrap up
+            
+
+
             // Hide the Game Board
             GameUIDisplay.IsVisible = false;
 
@@ -132,16 +136,16 @@ namespace Game.Views
         {
             ResetCurrentPlayers();
 
-            Battle.CurrentAttacker = Battle.GetNextPlayerTurn(); //get the attacker
+            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn(); //get the attacker
             SetCurrentAttacker();
-            if (Battle.CurrentAttacker.ISSpecialAbilityNotUsed == true)
+            if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
             {
                 SpecialAbility.IsEnabled = true;
             }
-            CurrentPlayer = Battle.CurrentAttacker;
+            CurrentPlayer = EngineViewModel.Engine.CurrentAttacker;
             CheckPlayerAbilities();
 
-            Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
+            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker); // get the defender
             SetCurrentDefender();
         }
         /// <summary>
@@ -163,13 +167,13 @@ namespace Game.Views
         /// </summary>
         private void ResetCurrentPlayers()
         {
-            if (Battle.CurrentAttacker != null)
+            if (EngineViewModel.Engine.CurrentAttacker != null)
             {
                 string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
                 Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
                 if(AttackerFrame == null)
                 {
-                    AddImage(Battle.CurrentAttacker.ListOrder, 0); //Column is always 0 because move ability is only for characters
+                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0); //Column is always 0 because move ability is only for characters
                     RemoveImage(AttackerPosition[0], AttackerPosition[1]);
                 }
                 else
@@ -178,7 +182,7 @@ namespace Game.Views
                 }
 
             }
-            if (Battle.CurrentDefender != null && Battle.CurrentDefender.Alive == true)
+            if (EngineViewModel.Engine.CurrentDefender != null && EngineViewModel.Engine.CurrentDefender.Alive == true)
             {
                 string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
                 Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
@@ -191,15 +195,15 @@ namespace Game.Views
         /// </summary>
         private void SetCurrentDefender()
         {
-            if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
+            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
             {
                 DefenderPosition[1] = 0;
-                DefenderPosition[0] = SelectedCharacterMap[Battle.CurrentDefender];
+                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender];
             }
-            if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
+            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
             {
                 DefenderPosition[1] = 5;
-                DefenderPosition[0] = SelectedMonsterMap[Battle.CurrentDefender];
+                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender];
             }
             string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
             Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
@@ -211,15 +215,15 @@ namespace Game.Views
         /// </summary>
         private void SetCurrentAttacker()
         {
-            if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
                 AttackerPosition[1] = 0;
-                AttackerPosition[0] = Battle.CurrentAttacker.ListOrder;
+                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
             }
-            if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackerPosition[1] = 5;
-                AttackerPosition[0] = Battle.CurrentAttacker.ListOrder; 
+                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder; 
             }
             string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
             Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
@@ -378,8 +382,8 @@ namespace Game.Views
         {
             //Just for testing
             playBattle();
-            Battle.CurrentAttacker.ISSpecialAbilityNotUsed = false;
-            if (Battle.CurrentAttacker.ISSpecialAbilityNotUsed == false)
+            EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed = false;
+            if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == false)
             {
                 SpecialAbility.IsEnabled = false;
             }
