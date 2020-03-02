@@ -14,6 +14,7 @@
                 Style="{StaticResource HeaderStyle}"/>
                 <Button
                 Text="Bring it on"
+                Clicked="Go_To_Battle"
                 Style="{StaticResource PrimaryButtonStyle}"
                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>

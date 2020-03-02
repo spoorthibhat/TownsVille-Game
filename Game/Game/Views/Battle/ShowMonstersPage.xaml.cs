@@ -18,10 +18,14 @@ namespace Game.Views.Battle
         // List of Monsters in the battle
         public List<PlayerInfoModel> SelectedMonsterList;
 
+        // Theme index needed during battle to set theme
+        public int ThemeNumber;
+
         // Constructor
-        public ShowMonstersPage()
+        public ShowMonstersPage(int ThemeIndex)
         {
             InitializeComponent();
+            ThemeNumber = ThemeIndex;
             var CharacterList = BattleEngineViewModel.Instance.SelectedCharacters;
             var Battle = new BattleEngine();
             foreach (CharacterModel Character in CharacterList)
@@ -32,6 +36,14 @@ namespace Game.Views.Battle
 
             SelectedMonsterList = Battle.MonsterList;
             //MonstersListView.ItemsSource = SelectedMonsterList;
+        }
+
+        /// <summary>
+        /// Gets triggered on the button click on the Show Monsters page
+        /// </summary>
+        public async void Go_To_Battle(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BattlePage(ThemeNumber));
         }
     }
 }
