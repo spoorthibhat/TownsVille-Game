@@ -151,34 +151,13 @@
     <BundleResource Include="Resources\item.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\door.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\gameover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\knight.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\troll.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\battleboard.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\d12.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\splashscreen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\village.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\dungeon_door.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\cauldren.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\grey_door.png" />
@@ -209,9 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_new.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\item_flaming_sword.png" />
@@ -341,5 +317,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\down_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lab_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\city_theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ground_theme.png" />
   </ItemGroup>
 </Project>

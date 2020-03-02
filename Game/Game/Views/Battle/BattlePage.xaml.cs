@@ -60,16 +60,23 @@ namespace Game.Views
         public async void playBattle()
         {
             Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, Battle.CurrentAttacker.ISSpecialAbilityNotUsed);
+            //Check if Defender Died 
+            if(Battle.CurrentDefender.Alive == false)
+            {
+                ShowPlayerIsDead();
+            }
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
-                await DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
+                GameOver();
+
+                return;
             }
             //check if round is over
             if (Battle.MonsterList.Count < 1)
-            { 
-                await DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
-                await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage())); //pick drop items when round over
+            {
+                RoundOver();
+
                 Battle.NewRound(); // new round begun
                 SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
                 LoadMonsters();
@@ -77,7 +84,44 @@ namespace Game.Views
             }
             PickPlayers(); // pick attacker and defender for next turn
         }
+        /// <summary>
+        /// Modify UI to show player is Dead
+        /// </summary>
+        private void ShowPlayerIsDead()
+        {
+            string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
+            Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
+            DefenderFrame.BackgroundColor = Color.Red;
+            DefenderFrame.IsVisible = true;
+        }
+        /// <summary>
+        /// Show the Round Over
+        /// 
+        /// Clear the Board
+        /// 
+        /// </summary>
+        public void RoundOver()
+        {
+            // Hide the Game Board
+            GameUIDisplay.IsVisible = false;
 
+            // Show the Round Over Display
+            RoundOverDisplay.IsVisible = true;
+        }
+        /// <summary>
+        /// Show the Score
+        /// 
+        /// Clear the Board
+        /// 
+        /// </summary>
+        public void GameOver()
+        {
+            // Hide the Game Board
+            GameUIDisplay.IsVisible = false;
+
+            // Show the Game Over Display
+            GameOverDisplay.IsVisible = true;
+        }
         /// <summary>
         /// Pick the Attacker and Defender for the turn
         /// </summary>
@@ -131,7 +175,7 @@ namespace Game.Views
                 }
 
             }
-            if (Battle.CurrentDefender != null)
+            if (Battle.CurrentDefender != null && Battle.CurrentDefender.Alive == true)
             {
                 string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
                 Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
@@ -185,7 +229,23 @@ namespace Game.Views
         /// <param name="themeIndex"></param>
         private void SetTheme(int themeIndex)
         {
-            //TODO
+            switch (themeIndex)
+            {
+                case 0:
+                    BattleScreen.BackgroundImageSource = "sky_theme.png";
+                    break;
+                case 1:
+                    BattleScreen.BackgroundImageSource = "lab_background.png";
+                    break;
+                case 2:
+                    BattleScreen.BackgroundImageSource = "city_theme.png";
+                    break;
+                case 3:
+                    BattleScreen.BackgroundImageSource = "ground_theme.png";
+                    break;
+                default:
+                    break;
+            }
         }
         /// <summary>
         /// Loading selected characters into the battle grid
@@ -320,6 +380,57 @@ namespace Game.Views
             {
                 SpecialAbility.IsEnabled = false;
             }
+        }
+        /// <summary>
+        /// Navigate to pick items page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void PickItemsButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
+           
+            RoundOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
+            
+        }
+        /// <summary>
+        /// Close Round Over Display and Show Battle grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void NextRoundButton_Clicked(object sender, EventArgs e)
+        {
+            RoundOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
+        }
+        /// <summary>
+        /// Show the Game Over Screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public async void ShowScoreButton_Clicked(object sender, EventArgs args)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+
+            GameOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
+
+        }
+
+        /// <summary>
+        /// Battle Over, so Exit Button
+        /// Need to show this for the user to click on.
+        /// The Quit does a prompt, exit just exits
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

@@ -62,8 +62,6 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<PickCharactersPage, List<CharacterModel>>(this, "PickCharacters", async (obj, data) =>
             {
                 await PickCharactersAsync(data as List<CharacterModel>);
-
-                
             });
         }
         
@@ -78,6 +76,7 @@ namespace Game.ViewModels
         /// <returns></returns>
         private async Task<bool> PickCharactersAsync(List<CharacterModel> SelectedCharacterList)
         {
+            SelectedCharacters.Clear();
             foreach (CharacterModel Character in SelectedCharacterList)
             {
                 SelectedCharacters.Add(Character);
