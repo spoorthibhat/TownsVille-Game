@@ -63,7 +63,9 @@ namespace Game.Views
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
-                await DisplayAlert("Game Over", "All Characters are dead !!!", "OK");
+                GameOver();
+
+                return;
             }
             //check if round is over
             if (Battle.MonsterList.Count < 1)
@@ -89,8 +91,22 @@ namespace Game.Views
             // Hide the Game Board
             GameUIDisplay.IsVisible = false;
 
-            // Show the Game Over Display
+            // Show the Round Over Display
             RoundOverDisplay.IsVisible = true;
+        }
+        /// <summary>
+        /// Show the Score
+        /// 
+        /// Clear the Board
+        /// 
+        /// </summary>
+        public void GameOver()
+        {
+            // Hide the Game Board
+            GameUIDisplay.IsVisible = false;
+
+            // Show the Game Over Display
+            GameOverDisplay.IsVisible = true;
         }
         /// <summary>
         /// Pick the Attacker and Defender for the turn
@@ -359,6 +375,32 @@ namespace Game.Views
             RoundOverDisplay.IsVisible = false;
 
             GameUIDisplay.IsVisible = true;
+        }
+        /// <summary>
+        /// Show the Game Over Screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public async void ShowScoreButton_Clicked(object sender, EventArgs args)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+
+            GameOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
+
+        }
+
+        /// <summary>
+        /// Battle Over, so Exit Button
+        /// Need to show this for the user to click on.
+        /// The Quit does a prompt, exit just exits
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

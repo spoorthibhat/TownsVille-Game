@@ -132,11 +132,15 @@
                     <Label Text="Thank you for Playing" Style="{StaticResource CenterMessageStyle}"/>
 
                     <Label Text="Check your score, or click Exit and return soon" Style="{StaticResource MessageStyle}" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" MaxLines="5" Padding="20"/>
-                    <!--
-                    <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score"/>
 
-                    <Button x:Name="ExitButton" Clicked="ExitButton_Clicked" Text="Exit"></Button>
-                    -->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                        <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score" Style="{StaticResource PrimaryButtonStyle}"/>
+
+                        <Button x:Name="ExitButton" Clicked="ExitButton_Clicked" Text="Exit" Style="{StaticResource PrimaryButtonStyle}"></Button>
+
+                    </StackLayout>
+                    
                 </StackLayout>
             </StackLayout>
 
