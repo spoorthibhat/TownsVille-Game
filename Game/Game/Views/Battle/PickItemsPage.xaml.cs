@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.Services;
+using Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -13,7 +14,7 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickItemsPage : ContentPage
     {
-        public List<CharacterModel> SelectedCharacterList = DefaultData.LoadData(new CharacterModel());
+        public List<ItemModel> DroppedItemsList;
 
         /// <summary>
         /// Constructor
@@ -21,21 +22,16 @@ namespace Game.Views
         public PickItemsPage()
         {
             InitializeComponent();
-            LoadCharacters();
+            LoadItems();
         }
         /// <summary>
         /// Loading Characters in the battle
         /// </summary>
-        private void LoadCharacters()
+        private void LoadItems()
         {
-            for (int i = 0; i < 6; i++)
+            foreach (var data in BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList)
             {
-                Xamarin.Forms.ImageButton img = new Xamarin.Forms.ImageButton();
-                img.Source = SelectedCharacterList[i].ImageURI;
-                img.StyleId = i.ToString();
-                Grid.SetRow(img, 0);
-                Grid.SetColumn(img, i);
-                CharactersGrid.Children.Add(img);
+                DroppedItemsList.Add(data);
             }
         }
 

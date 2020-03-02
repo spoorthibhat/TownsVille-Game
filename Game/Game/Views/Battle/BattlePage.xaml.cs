@@ -16,6 +16,9 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
+        // This uses the Instance so it can be shared with other Battle Pages as needed
+        public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
         public List<PlayerInfoModel> SelectedCharacterList;
         public Dictionary<PlayerInfoModel, int> SelectedCharacterMap = new Dictionary<PlayerInfoModel, int>();
 
@@ -371,7 +374,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void SpecialAbilityButton_Clicked(object sender, EventArgs e)
+        void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
             playBattle();
@@ -400,7 +403,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void NextRoundButton_Clicked(object sender, EventArgs e)
+        void NextRoundButton_Clicked(object sender, EventArgs e)
         {
             RoundOverDisplay.IsVisible = false;
 
