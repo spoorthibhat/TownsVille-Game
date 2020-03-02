@@ -14,7 +14,7 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickItemsPage : ContentPage
     {
-        public List<ItemModel> DroppedItemsList;
+        public List<ItemModel> DroppedItemsList = new List<ItemModel>();
 
         /// <summary>
         /// Constructor
@@ -29,7 +29,7 @@ namespace Game.Views
         /// </summary>
         private void LoadItems()
         {
-            foreach (var data in BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList)
+            foreach (ItemModel data in BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList)
             {
                 DroppedItemsList.Add(data);
             }
