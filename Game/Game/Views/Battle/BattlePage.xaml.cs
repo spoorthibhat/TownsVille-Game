@@ -54,13 +54,11 @@ namespace Game.Views
             PickPlayers();
 
         }
-        
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
         public async void playBattle()
         {
-          
             Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, Battle.CurrentAttacker.ISSpecialAbilityNotUsed);
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
@@ -228,7 +226,11 @@ namespace Game.Views
                 SelectedMonsterMap.Add(SelectedMonsterList[i], i);
             }
         }
-
+        /// <summary>
+        /// Move character back
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveBack_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[1] - 1 < 1)
@@ -237,6 +239,11 @@ namespace Game.Views
             AddImage(AttackerPosition[0], AttackerPosition[1]);
             RemoveImage(AttackerPosition[0], AttackerPosition[1]+1);
         }
+        /// <summary>
+        /// Move character front
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveFront_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[1] + 1 > 4)
@@ -245,6 +252,11 @@ namespace Game.Views
             AddImage(AttackerPosition[0], AttackerPosition[1]);
             RemoveImage(AttackerPosition[0], AttackerPosition[1] - 1);
         }
+        /// <summary>
+        /// Move character Up
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[0] - 1 < 0)
@@ -253,6 +265,11 @@ namespace Game.Views
             AddImage(AttackerPosition[0], AttackerPosition[1]);
             RemoveImage(AttackerPosition[0]+1, AttackerPosition[1]);
         }
+        /// <summary>
+        /// Move character down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[0] + 1 > 5)
@@ -261,7 +278,11 @@ namespace Game.Views
             AddImage(AttackerPosition[0], AttackerPosition[1]);
             RemoveImage(AttackerPosition[0]-1, AttackerPosition[1]);
         }
-
+        /// <summary>
+        /// Removing Image from a given position
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         private void RemoveImage(int row, int column)
         {
             foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == row && Grid.GetColumn(child) == column))
@@ -269,7 +290,11 @@ namespace Game.Views
                 child.IsVisible = false;
             }
         }
-
+        /// <summary>
+        /// Adding Image at a position
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         private void AddImage(int row, int column)
         {
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
