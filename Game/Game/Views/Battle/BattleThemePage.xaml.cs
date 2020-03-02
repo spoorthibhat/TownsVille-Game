@@ -48,7 +48,7 @@ namespace Game.Views.Battle
         /// <param name="e"></param>
         async void BeginBattle_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BattlePage(SeletedTheme));
+            await Navigation.PushAsync(new ShowMonstersPage(SeletedTheme));
         }
         /// <summary>
         /// When the image is selected, assigns this theme 
