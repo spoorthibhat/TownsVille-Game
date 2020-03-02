@@ -47,7 +47,6 @@ namespace Game.Views
             Battle.StartBattle(false);
 
             SelectedMonsterList = Battle.MonsterList;
-        
 
             LoadCharacters();
             LoadMonsters();
@@ -86,6 +85,8 @@ namespace Game.Views
         /// </summary>
         public void PickPlayers()
         {
+            ResetCurrentPlayers();
+
             Battle.CurrentAttacker = Battle.GetNextPlayerTurn(); //get the attacker
             SetCurrentAttacker();
             if (Battle.CurrentAttacker.ISSpecialAbilityNotUsed == true)
@@ -97,6 +98,19 @@ namespace Game.Views
             Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
             SetCurrentDefender();
         }
+        /// <summary>
+        /// Resetting UI elements for current attacker and defender
+        /// </summary>
+        private void ResetCurrentPlayers()
+        {
+            if(Battle.CurrentDefender != null)
+            {
+                string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
+                Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
+                DefenderFrame.IsVisible = false;
+            }
+        }
+
         /// <summary>
         /// Setting the currentDefender position and UI elements
         /// </summary>
