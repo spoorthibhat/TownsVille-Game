@@ -124,7 +124,8 @@ namespace Game.Views
                 Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
                 if(AttackerFrame == null)
                 {
-                    //TODO
+                    AddImage(Battle.CurrentAttacker.ListOrder, 0); //Column is always 0 because move ability is only for characters
+                    RemoveImage(AttackerPosition[0], AttackerPosition[1]);
                 }
                 else
                 {
@@ -233,61 +234,49 @@ namespace Game.Views
             if (AttackerPosition[1] - 1 < 1)
                 return;
             AttackerPosition[1]--;
-            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = CurrentPlayer.ImageURI;
-            Grid.SetRow(img, AttackerPosition[0]);
-            Grid.SetColumn(img, AttackerPosition[1]);
-            BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] && Grid.GetColumn(child) == AttackerPosition[1] + 1))
-            {
-                child.IsVisible = false;
-            }
+            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            RemoveImage(AttackerPosition[0], AttackerPosition[1]+1);
         }
         private void MoveFront_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[1] + 1 > 4)
                 return;
             AttackerPosition[1]++;
-            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = CurrentPlayer.ImageURI;
-            Grid.SetRow(img, AttackerPosition[0]);
-            Grid.SetColumn(img, AttackerPosition[1]);
-            BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] && Grid.GetColumn(child) == AttackerPosition[1]-1))
-            {
-                child.IsVisible = false;
-            }
+            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            RemoveImage(AttackerPosition[0], AttackerPosition[1] - 1);
         }
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[0] - 1 < 0)
                 return;
             AttackerPosition[0]--;
-            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = CurrentPlayer.ImageURI;
-            Grid.SetRow(img, AttackerPosition[0]);
-            Grid.SetColumn(img, AttackerPosition[1]);
-            BattleGrid.Children.Add(img);
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0] + 1 && Grid.GetColumn(child) == AttackerPosition[1]))
-            {
-                child.IsVisible = false;
-            }
+            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            RemoveImage(AttackerPosition[0]+1, AttackerPosition[1]);
         }
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
             if (AttackerPosition[0] + 1 > 5)
                 return;
+            AttackerPosition[0]++;
+            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            RemoveImage(AttackerPosition[0]-1, AttackerPosition[1]);
+        }
+
+        private void RemoveImage(int row, int column)
+        {
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == row && Grid.GetColumn(child) == column))
+            {
+                child.IsVisible = false;
+            }
+        }
+
+        private void AddImage(int row, int column)
+        {
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
             img.Source = CurrentPlayer.ImageURI;
-            AttackerPosition[0]++;
-            Grid.SetRow(img, AttackerPosition[0]);
-            Grid.SetColumn(img, AttackerPosition[1]);
+            Grid.SetRow(img, row);
+            Grid.SetColumn(img, column);
             BattleGrid.Children.Add(img);
-
-            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == AttackerPosition[0]-1 && Grid.GetColumn(child) == AttackerPosition[1]))
-            {
-                child.IsVisible= false;
-            }
         }
         /// <summary>
         /// Attack Action
