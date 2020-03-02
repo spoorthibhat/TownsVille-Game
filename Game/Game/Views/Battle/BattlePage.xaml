@@ -74,10 +74,10 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ImageButton Source="backward_arrow.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Clicked="MoveBack_Clicked"/>
-                    <ImageButton Source="forward_arrow.png" Grid.Row="1" Grid.Column="2" HorizontalOptions="Start" Clicked="MoveFront_Clicked"/>
-                    <ImageButton Source="up_arrow.png" Grid.Row="0" Grid.Column="1" Clicked="MoveUp_Clicked"/>
-                    <ImageButton Source="down_arrow.png" Grid.Row="2" Grid.Column="1" Clicked="MoveDown_Clicked"/>
+                    <ImageButton x:Name="BackwardButton" Source="backward_arrow.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Clicked="MoveBack_Clicked"/>
+                    <ImageButton x:Name="ForwardButton" Source="forward_arrow.png" Grid.Row="1" Grid.Column="2" HorizontalOptions="Start" Clicked="MoveFront_Clicked"/>
+                    <ImageButton x:Name="UpButton" Source="up_arrow.png" Grid.Row="0" Grid.Column="1" Clicked="MoveUp_Clicked"/>
+                    <ImageButton x:Name="DownButton" Source="down_arrow.png" Grid.Row="2" Grid.Column="1" Clicked="MoveDown_Clicked"/>
                 </Grid>
                 <Button x:Name="SpecialAbility" Clicked="SpecialAbilityButton_Clicked" Text="Special Ability" Style="{StaticResource PrimaryButtonStyle}"></Button>
                 <Button Clicked="AttackButton_Clicked" Text="Attack" Style="{StaticResource PrimaryButtonStyle}"></Button>

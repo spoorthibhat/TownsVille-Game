@@ -16,8 +16,8 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
-        public List<CharacterModel> SelectedCharacterList = BattleEngineViewModel.Instance.SelectedCharacters;
-        public Dictionary<CharacterModel,int> SelectedCharacterMap = new Dictionary<CharacterModel, int>();
+        public List<PlayerInfoModel> SelectedCharacterList;
+        public Dictionary<PlayerInfoModel, int> SelectedCharacterMap = new Dictionary<PlayerInfoModel, int>();
 
         public List<PlayerInfoModel> SelectedMonsterList ;
         public Dictionary<PlayerInfoModel, int> SelectedMonsterMap = new Dictionary<PlayerInfoModel, int>();
@@ -37,15 +37,15 @@ namespace Game.Views
 		{
 			InitializeComponent ();
             SetTheme(ThemeIndex);
-
             
             Battle = new BattleEngine();
-            foreach (CharacterModel Character in SelectedCharacterList)
+            foreach (CharacterModel Character in BattleEngineViewModel.Instance.SelectedCharacters)
             {
                 Battle.PopulateCharacterList(Character);
             }
             Battle.StartBattle(false);
 
+            SelectedCharacterList = Battle.CharacterList;
             SelectedMonsterList = Battle.MonsterList;
 
             LoadCharacters();
@@ -94,20 +94,56 @@ namespace Game.Views
                 SpecialAbility.IsEnabled = true;
             }
             CurrentPlayer = Battle.CurrentAttacker;
+            CheckPlayerAbilities();
 
             Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
             SetCurrentDefender();
         }
         /// <summary>
+        /// Checking for player abilities and setting the UI elements
+        /// </summary>
+        private void CheckPlayerAbilities()
+        {
+            if(CurrentPlayer.PlayerType == PlayerTypeEnum.Monster)
+            {
+                BackwardButton.IsVisible = false;
+                ForwardButton.IsVisible = false;
+                UpButton.IsVisible = false;
+                DownButton.IsVisible = false;
+            }
+        }
+
+        /// <summary>
         /// Resetting UI elements for current attacker and defender
         /// </summary>
         private void ResetCurrentPlayers()
         {
-            if(Battle.CurrentDefender != null)
+            if (Battle.CurrentAttacker != null)
+            {
+                string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
+                Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
+                if(AttackerFrame == null)
+                {
+                    //TODO
+                }
+                else
+                {
+                    AttackerFrame.IsVisible = false;
+                }
+
+            }
+            if (Battle.CurrentDefender != null)
             {
                 string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
                 Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
-                DefenderFrame.IsVisible = false;
+                if (DefenderFrame == null)
+                {
+                    //TODO
+                }
+                else
+                {
+                    DefenderFrame.IsVisible = false;
+                }
             }
         }
 
@@ -119,7 +155,7 @@ namespace Game.Views
             if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
             {
                 DefenderPosition[1] = 0;
-                DefenderPosition[0] = 0;// SelectedCharacterMap[new CharacterModel(Battle.CurrentAttacker)];
+                DefenderPosition[0] = SelectedCharacterMap[Battle.CurrentDefender];
             }
             if (Battle.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
             {
@@ -139,12 +175,12 @@ namespace Game.Views
             if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
                 AttackerPosition[1] = 0;
-                AttackerPosition[0] = 0; // SelectedCharacterMap[new CharacterModel(Battle.CurrentAttacker)];
+                AttackerPosition[0] = Battle.CurrentAttacker.ListOrder;
             }
             if (Battle.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackerPosition[1] = 5;
-                AttackerPosition[0] = SelectedMonsterMap[Battle.CurrentAttacker];
+                AttackerPosition[0] = Battle.CurrentAttacker.ListOrder; 
             }
             string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
             Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
