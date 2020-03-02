@@ -60,6 +60,11 @@ namespace Game.Views
         public async void playBattle()
         {
             Battle.TurnAsAttack(Battle.CurrentAttacker, Battle.CurrentDefender, Battle.CurrentAttacker.ISSpecialAbilityNotUsed);
+            //Check if Defender Died 
+            if(Battle.CurrentDefender.Alive == false)
+            {
+                ShowPlayerIsDead();
+            }
             //check if battle is over
             if (Battle.CharacterList.Count < 1)
             {
@@ -79,7 +84,16 @@ namespace Game.Views
             }
             PickPlayers(); // pick attacker and defender for next turn
         }
-
+        /// <summary>
+        /// Modify UI to show player is Dead
+        /// </summary>
+        private void ShowPlayerIsDead()
+        {
+            string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
+            Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
+            DefenderFrame.BackgroundColor = Color.Red;
+            DefenderFrame.IsVisible = true;
+        }
         /// <summary>
         /// Show the Round Over
         /// 
@@ -161,7 +175,7 @@ namespace Game.Views
                 }
 
             }
-            if (Battle.CurrentDefender != null)
+            if (Battle.CurrentDefender != null && Battle.CurrentDefender.Alive == true)
             {
                 string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
                 Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
