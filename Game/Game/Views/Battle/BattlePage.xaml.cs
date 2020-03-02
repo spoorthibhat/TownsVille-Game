@@ -229,7 +229,23 @@ namespace Game.Views
         /// <param name="themeIndex"></param>
         private void SetTheme(int themeIndex)
         {
-            //TODO
+            switch (themeIndex)
+            {
+                case 0:
+                    BattleScreen.BackgroundImageSource = "sky_theme.png";
+                    break;
+                case 1:
+                    BattleScreen.BackgroundImageSource = "lab_background.png";
+                    break;
+                case 2:
+                    BattleScreen.BackgroundImageSource = "city_theme.png";
+                    break;
+                case 3:
+                    BattleScreen.BackgroundImageSource = "ground_theme.png";
+                    break;
+                default:
+                    break;
+            }
         }
         /// <summary>
         /// Loading selected characters into the battle grid
