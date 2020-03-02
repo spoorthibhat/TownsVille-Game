@@ -8,7 +8,6 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             <ListView x:Name="ItemsListView" 
                     ItemsSource="{Binding DroppedItemsList}"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     CachingStrategy="RecycleElement"
                     HasUnevenRows="true"
                     Margin="5,0,5,0"
