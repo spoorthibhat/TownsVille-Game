@@ -67,9 +67,9 @@ namespace Game.Views
             }
             //check if round is over
             if (Battle.MonsterList.Count < 1)
-            { 
-                await DisplayAlert("Round Over", "Pick dropped items !!!", "OK");
-                await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage())); //pick drop items when round over
+            {
+                RoundOver();
+
                 Battle.NewRound(); // new round begun
                 SelectedMonsterList = Battle.MonsterList; // initialize monsters based on alive characters
                 LoadMonsters();
@@ -78,6 +78,20 @@ namespace Game.Views
             PickPlayers(); // pick attacker and defender for next turn
         }
 
+        /// <summary>
+        /// Show the Round Over
+        /// 
+        /// Clear the Board
+        /// 
+        /// </summary>
+        public void RoundOver()
+        {
+            // Hide the Game Board
+            GameUIDisplay.IsVisible = false;
+
+            // Show the Game Over Display
+            RoundOverDisplay.IsVisible = true;
+        }
         /// <summary>
         /// Pick the Attacker and Defender for the turn
         /// </summary>
@@ -320,6 +334,31 @@ namespace Game.Views
             {
                 SpecialAbility.IsEnabled = false;
             }
+        }
+        /// <summary>
+        /// Navigate to pick items page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void PickItemsButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
+           
+            RoundOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
+            
+        }
+        /// <summary>
+        /// Close Round Over Display and Show Battle grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void NextRoundButton_Clicked(object sender, EventArgs e)
+        {
+            RoundOverDisplay.IsVisible = false;
+
+            GameUIDisplay.IsVisible = true;
         }
     }
 }
