@@ -295,6 +295,7 @@ namespace Game.Engine
         /// <param name="Target"></param>
         public int DropItems(PlayerInfoModel Target)
         {
+            var DroppedMessage = "\nItems Dropped : \n";
             // Drop Items to ItemModel Pool
             var myItemList = Target.DropAllItems();
 
@@ -310,6 +311,14 @@ namespace Game.Engine
             }
 
             ItemPool.AddRange(myItemList);
+            if (myItemList.Count == 0)
+            {
+                DroppedMessage = " Nothing dropped. ";
+            }
+
+            BattleMessagesModel.TurnMessageSpecial += DroppedMessage;
+
+            BattleScore.ItemModelDropList.AddRange(myItemList);
 
             return myItemList.Count();
         }
