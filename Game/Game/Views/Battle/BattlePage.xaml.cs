@@ -315,6 +315,8 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
+            if (AttackerPosition[1] == 0)
+                return;
             if (AttackerPosition[0] - 1 < 0)
                 return;
             AttackerPosition[0]--;
@@ -328,6 +330,8 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
+            if (AttackerPosition[1] == 0)
+                return;
             if (AttackerPosition[0] + 1 > 5)
                 return;
             AttackerPosition[0]++;
