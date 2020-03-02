@@ -23,6 +23,7 @@ namespace Game.Views
         {
             InitializeComponent();
             LoadItems();
+            ItemsListView.ItemsSource = DroppedItemsList;
         }
         /// <summary>
         /// Loading Characters in the battle
