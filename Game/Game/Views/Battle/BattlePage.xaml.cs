@@ -94,10 +94,25 @@ namespace Game.Views
                 SpecialAbility.IsEnabled = true;
             }
             CurrentPlayer = Battle.CurrentAttacker;
+            CheckPlayerAbilities();
 
             Battle.CurrentDefender = Battle.AttackChoice(Battle.CurrentAttacker); // get the defender
             SetCurrentDefender();
         }
+        /// <summary>
+        /// Checking for player abilities and setting the UI elements
+        /// </summary>
+        private void CheckPlayerAbilities()
+        {
+            if(CurrentPlayer.PlayerType == PlayerTypeEnum.Monster)
+            {
+                BackwardButton.IsVisible = false;
+                ForwardButton.IsVisible = false;
+                UpButton.IsVisible = false;
+                DownButton.IsVisible = false;
+            }
+        }
+
         /// <summary>
         /// Resetting UI elements for current attacker and defender
         /// </summary>
