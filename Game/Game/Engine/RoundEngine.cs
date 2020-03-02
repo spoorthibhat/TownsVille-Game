@@ -101,6 +101,21 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// For each character pickup the items
+        /// </summary>
+        public void PickupItemsForAllCharacters()
+        {
+            // In Auto Battle this happens and the characters get their items
+            // When called manualy, make sure to do the character pickup before calling EndRound
+
+            // Have each character pickup items...
+            foreach (var character in CharacterList)
+            {
+                PickupItemsFromPool(character);
+            }
+        }
+
+        /// <summary>
         /// Manage Next Turn
         /// 
         /// Decides Who's Turn
