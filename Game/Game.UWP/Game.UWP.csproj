@@ -116,6 +116,7 @@
     <Content Include="character_button.png" />
     <Content Include="city.png" />
     <Content Include="CityAttack.PNG" />
+    <Content Include="city_theme.png" />
     <Content Include="cloud.png" />
     <Content Include="d12.png" />
     <Content Include="default_character.png" />
