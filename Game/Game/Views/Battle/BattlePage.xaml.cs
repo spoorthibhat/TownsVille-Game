@@ -135,14 +135,7 @@ namespace Game.Views
             {
                 string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
                 Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
-                if (DefenderFrame == null)
-                {
-                    //TODO
-                }
-                else
-                {
-                    DefenderFrame.IsVisible = false;
-                }
+                DefenderFrame.IsVisible = false;
             }
         }
 
