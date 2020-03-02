@@ -126,6 +126,7 @@
     <Content Include="forward_arrow.png" />
     <Content Include="gameover.png" />
     <Content Include="gang_green.png" />
+    <Content Include="ground_theme.png" />
     <Content Include="heat_shield.png" />
     <Content Include="helmet.png" />
     <Content Include="him.png" />
