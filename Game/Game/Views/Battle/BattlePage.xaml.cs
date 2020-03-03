@@ -51,12 +51,20 @@ namespace Game.Views
             SelectedCharacterList = EngineViewModel.Engine.CharacterList;
             SelectedMonsterList = EngineViewModel.Engine.MonsterList;
 
-            LoadCharacters();
-            LoadMonsters();
+            LoadPlayers();
 
             PickPlayers();
 
         }
+        /// <summary>
+        /// Loading Characters and Monsters for the play
+        /// </summary>
+        private void LoadPlayers()
+        {
+            LoadCharacters();
+            LoadMonsters();
+        }
+
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
@@ -84,8 +92,7 @@ namespace Game.Views
                 SelectedMonsterList = EngineViewModel.Engine.MonsterList; // initialize monsters based on alive characters
 
                 ResetBoard();
-                LoadMonsters();
-                LoadCharacters();  // Loading all characters that are alive for next rounds
+                LoadPlayers();
 
             }
             PickPlayers(); // pick attacker and defender for next turn
@@ -98,9 +105,6 @@ namespace Game.Views
             for(int i = 0; i < 6; i++)
             {
                 RemoveImage(i, 0);
-            }
-            for (int i = 0; i < 6; i++)
-            {
                 RemoveImage(i, 5);
             }
         }
@@ -191,7 +195,7 @@ namespace Game.Views
                 Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
                 if(AttackerFrame == null)
                 {
-                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0); //Column is always 0 because move ability is only for characters
+                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0,CurrentPlayer.ImageURI); //Column is always 0 because move ability is only for characters
                     RemoveImage(AttackerPosition[0], AttackerPosition[1]);
                 }
                 else
@@ -280,12 +284,7 @@ namespace Game.Views
             SelectedCharacterMap.Clear();
             for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
             {
-                Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-                img.Source = SelectedCharacterList[i].ImageURI;
-                Grid.SetRow(img, i);
-                Grid.SetColumn(img, 0);
-                BattleGrid.Children.Add(img);
-
+                AddImage(i, 0,SelectedCharacterList[i].ImageURI);
                 SelectedCharacterMap.Add(SelectedCharacterList[i], i);
             }
         }
@@ -297,12 +296,7 @@ namespace Game.Views
             SelectedMonsterMap.Clear();
             for (int i = 0; i < SelectedMonsterList.Count; i++)
             {
-                Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-                img.Source = SelectedMonsterList[i].ImageURI;
-                Grid.SetRow(img, i);
-                Grid.SetColumn(img, 5);
-                BattleGrid.Children.Add(img);
-
+                AddImage(i, 5,SelectedMonsterList[i].ImageURI);
                 SelectedMonsterMap.Add(SelectedMonsterList[i], i);
             }
         }
@@ -316,7 +310,7 @@ namespace Game.Views
             if (AttackerPosition[1] - 1 < 1)
                 return;
             AttackerPosition[1]--;
-            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
             RemoveImage(AttackerPosition[0], AttackerPosition[1]+1);
         }
         /// <summary>
@@ -329,7 +323,7 @@ namespace Game.Views
             if (AttackerPosition[1] + 1 > 4)
                 return;
             AttackerPosition[1]++;
-            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
             RemoveImage(AttackerPosition[0], AttackerPosition[1] - 1);
         }
         /// <summary>
@@ -339,12 +333,10 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MoveUp_Clicked(object sender, EventArgs e)
         {
-            if (AttackerPosition[1] == 0)
-                return;
-            if (AttackerPosition[0] - 1 < 0)
+            if (AttackerPosition[1] == 0 || AttackerPosition[0] - 1 < 0)
                 return;
             AttackerPosition[0]--;
-            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
             RemoveImage(AttackerPosition[0]+1, AttackerPosition[1]);
         }
         /// <summary>
@@ -354,12 +346,10 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MoveDown_Clicked(object sender, EventArgs e)
         {
-            if (AttackerPosition[1] == 0)
-                return;
-            if (AttackerPosition[0] + 1 > 5)
+            if (AttackerPosition[1] == 0 || AttackerPosition[0] + 1 > 5)
                 return;
             AttackerPosition[0]++;
-            AddImage(AttackerPosition[0], AttackerPosition[1]);
+            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
             RemoveImage(AttackerPosition[0]-1, AttackerPosition[1]);
         }
         /// <summary>
@@ -379,10 +369,10 @@ namespace Game.Views
         /// </summary>
         /// <param name="row"></param>
         /// <param name="column"></param>
-        private void AddImage(int row, int column)
+        private void AddImage(int row, int column, string imageURI)
         {
             Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = CurrentPlayer.ImageURI;
+            img.Source = imageURI;
             Grid.SetRow(img, row);
             Grid.SetColumn(img, column);
             BattleGrid.Children.Add(img);
