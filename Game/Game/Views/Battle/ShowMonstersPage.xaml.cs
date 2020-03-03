@@ -44,6 +44,7 @@ namespace Game.Views.Battle
         public async void Go_To_Battle(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new BattlePage(ThemeNumber)));
+            await Navigation.PopAsync();
         }
     }
 }
