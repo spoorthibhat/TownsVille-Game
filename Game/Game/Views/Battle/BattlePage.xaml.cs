@@ -377,6 +377,8 @@ namespace Game.Views
             Grid.SetColumn(img, column);
             BattleGrid.Children.Add(img);
         }
+
+        #region PageHandelers
         /// <summary>
         /// Attack Action
         /// </summary>
@@ -441,7 +443,6 @@ namespace Game.Views
             GameUIDisplay.IsVisible = true;
 
         }
-
         /// <summary>
         /// Battle Over, so Exit Button
         /// Need to show this for the user to click on.
@@ -453,5 +454,6 @@ namespace Game.Views
         {
             await Navigation.PopAsync();
         }
+        #endregion PageHandelers
     }
 }
