@@ -41,6 +41,32 @@
         // Ending of the Html Block for Html formatting
         public string htmlTail = @"</p></body></html>";
 
+        // Turn Experience Earned Message
+        public string ExperienceEarned = string.Empty;
+
+        /// <summary>
+        /// Resets the Battle messages
+        /// </summary>
+        /// <returns></returns>
+        public bool ClearMessages()
+        {
+
+            PlayerType = PlayerTypeEnum.Unknown;
+            HitStatus = HitStatusEnum.Unknown;
+            AttackerName = string.Empty;
+            TargetName = string.Empty;
+            AttackStatus = string.Empty;
+            TurnMessage = string.Empty;
+            TurnMessageSpecial = string.Empty;
+            ExperienceEarned = string.Empty;
+            LevelUpMessage = string.Empty;
+
+            DamageAmount = 0;
+            CurrentHealth = 0;
+
+            return true;
+        }
+
         /// <summary>
         /// Return formatted string
         /// </summary>
