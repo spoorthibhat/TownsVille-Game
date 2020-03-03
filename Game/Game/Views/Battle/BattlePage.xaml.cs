@@ -301,58 +301,6 @@ namespace Game.Views
             }
         }
         /// <summary>
-        /// Move character back
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MoveBack_Clicked(object sender, EventArgs e)
-        {
-            if (AttackerPosition[1] - 1 < 1)
-                return;
-            AttackerPosition[1]--;
-            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
-            RemoveImage(AttackerPosition[0], AttackerPosition[1]+1);
-        }
-        /// <summary>
-        /// Move character front
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MoveFront_Clicked(object sender, EventArgs e)
-        {
-            if (AttackerPosition[1] + 1 > 4)
-                return;
-            AttackerPosition[1]++;
-            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
-            RemoveImage(AttackerPosition[0], AttackerPosition[1] - 1);
-        }
-        /// <summary>
-        /// Move character Up
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MoveUp_Clicked(object sender, EventArgs e)
-        {
-            if (AttackerPosition[1] == 0 || AttackerPosition[0] - 1 < 0)
-                return;
-            AttackerPosition[0]--;
-            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
-            RemoveImage(AttackerPosition[0]+1, AttackerPosition[1]);
-        }
-        /// <summary>
-        /// Move character down
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MoveDown_Clicked(object sender, EventArgs e)
-        {
-            if (AttackerPosition[1] == 0 || AttackerPosition[0] + 1 > 5)
-                return;
-            AttackerPosition[0]++;
-            AddImage(AttackerPosition[0], AttackerPosition[1],CurrentPlayer.ImageURI);
-            RemoveImage(AttackerPosition[0]-1, AttackerPosition[1]);
-        }
-        /// <summary>
         /// Removing Image from a given position
         /// </summary>
         /// <param name="row"></param>
@@ -378,7 +326,62 @@ namespace Game.Views
             BattleGrid.Children.Add(img);
         }
 
-        #region PageHandelers
+        #region MoveHandlers
+        /// <summary>
+        /// Move character back
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveBack_Clicked(object sender, EventArgs e)
+        {
+            if (AttackerPosition[1] - 1 < 1)
+                return;
+            AttackerPosition[1]--;
+            AddImage(AttackerPosition[0], AttackerPosition[1], CurrentPlayer.ImageURI);
+            RemoveImage(AttackerPosition[0], AttackerPosition[1] + 1);
+        }
+        /// <summary>
+        /// Move character front
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveFront_Clicked(object sender, EventArgs e)
+        {
+            if (AttackerPosition[1] + 1 > 4)
+                return;
+            AttackerPosition[1]++;
+            AddImage(AttackerPosition[0], AttackerPosition[1], CurrentPlayer.ImageURI);
+            RemoveImage(AttackerPosition[0], AttackerPosition[1] - 1);
+        }
+        /// <summary>
+        /// Move character Up
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveUp_Clicked(object sender, EventArgs e)
+        {
+            if (AttackerPosition[1] == 0 || AttackerPosition[0] - 1 < 0)
+                return;
+            AttackerPosition[0]--;
+            AddImage(AttackerPosition[0], AttackerPosition[1], CurrentPlayer.ImageURI);
+            RemoveImage(AttackerPosition[0] + 1, AttackerPosition[1]);
+        }
+        /// <summary>
+        /// Move character down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveDown_Clicked(object sender, EventArgs e)
+        {
+            if (AttackerPosition[1] == 0 || AttackerPosition[0] + 1 > 5)
+                return;
+            AttackerPosition[0]++;
+            AddImage(AttackerPosition[0], AttackerPosition[1], CurrentPlayer.ImageURI);
+            RemoveImage(AttackerPosition[0] - 1, AttackerPosition[1]);
+        }
+        #endregion MoveHandlers
+
+        #region PageHandlers
         /// <summary>
         /// Attack Action
         /// </summary>
@@ -454,6 +457,6 @@ namespace Game.Views
         {
             await Navigation.PopAsync();
         }
-        #endregion PageHandelers
+        #endregion PageHandlers
     }
 }
