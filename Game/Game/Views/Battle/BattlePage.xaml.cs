@@ -64,7 +64,41 @@ namespace Game.Views
             LoadCharacters();
             LoadMonsters();
         }
-
+        /// <summary>
+        /// Loading selected characters into the battle grid
+        /// </summary>
+        private void LoadCharacters()
+        {
+            SelectedCharacterMap.Clear();
+            for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
+            {
+                AddImage(i, 0, SelectedCharacterList[i].ImageURI);
+                SelectedCharacterMap.Add(SelectedCharacterList[i], i);
+            }
+        }
+        /// <summary>
+        /// Loading Monsters into the battle grid
+        /// </summary>
+        private void LoadMonsters()
+        {
+            SelectedMonsterMap.Clear();
+            for (int i = 0; i < SelectedMonsterList.Count; i++)
+            {
+                AddImage(i, 5, SelectedMonsterList[i].ImageURI);
+                SelectedMonsterMap.Add(SelectedMonsterList[i], i);
+            }
+        }
+        /// <summary>
+        /// Reset UI elements on board before loading next round of players
+        /// </summary>
+        private void ResetBoard()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                RemoveImage(i, 0);
+                RemoveImage(i, 5);
+            }
+        }
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
@@ -98,28 +132,6 @@ namespace Game.Views
             PickPlayers(); // pick attacker and defender for next turn
         }
         /// <summary>
-        /// Reset UI elements on board before loading next round of players
-        /// </summary>
-        private void ResetBoard()
-        {
-            for(int i = 0; i < 6; i++)
-            {
-                RemoveImage(i, 0);
-                RemoveImage(i, 5);
-            }
-        }
-
-        /// <summary>
-        /// Modify UI to show player is Dead
-        /// </summary>
-        private void ShowPlayerIsDead()
-        {
-            string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
-            Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
-            DefenderFrame.BackgroundColor = Color.Red;
-            DefenderFrame.IsVisible = true;
-        }
-        /// <summary>
         /// Show the Round Over
         /// 
         /// Clear the Board
@@ -128,9 +140,6 @@ namespace Game.Views
         public void RoundOver()
         {
             // Wrap up
-            
-
-
             // Hide the Game Board
             GameUIDisplay.IsVisible = false;
 
@@ -160,98 +169,20 @@ namespace Game.Views
 
             EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn(); //get the attacker
             SetCurrentAttacker();
+
             if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
             {
                 SpecialAbility.IsEnabled = true;
             }
+
             CurrentPlayer = EngineViewModel.Engine.CurrentAttacker;
             CheckPlayerAbilities();
 
             EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker); // get the defender
             SetCurrentDefender();
         }
-        /// <summary>
-        /// Checking for player abilities and setting the UI elements
-        /// </summary>
-        private void CheckPlayerAbilities()
-        {
-            if(CurrentPlayer.PlayerType == PlayerTypeEnum.Monster)
-            {
-                BackwardButton.IsVisible = false;
-                ForwardButton.IsVisible = false;
-                UpButton.IsVisible = false;
-                DownButton.IsVisible = false;
-            }
-        }
 
-        /// <summary>
-        /// Resetting UI elements for current attacker and defender
-        /// </summary>
-        private void ResetCurrentPlayers()
-        {
-            if (EngineViewModel.Engine.CurrentAttacker != null)
-            {
-                string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
-                Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
-                if(AttackerFrame == null)
-                {
-                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0,CurrentPlayer.ImageURI); //Column is always 0 because move ability is only for characters
-                    RemoveImage(AttackerPosition[0], AttackerPosition[1]);
-                }
-                else
-                {
-                    AttackerFrame.IsVisible = false;
-                }
-
-            }
-            if (EngineViewModel.Engine.CurrentDefender != null && EngineViewModel.Engine.CurrentDefender.Alive == true)
-            {
-                string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
-                Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
-                DefenderFrame.IsVisible = false;
-            }
-        }
-
-        /// <summary>
-        /// Setting the currentDefender position and UI elements
-        /// </summary>
-        private void SetCurrentDefender()
-        {
-            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
-            {
-                DefenderPosition[1] = 0;
-                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender];
-            }
-            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
-            {
-                DefenderPosition[1] = 5;
-                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender];
-            }
-            string DefenderFramePosition = "Frame" + DefenderPosition[0] + DefenderPosition[1];
-            Frame DefenderFrame = (Frame)BattleGrid.FindByName(DefenderFramePosition);
-            DefenderFrame.IsVisible = true;
-        }
-
-        /// <summary>
-        /// Setting the currentAttacker position and UI elements
-        /// </summary>
-        private void SetCurrentAttacker()
-        {
-            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
-            {
-                AttackerPosition[1] = 0;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
-            }
-            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
-            {
-                AttackerPosition[1] = 5;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder; 
-            }
-            string AttackerFramePosition = "Frame" + AttackerPosition[0] + AttackerPosition[1];
-            Frame AttackerFrame = (Frame)BattleGrid.FindByName(AttackerFramePosition);
-            AttackerFrame.IsVisible = true;
-        }
-
+        #region UIOperations
         /// <summary>
         /// Setting Battle Field background
         /// </summary>
@@ -277,28 +208,34 @@ namespace Game.Views
             }
         }
         /// <summary>
-        /// Loading selected characters into the battle grid
+        /// Checking for player abilities and setting the UI elements
         /// </summary>
-        private void LoadCharacters()
+        private void CheckPlayerAbilities()
         {
-            SelectedCharacterMap.Clear();
-            for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
+            if (CurrentPlayer.PlayerType == PlayerTypeEnum.Monster)
             {
-                AddImage(i, 0,SelectedCharacterList[i].ImageURI);
-                SelectedCharacterMap.Add(SelectedCharacterList[i], i);
+                BackwardButton.IsVisible = false;
+                ForwardButton.IsVisible = false;
+                UpButton.IsVisible = false;
+                DownButton.IsVisible = false;
             }
         }
         /// <summary>
-        /// Loading Monsters into the battle grid
+        /// Modify UI to show player is Dead
         /// </summary>
-        private void LoadMonsters()
+        private void ShowPlayerIsDead()
         {
-            SelectedMonsterMap.Clear();
-            for (int i = 0; i < SelectedMonsterList.Count; i++)
-            {
-                AddImage(i, 5,SelectedMonsterList[i].ImageURI);
-                SelectedMonsterMap.Add(SelectedMonsterList[i], i);
-            }
+            Frame DefenderFrame = GetFrame(DefenderPosition[0] , DefenderPosition[1]);
+            DefenderFrame.BackgroundColor = Color.Red;
+            DefenderFrame.IsVisible = true;
+        }
+        /// <summary>
+        /// Modify UI to show player is Dead
+        /// </summary>
+        private Frame GetFrame(int row, int column)
+        {
+            string FrameName = "Frame" + row + column;
+            return (Frame)BattleGrid.FindByName(FrameName);
         }
         /// <summary>
         /// Removing Image from a given position
@@ -319,12 +256,78 @@ namespace Game.Views
         /// <param name="column"></param>
         private void AddImage(int row, int column, string imageURI)
         {
-            Xamarin.Forms.Image img = new Xamarin.Forms.Image();
-            img.Source = imageURI;
-            Grid.SetRow(img, row);
-            Grid.SetColumn(img, column);
-            BattleGrid.Children.Add(img);
+            Xamarin.Forms.Image Img = new Xamarin.Forms.Image();
+            Img.Source = imageURI;
+            Grid.SetRow(Img, row);
+            Grid.SetColumn(Img, column);
+            BattleGrid.Children.Add(Img);
         }
+        /// <summary>
+        /// Resetting UI elements for current attacker and defender
+        /// </summary>
+        private void ResetCurrentPlayers()
+        {
+            if (EngineViewModel.Engine.CurrentAttacker != null)
+            {
+                Frame AttackerFrame = GetFrame(AttackerPosition[0], AttackerPosition[1]);
+                if (AttackerFrame == null)
+                {
+                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0, CurrentPlayer.ImageURI); //Column is always 0 because move ability is only for characters
+                    RemoveImage(AttackerPosition[0], AttackerPosition[1]);
+                }
+                else
+                {
+                    AttackerFrame.IsVisible = false;
+                }
+
+            }
+            if (EngineViewModel.Engine.CurrentDefender != null && EngineViewModel.Engine.CurrentDefender.Alive == true)
+            {
+                Frame DefenderFrame = GetFrame(DefenderPosition[0] , DefenderPosition[1]);
+                DefenderFrame.IsVisible = false;
+            }
+        }
+
+        /// <summary>
+        /// Setting the currentDefender position and UI elements
+        /// </summary>
+        private void SetCurrentDefender()
+        {
+            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
+            {
+                DefenderPosition[1] = 0;
+                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender];
+            }
+            if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
+            {
+                DefenderPosition[1] = 5;
+                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender];
+            }
+            Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
+            DefenderFrame.BackgroundColor = Color.CornflowerBlue;
+            DefenderFrame.IsVisible = true;
+        }
+
+        /// <summary>
+        /// Setting the currentAttacker position and UI elements
+        /// </summary>
+        private void SetCurrentAttacker()
+        {
+            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                AttackerPosition[1] = 0;
+                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
+            }
+            if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                AttackerPosition[1] = 5;
+                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
+            }
+            Frame AttackerFrame = GetFrame(AttackerPosition[0],AttackerPosition[1]);
+            AttackerFrame.BackgroundColor = Color.CornflowerBlue;
+            AttackerFrame.IsVisible = true;
+        }
+        #endregion UIOperations
 
         #region MoveHandlers
         /// <summary>
