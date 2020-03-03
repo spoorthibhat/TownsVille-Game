@@ -40,7 +40,8 @@ namespace Game.Models
             Necklace = data.Necklace;
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
-            Feet = data.Feet;
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
             
         }
 
@@ -70,7 +71,9 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
+
         }
 
         /// <summary>
@@ -99,7 +102,9 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
+
         }
     }
 }

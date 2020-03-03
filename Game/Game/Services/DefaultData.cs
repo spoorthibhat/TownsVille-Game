@@ -318,7 +318,7 @@ namespace Game.Services
                 Description = "They spread ill ness",
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
-                PrimaryHand = PrimaryHandList[1].Id,
+                PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 15,
 
             },
