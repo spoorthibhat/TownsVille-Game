@@ -447,7 +447,6 @@ namespace Game.Views
             GameOverDisplay.IsVisible = false;
 
             GameUIDisplay.IsVisible = true;
-
         }
         /// <summary>
         /// Battle Over, so Exit Button
@@ -458,9 +457,6 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void ExitButton_Clicked(object sender, EventArgs e)
         {
-            
-            GameOverDisplay.IsVisible = false;
-            GameUIDisplay.IsVisible = true;
             await Navigation.PopModalAsync();
         }
         #endregion PageHandlers
