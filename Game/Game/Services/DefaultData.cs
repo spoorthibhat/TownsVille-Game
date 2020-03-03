@@ -223,7 +223,8 @@ namespace Game.Services
                 Head = HeadList[0].Id,
                 Attack = 30,
                 MaxHealth = 50,
-                CurrentHealth = 50
+                CurrentHealth = 50,
+                Speed = 10
 
         },
             new CharacterModel{
