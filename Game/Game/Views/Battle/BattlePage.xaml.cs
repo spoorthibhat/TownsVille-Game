@@ -82,11 +82,29 @@ namespace Game.Views
 
                 EngineViewModel.Engine.NewRound(); // new round begun
                 SelectedMonsterList = EngineViewModel.Engine.MonsterList; // initialize monsters based on alive characters
+
+                ResetBoard();
                 LoadMonsters();
+                LoadCharacters();  // Loading all characters that are alive for next rounds
 
             }
             PickPlayers(); // pick attacker and defender for next turn
         }
+        /// <summary>
+        /// Reset UI elements on board before loading next round of players
+        /// </summary>
+        private void ResetBoard()
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                RemoveImage(i, 0);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                RemoveImage(i, 5);
+            }
+        }
+
         /// <summary>
         /// Modify UI to show player is Dead
         /// </summary>
@@ -259,7 +277,8 @@ namespace Game.Views
         /// </summary>
         private void LoadCharacters()
         {
-            for (int i = 0; i < SelectedCharacterList.Count; i++)
+            SelectedCharacterMap.Clear();
+            for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
             {
                 Xamarin.Forms.Image img = new Xamarin.Forms.Image();
                 img.Source = SelectedCharacterList[i].ImageURI;
@@ -275,6 +294,7 @@ namespace Game.Views
         /// </summary>
         private void LoadMonsters()
         {
+            SelectedMonsterMap.Clear();
             for (int i = 0; i < SelectedMonsterList.Count; i++)
             {
                 Xamarin.Forms.Image img = new Xamarin.Forms.Image();
