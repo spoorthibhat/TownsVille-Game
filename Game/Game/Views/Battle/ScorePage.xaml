@@ -7,9 +7,7 @@
         <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource VerticalStack}">
 
-                <Label Text="Score Page" Style="{StaticResource CenterMessageStyle}"/>
-
-                <Button Clicked="CloseButton_Clicked" Text="Close"/>
+                <Label Text="Battle Score" Style="{StaticResource CenterMessageStyle}"/>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Score : " Style="{StaticResource MessageStyle}"/>
@@ -42,7 +40,7 @@
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
 
-                <Button Clicked="CloseButton_Clicked" Text="Close"/>
+                <Button Clicked="CloseButton_Clicked" Text="Close" Style="{StaticResource PrimaryButtonStyle}"/>
 
             </StackLayout>
         </ScrollView>
