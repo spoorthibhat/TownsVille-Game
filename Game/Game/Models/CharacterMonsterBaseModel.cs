@@ -344,6 +344,7 @@ namespace Game.Models
             this.Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
             this.Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
             this.MaxHealth = Level * 10 + Level;
+            this.CurrentHealth = this.MaxHealth;
             return true;
         }
 

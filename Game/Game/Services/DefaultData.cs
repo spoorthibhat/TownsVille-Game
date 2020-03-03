@@ -223,6 +223,7 @@ namespace Game.Services
                 Head = HeadList[0].Id,
                 Attack = 30,
                 MaxHealth = 50,
+                CurrentHealth = 50
 
         },
             new CharacterModel{
@@ -234,6 +235,7 @@ namespace Game.Services
                 Feet = FeetList[0].Id,
                 Attack = 25,
                 MaxHealth = 45,
+                CurrentHealth = 45
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -244,6 +246,7 @@ namespace Game.Services
                 PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 25,
                 MaxHealth = 45,
+                CurrentHealth = 45
             },
              new CharacterModel{
                 Name = "Ms Keane",
@@ -254,6 +257,7 @@ namespace Game.Services
                 Necklace = NecklassList[0].Id,
                 Attack = 5,
                 MaxHealth = 40,
+                CurrentHealth = 40
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -264,6 +268,7 @@ namespace Game.Services
                 RightFinger = RightFingerList[0].Id,
                 Attack = 10,
                 MaxHealth = 20,
+                CurrentHealth = 20
             },
                 new CharacterModel{
                 Name = "Mayor",
@@ -274,6 +279,7 @@ namespace Game.Services
                 PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 5,
                 MaxHealth = 20,
+                CurrentHealth = 20
             }
 
             };
