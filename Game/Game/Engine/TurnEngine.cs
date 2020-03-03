@@ -169,9 +169,7 @@ namespace Game.Engine
                 return false;
             }
 
-            BattleMessagesModel.TurnMessage = string.Empty;
-            BattleMessagesModel.TurnMessageSpecial = string.Empty;
-            BattleMessagesModel.AttackStatus = string.Empty;
+            BattleMessagesModel.ClearMessages();
 
             //TODO
             BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
@@ -223,8 +221,38 @@ namespace Game.Engine
 
             RemoveIfDead(Target);
 
+            // If it is a character apply the experience earned
+            CalculateExperience(Attacker, Target);
+
             BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial.Replace("\n", Environment.NewLine);
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Calculate Experience
+        /// Level up if needed
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="Target"></param>
+        public bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
+        {
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                var experienceEarned = Target.CalculateExperienceEarned(BattleMessagesModel.DamageAmount);
+                BattleMessagesModel.ExperienceEarned = " Earned " + experienceEarned + " points";
+
+                var LevelUp = Attacker.AddExperience(experienceEarned);
+                if (LevelUp)
+                {
+                    BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
+                    Debug.WriteLine(BattleMessagesModel.LevelUpMessage);
+                }
+
+                // Add Experinece to the Score
+                BattleScore.ExperienceGainedTotal += experienceEarned;
+            }
 
             return true;
         }
