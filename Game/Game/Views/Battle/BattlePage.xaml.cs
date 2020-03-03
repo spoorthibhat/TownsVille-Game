@@ -321,7 +321,7 @@ namespace Game.Views
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackerPosition[1] = 5;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
+                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder - EngineViewModel.Engine.CharacterList.Count;
             }
             Frame AttackerFrame = GetFrame(AttackerPosition[0],AttackerPosition[1]);
             AttackerFrame.BackgroundColor = Color.CornflowerBlue;
