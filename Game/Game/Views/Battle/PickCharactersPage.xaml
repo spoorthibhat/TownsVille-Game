@@ -15,6 +15,12 @@
                     VerticalOptions="Start" 
                     HorizontalOptions="StartAndExpand"
                     Style="{StaticResource HeaderStyle}"/>
+                <Label
+                    x:Name="CountValidationLabel"
+                    Text="     *max 6 charcters only  "
+                    FontSize="Small"
+                    TextColor="red"
+                    IsVisible="False"></Label>
                 <Button
                 Text="Ok"
                     Style="{StaticResource PrimaryButtonStyle}"

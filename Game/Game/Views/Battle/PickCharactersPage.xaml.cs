@@ -32,16 +32,26 @@ namespace Game.Views
 		/// <param name="args"></param>
 		private void OnCharacter_Checked(object sender, CheckedChangedEventArgs e)
 		{
-			var checkBoxItem = (CheckBox)sender;
+            var checkBoxItem = (CheckBox)sender;
             CharacterModel selectedCharacter = (CharacterModel)checkBoxItem.BindingContext;
             if (checkBoxItem.IsChecked)
             {
+                if (CharacterSelectedList.Count == 6)
+                {
+                    CountValidationLabel.IsVisible = true;
+                    checkBoxItem.IsChecked = false;
+                    return;
+                }
                 CharacterSelectedList.Add(selectedCharacter);
                 OKButton.IsEnabled = true;
                 return;
             }
             CharacterSelectedList.Remove(selectedCharacter);
-            if(CharacterSelectedList.Count== 0)
+            if (CharacterSelectedList.Count < 6)
+            {
+                CountValidationLabel.IsVisible = false;
+            }
+            if (CharacterSelectedList.Count== 0)
             {
                 OKButton.IsEnabled = false;
             }
