@@ -20,13 +20,13 @@ namespace Game.Services
                     Damage = 0,
                     Value = 9,
                     Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Speed},
+                    Attribute = AttributeEnum.Defense},
             new ItemModel {
                     Name = "Firing Crown",
                     Description = "Attacks from the crown gem",
                     ImageURI = "firing_crown.png",
                     Range = 0,
-                    Damage = 0,
+                    Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
@@ -221,7 +221,8 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 Head = HeadList[0].Id,
-                Attack = 45,
+                Attack = 30,
+                MaxHealth = 50,
 
         },
             new CharacterModel{
@@ -231,7 +232,8 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Freeze,
                 Feet = FeetList[0].Id,
-                Attack = 35,
+                Attack = 25,
+                MaxHealth = 45,
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -240,7 +242,8 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 PrimaryHand = PrimaryHandList[0].Id,
-                Attack = 30,
+                Attack = 25,
+                MaxHealth = 45,
             },
              new CharacterModel{
                 Name = "Ms Keane",
@@ -250,6 +253,7 @@ namespace Game.Services
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 Necklace = NecklassList[0].Id,
                 Attack = 5,
+                MaxHealth = 40,
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -259,6 +263,7 @@ namespace Game.Services
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 RightFinger = RightFingerList[0].Id,
                 Attack = 10,
+                MaxHealth = 20,
             },
                 new CharacterModel{
                 Name = "Mayor",
@@ -267,7 +272,8 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 PrimaryHand = PrimaryHandList[0].Id,
-                Attack = 5
+                Attack = 5,
+                MaxHealth = 20,
             }
 
             };
@@ -289,7 +295,7 @@ namespace Game.Services
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
                 Head = HeadList[0].Id,
-                Attack = 40,
+                Attack = 25,
 
             },
             new MonsterModel{
@@ -298,7 +304,7 @@ namespace Game.Services
                 ImageURI = "him.png",
                 Level = 1,
                 Feet = FeetList[0].Id,
-                Attack = 50,
+                Attack = 20,
 
             },
              new MonsterModel{
@@ -307,7 +313,7 @@ namespace Game.Services
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
                 PrimaryHand = PrimaryHandList[1].Id,
-                Attack = 30,
+                Attack = 15,
 
             },
                 new MonsterModel{
@@ -316,7 +322,7 @@ namespace Game.Services
                 ImageURI = "rowdy_boys.png",
                 Level = 1,
                 Necklace = NecklassList[1].Id,
-                Attack = 60,
+                Attack = 10,
             },
                 new MonsterModel{
                 Name = "Gang green",
@@ -324,7 +330,7 @@ namespace Game.Services
                 ImageURI = "gang_green.png",
                 Level = 1,
                 Feet = FeetList[0].Id,
-                Attack = 35,
+                Attack = 15,
             },
                 new MonsterModel{
                 Name = "Princess Morbucks",
@@ -332,7 +338,7 @@ namespace Game.Services
                 ImageURI = "princess_morbucks.png",
                 Level = 1,
                 Head = HeadList[1].Id,
-                Attack = 45
+                Attack = 20
             },
 
             };
