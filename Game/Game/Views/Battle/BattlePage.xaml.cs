@@ -458,7 +458,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void ExitButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            
+            GameOverDisplay.IsVisible = false;
+            GameUIDisplay.IsVisible = true;
+            await Navigation.PopModalAsync();
         }
         #endregion PageHandlers
     }
