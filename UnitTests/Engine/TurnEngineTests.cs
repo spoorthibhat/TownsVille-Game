@@ -436,7 +436,7 @@ namespace UnitTests.Engine
             Engine.MonsterList.Add(MonsterPlayer);
 
             // Act
-            var result = Engine.TurnAsAttack(CharacterPlayer, null);
+            var result = Engine.TurnAsAttack(CharacterPlayer, null,false);
 
             // Reset
 
@@ -457,7 +457,7 @@ namespace UnitTests.Engine
             Engine.MonsterList.Add(MonsterPlayer);
 
             // Act
-            var result = Engine.TurnAsAttack(null, CharacterPlayer);
+            var result = Engine.TurnAsAttack(null, CharacterPlayer,false);
 
             // Reset
 
@@ -482,7 +482,7 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(1);
 
             // Act
-            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
 
             // Reset
             DiceHelper.DisableRandomValues();
@@ -508,7 +508,7 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(20);
 
             // Act
-            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
 
             // Reset
             DiceHelper.DisableRandomValues();
@@ -536,7 +536,7 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(20);
 
             // Act
-            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            var result = Engine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
 
             // Reset
             DiceHelper.DisableRandomValues();
@@ -562,7 +562,7 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(1);
 
             // Act
-            var result = Engine.TurnAsAttack(MonsterPlayer, CharacterPlayer);
+            var result = Engine.TurnAsAttack(MonsterPlayer, CharacterPlayer,false);
 
             // Reset
             DiceHelper.DisableRandomValues();
@@ -588,7 +588,7 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(20);
 
             // Act
-            var result = Engine.TurnAsAttack(MonsterPlayer, CharacterPlayer);
+            var result = Engine.TurnAsAttack(MonsterPlayer, CharacterPlayer, false);
 
             // Reset
             DiceHelper.DisableRandomValues();
