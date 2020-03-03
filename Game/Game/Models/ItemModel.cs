@@ -39,6 +39,8 @@ namespace Game.Models
         /// Establish the Default Image Path
         /// </summary>
         public ItemModel() {
+            this.Location = ItemLocationEnum.Head;
+            this.Attribute = AttributeEnum.Attack;
             ImageURI = ItemService.DefaultImageURI;
         }
 
