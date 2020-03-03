@@ -443,10 +443,6 @@ namespace Game.Views
         public async void ShowScoreButton_Clicked(object sender, EventArgs args)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
-
-            GameOverDisplay.IsVisible = false;
-
-            GameUIDisplay.IsVisible = true;
         }
         /// <summary>
         /// Battle Over, so Exit Button
