@@ -11,6 +11,7 @@ using Game.ViewModels;
 using Game.Models;
 
 using Xamarin.Forms;
+using Image = Game.Models.Image;
 //using Xamarin.Forms.Mocks;
 
 namespace UnitTests.Views.Character
@@ -109,6 +110,44 @@ namespace UnitTests.Views.Character
             OnBackButtonPressed();
 
             // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_Level_OnStepperAttackChanged_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            var ViewModel = new GenericViewModel<CharacterModel>(data);
+
+            page = new CharacterCreatePage(ViewModel);
+            double oldLevel = 0.0;
+            double newLevel = 1.0;
+
+            var args = new ValueChangedEventArgs(oldLevel, newLevel);
+
+            // Act
+            page.Level_OnStepperValueChanged(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnCharacterImageSelected_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            var ViewModel = new GenericViewModel<CharacterModel>(data);
+
+            var args = new SelectedItemChangedEventArgs(new Image() { Url = "Blossum.png" }, 0);
+
+            // Act
+            page.OnCharacterImageSelected(null, args);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...

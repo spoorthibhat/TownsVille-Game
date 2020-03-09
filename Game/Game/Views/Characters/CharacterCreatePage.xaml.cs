@@ -110,7 +110,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
             int SelectedLevel = (int)e.NewValue;
@@ -125,7 +125,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
+        public void OnCharacterImageSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var image = args.SelectedItem as Image;
 
