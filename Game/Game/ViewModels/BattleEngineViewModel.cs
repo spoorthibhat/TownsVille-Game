@@ -51,6 +51,11 @@ namespace Game.ViewModels
         /// </summary>
         public Engine.BattleEngine Engine = new Engine.BattleEngine();
 
+        /// <summary>
+        /// Auto Battle Engine (used for scneario testing)
+        /// </summary>
+        public Engine.AutoBattleEngine AutoBattleEngine = new Engine.AutoBattleEngine();
+
         #region Constructor
 
         /// <summary>
