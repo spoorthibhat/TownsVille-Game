@@ -11,12 +11,12 @@ using Game.ViewModels;
 using Game.Models;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Mocks;
+//using Xamarin.Forms.Mocks;
 
 namespace UnitTests.Views.Character
 {
     [TestFixture]
-    class CharacterCreatePageTests : CharacterCreatePage
+    public class CharacterCreatePageTests : CharacterCreatePage
     {
         App app;
         CharacterCreatePage page;
@@ -27,7 +27,7 @@ namespace UnitTests.Views.Character
         public void Setup()
         {
             // Initilize Xamarin Forms
-            MockForms.Init();
+            Xamarin.Forms.Mocks.MockForms.Init();
 
             //This is App.xaml and App.xaml.cs, which can have resources, etc.
             app = new App();
