@@ -26,6 +26,10 @@ namespace Game.Models
         [Ignore]
         public int ListOrder { get; set; } = 0;
 
+        // Added for hackathon #43
+        [Ignore]
+        public bool AttackWithGoSUItem { get; set; } = false;
+
         #endregion GameEngineAttributes
 
         
@@ -222,7 +226,8 @@ namespace Game.Models
             
             // Attack Bonus from Level
             myReturn += GetAttackLevelBonus;
-            
+
+            AttackWithGoSUItem = false;
             // Get Attack bonus from Items
             myReturn += GetAttackItemBonus;
 
@@ -593,6 +598,7 @@ namespace Game.Models
         // Return the sum
         public int GetItemBonus(AttributeEnum attributeEnum)
         {
+            AttackWithGoSUItem = false;
             var myReturn = 0;
             ItemModel myItem;
 
@@ -607,6 +613,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value; 
                     }
@@ -624,6 +631,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
@@ -640,6 +648,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
@@ -656,6 +665,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
@@ -672,6 +682,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
@@ -688,6 +699,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
@@ -704,6 +716,7 @@ namespace Game.Models
                     // Adding for 43 of hackathon
                     if (myItem.Description.Equals("Go SU RedHawks"))
                     {
+                        AttackWithGoSUItem = true;
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
