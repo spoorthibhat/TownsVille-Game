@@ -601,7 +601,15 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value; 
+                    }
                 }
             }
 
@@ -610,7 +618,15 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
@@ -620,6 +636,13 @@ namespace Game.Models
                 if (myItem.Attribute == attributeEnum)
                 {
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
@@ -629,6 +652,13 @@ namespace Game.Models
                 if (myItem.Attribute == attributeEnum)
                 {
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
@@ -638,6 +668,13 @@ namespace Game.Models
                 if (myItem.Attribute == attributeEnum)
                 {
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
@@ -647,6 +684,13 @@ namespace Game.Models
                 if (myItem.Attribute == attributeEnum)
                 {
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
@@ -656,6 +700,13 @@ namespace Game.Models
                 if (myItem.Attribute == attributeEnum)
                 {
                     myReturn += myItem.Value;
+
+                    // Adding for 43 of hackathon
+                    if (myItem.Description.Equals("Go SU RedHawks"))
+                    {
+                        // Adding the value once again to make the effect 2X
+                        myReturn += myItem.Value;
+                    }
                 }
             }
 
