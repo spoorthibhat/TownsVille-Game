@@ -703,5 +703,66 @@ namespace Scenario
             Assert.IsEmpty(BattleEngine.BattleMessagesModel.SpecialMessage);
         }
 
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_32__Sort_order_to_change_round5()
+
+        {
+            /* 
+             * Scenario Number:  
+             *  32
+             *  
+             * Description: 
+             *      Add an item with desciption as 'Go SU RedHawks'
+             *      Add the item to a character before starting battle
+             *      ItemBonus for that Item doubles
+             *      Battle output shows GoSU! when this character attacks
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetItemBonus method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed BattleMessagesModel
+             *      Added new attribute called specialMessage to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Create Item with description 'Go SU Redhawks'
+             *  Add the item to a character
+             *  Call GetItemBonus method
+             *  Call TurnAsAttack
+             * 
+             * 
+             * Test Conditions:
+             *  Test with item with description as needed
+             *  Test the character with this item gives double the value from getItemBonus
+             *  Test with Battle played and output as required
+             *  
+             * 
+             * Validation:
+             *      Verify GetItemBonus is doubled
+             *      Verify BattleMessagesModel has SpecialMessage as GoSU!
+             *  
+             */
+
+            // Arrange
+
+          
+
+            // Set Character Conditions
+
+       
+
+            // Act
+
+         
+
+            // Assert
+
+           
+        }
+
+
     }
 }
