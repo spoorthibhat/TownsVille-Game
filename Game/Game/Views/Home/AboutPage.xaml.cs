@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -85,6 +86,17 @@ namespace Game.Views
             }
         }
         /// <summary>
+        /// Character Hit Value changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CharacterHitValue_Changed(object sender, TextChangedEventArgs e)
+        {
+            // Set character Hit Value
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.CharacterHitValue = Int32.Parse(CharacterHitValueEntry.Text);
+        }
+        /// <summary>
         /// Set Character to Force Miss
         /// </summary>
         /// <param name="sender"></param>
@@ -92,6 +104,8 @@ namespace Game.Views
         private void CharacterForceMiss_OnToggled(object sender, ToggledEventArgs e)
         {
             // Set character to force Miss
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.CharacterHitValue = 1;
         }
 
         /// <summary>
@@ -102,8 +116,20 @@ namespace Game.Views
         private void CharacterForceHit_OnToggled(object sender, ToggledEventArgs e)
         {
             // Set character to force Hit
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.CharacterHitValue = 20;
         }
-
+        /// <summary>
+        /// Monster Hit Value changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MonsterHitValue_Changed(object sender, TextChangedEventArgs e)
+        {
+            // Set character Hit Value
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.MonsterHitValue = Int32.Parse(MonsterHitValueEntry.Text);
+        }
         /// <summary>
         /// Set Monster to Force Miss
         /// </summary>
@@ -111,7 +137,9 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MonsterForceMiss_OnToggled(object sender, ToggledEventArgs e)
         {
-            // Set character to force Miss
+            // Set Monster to force Miss
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.MonsterHitValue = 1;
         }
 
         /// <summary>
@@ -121,7 +149,9 @@ namespace Game.Views
         /// <param name="e"></param>
         private void MonsterForceHit_OnToggled(object sender, ToggledEventArgs e)
         {
-            // Set character to force Hit
+            // Set Monster to force Hit
+            BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+            EngineViewModel.Engine.MonsterHitValue = 20;
         }
     }
 }
