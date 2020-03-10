@@ -23,7 +23,7 @@ namespace Game.Services
                     Attribute = AttributeEnum.Defense},
             new ItemModel {
                     Name = "Firing Crown",
-                    Description = "Attacks from the crown gem",
+                    Description = "Go SU RedHawks",
                     ImageURI = "firing_crown.png",
                     Range = 0,
                     Damage = 5,
@@ -73,7 +73,7 @@ namespace Game.Services
                     Attribute = AttributeEnum.Attack},
             new ItemModel {
                     Name = "Thunder bolt",
-                    Description = "Electric shock attack",
+                    Description = "Go SU RedHawks",
                     ImageURI = "thunderbolt.png",
                     Range = 0,
                     Damage = 5,
@@ -89,7 +89,7 @@ namespace Game.Services
         {
             new ItemModel {
                     Name = "Heat shield",
-                    Description = "Protect against heat",
+                    Description = "Go SU RedHawks",
                     ImageURI = "heat_shield.png",
                     Range = 0,
                     Damage = 0,
@@ -244,7 +244,7 @@ namespace Game.Services
                 ImageURI = "Buttercup.png",
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                PrimaryHand = PrimaryHandList[0].Id,
+                PrimaryHand = PrimaryHandList[1].Id,
                 Attack = 25,
                 MaxHealth = 45,
                 CurrentHealth = 45
@@ -301,7 +301,7 @@ namespace Game.Services
                 Description = "He is the master mind",
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
-                Head = HeadList[0].Id,
+                Head = HeadList[1].Id,
                 Attack = 25,
 
             },
@@ -319,7 +319,7 @@ namespace Game.Services
                 Description = "They spread ill ness",
                 ImageURI = "amoeba_boys.png",
                 Level = 1,
-                PrimaryHand = PrimaryHandList[0].Id,
+                PrimaryHand = PrimaryHandList[1].Id,
                 Attack = 15,
 
             },
