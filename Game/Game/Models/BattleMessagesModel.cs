@@ -44,6 +44,9 @@
         // Turn Experience Earned Message
         public string ExperienceEarned = string.Empty;
 
+        // Hackathon #43
+        public string SpecialMessage = string.Empty;
+
         /// <summary>
         /// Resets the Battle messages
         /// </summary>
