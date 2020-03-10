@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Game.Models;
 using Game.Helpers;
 using System;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -179,6 +180,9 @@ namespace Game.Engine
 
             BattleMessagesModel.TargetName = Target.Name;
             BattleMessagesModel.AttackerName = Attacker.Name;
+
+            CurrentAttacker = Attacker;
+            CurrentDefender = Target;
 
             if (Attacker.PlayerType == PlayerTypeEnum.Character)
             {
@@ -379,6 +383,15 @@ namespace Game.Engine
         public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
             var d20 = DiceHelper.RollDice(1, 20);
+            //Hack 3, Sets the attaker with a HitValue
+            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Character && CharacterHitValue != 0)
+            {
+                d20 = CharacterHitValue;
+            }
+            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Monster && MonsterHitValue != 0)
+            {
+                d20 = MonsterHitValue;
+            }
 
             if (d20 == 1)
             {

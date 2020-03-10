@@ -220,7 +220,6 @@ namespace Scenario
             Assert.AreEqual(true, result);
             Assert.AreEqual(HitStatusEnum.Miss, BattleEngine.BattleMessagesModel.HitStatus);
         }
-
         [Test]
         public async Task HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
         {
@@ -299,5 +298,152 @@ namespace Scenario
             Assert.AreEqual(true, result);
             Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
         }
+        [Test]
+        public async Task HackathonScenario_Scenario_3_Monster_Hit_Status_Should_SetToGivenValue()
+        {
+            /* 
+             * Scenario Number:  
+             *  3
+             *  
+             * Description: 
+             *      Set Monsters to hit as per given hitStatus value
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to Turn Engine
+             *      Changed TurnAsAttack method
+             *      Check for MonsterHitStatus
+             *                 
+             * Test Algrorithm:
+             *  Set Monster Hit Status
+             *  Create Monster
+             *  Call TurnAsAttack
+             * 
+             * Test Conditions:
+             *  Test with MonsterHitStatus set to 15
+             * 
+             * Validation:
+             *      Verify Enum is Hit
+             *  
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                //ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 200,
+                    Level = 10,
+                    CurrentHealth = 100,
+                    ExperienceTotal = 100,
+                    //ExperienceRemaining = 1,
+                    Name = "SetHitMonster",
+                });
+
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            BattleEngine.MonsterHitValue = 15;
+            //Act
+            var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer, false);
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
+        }
+        [Test]
+        public async Task HackathonScenario_Scenario_3_Character_Hit_Status_Should_SetToGivenValue()
+        {
+            /* 
+             * Scenario Number:  
+             *  3
+             *  
+             * Description: 
+             *      Set characters to hit as per given hitStatus value
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to Turn Engine
+             *      Changed TurnAsAttack method
+             *      Check for CharacterHitStatus
+             *                 
+             * Test Algrorithm:
+             *  Set Character Hit Status
+             *  Create Monster
+             *  Call TurnAsAttack
+             * 
+             * Test Conditions:
+             *  Test with CharacterHitStatus set to 15
+             * 
+             * Validation:
+             *      Verify Enum is Hit
+             *  
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 200,
+                                Level = 10,
+                                CurrentHealth = 100,
+                                ExperienceTotal = 100,
+                                //ExperienceRemaining = 1,
+                                Name = "SetHitCharacter",
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    //ExperienceRemaining = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            BattleEngine.CharacterHitValue = 15;
+            //Act
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
+        }
+        
     }
 }

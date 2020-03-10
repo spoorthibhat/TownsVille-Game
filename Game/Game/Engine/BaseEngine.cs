@@ -52,6 +52,13 @@ namespace Game.Engine
         // Max Number of Turns for AutoBattle
         public int MaxTurnCount = 10000;
 
+        //Hack 3
+        // Character Hit Value
+        public int CharacterHitValue = 0;
+
+        // Monster Hit Value
+        public int MonsterHitValue = 0;
+
         #endregion Properties
     }
 }
