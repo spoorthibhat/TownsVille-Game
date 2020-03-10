@@ -108,7 +108,7 @@
                                 />
 
                             <Entry
-                                x:Name="CharacterHitValue"
+                                x:Name="CharacterHitValueEntry"
                                 Text="1" 
                                 FontSize="Micro"
                                 MaxLength="5"
@@ -118,6 +118,7 @@
                                 WidthRequest="50"
                                 HorizontalOptions="FillAndExpand"
                                 Style="{DynamicResource EntryStyle}"
+                                TextChanged="CharacterHitValue_Changed"
                                 />
                         </StackLayout>
 
@@ -161,7 +162,7 @@
                                 />
 
                             <Entry
-                                x:Name="MonsterHitValue"
+                                x:Name="MonsterHitValueEntry"
                                 Text="1" 
                                 FontSize="Micro"
                                 MaxLength="5"
@@ -171,6 +172,7 @@
                                 WidthRequest="50"
                                 HorizontalOptions="FillAndExpand"
                                 Style="{DynamicResource EntryStyle}"
+                                TextChanged="MonsterHitValue_Changed"
                                 />
                         </StackLayout>
 
