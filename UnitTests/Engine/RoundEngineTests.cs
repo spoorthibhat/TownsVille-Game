@@ -81,7 +81,7 @@ namespace UnitTests.Engine
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
 
             // Act
-            var result = Engine.OrderPlayerListByTurnOrder();
+            var result = Engine.OrderPlayerListByTurnOrder(1);
 
             // Reset
 
@@ -129,7 +129,7 @@ namespace UnitTests.Engine
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
 
             // Act
-            var result = Engine.OrderPlayerListByTurnOrder();
+            var result = Engine.OrderPlayerListByTurnOrder(1);
 
             // Reset
 
@@ -179,7 +179,7 @@ namespace UnitTests.Engine
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
 
             // Act
-            var result = Engine.OrderPlayerListByTurnOrder();
+            var result = Engine.OrderPlayerListByTurnOrder(1);
 
             // Reset
 
@@ -227,7 +227,7 @@ namespace UnitTests.Engine
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
 
             // Act
-            var result = Engine.OrderPlayerListByTurnOrder();
+            var result = Engine.OrderPlayerListByTurnOrder(1);
 
             // Reset
 
@@ -277,7 +277,7 @@ namespace UnitTests.Engine
             Engine.PlayerList = Engine.PlayerList.OrderBy(m => m.CurrentHealth).ToList();
 
             // Act
-            var result = Engine.OrderPlayerListByTurnOrder();
+            var result = Engine.OrderPlayerListByTurnOrder(1);
 
             // Reset
 

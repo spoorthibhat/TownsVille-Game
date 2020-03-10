@@ -714,53 +714,110 @@ namespace Scenario
              *  32
              *  
              * Description: 
-             *      Add an item with desciption as 'Go SU RedHawks'
-             *      Add the item to a character before starting battle
-             *      ItemBonus for that Item doubles
-             *      Battle output shows GoSU! when this character attacks
+             *      Added a parameter round number to the OrderPlayerListByTurnOrder and GetNextPlayerTurn
+             *      The parameter take the value from RoundCount variable which is incremented during the battle
              * 
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      Change to CharacterMonsterBaseModel
-             *      Changed GetItemBonus method
-             *      Change to TurnEngine
-             *      Changed TurnAsAttack method
+             *      Change to RoundEngine
+             *      Changed OrderPlayerListByTurnOrder method
+             *      Change to GetNextPlayerTurn method
+             *      Changed Unit test cases in RoundEngine test
              *      Changed BattleMessagesModel
              *      Added new attribute called specialMessage to BattleMessagesModel
              *                 
              * Test Algrorithm:
-             *  Create Item with description 'Go SU Redhawks'
-             *  Add the item to a character
-             *  Call GetItemBonus method
-             *  Call TurnAsAttack
+             *  Pass round number as 5 check the sort order
+             *  Pass round number as 1 check the sort order
+             * 
              * 
              * 
              * Test Conditions:
-             *  Test with item with description as needed
-             *  Test the character with this item gives double the value from getItemBonus
-             *  Test with Battle played and output as required
+             *  Round number as 5 , test if character with lowest speed and health is first in list.
+             *  Round number as 1 , test if character/monster with highest speed is first in list
+             *  
              *  
              * 
              * Validation:
-             *      Verify GetItemBonus is doubled
-             *      Verify BattleMessagesModel has SpecialMessage as GoSU!
+             *      Verify for Round number as 5 ,character with lowest speed and health is first in list.
+             *      Verify for Round number as 1 ,character/monster with highest speed is first in list
              *  
              */
 
+            BattleEngine.MonsterList.Clear();
+
             // Arrange
+            var CharacterPlayerMike = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 200,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Mike",
+                                            ListOrder = 1,
+                                        });
 
-          
+            var CharacterPlayerDoug = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 20,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Doug",
+                                            ListOrder = 2,
+                                        });
 
-            // Set Character Conditions
+            var CharacterPlayerSue = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 2,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Sue",
+                                            ListOrder = 3,
+                                        });
 
-       
+            var MonsterPlayer = new PlayerInfoModel(
+                                    new MonsterModel
+                                    {
+                                        Speed = 1,
+                                        Level = 1,
+                                        CurrentHealth = 1,
+                                        ExperiencePoints = 1,
+                                        Name = "Monster",
+                                        ListOrder = 4,
+                                    });
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            BattleEngine.CharacterList.Clear();
+
+            BattleEngine.CharacterList.Add(CharacterPlayerMike);
+            BattleEngine.CharacterList.Add(CharacterPlayerDoug);
+            BattleEngine.CharacterList.Add(CharacterPlayerSue);
+
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
+            // List is Mike, Doug, Monster, Sue
+
+
+
 
             // Act
 
-         
+            var result1 = BattleEngine.OrderPlayerListByTurnOrder(1);
+            var result2 = BattleEngine.OrderPlayerListByTurnOrder(5);
 
             // Assert
+            Assert.AreNotEqual(result1[0], result2[0]);
 
-           
         }
 
 
