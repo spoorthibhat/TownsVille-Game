@@ -211,7 +211,8 @@ namespace Game.Engine
             // Hack #27
             if(Attacker.BrokenItems.Count > 0)
             {
-                foreach(ItemModel BrokenItem in Attacker.BrokenItems)
+                BattleMessagesModel.ItemsBroken = string.Empty;
+                foreach (ItemModel BrokenItem in Attacker.BrokenItems)
                 {
                     BattleMessagesModel.ItemsBroken += "Item " + BrokenItem.Name + " broke" + "\n";
                     
@@ -221,7 +222,7 @@ namespace Game.Engine
 
                 // reset
                 Attacker.BrokenItems = new List<ItemModel>();
-                BattleMessagesModel.ItemsBroken = string.Empty;
+                
             }
 
             var DefenseScore = Target.GetDefense() + Target.Level;

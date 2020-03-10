@@ -764,5 +764,99 @@ namespace Scenario
         }
 
 
+        [Test]
+        public async Task HackathonScenario_Scenario_27_Item_ItemUsedUpToLimit_Should_Pass()
+        {
+            /* 
+             * Scenario Number:  
+             *  43
+             *  
+             * Description: 
+             *      Add an item with ItemCount to 1
+             *      Add the item to a character before starting battle
+             *      Start battle by using the Item in the turn
+             *      Item dropped when used up to limit
+             *      Output shows dropped Item
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetItemBonus method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed BattleMessagesModel
+             *      Added new attribute called ItemsBroken to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Create Item with ItemUseCount = 1
+             *  Add the item to a character
+             *  Call TurnAsAttack
+             *  Check if item was dropped
+             *  Check the ItemsBrokenMessage to say 'Item <name> broken'
+             * 
+             * 
+             * Test Conditions:
+             *  Test with item with ItemUseCount as 1
+             *  Do Turn as attack and test the item to be null after the attack
+             *  Test the output is as expected
+             *  
+             * 
+             * Validation:
+             *      Verify Item is null 
+             *      Verify BattleMessagesModel has ItemsBroken in the right format
+             *  
+             */
+
+            // Arrange
+
+            var TestItem = new ItemModel() { 
+                Name = "Test",
+                Attribute = AttributeEnum.Attack,
+                Location = ItemLocationEnum.Head,
+                ItemUseCount = 1,
+
+            };
+            
+
+            await ItemIndexViewModel.Instance.CreateAsync(TestItem);
+
+            var testCharacter = new CharacterModel();
+            testCharacter.AddItem(ItemLocationEnum.Head, TestItem.Id);
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(testCharacter);
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+
+            Assert.IsNull(CharacterPlayer.Head);
+            Assert.AreEqual("Item Test broke\n", BattleEngine.BattleMessagesModel.ItemsBroken);
+        }
+
     }
 }
