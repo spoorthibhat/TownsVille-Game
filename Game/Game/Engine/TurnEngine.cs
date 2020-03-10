@@ -201,10 +201,27 @@ namespace Game.Engine
                 
             }
 
+            // Hack #43
             if (Attacker.AttackWithGoSUItem)
             {
                 BattleMessagesModel.SpecialMessage = "Go SU!";
                 Debug.WriteLine(BattleMessagesModel.SpecialMessage);
+            }
+
+            // Hack #27
+            if(Attacker.BrokenItems.Count > 0)
+            {
+                foreach(ItemModel BrokenItem in Attacker.BrokenItems)
+                {
+                    BattleMessagesModel.ItemsBroken += "Item " + BrokenItem.Name + " broke" + "\n";
+                    
+                }
+
+                Debug.WriteLine(BattleMessagesModel.ItemsBroken);
+
+                // reset
+                Attacker.BrokenItems = new List<ItemModel>();
+                BattleMessagesModel.ItemsBroken = string.Empty;
             }
 
             var DefenseScore = Target.GetDefense() + Target.Level;
