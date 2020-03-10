@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Game.Models;
 using Game.Services;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -57,13 +58,7 @@ namespace Game.Engine
 
             // Prepare for Battle
 
-            // Picks 6 Characters
-            List<CharacterModel> SelectedCharacterList = DefaultData.LoadData(new CharacterModel());
-            for(int i= 0; i < MaxNumberPartyCharacters; i++)
-            {
-                PopulateCharacterList(SelectedCharacterList[i]);
-            }
-
+            CreateCharacterParty();
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
@@ -71,6 +66,14 @@ namespace Game.Engine
             // Fight Loop. Continue until Game is Over...
             do
             {
+                // Check for excessive duration.
+                if (DetectInfinateLoop())
+                {
+                    Debug.WriteLine("Aborting, More than Max Rounds");
+                    EndBattle();
+                    return false;
+                }
+
                 Debug.WriteLine("Next Turn");
 
                 // Do the turn...
@@ -89,6 +92,58 @@ namespace Game.Engine
 
             // Wrap up
             EndBattle();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Check if the Engine is not ending
+        /// 
+        /// Too many Rounds
+        /// Too many Turns in a round
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool DetectInfinateLoop()
+        {
+            if (BattleScore.RoundCount > MaxRoundCount)
+            {
+                return true;
+            }
+
+            if (BattleScore.TurnCount > MaxTurnCount)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Create Characters for Party
+        /// </summary>
+        public bool CreateCharacterParty()
+        {
+            // Picks 6 Characters
+
+            // To use your own characters, populate the List before calling RunAutoBattle
+
+            // Will first pull from existing characters
+            foreach (var data in CharacterIndexViewModel.Instance.Dataset)
+            {
+                if (CharacterList.Count() >= MaxNumberPartyCharacters)
+                {
+                    break;
+                }
+                PopulateCharacterList(data);
+            }
+
+            //If there are not enough will add default ones
+            List<CharacterModel> DefaultCharacterList = DefaultData.LoadData(new CharacterModel());
+            for (int i = CharacterList.Count; i < MaxNumberPartyCharacters; i++)
+            {
+                PopulateCharacterList(DefaultCharacterList[i]);
+            }
 
             return true;
         }
