@@ -91,14 +91,117 @@
                     IsToggled="False"/>
             </StackLayout>
 
-            <StackLayout Style="{StaticResource VerticalStack}"
-                        x:Name="DebugSettingsFrame"
-                        IsVisible="False">
+            <StackLayout Style="{StaticResource VerticalStack}" x:Name="DebugSettingsFrame" IsVisible="False">
 
-                <StackLayout Style="{StaticResource HorizontalStack}"
-                                    Padding="50,0,0,0">
+                <StackLayout Style="{StaticResource VerticalStack}" Padding="5,0,0,0">
 
                     <Label Text="More Debug Settings to come..." />
+                    <Label Text="Character Settings" />
+                    <StackLayout Style="{StaticResource VerticalStack}">
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                            <Label
+                                Text="Set a Value for hit "
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                Style="{DynamicResource LabelStyle}"
+                                />
+
+                            <Entry
+                                x:Name="CharacterHitValue"
+                                Text="1" 
+                                FontSize="Micro"
+                                MaxLength="5"
+                                CursorPosition="0"
+                                SelectionLength = "5"
+                                Keyboard="Numeric"
+                                WidthRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                Style="{DynamicResource EntryStyle}"
+                                />
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="Force 1 and Miss"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="CharacterForceMiss"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="CharacterForceMiss_OnToggled"
+                                IsToggled="False"/> 
+                        </StackLayout>
+                        
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="Force 20 and Hit"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="CharacterForceHit"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="CharacterForceHit_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <Label Text="Monster Settings" />
+                    <StackLayout Style="{StaticResource VerticalStack}">
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                            <Label
+                                Text="Set a Value for hit "
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                Style="{DynamicResource LabelStyle}"
+                                />
+
+                            <Entry
+                                x:Name="MonsterHitValue"
+                                Text="1" 
+                                FontSize="Micro"
+                                MaxLength="5"
+                                CursorPosition="0"
+                                SelectionLength = "5"
+                                Keyboard="Numeric"
+                                WidthRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                Style="{DynamicResource EntryStyle}"
+                                />
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="Force 1 and Miss"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="MonsterForceMiss"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="MonsterForceMiss_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="Force 20 and Hit"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="MonsterForceHit"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="MonsterForceHit_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
 
                 </StackLayout>
             </StackLayout>

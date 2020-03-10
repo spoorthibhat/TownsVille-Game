@@ -84,5 +84,44 @@ namespace Game.Views
                 MessagingCenter.Send(this, "WipeDataList", true);
             }
         }
+        /// <summary>
+        /// Set Character to Force Miss
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CharacterForceMiss_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // Set character to force Miss
+        }
+
+        /// <summary>
+        /// Set Character to Force Hit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CharacterForceHit_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // Set character to force Hit
+        }
+
+        /// <summary>
+        /// Set Monster to Force Miss
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MonsterForceMiss_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // Set character to force Miss
+        }
+
+        /// <summary>
+        /// Set Monster to Force Hit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MonsterForceHit_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // Set character to force Hit
+        }
     }
 }
