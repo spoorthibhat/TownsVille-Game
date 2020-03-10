@@ -444,6 +444,83 @@ namespace Scenario
             Assert.AreEqual(true, result);
             Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
         }
-        
+        [Test]
+        public async Task HackathonScenario_Scenario_33_Character_Die_On_Round13()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *      Make a Character, who dies in the round 13 and health is set to 0
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Change to Turn Engine
+            *      Changed TurnAsAttack method
+            *      Check for Round Number 
+            * 
+            * Test Algrorithm:
+            *      Create Character and monster
+            *      Set Current Health of character to 400 so he is strong and battle continues for more than 13 rounds
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify character is not in the Player List
+            *      Verify Round Count is 13
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            AutoBattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 400,
+                                ExperienceTotal = 1,
+                                //ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
+
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            AutoBattleEngine.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    //ExperienceRemaining = 1,
+                    Name = "Monster",
+                });
+
+            AutoBattleEngine.MonsterList.Add(MonsterPlayer);
+            
+            //Act
+            var result = await AutoBattleEngine.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(null, AutoBattleEngine.PlayerList.Find(m => m.Name.Equals("Character")));
+            Assert.AreEqual(13, AutoBattleEngine.BattleScore.RoundCount);
+        }
+
     }
 }
