@@ -259,20 +259,18 @@ namespace Game.Engine
             BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
             BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
 
-            //Hack 33, Character in the turn dies when it is Round 13.
+            //Hack #33, Character in the turn Loose its current health when it is Round 13.
             if (BattleScore.RoundCount == 13)
             {
                 if (Attacker.PlayerType == PlayerTypeEnum.Character)
                 {
                     Attacker.CurrentHealth = 0;
-                    Attacker.CauseDeath();
                 }
                 if (Target.PlayerType == PlayerTypeEnum.Character)
                 {
                     Target.CurrentHealth = 0;
-                    Target.CauseDeath();
                 }
-                Debug.WriteLine("Its Lucky 13 round, so Character died");
+                Debug.WriteLine("Its Lucky 13 round, so Character Loose its Health");
             }
             RemoveIfDead(Target);
 
