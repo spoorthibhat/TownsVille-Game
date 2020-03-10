@@ -782,7 +782,7 @@ namespace Scenario
             var MonsterPlayer = new PlayerInfoModel(
                                     new MonsterModel
                                     {
-                                        Speed = 1,
+                                        Speed = 300,
                                         Level = 1,
                                         CurrentHealth = 1,
                                         ExperiencePoints = 1,
@@ -814,9 +814,12 @@ namespace Scenario
 
             var result1 = BattleEngine.OrderPlayerListByTurnOrder(1);
             var result2 = BattleEngine.OrderPlayerListByTurnOrder(5);
+            
 
             // Assert
             Assert.AreNotEqual(result1[0], result2[0]);
+            Assert.AreEqual("Mike", result1[0].Name);
+            Assert.AreEqual("Sue", result2[0].Name);
 
         }
 
