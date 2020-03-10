@@ -47,6 +47,9 @@
         // Hackathon #43
         public string SpecialMessage = string.Empty;
 
+        // Hackathon #27. Needed for scenario test
+        public string ItemsBroken = string.Empty;
+
         /// <summary>
         /// Resets the Battle messages
         /// </summary>
