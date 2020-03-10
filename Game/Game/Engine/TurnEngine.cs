@@ -424,7 +424,7 @@ namespace Game.Engine
         public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
             var d20 = DiceHelper.RollDice(1, 20);
-            //Hack 3, Sets the attaker with a HitValue
+            //Hack #3, Sets the attaker with a HitValue
             if (CurrentAttacker.PlayerType == PlayerTypeEnum.Character && CharacterHitValue != 0)
             {
                 d20 = CharacterHitValue;
