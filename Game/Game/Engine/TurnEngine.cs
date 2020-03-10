@@ -192,11 +192,19 @@ namespace Game.Engine
                     Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
                 }
                 AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
+                
             }
 
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackScore = Attacker.Level + Attacker.GetAttack();
+                
+            }
+
+            if (Attacker.AttackWithGoSUItem)
+            {
+                BattleMessagesModel.SpecialMessage = "Go SU!";
+                Debug.WriteLine(BattleMessagesModel.SpecialMessage);
             }
 
             var DefenseScore = Target.GetDefense() + Target.Level;
