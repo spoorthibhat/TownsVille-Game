@@ -102,9 +102,9 @@ namespace Game.Views
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
-        public async void playBattle()
+        public async void playBattle(bool isSpecialAbilityUsedForAttack)
         {
-            EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed);
+            EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, isSpecialAbilityUsedForAttack);
             //Check if Defender Died 
             if(EngineViewModel.Engine.CurrentDefender.Alive == false)
             {
@@ -392,7 +392,7 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
-            playBattle();
+            playBattle(false);
 
         }
         /// <summary>
@@ -403,7 +403,7 @@ namespace Game.Views
         void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
             //Just for testing
-            playBattle();
+            playBattle(true);
             EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed = false;
             if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == false)
             {

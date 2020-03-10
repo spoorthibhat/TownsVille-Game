@@ -82,6 +82,7 @@ namespace Game.Models
         /// <returns></returns>
         public override int GetAttack(bool SpecialAbilityToBeUsedInAttack)
         {
+            AttackWithGoSUItem = false;
             // Base Attack
             var myReturn = Attack;
 
