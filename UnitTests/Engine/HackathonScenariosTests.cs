@@ -522,5 +522,186 @@ namespace Scenario
             Assert.AreEqual(13, AutoBattleEngine.BattleScore.RoundCount);
         }
 
+        [Test]
+        public async Task HackathonScenario_Scenario_43_Item_With_GoSU_get_2X_Value_Should_Output_SpecialMessage()
+        {
+            /* 
+             * Scenario Number:  
+             *  43
+             *  
+             * Description: 
+             *      Add an item with desciption as 'Go SU RedHawks'
+             *      Add the item to a character before starting battle
+             *      ItemBonus for that Item doubles
+             *      Battle output shows GoSU! when this character attacks
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetItemBonus method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed BattleMessagesModel
+             *      Added new attribute called specialMessage to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Create Item with description 'Go SU Redhawks'
+             *  Add the item to a character
+             *  Call GetItemBonus method
+             *  Call TurnAsAttack
+             * 
+             * 
+             * Test Conditions:
+             *  Test with item with description as needed
+             *  Test the character with this item gives double the value from getItemBonus
+             *  Test with Battle played and output as required
+             *  
+             * 
+             * Validation:
+             *      Verify GetItemBonus is doubled
+             *      Verify BattleMessagesModel has SpecialMessage as GoSU!
+             *  
+             */
+
+            // Arrange
+
+            var SUItem = new ItemModel();
+            SUItem.Description = "Go SU RedHawks";
+            SUItem.Attribute = AttributeEnum.Attack;
+            SUItem.Value = 10;
+            SUItem.Location = ItemLocationEnum.Head;
+
+            await ItemIndexViewModel.Instance.CreateAsync(SUItem);
+
+            var testCharacter = new CharacterModel();
+            testCharacter.AddItem(ItemLocationEnum.Head, SUItem.Id);
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(testCharacter);
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+
+            var result = testCharacter.GetAttackItemBonus;
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+
+            Assert.AreEqual(20, result);
+            Assert.AreEqual("Go SU!", BattleEngine.BattleMessagesModel.SpecialMessage);
+        }
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_43_Item_Without_GoSU_get_1X_Value_Should_Not_Output_SpecialMessage()
+        {
+            /* 
+             * Scenario Number:  
+             *  43
+             *  
+             * Description: 
+             *      Add an item with desciption as 'Go SU RedHawks'
+             *      Add the item to a character before starting battle
+             *      ItemBonus for that Item doubles
+             *      Battle output shows GoSU! when this character attacks
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetItemBonus method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed BattleMessagesModel
+             *      Added new attribute called specialMessage to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Create Item with description 'Description'
+             *  Add the item to a character
+             *  Call GetItemBonus method
+             *  Call TurnAsAttack
+             * 
+             * 
+             * Test Conditions:
+             *  Test with item with description not as 'Go SU RedHawks'
+             *  Test the character with this item gives normal value(1X) from getItemBonus
+             *  Test with Battle played and output does not have GoSU!
+             *  
+             * 
+             * Validation:
+             *      Verify GetItemBonus is not doubled
+             *      Verify BattleMessagesModel has SpecialMessage EMPTY
+             *  
+             */
+
+            // Arrange
+
+            var SUItem = new ItemModel();
+            SUItem.Description = "Description";
+            SUItem.Attribute = AttributeEnum.Attack;
+            SUItem.Value = 10;
+            SUItem.Location = ItemLocationEnum.Head;
+
+            await ItemIndexViewModel.Instance.CreateAsync(SUItem);
+
+            var testCharacter = new CharacterModel();
+            testCharacter.AddItem(ItemLocationEnum.Head, SUItem.Id);
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(testCharacter);
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+
+            var result = testCharacter.GetAttackItemBonus;
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+
+            Assert.AreEqual(10, result);
+            Assert.IsEmpty(BattleEngine.BattleMessagesModel.SpecialMessage);
+        }
+
     }
 }
