@@ -190,7 +190,7 @@ namespace Game.Engine
             if (roundNumber == 5)
             {
                 PlayerList = PlayerList.OrderBy(a => a.PlayerType)
-                 .ThenBy(a => a.MaxHealth)
+                 .ThenBy(a => a.CurrentHealth)
                  .ThenBy(a => a.Speed)
                  .ToList();
                 return PlayerList;
