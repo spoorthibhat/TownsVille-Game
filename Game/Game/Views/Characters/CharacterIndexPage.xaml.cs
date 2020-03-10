@@ -21,6 +21,8 @@ namespace Game.Views.Characters
         // View Model used for data binding
         readonly CharacterIndexViewModel ViewModel;
 
+        // Empty Constructor for UTs
+        public CharacterIndexPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Character Page
@@ -61,7 +63,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;
             if (data == null)
@@ -81,7 +83,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddCharacter_Clicked(object sender, EventArgs e)
+        public async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             //await DisplayAlert("SU", "Go RedHawks", "OK");
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
