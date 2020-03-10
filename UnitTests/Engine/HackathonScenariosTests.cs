@@ -311,18 +311,25 @@ namespace Scenario
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
              *      Change to Turn Engine
              *      Changed TurnAsAttack method
-             *      Check for MonsterHitStatus
+             *      Check for CharacterHitStatus
+             *      Change to BaseEngine
+             *      Added CharacterHitValue
+             *      Change in AboutPage
+             *      Added Handlers for Debug Setting
+             *      Set CharacterHitValue as per input values
+             *                 
              *                 
              * Test Algrorithm:
+             *  Create character
              *  Set Monster Hit Status
              *  Create Monster
              *  Call TurnAsAttack
              * 
              * Test Conditions:
-             *  Test with MonsterHitStatus set to 15
+             *  Test with MonsterHitStatus set to 20
              * 
              * Validation:
-             *      Verify Enum is Hit
+             *      Verify the AttackStatus, it should have 20
              *  
              */
 
@@ -339,7 +346,6 @@ namespace Scenario
                                 Level = 1,
                                 CurrentHealth = 1,
                                 ExperienceTotal = 1,
-                                //ExperienceRemaining = 1,
                                 Name = "Character",
                             });
 
@@ -353,23 +359,22 @@ namespace Scenario
             var MonsterPlayer = new PlayerInfoModel(
                 new MonsterModel
                 {
-                    Speed = 200,
-                    Level = 10,
+                    Speed = 1,
+                    Level = 1,
                     CurrentHealth = 100,
                     ExperienceTotal = 100,
-                    //ExperienceRemaining = 1,
                     Name = "SetHitMonster",
                 });
 
             BattleEngine.MonsterList.Add(MonsterPlayer);
 
-            BattleEngine.MonsterHitValue = 15;
+            BattleEngine.MonsterHitValue = 20;
             //Act
             var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer, false);
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
+            Assert.AreEqual(true, BattleEngine.BattleMessagesModel.AttackStatus.Contains("20"));
         }
         [Test]
         public async Task HackathonScenario_Scenario_3_Character_Hit_Status_Should_SetToGivenValue()
@@ -385,17 +390,24 @@ namespace Scenario
              *      Change to Turn Engine
              *      Changed TurnAsAttack method
              *      Check for CharacterHitStatus
+             *      Change to BaseEngine
+             *      Added CharacterHitValue
+             *      Change in AboutPage
+             *      Added Handlers for Debug Setting
+             *      Set CharacterHitValue as per input values
              *                 
              * Test Algrorithm:
+             *  Create Character
              *  Set Character Hit Status
              *  Create Monster
              *  Call TurnAsAttack
              * 
              * Test Conditions:
              *  Test with CharacterHitStatus set to 15
+             *  
              * 
              * Validation:
-             *      Verify Enum is Hit
+             *      Verify that the Attack Status has 15 
              *  
              */
 
@@ -408,8 +420,8 @@ namespace Scenario
             var CharacterPlayer = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = 200,
-                                Level = 10,
+                                Speed = 1,
+                                Level = 1,
                                 CurrentHealth = 100,
                                 ExperienceTotal = 100,
                                 //ExperienceRemaining = 1,
@@ -442,7 +454,8 @@ namespace Scenario
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
+            Assert.AreEqual(true,BattleEngine.BattleMessagesModel.AttackStatus.Contains("15"));
+            
         }
         [Test]
         public async Task HackathonScenario_Scenario_33_Character_Die_On_Round13()
