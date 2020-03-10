@@ -606,6 +606,7 @@ namespace Game.Models
         {
             if(item.ItemUseCount <= 0)
             {
+                BrokenItems.Add(item);
                 RemoveItemFromLocation(item.Location);
             }
         }
