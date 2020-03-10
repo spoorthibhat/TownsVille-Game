@@ -34,6 +34,9 @@ namespace Game.Models
 
         // Add Unique attributes for Item
 
+        // Hackathon #27
+        public int ItemUseCount { get; set; } = 0;
+
         /// <summary>
         /// Default ItemModel
         /// Establish the Default Image Path

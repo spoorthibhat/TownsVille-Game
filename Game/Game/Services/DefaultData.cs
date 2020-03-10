@@ -20,7 +20,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 9,
                     Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Defense,
+                    ItemUseCount = 10},
             new ItemModel {
                     Name = "Firing Crown",
                     Description = "Go SU RedHawks",
@@ -29,7 +30,9 @@ namespace Game.Services
                     Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.Attack,
+                    ItemUseCount = 3,
+                },
         };
 
         /// <summary>
@@ -45,7 +48,8 @@ namespace Game.Services
                     Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Defense,
+                    ItemUseCount = 10},
             new ItemModel {
                     Name = "Warm sock",
                     Description = "Protects against ice and fire attacks",
@@ -54,7 +58,9 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Defense,
+                    ItemUseCount = 10
+            },
         };
 
         /// <summary>
@@ -70,7 +76,8 @@ namespace Game.Services
                     Damage = 10,
                     Value = 10,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.Attack,
+                    ItemUseCount = 10},
             new ItemModel {
                     Name = "Thunder bolt",
                     Description = "Go SU RedHawks",
@@ -79,7 +86,9 @@ namespace Game.Services
                     Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.Attack,
+                    ItemUseCount = 2
+            },
         };
 
         /// <summary>
@@ -95,7 +104,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 10,
                     Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Defense,
+            ItemUseCount = 10},
         };
 
         /// <summary>
@@ -111,7 +121,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Attack
+                    Attribute = AttributeEnum.Attack,
+                    ItemUseCount = 7
     },
                 new ItemModel {
                     Name = "Muffler",
@@ -121,7 +132,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Defense
+                    Attribute = AttributeEnum.Defense,
+                    ItemUseCount = 10
 },
         };
 
@@ -138,7 +150,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.LeftFinger,
-                    Attribute = AttributeEnum.Defense
+                    Attribute = AttributeEnum.Defense,
+                    ItemUseCount = 10
     },
             };
 
@@ -155,7 +168,8 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.RightFinger,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.Attack,
+                    ItemUseCount = 10},
         };
 
         /// <summary>
@@ -220,7 +234,8 @@ namespace Game.Services
                 ImageURI = "Blossum.png",
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
-                Head = HeadList[0].Id,
+                Head = HeadList[1].Id,
+                PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 30,
                 MaxHealth = 50,
                 CurrentHealth = 50,
