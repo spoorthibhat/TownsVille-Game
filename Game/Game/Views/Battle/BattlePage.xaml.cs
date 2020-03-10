@@ -166,8 +166,8 @@ namespace Game.Views
         public void PickPlayers()
         {
             ResetCurrentPlayers();
-
-            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn(); //get the attacker
+            int RoundNumber = EngineViewModel.Engine.BattleScore.RoundCount;
+            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn(RoundNumber); //get the attacker
             SetCurrentAttacker();
 
             if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)

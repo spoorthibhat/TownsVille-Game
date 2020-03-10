@@ -703,5 +703,217 @@ namespace Scenario
             Assert.IsEmpty(BattleEngine.BattleMessagesModel.SpecialMessage);
         }
 
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_32__Sort_order_to_change_round5()
+
+        {
+            /* 
+             * Scenario Number:  
+             *  32
+             *  
+             * Description: 
+             *      Added a parameter round number to the OrderPlayerListByTurnOrder and GetNextPlayerTurn
+             *      The parameter take the value from RoundCount variable which is incremented during the battle
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to RoundEngine
+             *      Changed OrderPlayerListByTurnOrder method
+             *      Change to GetNextPlayerTurn method
+             *      Changed Unit test cases in RoundEngine test
+             *      Changed BattleMessagesModel
+             *      Added new attribute called specialMessage to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Pass round number as 5 check the sort order
+             *  Pass round number as 1 check the sort order
+             * 
+             * 
+             * 
+             * Test Conditions:
+             *  Round number as 5 , test if character with lowest speed and health is first in list.
+             *  Round number as 1 , test if character/monster with highest speed is first in list
+             *  
+             *  
+             * 
+             * Validation:
+             *      Verify for Round number as 5 ,character with lowest speed and health is first in list.
+             *      Verify for Round number as 1 ,character/monster with highest speed is first in list
+             *  
+             */
+
+            BattleEngine.MonsterList.Clear();
+
+            // Arrange
+            var CharacterPlayerMike = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 200,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Mike",
+                                            ListOrder = 1,
+                                        });
+
+            var CharacterPlayerDoug = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 20,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Doug",
+                                            ListOrder = 2,
+                                        });
+
+            var CharacterPlayerSue = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 2,
+                                            Level = 1,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Sue",
+                                            ListOrder = 3,
+                                        });
+
+            var MonsterPlayer = new PlayerInfoModel(
+                                    new MonsterModel
+                                    {
+                                        Speed = 1,
+                                        Level = 1,
+                                        CurrentHealth = 1,
+                                        ExperiencePoints = 1,
+                                        Name = "Monster",
+                                        ListOrder = 4,
+                                    });
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            BattleEngine.CharacterList.Clear();
+
+            BattleEngine.CharacterList.Add(CharacterPlayerMike);
+            BattleEngine.CharacterList.Add(CharacterPlayerDoug);
+            BattleEngine.CharacterList.Add(CharacterPlayerSue);
+
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
+            // List is Mike, Doug, Monster, Sue
+
+
+
+
+            // Act
+
+            var result1 = BattleEngine.OrderPlayerListByTurnOrder(1);
+            var result2 = BattleEngine.OrderPlayerListByTurnOrder(5);
+
+            // Assert
+            Assert.AreNotEqual(result1[0], result2[0]);
+
+        }
+
+
+        [Test]
+        public async Task HackathonScenario_Scenario_27_Item_ItemUsedUpToLimit_Should_Pass()
+        {
+            /* 
+             * Scenario Number:  
+             *  43
+             *  
+             * Description: 
+             *      Add an item with ItemCount to 1
+             *      Add the item to a character before starting battle
+             *      Start battle by using the Item in the turn
+             *      Item dropped when used up to limit
+             *      Output shows dropped Item
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetItemBonus method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed BattleMessagesModel
+             *      Added new attribute called ItemsBroken to BattleMessagesModel
+             *                 
+             * Test Algrorithm:
+             *  Create Item with ItemUseCount = 1
+             *  Add the item to a character
+             *  Call TurnAsAttack
+             *  Check if item was dropped
+             *  Check the ItemsBrokenMessage to say 'Item <name> broken'
+             * 
+             * 
+             * Test Conditions:
+             *  Test with item with ItemUseCount as 1
+             *  Do Turn as attack and test the item to be null after the attack
+             *  Test the output is as expected
+             *  
+             * 
+             * Validation:
+             *      Verify Item is null 
+             *      Verify BattleMessagesModel has ItemsBroken in the right format
+             *  
+             */
+
+            // Arrange
+
+            var TestItem = new ItemModel() { 
+                Name = "Test",
+                Attribute = AttributeEnum.Attack,
+                Location = ItemLocationEnum.Head,
+                ItemUseCount = 1,
+
+            };
+            
+
+            await ItemIndexViewModel.Instance.CreateAsync(TestItem);
+
+            var testCharacter = new CharacterModel();
+            testCharacter.AddItem(ItemLocationEnum.Head, TestItem.Id);
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(testCharacter);
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+
+            Assert.IsNull(CharacterPlayer.Head);
+            Assert.AreEqual("Item Test broke\n", BattleEngine.BattleMessagesModel.ItemsBroken);
+        }
+
     }
 }

@@ -127,6 +127,7 @@ namespace Game.Engine
         /// <returns></returns>
         public RoundEnum RoundNextTurn()
         {
+            int roundNumber = BattleScore.RoundCount;
             // No characters, game is over...
             if (CharacterList.Count < 1)
             {
@@ -145,7 +146,7 @@ namespace Game.Engine
 
             // Decide Who gets next turn
             // Remember who just went...
-            PlayerCurrent = GetNextPlayerTurn();
+            PlayerCurrent = GetNextPlayerTurn(roundNumber);
 
             // Do the turn....
             TakeTurn(PlayerCurrent);
@@ -159,10 +160,10 @@ namespace Game.Engine
         /// Get the Next Player to have a turn
         /// </summary>
         /// <returns></returns>
-        public PlayerInfoModel GetNextPlayerTurn()
+        public PlayerInfoModel GetNextPlayerTurn(int roundNumber)
         {
             // Recalculate Order
-            OrderPlayerListByTurnOrder();
+            OrderPlayerListByTurnOrder(roundNumber);
 
             // Get Next Player
             var PlayerCurrent = GetNextPlayerInList();
@@ -173,7 +174,7 @@ namespace Game.Engine
         /// <summary>
         /// Order the Players in Turn Sequence
         /// </summary>
-        public List<PlayerInfoModel> OrderPlayerListByTurnOrder()
+        public List<PlayerInfoModel> OrderPlayerListByTurnOrder(int roundNumber)
         {
             // Order is based by... 
             // Order by Speed (Desending)
@@ -185,6 +186,16 @@ namespace Game.Engine
 
             // Work with the Class variable PlayerList
             PlayerList = MakePlayerList();
+
+            if (roundNumber == 5)
+            {
+                PlayerList = PlayerList.OrderBy(a => a.PlayerType)
+                 .ThenBy(a => a.CurrentHealth)
+                 .ThenBy(a => a.Speed)
+                 .ToList();
+                return PlayerList;
+            }
+
 
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
                 .ThenByDescending(a => a.Level)

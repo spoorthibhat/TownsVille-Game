@@ -30,6 +30,10 @@ namespace Game.Models
         [Ignore]
         public bool AttackWithGoSUItem { get; set; } = false;
 
+        // List of broken items for Hack #27
+        [Ignore]
+        public List<ItemModel> BrokenItems { get; set; } = new List<ItemModel>();
+
         #endregion GameEngineAttributes
 
         
@@ -593,6 +597,19 @@ namespace Game.Models
             
         }
 
+        /// <summary>
+        /// Hackathon #27
+        /// If item was broken, drops it.
+        /// </summary>
+        /// <param name="item"></param>
+        private void DropIfBrokenItem(ItemModel item)
+        {
+            if(item.ItemUseCount <= 0)
+            {
+                BrokenItems.Add(item);
+                RemoveItemFromLocation(item.Location);
+            }
+        }
         // Walk all the Items on the Character.
         // Add together all Items that modify the Attribute Enum Passed in
         // Return the sum
@@ -607,7 +624,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
-                    
+                    myItem.ItemUseCount--; // Hackathon #27
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -617,6 +634,8 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value; 
                     }
+
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -625,7 +644,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
-                    
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -635,6 +654,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -643,6 +663,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -652,6 +673,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -660,6 +682,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -669,6 +692,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -677,6 +701,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -686,6 +711,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -694,6 +720,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -703,6 +730,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
@@ -711,6 +739,7 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
+                    myItem.ItemUseCount--;
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
@@ -720,6 +749,7 @@ namespace Game.Models
                         // Adding the value once again to make the effect 2X
                         myReturn += myItem.Value;
                     }
+                    DropIfBrokenItem(myItem);
                 }
             }
 
