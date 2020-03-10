@@ -107,7 +107,7 @@ namespace Scenario
 
             // Set Character Conditions
 
-            EngineViewModel.Engine.MaxNumberPartyCharacters = 1;
+            AutoBattleEngine.MaxNumberPartyCharacters = 1;
 
             var CharacterPlayerMike = new PlayerInfoModel(
                             new CharacterModel
@@ -120,7 +120,7 @@ namespace Scenario
                                 Name = "Mike",
                             });
 
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayerMike);
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
 
