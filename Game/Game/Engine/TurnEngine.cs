@@ -227,8 +227,7 @@ namespace Game.Engine
 
             var DefenseScore = Target.GetDefense() + Target.Level;
 
-            BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
-
+            
             // Hackathon
             // Hackathon Scenario 2, Bob alwasys misses
             if (Attacker.Name.Equals("Bob"))
@@ -237,6 +236,15 @@ namespace Game.Engine
                 BattleMessagesModel.TurnMessage = "Bob always Misses";
                 Debug.WriteLine(BattleMessagesModel.TurnMessage);
                 return true;
+            }
+
+            // Hack #47
+            var AttributeSumPrimeCheck = CheckIfAttributesSumtoPrime(Attacker);
+            BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+            if (!AttributeSumPrimeCheck)
+            {
+                BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
             }
 
             Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
@@ -250,8 +258,9 @@ namespace Game.Engine
             // It's a Hit
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
             {
+                
                 //Calculate Damage
-                BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+                BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue(AttributeSumPrimeCheck);
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }
@@ -281,6 +290,34 @@ namespace Game.Engine
 
             BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial.Replace("\n", Environment.NewLine);
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
+
+            return true;
+        }
+
+        bool CheckIfAttributesSumtoPrime(PlayerInfoModel Attacker)
+        {
+            var AttributeSum = Attacker.Speed + Attacker.Defense 
+                + Attacker.Attack + Attacker.CurrentHealth 
+                + Attacker.MaxHealth;
+
+   
+            return IsPrime(AttributeSum);
+        }
+
+        /// <summary>
+        /// Checks if given number is prime 
+        /// </summary>
+        /// <param name="Num"></param>
+        /// <returns></returns>
+        private bool IsPrime(int Num)
+        {
+            for (var i = 2; i <= Num / 2; i++)
+            {
+                if(Num%i == 0)
+                {
+                    return false;
+                }
+            }
 
             return true;
         }
