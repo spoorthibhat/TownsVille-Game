@@ -359,7 +359,7 @@ namespace Scenario
             var MonsterPlayer = new PlayerInfoModel(
                 new MonsterModel
                 {
-                    Speed = 1,
+                    Speed = 2,
                     Level = 1,
                     CurrentHealth = 100,
                     ExperienceTotal = 100,
@@ -420,7 +420,7 @@ namespace Scenario
             var CharacterPlayer = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = 1,
+                                Speed = 2,
                                 Level = 1,
                                 CurrentHealth = 100,
                                 ExperienceTotal = 100,
