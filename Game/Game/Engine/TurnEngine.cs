@@ -262,6 +262,11 @@ namespace Game.Engine
                 //Calculate Damage
                 BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue(AttributeSumPrimeCheck);
 
+                //Hack #31, When Round Count exceeds 100, Monster Damage power becomes 10x
+                if (BattleScore.RoundCount > 100 && Attacker.PlayerType == PlayerTypeEnum.Monster)
+                {
+                    BattleMessagesModel.DamageAmount *= 10;
+                }
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }
 

@@ -64,6 +64,19 @@ namespace Game.Engine
                 CurrentMonster.ScaleLevel(GetAverageCharacterLevel());
                 MonsterList.Add(CurrentMonster);
             }
+
+            //Hack #31, When Round Count exceeds 100, Monster power becomes 10x
+            if (BattleScore.RoundCount > 100)
+            {
+                foreach (PlayerInfoModel Monster in MonsterList)
+                {
+                    Monster.Attack = 10 * Monster.Attack;
+                    Monster.Speed = 10 * Monster.Speed;
+                    Monster.Defense = 10 * Monster.Defense;
+                    Monster.CurrentHealth = 10 * Monster.CurrentHealth;
+                    Monster.MaxHealth = 10 * Monster.MaxHealth;
+                }
+            }
             return MonsterList.Count;
         }
 

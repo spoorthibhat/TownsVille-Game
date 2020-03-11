@@ -930,5 +930,90 @@ namespace Scenario
             Assert.IsNull(CharacterPlayer.Head);
             Assert.AreEqual("Item Test broke\n", BattleEngine.BattleMessagesModel.ItemsBroken);
         }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_31_Monster_Get_10x_Power_On_Round100()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *      Make a Character, who loose health in the round 13 and health is set to 0
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Change to Turn Engine
+            *      Changed TurnAsAttack method
+            *      Check for Round Number 
+            * 
+            * Test Algrorithm:
+            *      Create Character and monster
+            *      Set Current Health of character to 400 so he is strong 
+            *      Set the current battle round count to 13
+            *  
+            *      Startup Battle
+            *      Call TurnAsAttack with character as attacker
+            * 
+            * Test Conditions:
+            *      Test with round 13 with character as attacker
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify the current attacker health is set to 0
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                CurrentHealth = 400,
+                                ExperienceTotal = 1,
+                                //ExperienceRemaining = 1,
+                                Name = "Character",
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions, Monsters are added directly by engine
+            BattleEngine.MaxNumberPartyMonsters = 1;
+
+            // Set Round Count for Battle
+            BattleEngine.BattleScore.RoundCount = 99;
+
+            var round100Result = BattleEngine.NewRound();
+            var result100 = BattleEngine.TurnAsAttack(BattleEngine.MonsterList[0], BattleEngine.CharacterList[0], false);
+
+            int round100CurrentHealth = BattleEngine.MonsterList[0].CurrentHealth;
+            int round100MaxHealth = BattleEngine.MonsterList[0].MaxHealth;
+            int round100Attack = BattleEngine.MonsterList[0].Attack;
+            int round100Speed = BattleEngine.MonsterList[0].Speed;
+            int round100Defense = BattleEngine.MonsterList[0].Defense;
+            int round100Damage = BattleEngine.BattleMessagesModel.DamageAmount;
+            BattleEngine.BattleScore.RoundCount++;
+
+            //Act
+            var round101Result = BattleEngine.NewRound();
+            var result101 = BattleEngine.TurnAsAttack(BattleEngine.MonsterList[0], BattleEngine.CharacterList[0], false);
+
+            //Assert
+            Assert.AreEqual(true, round101Result);
+            Assert.AreEqual(true, round101Result);
+
+            Assert.AreEqual(10 * round100CurrentHealth, BattleEngine.MonsterList[0].CurrentHealth);
+            Assert.AreEqual(10 * round100MaxHealth, BattleEngine.MonsterList[0].MaxHealth);
+            Assert.AreEqual(10 * round100Attack, BattleEngine.MonsterList[0].Attack);
+            Assert.AreEqual(10 * round100Speed, BattleEngine.MonsterList[0].Speed);
+            Assert.AreEqual(10 * round100Defense, BattleEngine.MonsterList[0].Defense);
+            Assert.AreEqual(10 * round100Damage, BattleEngine.BattleMessagesModel.DamageAmount);
+        }
+
     }
 }
