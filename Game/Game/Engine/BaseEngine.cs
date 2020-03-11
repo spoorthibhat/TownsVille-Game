@@ -59,8 +59,6 @@ namespace Game.Engine
         // Monster Hit Value
         public int MonsterHitValue = 0;
 
-        // 
-
         #endregion Properties
     }
 }
