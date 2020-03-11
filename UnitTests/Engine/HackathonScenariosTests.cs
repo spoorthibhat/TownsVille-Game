@@ -458,14 +458,14 @@ namespace Scenario
             
         }
         [Test]
-        public async Task HackathonScenario_Scenario_33_Character_Die_On_Round13()
+        public async Task HackathonScenario_Scenario_33_Character_Loose_Health_On_Round13()
         {
             /* 
             * Scenario Number:  
             *      33
             *      
             * Description: 
-            *      Make a Character, who dies in the round 13 and health is set to 0
+            *      Make a Character, who loose health in the round 13 and health is set to 0
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      Change to Turn Engine
@@ -474,18 +474,18 @@ namespace Scenario
             * 
             * Test Algrorithm:
             *      Create Character and monster
-            *      Set Current Health of character to 400 so he is strong and battle continues for more than 13 rounds
+            *      Set Current Health of character to 400 so he is strong 
+            *      Set the current battle round count to 13
             *  
             *      Startup Battle
-            *      Run Auto Battle
+            *      Call TurnAsAttack with character as attacker
             * 
             * Test Conditions:
-            *      Default condition is sufficient
+            *      Test with round 13 with character as attacker
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify character is not in the Player List
-            *      Verify Round Count is 13
+            *      Verify the current attacker health is set to 0
             *  
             */
 
@@ -493,9 +493,9 @@ namespace Scenario
 
             // Set Character Conditions
 
-            AutoBattleEngine.MaxNumberPartyCharacters = 1;
+            BattleEngine.MaxNumberPartyCharacters = 1;
 
-            var CharacterPlayerMike = new PlayerInfoModel(
+            var CharacterPlayer = new PlayerInfoModel(
                             new CharacterModel
                             {
                                 Speed = 1,
@@ -506,10 +506,10 @@ namespace Scenario
                                 Name = "Character",
                             });
 
-            AutoBattleEngine.CharacterList.Add(CharacterPlayerMike);
+            BattleEngine.CharacterList.Add(CharacterPlayer);
 
             // Set Monster Conditions
-            AutoBattleEngine.MaxNumberPartyMonsters = 1;
+            BattleEngine.MaxNumberPartyMonsters = 1;
 
             var MonsterPlayer = new PlayerInfoModel(
                 new MonsterModel
@@ -522,17 +522,17 @@ namespace Scenario
                     Name = "Monster",
                 });
 
-            AutoBattleEngine.MonsterList.Add(MonsterPlayer);
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+            BattleEngine.BattleScore.RoundCount = 13;
             
             //Act
-            var result = await AutoBattleEngine.RunAutoBattle();
-
+            //var result = await AutoBattleEngine.RunAutoBattle();
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
             //Reset
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(null, AutoBattleEngine.PlayerList.Find(m => m.Name.Equals("Character")));
-            Assert.AreEqual(13, AutoBattleEngine.BattleScore.RoundCount);
+            Assert.AreEqual(0, BattleEngine.CurrentAttacker.CurrentHealth);
         }
 
         [Test]
@@ -930,6 +930,5 @@ namespace Scenario
             Assert.IsNull(CharacterPlayer.Head);
             Assert.AreEqual("Item Test broke\n", BattleEngine.BattleMessagesModel.ItemsBroken);
         }
-
     }
 }
