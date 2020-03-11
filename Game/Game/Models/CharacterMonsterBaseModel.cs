@@ -399,15 +399,23 @@ namespace Game.Models
         /// Roll the Damage Dice, and add to the Damage
         /// </summary>
         /// <returns></returns>
-        public int GetDamageRollValue()
+        public int GetDamageRollValue(bool CauseMaxDamage)
         {
             var myReturn = 0;
 
             var myItem = ItemModelHelper.GetItemModelFromGuid(PrimaryHand);
             if (myItem != null)
             {
-                // Dice of the weapon.  So sword of Damage 10 is d10
-                myReturn += DiceHelper.RollDice(1, myItem.Damage);
+                if (CauseMaxDamage)
+                {
+                    myReturn += myItem.Damage;
+                }
+                else
+                {
+                    // Dice of the weapon.  So sword of Damage 10 is d10
+                    myReturn += DiceHelper.RollDice(1, myItem.Damage);
+                }
+                
             }
 
             // Add in the Level as extra damage per game rules
