@@ -1112,84 +1112,203 @@ namespace Scenario
             Assert.AreEqual(11, BattleEngine.BattleMessagesModel.DamageAmount);
         }
 
-
         [Test]
-        public async Task HackathonScenario_Scenario_19_Iffeelgood_Charcters_attack_D20_monster_reduces_d20()
+        public void HackathonScenario_Scenario_48_AttackRoll_Equal_To_SecretNumber_Character_Dies()
         {
             /* 
              * Scenario Number:  
-             *  19
+             *  48
              *  
              * Description: 
-             *      When I feeel good switch is toggled character attack increases by 20
-             *      When I feeel good switch is toggled character attack reduces by 20
-             *      
+             *      Add Character and monster and start battle
+             *      Generate secret number before round starts
+             *      Make attack roll same as secret number
+             *      Character dies and outputs the appropriate message
              *      
              * 
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-             *      Change to AboutPage.xaml, AboutPage.xaml.cs
-             *      Changed AutoBattleEngine
-             *      Change to BattleEngineViewModel
-             *      Change to BattlePage.xaml.cs
-             *              
+             *      Change to BaseEngine -- added secret number
+             *      Change to RoundEngine
+             *      Added GenerateSecretNumber method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed RollToHitTarget method
              *                 
              * Test Algrorithm:
-             *  Create Switch in the About page
-             *  Added Subscriber in battleengine view model
-             *  Update I feel good on toggle
-             *  Update attack value for charcter and monster based on I feel ggod
+             *  Start battle 
+             *  Call NewRound
+             *  Set SecretNumber to 5
+             *  Set Character CharacterHitValue to 5
+             *  Call TurnAsAttack
+             *  Check HitStatus to be Unknown
+             *  Check if character died
+             *  
              * 
              * 
              * Test Conditions:
-             *  Pass I feel good as true
-             *  Check the updated values
-             *  
+             *  Test with secret number and characterHitValue equal
+             *  Test if character died and output message is as expected.
              *  
              * 
              * Validation:
-             *      Verify updated values 
+             *      Verify Character alive status
+             *      Verify SpecialMessage on BattleMessagesModel to be "The CIA regrets to inform you that your character died."
+             *      Verify HitStatus is Unknown
+             */
+            
+
+            
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel()
+            {
+                Attack = 10,
+                Defense = 0,
+                MaxHealth = 20,
+                CurrentHealth = 20,
+                Speed = 15,
+                Level = 1,
+                
+            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+            var roundResult = BattleEngine.NewRound();
+            var secretNumber = BattleEngine.SecretNumber;
+            BattleEngine.CharacterHitValue = secretNumber;
+
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Unknown, BattleEngine.BattleMessagesModel.HitStatus);
+            Assert.IsFalse(BattleEngine.CurrentAttacker.Alive);
+            Assert.AreEqual("The CIA regrets to inform you that your character died.", BattleEngine.BattleMessagesModel.SpecialMessage);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_30_First_Character_In_PlayersList_Get_2x()
+
+        {
+            /* 
+             * Scenario Number:  
+             *  32
+             *  
+             * Description: 
+             *      Added check to the OrderPlayerListByTurnOrder
+             *      Checks for First Player in the List, if it is character then we do 2x
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to RoundEngine
+             *      Changed OrderPlayerListByTurnOrder method
+             *      Added check for first player in the list
+             *                 
+             * Test Algrorithm:
+             *  Add characters and Monsters to the PlayerList
+             *  Sort the List based on List Order
+             *  Find the First player in the list and do 2x
+             * 
+             * 
+             * 
+             * Test Conditions:
+             *  Pass 2x Speed, Attack and Defense when first player is character
+             * 
+             * Validation:
+             *      Verify the first character Speed, Attack and Defense. Check for 2x.
              *  
              */
-            //Arrange
-            AutoBattleEngine auto = new AutoBattleEngine();
 
-            var CharacterPlayerMike = new PlayerInfoModel(
-                                       new CharacterModel
-                                       {
-                                           Speed = 200,
-                                           Level = 1,
-                                           CurrentHealth = 1,
-                                           ExperiencePoints = 1,
-                                           Name = "Mike",
-                                           ListOrder = 1,
-                                           Attack = 20,
-                                       });  
-            auto.CharacterList.Add(CharacterPlayerMike);
+            BattleEngine.MonsterList.Clear();
+
+            // Arrange
+            var CharacterPlayerBlossum = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 200,
+                                            Level = 0,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Blossum",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
+            var CharacterPlayerButterCup = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 20,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "ButterCup",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
+            var CharacterPlayerBubbles = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 2,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Bubbles",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
             var MonsterPlayer = new PlayerInfoModel(
-                                   new MonsterModel
-                                   {
-                                       Speed = 300,
-                                       Level = 1,
-                                       CurrentHealth = 1,
-                                       ExperiencePoints = 1,
-                                       Name = "Monster",
-                                       ListOrder = 4,
-                                       Attack = 10,
-                                   }); 
-            auto.MonsterList.Add(MonsterPlayer);
+                                    new MonsterModel
+                                    {
+                                        Speed = 1,
+                                        CurrentHealth = 1,
+                                        ExperiencePoints = 1,
+                                        Name = "Monster",
+                                        Attack = 5,
+                                        Defense = 5,
+                                    });
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            BattleEngine.CharacterList.Clear();
+
+            BattleEngine.CharacterList.Add(CharacterPlayerBlossum);
+            BattleEngine.CharacterList.Add(CharacterPlayerButterCup);
+            BattleEngine.CharacterList.Add(CharacterPlayerBubbles);
+
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
 
             // Act
 
-            
-            auto.CreateCharacterParty(true);
-           
-
+            var result = BattleEngine.OrderPlayerListByTurnOrder(1);
 
             // Assert
-            Assert.AreEqual(40, auto.CharacterList[0].Attack);
-            Assert.AreEqual(0 , auto.MonsterList[0].Attack);
+            Assert.AreEqual(400, result[0].Speed);
+            Assert.AreEqual(10, result[0].Attack);
+            Assert.AreEqual(10, result[0].Defense);
 
         }
-
     }
 }

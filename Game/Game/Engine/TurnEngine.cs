@@ -244,7 +244,15 @@ namespace Game.Engine
             if (!AttributeSumPrimeCheck)
             {
                 BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
-
+                
+                // Player has died due to Hack #48, i.e., player roll was same as secret
+                if(BattleMessagesModel.HitStatus == HitStatusEnum.Unknown)
+                {
+                    RemoveIfDead(Attacker);
+                    BattleMessagesModel.SpecialMessage = "The CIA regrets to inform you that your character died.";
+                    Debug.WriteLine(BattleMessagesModel.SpecialMessage);
+                    return true;
+                }
             }
 
             Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
@@ -473,6 +481,16 @@ namespace Game.Engine
             {
                 d20 = MonsterHitValue;
             }
+
+            // Hack #48 When roll matches secret number, Character should die
+            if (d20 == SecretNumber)
+            {
+                CurrentAttacker.Alive = false;
+                BattleMessagesModel.AttackStatus = " rolls " + d20;
+                return HitStatusEnum.Unknown;
+
+            }
+            // Hack changes ended
 
             if (d20 == 1)
             {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Game.Helpers;
 using Game.Models;
 using Game.Services;
 
@@ -29,6 +29,9 @@ namespace Game.Engine
             // End the existing round
             EndRound();
 
+            // Hack #48
+            GenerateSecretNumber();
+
             // Populate New Monsters...
             AddMonstersToRound();
 
@@ -39,6 +42,17 @@ namespace Game.Engine
             BattleScore.RoundCount++;
 
             return true;
+        }
+
+        /// <summary>
+        /// Hack #48
+        /// Gets a number from roll dice of D20
+        /// </summary>
+        public void GenerateSecretNumber()
+        {
+            SecretNumber = DiceHelper.RollDice(1, 20);
+            
+            
         }
 
         /// <summary>
@@ -218,6 +232,17 @@ namespace Game.Engine
                 .ThenBy(a => a.ListOrder)
                 .ToList();
 
+            // Hack #30, Character Volunteering first is buffed by 2x
+            if (PlayerList[0].PlayerType == PlayerTypeEnum.Character)
+            {
+                PlayerInfoModel Character = PlayerList[0];
+                PlayerList.Remove(Character);
+                PlayerInfoModel NewCharacter = new PlayerInfoModel(Character);
+                NewCharacter.Speed = 2 * Character.Speed;
+                NewCharacter.Defense = 2 * Character.Defense;
+                NewCharacter.Attack = 2 * Character.Attack;
+                PlayerList.Insert(0, NewCharacter);
+            }
             return PlayerList;
         }
 
