@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Game.Helpers;
 using Game.Models;
 using Game.Services;
 
@@ -29,6 +29,9 @@ namespace Game.Engine
             // End the existing round
             EndRound();
 
+            // Hack #48
+            GenerateSecretNumber();
+
             // Populate New Monsters...
             AddMonstersToRound();
 
@@ -39,6 +42,17 @@ namespace Game.Engine
             BattleScore.RoundCount++;
 
             return true;
+        }
+
+        /// <summary>
+        /// Hack #48
+        /// Gets a number from roll dice of D20
+        /// </summary>
+        public void GenerateSecretNumber()
+        {
+            SecretNumber = DiceHelper.RollDice(1, 20);
+            
+            
         }
 
         /// <summary>
