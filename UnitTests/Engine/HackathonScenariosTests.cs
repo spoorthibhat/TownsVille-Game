@@ -60,7 +60,7 @@ namespace Scenario
             // Act
 
             // Assert
-           
+
 
             // Act
             var result = EngineViewModel;
@@ -371,7 +371,7 @@ namespace Scenario
             BattleEngine.MonsterHitValue = 20;
             //Act
             var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer, false);
-
+            
             //Reset
             BattleEngine.MonsterHitValue = 0;
 
@@ -461,7 +461,7 @@ namespace Scenario
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(true,BattleEngine.BattleMessagesModel.AttackStatus.Contains("15"));
-            
+
         }
         [Test]
         public async Task HackathonScenario_Scenario_33_Character_Loose_Health_On_Round13()
@@ -498,7 +498,7 @@ namespace Scenario
             //Arrange
 
             // Set Character Conditions
-
+            BattleEngine.CharacterList.Clear();
             BattleEngine.MaxNumberPartyCharacters = 1;
 
             var CharacterPlayer = new PlayerInfoModel(
@@ -513,7 +513,7 @@ namespace Scenario
                             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
-
+            BattleEngine.MonsterList.Clear();
             // Set Monster Conditions
             BattleEngine.MaxNumberPartyMonsters = 1;
 
@@ -530,11 +530,13 @@ namespace Scenario
 
             BattleEngine.MonsterList.Add(MonsterPlayer);
             BattleEngine.BattleScore.RoundCount = 13;
-            
+
             //Act
             //var result = await AutoBattleEngine.RunAutoBattle();
             var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
             //Reset
+
+            BattleEngine.BattleScore.RoundCount = 0;
 
             //Assert
             Assert.AreEqual(true, result);
@@ -833,7 +835,7 @@ namespace Scenario
 
             var result1 = BattleEngine.OrderPlayerListByTurnOrder(1);
             var result2 = BattleEngine.OrderPlayerListByTurnOrder(5);
-            
+
 
             // Assert
             Assert.AreNotEqual(result1[0], result2[0]);
@@ -887,14 +889,15 @@ namespace Scenario
 
             // Arrange
 
-            var TestItem = new ItemModel() { 
+            var TestItem = new ItemModel()
+            {
                 Name = "Test",
                 Attribute = AttributeEnum.Attack,
                 Location = ItemLocationEnum.Head,
                 ItemUseCount = 1,
 
             };
-            
+
 
             await ItemIndexViewModel.Instance.CreateAsync(TestItem);
 
@@ -942,7 +945,7 @@ namespace Scenario
         {
             /* 
             * Scenario Number:  
-            *      33
+            *      31
             *      
             * Description: 
             *      Make a player list
@@ -1161,9 +1164,9 @@ namespace Scenario
              *      Verify SpecialMessage on BattleMessagesModel to be "The CIA regrets to inform you that your character died."
              *      Verify HitStatus is Unknown
              */
-            
 
-            
+
+
             BattleEngine.MaxNumberPartyCharacters = 1;
 
             var CharacterPlayer = new PlayerInfoModel(new CharacterModel()
@@ -1174,7 +1177,7 @@ namespace Scenario
                 CurrentHealth = 20,
                 Speed = 15,
                 Level = 1,
-                
+
             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
@@ -1342,6 +1345,7 @@ namespace Scenario
              *  Added Subscriber in battleengine view model
              *  Update I feel good on toggle
              *  Update attack value for charcter and monster based on I feel ggod
+             *  In autobattle add roll die to use the feature
              * 
              * 
              * Test Conditions:
