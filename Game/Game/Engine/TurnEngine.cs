@@ -281,6 +281,14 @@ namespace Game.Engine
             BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
             BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
 
+            RemoveIfDead(Target);
+
+            // If it is a character apply the experience earned
+            CalculateExperience(Attacker, Target);
+
+            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial.Replace("\n", Environment.NewLine);
+            Debug.WriteLine(BattleMessagesModel.TurnMessage);
+            
             //Hack #33, Character in the turn Loose its current health when it is Round 13.
             if (BattleScore.RoundCount == 13)
             {
@@ -294,13 +302,6 @@ namespace Game.Engine
                 }
                 Debug.WriteLine("Its Lucky 13 round, so Character Loose its Health");
             }
-            RemoveIfDead(Target);
-
-            // If it is a character apply the experience earned
-            CalculateExperience(Attacker, Target);
-
-            BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial.Replace("\n", Environment.NewLine);
-            Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
         }
