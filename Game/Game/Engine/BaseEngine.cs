@@ -59,6 +59,9 @@ namespace Game.Engine
         // Monster Hit Value
         public int MonsterHitValue = 0;
 
+        // Hack #48 Secret Number value
+        public int SecretNumber = 0;
+
         #endregion Properties
     }
 }

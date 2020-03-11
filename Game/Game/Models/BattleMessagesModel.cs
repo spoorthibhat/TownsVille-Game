@@ -66,6 +66,9 @@
             TurnMessageSpecial = string.Empty;
             ExperienceEarned = string.Empty;
             LevelUpMessage = string.Empty;
+            SpecialMessage = string.Empty;
+            ItemsBroken = string.Empty;
+ 
 
             DamageAmount = 0;
             CurrentHealth = 0;
