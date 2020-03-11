@@ -1112,5 +1112,97 @@ namespace Scenario
             Assert.AreEqual(11, BattleEngine.BattleMessagesModel.DamageAmount);
         }
 
+        [Test]
+        public void HackathonScenario_Scenario_48_AttackRoll_Equal_To_SecretNumber_Character_Dies()
+        {
+            /* 
+             * Scenario Number:  
+             *  48
+             *  
+             * Description: 
+             *      Add Character and monster and start battle
+             *      Generate secret number before round starts
+             *      Make attack roll same as secret number
+             *      Character dies and outputs the appropriate message
+             *      
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to BaseEngine -- added secret number
+             *      Change to RoundEngine
+             *      Added GenerateSecretNumber method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Changed RollToHitTarget method
+             *                 
+             * Test Algrorithm:
+             *  Start battle 
+             *  Call NewRound
+             *  Set SecretNumber to 5
+             *  Set Character CharacterHitValue to 5
+             *  Call TurnAsAttack
+             *  Check HitStatus to be Unknown
+             *  Check if character died
+             *  
+             * 
+             * 
+             * Test Conditions:
+             *  Test with secret number and characterHitValue equal
+             *  Test if character died and output message is as expected.
+             *  
+             * 
+             * Validation:
+             *      Verify Character alive status
+             *      Verify SpecialMessage on BattleMessagesModel to be "The CIA regrets to inform you that your character died."
+             *      Verify HitStatus is Unknown
+             */
+            
+
+            
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel()
+            {
+                Attack = 10,
+                Defense = 0,
+                MaxHealth = 20,
+                CurrentHealth = 20,
+                Speed = 15,
+                Level = 1,
+                
+            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+            var roundResult = BattleEngine.NewRound();
+            var secretNumber = BattleEngine.SecretNumber;
+            BattleEngine.CharacterHitValue = secretNumber;
+
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Unknown, BattleEngine.BattleMessagesModel.HitStatus);
+            Assert.IsFalse(BattleEngine.CurrentAttacker.Alive);
+            Assert.AreEqual("The CIA regrets to inform you that your character died.", BattleEngine.BattleMessagesModel.SpecialMessage);
+        }
+
     }
 }
