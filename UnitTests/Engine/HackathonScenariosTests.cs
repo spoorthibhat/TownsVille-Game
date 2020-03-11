@@ -492,7 +492,7 @@ namespace Scenario
             //Arrange
 
             // Set Character Conditions
-
+            BattleEngine.CharacterList.Clear();
             BattleEngine.MaxNumberPartyCharacters = 1;
 
             var CharacterPlayer = new PlayerInfoModel(
@@ -507,7 +507,7 @@ namespace Scenario
                             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
-
+            BattleEngine.MonsterList.Clear();
             // Set Monster Conditions
             BattleEngine.MaxNumberPartyMonsters = 1;
 
