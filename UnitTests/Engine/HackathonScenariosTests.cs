@@ -1336,6 +1336,7 @@ namespace Scenario
              *  Added Subscriber in battleengine view model
              *  Update I feel good on toggle
              *  Update attack value for charcter and monster based on I feel ggod
+             *  In autobattle add roll die to use the feature
              * 
              * 
              * Test Conditions:
