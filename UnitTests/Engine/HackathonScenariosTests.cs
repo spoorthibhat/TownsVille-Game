@@ -939,27 +939,32 @@ namespace Scenario
             *      33
             *      
             * Description: 
-            *      Make a Character, who loose health in the round 13 and health is set to 0
+            *      Make a player list
+            *      Check that the Moster list powers are modified after 100th round
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      Change to Turn Engine
             *      Changed TurnAsAttack method
-            *      Check for Round Number 
+            *      Check for Round Number and increase damage for monster
+            *      Change to RoundEngine
+            *      Changed AddMonstersToRound
+            *      Added check for Round Count and increased the power(Attack, Speed, Defense, Current Health and MaxHealth) of Monsters
             * 
             * Test Algrorithm:
-            *      Create Character and monster
-            *      Set Current Health of character to 400 so he is strong 
-            *      Set the current battle round count to 13
+            *      Create Character
+            *      Startup Battle with RoundCount set as 100
+            *      Call TurnAsAttack with Monster as attacker
+            *      Monsters are added by battle Engine 
+            *      Collect all properties of Monster for Round 100
             *  
-            *      Startup Battle
-            *      Call TurnAsAttack with character as attacker
             * 
             * Test Conditions:
-            *      Test with round 13 with character as attacker
+            *      Test all properties of Monster, by calling newRound 101 
             * 
             * Validation:
-            *      Verify Battle Returned True
-            *      Verify the current attacker health is set to 0
+            *      Verify NewRound is true
+            *      Verify TurnsAsAttack is true
+            *      Verify the Monster properties are 10x buffed
             *  
             */
 
