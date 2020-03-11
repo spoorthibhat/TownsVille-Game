@@ -232,6 +232,17 @@ namespace Game.Engine
                 .ThenBy(a => a.ListOrder)
                 .ToList();
 
+            // Hack #30, Character Volunteering first is buffed by 2x
+            if (PlayerList[0].PlayerType == PlayerTypeEnum.Character)
+            {
+                PlayerInfoModel Character = PlayerList[0];
+                PlayerList.Remove(Character);
+                PlayerInfoModel NewCharacter = new PlayerInfoModel(Character);
+                NewCharacter.Speed = 2 * Character.Speed;
+                NewCharacter.Defense = 2 * Character.Defense;
+                NewCharacter.Attack = 2 * Character.Attack;
+                PlayerList.Insert(0, NewCharacter);
+            }
             return PlayerList;
         }
 

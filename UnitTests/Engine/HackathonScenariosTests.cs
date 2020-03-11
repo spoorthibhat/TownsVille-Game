@@ -1204,5 +1204,111 @@ namespace Scenario
             Assert.AreEqual("The CIA regrets to inform you that your character died.", BattleEngine.BattleMessagesModel.SpecialMessage);
         }
 
+        [Test]
+        public async Task HackathonScenario_Scenario_30_First_Character_In_PlayersList_Get_2x()
+
+        {
+            /* 
+             * Scenario Number:  
+             *  32
+             *  
+             * Description: 
+             *      Added check to the OrderPlayerListByTurnOrder
+             *      Checks for First Player in the List, if it is character then we do 2x
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to RoundEngine
+             *      Changed OrderPlayerListByTurnOrder method
+             *      Added check for first player in the list
+             *                 
+             * Test Algrorithm:
+             *  Add characters and Monsters to the PlayerList
+             *  Sort the List based on List Order
+             *  Find the First player in the list and do 2x
+             * 
+             * 
+             * 
+             * Test Conditions:
+             *  Pass 2x Speed, Attack and Defense when first player is character
+             * 
+             * Validation:
+             *      Verify the first character Speed, Attack and Defense. Check for 2x.
+             *  
+             */
+
+            BattleEngine.MonsterList.Clear();
+
+            // Arrange
+            var CharacterPlayerBlossum = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 200,
+                                            Level = 0,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Blossum",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
+            var CharacterPlayerButterCup = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 20,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "ButterCup",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
+            var CharacterPlayerBubbles = new PlayerInfoModel(
+                                        new CharacterModel
+                                        {
+                                            Speed = 2,
+                                            CurrentHealth = 1,
+                                            ExperiencePoints = 1,
+                                            Name = "Bubbles",
+                                            Attack = 5,
+                                            Defense = 5,
+                                        });
+
+            var MonsterPlayer = new PlayerInfoModel(
+                                    new MonsterModel
+                                    {
+                                        Speed = 1,
+                                        CurrentHealth = 1,
+                                        ExperiencePoints = 1,
+                                        Name = "Monster",
+                                        Attack = 5,
+                                        Defense = 5,
+                                    });
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            BattleEngine.CharacterList.Clear();
+
+            BattleEngine.CharacterList.Add(CharacterPlayerBlossum);
+            BattleEngine.CharacterList.Add(CharacterPlayerButterCup);
+            BattleEngine.CharacterList.Add(CharacterPlayerBubbles);
+
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            BattleEngine.PlayerList = BattleEngine.MakePlayerList();
+
+
+            // Act
+
+            var result = BattleEngine.OrderPlayerListByTurnOrder(1);
+
+            // Assert
+            Assert.AreEqual(400, result[0].Speed);
+            Assert.AreEqual(10, result[0].Attack);
+            Assert.AreEqual(10, result[0].Defense);
+
+        }
     }
 }
