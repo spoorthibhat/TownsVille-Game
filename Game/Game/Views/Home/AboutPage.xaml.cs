@@ -153,5 +153,10 @@ namespace Game.Views
             BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
             EngineViewModel.Engine.MonsterHitValue = 20;
         }
+
+        private void IFeelGood_OnToggled(object sender, ToggledEventArgs e)
+        {
+            MessagingCenter.Send(this, "IFeelGood", true);
+        }
     }
 }

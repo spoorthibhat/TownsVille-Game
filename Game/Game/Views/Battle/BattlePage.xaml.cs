@@ -51,6 +51,25 @@ namespace Game.Views
             SelectedCharacterList = EngineViewModel.Engine.CharacterList;
             SelectedMonsterList = EngineViewModel.Engine.MonsterList;
 
+            if (EngineViewModel.IFeelGood == true)
+            {
+                foreach ( PlayerInfoModel character in SelectedCharacterList)
+                {
+                    character.Attack += 20;
+                }
+                foreach (PlayerInfoModel monster in SelectedMonsterList)
+                {
+                    if (monster.Attack >= 20)
+                    {
+                        monster.Attack -= 20;
+                    }
+                    if (monster.Attack < 20)
+                    {
+                        monster.Attack = 0;
+                    }
+                }
+            }
+
             LoadPlayers();
 
             PickPlayers();

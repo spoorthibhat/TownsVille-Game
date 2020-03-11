@@ -148,6 +148,19 @@
                                 IsToggled="False"/>
                         </StackLayout>
 
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="I feel good"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="IFeelGood"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="IFeelGood_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
+
                     </StackLayout>
 
                     <Label Text="Monster Settings" />

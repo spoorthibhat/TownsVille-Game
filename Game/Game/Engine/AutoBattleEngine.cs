@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Game.Helpers;
 using Game.Models;
 using Game.Services;
 using Game.ViewModels;
@@ -57,8 +57,16 @@ namespace Game.Engine
             // Auto Battle, does all the steps that a human would do.
 
             // Prepare for Battle
+            bool Ifeelgood = false;
+            var d20 = DiceHelper.RollDice(1, 20);
 
-            CreateCharacterParty();
+            if (d20 < 10)
+            {
+                //Do not Use Special Ability
+                Ifeelgood = false;
+            }
+
+            CreateCharacterParty(Ifeelgood);
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
@@ -122,8 +130,10 @@ namespace Game.Engine
         /// <summary>
         /// Create Characters for Party
         /// </summary>
-        public bool CreateCharacterParty()
+        public bool CreateCharacterParty(bool Ifeelgood)
         {
+           
+           
             // Picks 6 Characters
 
             // To use your own characters, populate the List before calling RunAutoBattle
@@ -143,6 +153,25 @@ namespace Game.Engine
             for (int i = CharacterList.Count; i < MaxNumberPartyCharacters; i++)
             {
                 PopulateCharacterList(DefaultCharacterList[i]);
+            }
+            if (Ifeelgood == true)
+            {
+                foreach(PlayerInfoModel Character in CharacterList)
+                {
+                    Character.Attack += 20;
+                }
+
+                foreach (PlayerInfoModel Monster in MonsterList)
+                {
+                    if(Monster.Attack >=20)
+                    {
+                        Monster.Attack -= 20;
+                    }
+                    if (Monster.Attack < 20)
+                    {
+                        Monster.Attack = 0;
+                    }
+                }
             }
 
             return true;

@@ -1112,5 +1112,84 @@ namespace Scenario
             Assert.AreEqual(11, BattleEngine.BattleMessagesModel.DamageAmount);
         }
 
+
+        [Test]
+        public async Task HackathonScenario_Scenario_19_Iffeelgood_Charcters_attack_D20_monster_reduces_d20()
+        {
+            /* 
+             * Scenario Number:  
+             *  19
+             *  
+             * Description: 
+             *      When I feeel good switch is toggled character attack increases by 20
+             *      When I feeel good switch is toggled character attack reduces by 20
+             *      
+             *      
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to AboutPage.xaml, AboutPage.xaml.cs
+             *      Changed AutoBattleEngine
+             *      Change to BattleEngineViewModel
+             *      Change to BattlePage.xaml.cs
+             *              
+             *                 
+             * Test Algrorithm:
+             *  Create Switch in the About page
+             *  Added Subscriber in battleengine view model
+             *  Update I feel good on toggle
+             *  Update attack value for charcter and monster based on I feel ggod
+             * 
+             * 
+             * Test Conditions:
+             *  Pass I feel good as true
+             *  Check the updated values
+             *  
+             *  
+             * 
+             * Validation:
+             *      Verify updated values 
+             *  
+             */
+            //Arrange
+            AutoBattleEngine auto = new AutoBattleEngine();
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                                       new CharacterModel
+                                       {
+                                           Speed = 200,
+                                           Level = 1,
+                                           CurrentHealth = 1,
+                                           ExperiencePoints = 1,
+                                           Name = "Mike",
+                                           ListOrder = 1,
+                                           Attack = 20,
+                                       });  
+            auto.CharacterList.Add(CharacterPlayerMike);
+            var MonsterPlayer = new PlayerInfoModel(
+                                   new MonsterModel
+                                   {
+                                       Speed = 300,
+                                       Level = 1,
+                                       CurrentHealth = 1,
+                                       ExperiencePoints = 1,
+                                       Name = "Monster",
+                                       ListOrder = 4,
+                                       Attack = 10,
+                                   }); 
+            auto.MonsterList.Add(MonsterPlayer);
+
+            // Act
+
+            
+            auto.CreateCharacterParty(true);
+           
+
+
+            // Assert
+            Assert.AreEqual(40, auto.CharacterList[0].Attack);
+            Assert.AreEqual(0 , auto.MonsterList[0].Attack);
+
+        }
+
     }
 }

@@ -50,6 +50,7 @@ namespace Game.ViewModels
         /// The Battle Engine
         /// </summary>
         public Engine.BattleEngine Engine = new Engine.BattleEngine();
+        public bool IFeelGood { get; set; } = false;
 
         /// <summary>
         /// Auto Battle Engine (used for scneario testing)
@@ -68,6 +69,12 @@ namespace Game.ViewModels
             {
                 await PickCharactersAsync(data as List<CharacterModel>);
             });
+
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "IFeelGood", async (obj, data) =>
+            {
+                IFeelGood = true;
+            });
+
         }
         
 
