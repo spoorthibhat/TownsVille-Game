@@ -1015,5 +1015,97 @@ namespace Scenario
             Assert.AreEqual(10 * round100Damage, BattleEngine.BattleMessagesModel.DamageAmount);
         }
 
+        [Test]
+        public async Task HackathonScenario_Scenario_47_Prime_AttributeTotal_Should_Cause_Max_Damage()
+        {
+            /* 
+             * Scenario Number:  
+             *  47
+             *  
+             * Description: 
+             *      Add Character whose attribute sum is a prime number
+             *      Character will always hit in such case
+             *      Character causes maximum damage
+             *      
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to CharacterMonsterBaseModel
+             *      Changed GetDamageRollValue method
+             *      Change to TurnEngine
+             *      Changed TurnAsAttack method
+             *      Added helper methods to check for prime in TurnEngine
+             *      Added new character to default data that sums to prime
+             *                 
+             * Test Algrorithm:
+             *  Create Character with attributes total to a prime number
+             *  Start battle by calling turn as attack
+             *  Check BattleMessageModel's HitStatus
+             *  Check BattleMessagesModel.DamageAmount
+             * 
+             * 
+             * Test Conditions:
+             *  Test with Character with attributes total to a prime number
+             *  Do Turn as attack and BattleMessageModel's HitStatus and DamageAmount
+             *  Test the output is as expected
+             *  
+             * 
+             * Validation:
+             *      Verify Hit
+             *      Verify DamageAmount on BattleMessagesModel 
+             *  
+             */
+            var TestItem = new ItemModel()
+            {
+                Name = "Test",
+                Attribute = AttributeEnum.Attack,
+                Location = ItemLocationEnum.PrimaryHand,
+                Damage = 10
+
+            };
+
+            await ItemIndexViewModel.Instance.CreateAsync(TestItem);
+
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel()
+            {
+                Attack = 10,
+                Defense = 0,
+                MaxHealth = 30,
+                CurrentHealth = 30,
+                Speed = 18,
+                Level = 2,
+                PrimaryHand = TestItem.Id
+            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    Attack = 5,
+                    CurrentHealth = 1,
+                    ExperienceTotal = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            // Act
+
+            var attackResult = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
+            Assert.AreEqual(11, BattleEngine.BattleMessagesModel.DamageAmount);
+        }
+
     }
 }
