@@ -851,7 +851,7 @@ namespace UnitTests.Models
             // Act
 
             // Add the second item, this will return the first item as the one replaced
-            var result = data.GetDamageRollValue();
+            var result = data.GetDamageRollValue(false);
 
             // Reset
             Game.Helpers.DiceHelper.DisableRandomValues();
