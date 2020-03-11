@@ -30,6 +30,8 @@ namespace Game.Models
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
+            Attack = data.Attack;
+            Defense = data.Defense;
             ImageURI = data.ImageURI;
             CurrentHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
@@ -60,6 +62,8 @@ namespace Game.Models
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
+            Attack = data.Attack;
+            Defense = data.Defense;
             ImageURI = data.ImageURI;
             CurrentHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
@@ -91,6 +95,8 @@ namespace Game.Models
             Name = data.Name;
             Description = data.Description;
             Speed = data.GetSpeed();
+            Attack = data.Attack;
+            Defense = data.Defense;
             ImageURI = data.ImageURI;
             CurrentHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;

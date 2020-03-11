@@ -632,7 +632,11 @@ namespace Game.Models
             {
                 if (myItem.Attribute == attributeEnum)
                 {
-                    myItem.ItemUseCount--; // Hackathon #27
+                    if (myItem.Attribute == AttributeEnum.Attack || myItem.Attribute == AttributeEnum.Defense)
+                    {
+                        myItem.ItemUseCount--; // Hackathon #27
+                    }
+                    
                     myReturn += myItem.Value;
 
                     // Adding for 43 of hackathon
