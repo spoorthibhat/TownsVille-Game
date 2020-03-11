@@ -530,6 +530,8 @@ namespace Scenario
             var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
             //Reset
 
+            BattleEngine.BattleScore.RoundCount = 0;
+
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(0, BattleEngine.CurrentAttacker.CurrentHealth);
@@ -936,7 +938,7 @@ namespace Scenario
         {
             /* 
             * Scenario Number:  
-            *      33
+            *      31
             *      
             * Description: 
             *      Make a player list
