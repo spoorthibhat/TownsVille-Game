@@ -21,10 +21,10 @@ namespace Game.Views
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         public List<PlayerInfoModel> SelectedCharacterList;
-        public Dictionary<PlayerInfoModel, int> SelectedCharacterMap = new Dictionary<PlayerInfoModel, int>();
+        public Dictionary<String, int> SelectedCharacterMap = new Dictionary<String, int>();
 
         public List<PlayerInfoModel> SelectedMonsterList ;
-        public Dictionary<PlayerInfoModel, int> SelectedMonsterMap = new Dictionary<PlayerInfoModel, int>();
+        public Dictionary<String, int> SelectedMonsterMap = new Dictionary<String, int>();
 
         public PlayerInfoModel CurrentPlayer;
 
@@ -93,7 +93,7 @@ namespace Game.Views
             for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
             {
                 AddImage(i, 0, SelectedCharacterList[i].ImageURI);
-                SelectedCharacterMap.Add(SelectedCharacterList[i], i);
+                SelectedCharacterMap.Add(SelectedCharacterList[i].Guid, i);
             }
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Game.Views
             for (int i = 0; i < SelectedMonsterList.Count; i++)
             {
                 AddImage(i, 5, SelectedMonsterList[i].ImageURI);
-                SelectedMonsterMap.Add(SelectedMonsterList[i], i);
+                SelectedMonsterMap.Add(SelectedMonsterList[i].Guid, i);
             }
         }
         /// <summary>
@@ -327,12 +327,12 @@ namespace Game.Views
             if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
             {
                 DefenderPosition[1] = 0;
-                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender];
+                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender.Guid];
             }
             if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
             {
                 DefenderPosition[1] = 5;
-                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender];
+                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender.Guid];
             }
             Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
             DefenderFrame.BackgroundColor = Color.CornflowerBlue;
@@ -347,12 +347,12 @@ namespace Game.Views
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
                 AttackerPosition[1] = 0;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
+                AttackerPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentAttacker.Guid]; 
             }
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackerPosition[1] = 5;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder - EngineViewModel.Engine.CharacterList.Count;
+                AttackerPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentAttacker.Guid]; 
             }
             Frame AttackerFrame = GetFrame(AttackerPosition[0],AttackerPosition[1]);
             AttackerFrame.BackgroundColor = Color.CornflowerBlue;
