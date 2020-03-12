@@ -7,6 +7,7 @@ using Game.Engine;
 using Game.Services;
 using System.Linq;
 using Game.ViewModels;
+using System.Diagnostics;
 
 namespace Game.Views
 {
@@ -124,6 +125,7 @@ namespace Game.Views
         public async void playBattle(bool isSpecialAbilityUsedForAttack)
         {
             EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, isSpecialAbilityUsedForAttack);
+            GameMessage();
             //Check if Defender Died 
             if(EngineViewModel.Engine.CurrentDefender.Alive == false)
             {
@@ -132,6 +134,8 @@ namespace Game.Views
             //check if battle is over
             if (EngineViewModel.Engine.CharacterList.Count < 1)
             {
+                ClearMessages();
+
                 GameOver();
 
                 return;
@@ -139,6 +143,8 @@ namespace Game.Views
             //check if round is over
             if (EngineViewModel.Engine.MonsterList.Count < 1)
             {
+                ClearMessages();
+
                 RoundOver();
 
                 EngineViewModel.Engine.NewRound(); // new round begun
@@ -481,5 +487,40 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
         #endregion PageHandlers
+
+        #region MessageHandelers
+
+        /// <summary>
+        /// Builds up the output message
+        /// </summary>
+        /// <param name="message"></param>
+        public void GameMessage()
+        {
+            // Output The Message that happened.
+            BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
+
+            Debug.WriteLine(BattleMessages.Text);
+
+            if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
+            {
+                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);
+            }
+
+            //htmlSource.Html = EngineViewModel.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
+            //HtmlBox.Source = HtmlBox.Source = htmlSource;
+        }
+
+        /// <summary>
+        ///  Clears the messages on the UX
+        /// </summary>
+        public void ClearMessages()
+        {
+            BattleMessages.Text = "";
+            //htmlSource.Html = EngineViewModel.Engine.BattleMessagesModel.GetHTMLBlankMessage();
+            //HtmlBox.Source = htmlSource;
+        }
+
+        #endregion MessageHandelers
+
     }
 }
