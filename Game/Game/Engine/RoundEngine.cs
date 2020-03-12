@@ -30,7 +30,7 @@ namespace Game.Engine
             EndRound();
 
             // Hack #48
-            GenerateSecretNumber();
+            // GenerateSecretNumber();
 
             // Populate New Monsters...
             AddMonstersToRound();

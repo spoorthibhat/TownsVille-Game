@@ -483,6 +483,7 @@ namespace Game.Engine
             }
 
             // Hack #48 When roll matches secret number, Character should die
+            /*
             if (d20 == SecretNumber)
             {
                 CurrentAttacker.Alive = false;
@@ -490,6 +491,7 @@ namespace Game.Engine
                 return HitStatusEnum.Unknown;
 
             }
+            */
             // Hack changes ended
 
             if (d20 == 1)
