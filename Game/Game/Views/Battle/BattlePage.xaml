@@ -95,6 +95,22 @@
                         <Button Clicked="AttackButton_Clicked" Text="Attack" Style="{StaticResource PrimaryButtonStyle}"></Button>
 
                     </StackLayout>
+                    <StackLayout x:Name="MessageDisplayBox" 
+                            IsVisible="true"
+                            Style="{StaticResource VerticalStack}" 
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+
+                        <Label x:Name="BattleMessages" 
+                                    HorizontalOptions="FillAndExpand" 
+                                    LineBreakMode="WordWrap" 
+                                    MaxLines="3"
+                                    LineHeight="1"
+                                    CharacterSpacing="1"
+                                    Style="{StaticResource LabelStyle}"
+                                    FontSize="Micro"/>
+                    </StackLayout>
+
                 </StackLayout>
             </StackLayout>
             <StackLayout 
@@ -120,7 +136,6 @@
                     
                 </StackLayout>
             </StackLayout>
-
             <StackLayout 
                     Style="{StaticResource VerticalStack}"
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
