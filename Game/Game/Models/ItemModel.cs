@@ -35,7 +35,7 @@ namespace Game.Models
         // Add Unique attributes for Item
 
         // Hackathon #27
-        public int ItemUseCount { get; set; } = 10;
+        public int ItemUseCount { get; set; } = 20;
 
         /// <summary>
         /// Default ItemModel

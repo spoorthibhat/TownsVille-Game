@@ -44,7 +44,9 @@ namespace Game.Models
         //Total Experience of the character/monster
         public int ExperienceTotal { get; set; } = 300;
 
-        public int ExperiencePoints { get; set; } = 0;
+
+        // The Experience available to given up
+        public int ExperienceRemaining { get; set; }
 
         //Speed of the character/monster
         public int Speed { get; set; } = 0;
@@ -169,12 +171,50 @@ namespace Game.Models
         {
             get
             {
+                var myReturn = 0;
                 var myItem = ItemModelHelper.GetItemModelFromGuid(PrimaryHand);
-                if (myItem == null)
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
                 {
-                    return 0;
+                    myReturn += myItem.Damage;
                 }
-                return myItem.Damage;
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Head);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Feet);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(OffHand);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(RightFinger);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(LeftFinger);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Necklace);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                return myReturn;
             }
         }
 
@@ -324,17 +364,37 @@ namespace Game.Models
             // Stop when experience is >= experience in the table
             for (var i = LevelTableHelper.Instance.LevelDetailsList.Count - 1; i > 0; i--)
             {
-                if (LevelTableHelper.Instance.LevelDetailsList[i].Experience >= ExperienceTotal)
+                // Check the Level
+                // If the Level is > Experience for the Index, increment the Level.
+                if (LevelTableHelper.Instance.LevelDetailsList[i].Experience <= ExperienceTotal)
                 {
                     var NewLevel = LevelTableHelper.Instance.LevelDetailsList[i].Level;
-                    if (NewLevel > this.Level)
-                    {
-                        this.Level = NewLevel;
-                        return true;
-                    }
+
+                    // When leveling up, the current health is adjusted up by an offset of the MaxHealth, rather than full restore
+                    var OldCurrentHealth = CurrentHealth;
+                    var OldMaxHealth = MaxHealth;
+
+                    // Set new Health
+                    // New health, is d10 of the new level.  So leveling up 1 level is 1 d10, leveling up 2 levels is 2 d10.
+                    var NewHealthAddition = DiceHelper.RollDice(NewLevel - Level, 10);
+
+                    // Increment the Max health
+                    MaxHealth += NewHealthAddition;
+
+                    // Calculate new current health
+                    // old max was 10, current health 8, new max is 15 so (15-(10-8)) = current health
+                    CurrentHealth = (MaxHealth - (OldMaxHealth - OldCurrentHealth));
+
+                    // Set the new level
+                    Level = NewLevel;
+
+                    // Done, exit
+                    return true;
                 }
             }
-   
+
+            return false;
+
             return false;
         }
 
@@ -348,7 +408,7 @@ namespace Game.Models
             if (Level < 0)
                 return false;
             this.Level = Level;
-            this.ExperiencePoints = LevelTableHelper.Instance.LevelDetailsList[Level].Experience;
+            this.ExperienceTotal = LevelTableHelper.Instance.LevelDetailsList[Level].Experience;
             this.Attack = LevelTableHelper.Instance.LevelDetailsList[Level].Attack;
             this.Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
             this.Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
@@ -362,15 +422,65 @@ namespace Game.Models
         /// This is needed during the game play
         /// </summary>
         /// <param name="ExtraExperienceToAdd"></param>
-        public bool AddExperience(int ExtraExperienceToAdd)
+        public bool AddExperience(int newExperience)
         {
-            this.ExperienceTotal += ExtraExperienceToAdd;
+            // Don't allow going lower in experience
+            if (newExperience < 0)
+            {
+                return false;
+            }
 
-            return true;
+            // Increment the Experience
+            ExperienceTotal += newExperience;
+
+            // Can't level UP if at max.
+            if (Level >= LevelTableHelper.MaxLevel)
+            {
+                return false;
+            }
+
+            // Then check for Level UP
+            // If experience is higher than the experience at the next level, level up is OK.
+            if (ExperienceTotal >= LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience)
+            {
+                return LevelUp();
+            }
+            return false;
         }
 
-        //TODO
-        public int CalculateExperienceEarned(int damage) { return 0; }
+        /// <summary>
+        /// Calculate The amount of Experience to give
+        /// Reduce the remaining by what was given
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public int CalculateExperienceEarned(int damage) 
+        {
+            if (damage < 1)
+            {
+                return 0;
+            }
+
+            int remainingHealth = Math.Max(CurrentHealth - damage, 0); // Go to 0 is OK...
+            double rawPercent = (double)remainingHealth / (double)CurrentHealth;
+            double deltaPercent = 1 - rawPercent;
+            var pointsAllocate = (int)Math.Floor(ExperienceRemaining * deltaPercent);
+
+            // Catch rounding of low values, and force to 1.
+            if (pointsAllocate < 1)
+            {
+                pointsAllocate = 1;
+            }
+
+            // Take away the points from remaining experience
+            ExperienceRemaining -= pointsAllocate;
+            if (ExperienceRemaining < 0)
+            {
+                pointsAllocate = 0;
+            }
+
+            return pointsAllocate;
+        }
 
         /// <summary>
         /// Based on the weapon damage input, makes changes in the monster's health

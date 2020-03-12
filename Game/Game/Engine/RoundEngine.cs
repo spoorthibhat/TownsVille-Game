@@ -226,7 +226,7 @@ namespace Game.Engine
 
             PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
                 .ThenByDescending(a => a.Level)
-                .ThenByDescending(a => a.ExperiencePoints)
+                .ThenByDescending(a => a.ExperienceTotal)
                 .ThenByDescending(a => a.PlayerType)
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
