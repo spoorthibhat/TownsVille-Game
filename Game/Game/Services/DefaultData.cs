@@ -236,9 +236,9 @@ namespace Game.Services
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 Head = HeadList[1].Id,
                 PrimaryHand = PrimaryHandList[0].Id,
-                Attack = 30,
-                MaxHealth = 50,
-                CurrentHealth = 50,
+                Attack = 15,
+                MaxHealth = 30,
+                CurrentHealth = 30,
                 Speed = 10
 
         },
@@ -250,10 +250,10 @@ namespace Game.Services
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 Head = HeadList[1].Id,
                 PrimaryHand = PrimaryHandList[0].Id,
-                Attack = 30,
+                Attack = 10,
                 Defense = 0,
-                MaxHealth = 55,
-                CurrentHealth = 55,
+                MaxHealth = 30,
+                CurrentHealth = 30,
                 Speed = 15
 
         },
@@ -264,9 +264,10 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Freeze,
                 Feet = FeetList[0].Id,
-                Attack = 25,
-                MaxHealth = 45,
-                CurrentHealth = 45
+                PrimaryHand = PrimaryHandList[1].Id,
+                Attack = 15,
+                MaxHealth = 30,
+                CurrentHealth = 30
             },
             new CharacterModel{
                 Name = "Buttercup",
@@ -275,9 +276,9 @@ namespace Game.Services
                 Level = 2,
                 SpecialAbility = SpecialAbilityEnum.Laser_Eyes,
                 PrimaryHand = PrimaryHandList[1].Id,
-                Attack = 25,
-                MaxHealth = 45,
-                CurrentHealth = 45
+                Attack = 15,
+                MaxHealth = 30,
+                CurrentHealth = 30
             },
              new CharacterModel{
                 Name = "Ms Keane",
@@ -286,9 +287,9 @@ namespace Game.Services
                 Level = 1,
                 SpecialAbility = SpecialAbilityEnum.Unknown,
                 Necklace = NecklassList[0].Id,
-                Attack = 5,
-                MaxHealth = 40,
-                CurrentHealth = 40
+                Attack = 10,
+                MaxHealth = 20,
+                CurrentHealth = 20
             },
                 new CharacterModel{
                 Name = "Professor",
@@ -325,14 +326,15 @@ namespace Game.Services
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
             var datalist = new List<MonsterModel>()
-            { 
+            {
             new MonsterModel{
                 Name = "Mojo jojo",
                 Description = "He is the master mind",
                 ImageURI = "mojo_jojo.png",
                 Level = 1,
                 Head = HeadList[1].Id,
-                Attack = 25,
+                PrimaryHand = PrimaryHandList[1].Id,
+                Attack = 15,
 
             },
             new MonsterModel{
@@ -341,6 +343,7 @@ namespace Game.Services
                 ImageURI = "him.png",
                 Level = 1,
                 Feet = FeetList[0].Id,
+                Head = HeadList[1].Id,
                 Attack = 20,
 
             },
@@ -359,6 +362,7 @@ namespace Game.Services
                 ImageURI = "rowdy_boys.png",
                 Level = 1,
                 Necklace = NecklassList[1].Id,
+                RightFinger = RightFingerList[0].Id,
                 Attack = 10,
             },
                 new MonsterModel{
@@ -367,6 +371,7 @@ namespace Game.Services
                 ImageURI = "gang_green.png",
                 Level = 1,
                 Feet = FeetList[0].Id,
+                PrimaryHand = PrimaryHandList[0].Id,
                 Attack = 15,
             },
                 new MonsterModel{
@@ -375,7 +380,7 @@ namespace Game.Services
                 ImageURI = "princess_morbucks.png",
                 Level = 1,
                 Head = HeadList[1].Id,
-                Attack = 20
+                Attack = 10
             },
 
             };

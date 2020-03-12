@@ -171,12 +171,50 @@ namespace Game.Models
         {
             get
             {
+                var myReturn = 0;
                 var myItem = ItemModelHelper.GetItemModelFromGuid(PrimaryHand);
-                if (myItem == null)
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
                 {
-                    return 0;
+                    myReturn += myItem.Damage;
                 }
-                return myItem.Damage;
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Head);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Feet);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(OffHand);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(RightFinger);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(LeftFinger);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                myItem = ItemModelHelper.GetItemModelFromGuid(Necklace);
+                if (myItem != null && myItem.Attribute == AttributeEnum.Attack)
+                {
+                    myReturn += myItem.Damage;
+                }
+
+                return myReturn;
             }
         }
 
