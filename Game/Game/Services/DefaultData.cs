@@ -31,7 +31,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack,
-                    ,
+                    
                 },
         };
 
