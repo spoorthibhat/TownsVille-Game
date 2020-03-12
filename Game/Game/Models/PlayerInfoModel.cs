@@ -25,7 +25,8 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperienceTotal = data.ExperienceTotal;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -57,7 +58,8 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperienceTotal = data.ExperienceTotal;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -77,6 +79,9 @@ namespace Game.Models
             Feet = data.Feet;
             PrimaryHand = data.PrimaryHand;
             OffHand = data.OffHand;
+
+            // Set current experience to be 1 above minimum.
+            ExperienceTotal = LevelTableHelper.Instance.LevelDetailsList[Level - 1].Experience + 1;
 
         }
 
@@ -90,7 +95,8 @@ namespace Game.Models
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperienceTotal = data.ExperienceTotal;
+            ExperienceRemaining = data.ExperienceRemaining;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -110,6 +116,9 @@ namespace Game.Models
             Feet = data.Feet;
             PrimaryHand = data.PrimaryHand;
             OffHand = data.OffHand;
+
+            // Set amount to give to be 1 below max for that level.
+            ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Game.Services;
 using SQLite;
+using Game.Helpers;
 
 namespace Game.Models
 {
@@ -23,6 +24,8 @@ namespace Game.Models
             this.Description = "Character Description";
             this.ImageURI = "default_character.png";
             this.Level = 1;
+            ExperienceRemaining = LevelTableHelper.Instance.LevelDetailsList[Level + 1].Experience - 1;
+
         }
 
         /// <summary>
@@ -51,6 +54,7 @@ namespace Game.Models
             Alive = newData.Alive;
             Level = newData.Level;
             ExperienceTotal = newData.ExperienceTotal;
+            ExperienceRemaining = newData.ExperienceRemaining;
             Speed = newData.Speed;
             Attack = newData.Attack;
             Defense = newData.Defense;
