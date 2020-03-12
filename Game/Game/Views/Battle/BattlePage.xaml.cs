@@ -237,7 +237,12 @@ namespace Game.Views
                 ForwardButton.IsVisible = false;
                 UpButton.IsVisible = false;
                 DownButton.IsVisible = false;
+                return;
             }
+            BackwardButton.IsVisible = true;
+            ForwardButton.IsVisible = true;
+            UpButton.IsVisible = true;
+            DownButton.IsVisible = true;
         }
         /// <summary>
         /// Modify UI to show player is Dead
