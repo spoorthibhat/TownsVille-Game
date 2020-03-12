@@ -21,7 +21,7 @@ namespace Game.Services
                     Value = 9,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Defense,
-                    ItemUseCount = 10},
+                    },
             new ItemModel {
                     Name = "Firing Crown",
                     Description = "Go SU RedHawks",
@@ -31,7 +31,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack,
-                    ItemUseCount = 3,
+                    ,
                 },
         };
 
@@ -49,7 +49,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Defense,
-                    ItemUseCount = 10},
+                    },
             new ItemModel {
                     Name = "Warm sock",
                     Description = "Protects against ice and fire attacks",
@@ -59,7 +59,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Defense,
-                    ItemUseCount = 10
+                    
             },
         };
 
@@ -77,7 +77,7 @@ namespace Game.Services
                     Value = 10,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack,
-                    ItemUseCount = 10},
+                    },
             new ItemModel {
                     Name = "Thunder bolt",
                     Description = "Go SU RedHawks",
@@ -87,7 +87,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack,
-                    ItemUseCount = 2
+                    
             },
         };
 
@@ -105,7 +105,7 @@ namespace Game.Services
                     Value = 10,
                     Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Defense,
-            ItemUseCount = 10},
+            },
         };
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
                     Attribute = AttributeEnum.Attack,
-                    ItemUseCount = 7
+                    
     },
                 new ItemModel {
                     Name = "Muffler",
@@ -133,7 +133,7 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.Necklass,
                     Attribute = AttributeEnum.Defense,
-                    ItemUseCount = 10
+                    
 },
         };
 
@@ -151,7 +151,6 @@ namespace Game.Services
                     Value = 5,
                     Location = ItemLocationEnum.LeftFinger,
                     Attribute = AttributeEnum.Defense,
-                    ItemUseCount = 10
     },
             };
 
@@ -168,8 +167,7 @@ namespace Game.Services
                     Damage = 0,
                     Value = 5,
                     Location = ItemLocationEnum.RightFinger,
-                    Attribute = AttributeEnum.Attack,
-                    ItemUseCount = 10},
+                    Attribute = AttributeEnum.Attack,},
         };
 
         /// <summary>
