@@ -186,7 +186,8 @@ namespace Game.Views
         {
             ResetCurrentPlayers();
             int RoundNumber = EngineViewModel.Engine.BattleScore.RoundCount;
-            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn(RoundNumber); //get the attacker
+            EngineViewModel.Engine.PlayerCurrent = EngineViewModel.Engine.GetNextPlayerTurn(RoundNumber); //get the attacker
+            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.PlayerCurrent;
             SetCurrentAttacker();
 
             if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
