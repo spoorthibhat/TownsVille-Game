@@ -371,7 +371,8 @@ namespace Scenario
             BattleEngine.MonsterHitValue = 20;
             //Act
             var result = BattleEngine.TurnAsAttack(MonsterPlayer, CharacterPlayer, false);
-
+            //Reset
+            BattleEngine.MonsterHitValue = 0;
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(true, BattleEngine.BattleMessagesModel.AttackStatus.Contains("20"));
@@ -451,7 +452,8 @@ namespace Scenario
             BattleEngine.CharacterHitValue = 15;
             //Act
             var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer, false);
-
+            //Reset
+            BattleEngine.CharacterHitValue = 0;
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(true,BattleEngine.BattleMessagesModel.AttackStatus.Contains("15"));
