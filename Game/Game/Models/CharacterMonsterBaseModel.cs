@@ -44,7 +44,6 @@ namespace Game.Models
         //Total Experience of the character/monster
         public int ExperienceTotal { get; set; } = 300;
 
-        public int ExperiencePoints { get; set; } = 0;
 
         // The Experience available to given up
         public int ExperienceRemaining { get; set; }
