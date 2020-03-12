@@ -50,7 +50,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 20,
                 CurrentHealth = 100,
-                ExperiencePoints = 1000,
+                ExperienceTotal = 1000,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -65,7 +65,7 @@ namespace UnitTests.Engine
                 Speed = 1,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "C",
                 ListOrder = 10
             };
@@ -98,7 +98,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 20,
                 CurrentHealth = 100,
-                ExperiencePoints = 1000,
+                ExperienceTotal = 1000,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -113,7 +113,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "C",
                 ListOrder = 10
             };
@@ -147,7 +147,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 100,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -163,7 +163,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "C",
                 ListOrder = 10,
             };
@@ -196,7 +196,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "A",
                 ListOrder = 1,
                 Guid = "me"
@@ -211,7 +211,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "A",
                 ListOrder = 10
             };
@@ -247,7 +247,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -262,7 +262,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "ZZ",
                 ListOrder = 10
             };
@@ -297,7 +297,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -348,7 +348,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -398,7 +398,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -448,7 +448,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -497,7 +497,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -534,7 +534,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -570,7 +570,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Characer",
                 ListOrder = 1,
             };
@@ -580,7 +580,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Monster",
                 ListOrder = 1,
             };
@@ -618,7 +618,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Characer",
                 ListOrder = 1,
             };
@@ -628,7 +628,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Monster",
                 ListOrder = 1,
             };
@@ -666,7 +666,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Characer",
                 ListOrder = 1,
             };
@@ -676,7 +676,7 @@ namespace UnitTests.Engine
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperiencePoints = 1,
+                ExperienceTotal = 1,
                 Name = "Monster",
                 ListOrder = 1,
             };
@@ -715,7 +715,7 @@ namespace UnitTests.Engine
                                             Speed = 200,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Mike",
                                             ListOrder = 1,
                                         });
@@ -726,7 +726,7 @@ namespace UnitTests.Engine
                                             Speed = 20,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Doug",
                                             ListOrder = 2,
                                         });
@@ -737,7 +737,7 @@ namespace UnitTests.Engine
                                             Speed = 2,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Sue",
                                             ListOrder = 3,
                                         });
@@ -748,7 +748,7 @@ namespace UnitTests.Engine
                                         Speed = 1,
                                         Level = 1,
                                         CurrentHealth = 1,
-                                        ExperiencePoints = 1,
+                                        ExperienceTotal = 1,
                                         Name = "Monster",
                                         ListOrder = 4,
                                     });
@@ -793,7 +793,7 @@ namespace UnitTests.Engine
                                             Speed = 200,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Mike",
                                             ListOrder = 1,
                                         });
@@ -804,7 +804,7 @@ namespace UnitTests.Engine
                                             Speed = 20,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Doug",
                                             ListOrder = 2,
                                         });
@@ -815,7 +815,7 @@ namespace UnitTests.Engine
                                             Speed = 2,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Sue",
                                             ListOrder = 3,
                                         });
@@ -826,7 +826,7 @@ namespace UnitTests.Engine
                                         Speed = 1,
                                         Level = 1,
                                         CurrentHealth = 1,
-                                        ExperiencePoints = 1,
+                                        ExperienceTotal = 1,
                                         Name = "Monster",
                                         ListOrder = 4,
                                     });
@@ -871,7 +871,7 @@ namespace UnitTests.Engine
                                             Speed = 200,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Mike",
                                             ListOrder = 1,
                                         });
@@ -882,7 +882,7 @@ namespace UnitTests.Engine
                                             Speed = 20,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Doug",
                                             ListOrder = 2,
                                         });
@@ -893,7 +893,7 @@ namespace UnitTests.Engine
                                             Speed = 2,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Sue",
                                             ListOrder = 3,
                                         });
@@ -904,7 +904,7 @@ namespace UnitTests.Engine
                                         Speed = 1,
                                         Level = 1,
                                         CurrentHealth = 1,
-                                        ExperiencePoints = 1,
+                                        ExperienceTotal = 1,
                                         Name = "Monster",
                                         ListOrder = 4,
                                     });
@@ -950,7 +950,7 @@ namespace UnitTests.Engine
                                             Speed = 2,
                                             Level = 1,
                                             CurrentHealth = 1,
-                                            ExperiencePoints = 1,
+                                            ExperienceTotal = 1,
                                             Name = "Sue",
                                             ListOrder = 3,
                                         });
@@ -961,7 +961,7 @@ namespace UnitTests.Engine
                                         Speed = 1,
                                         Level = 1,
                                         CurrentHealth = 1,
-                                        ExperiencePoints = 1,
+                                        ExperienceTotal = 1,
                                         Name = "Monster",
                                         ListOrder = 4,
                                     });
