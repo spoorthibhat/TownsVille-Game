@@ -303,7 +303,7 @@ namespace Game.Views
                 Frame AttackerFrame = GetFrame(AttackerPosition[0], AttackerPosition[1]);
                 if (AttackerFrame == null)
                 {
-                    AddImage(EngineViewModel.Engine.CurrentAttacker.ListOrder, 0, CurrentPlayer.ImageURI); //Column is always 0 because move ability is only for characters
+                    AddImage(SelectedCharacterMap[EngineViewModel.Engine.CurrentAttacker.Guid], 0, CurrentPlayer.ImageURI); //Column is always 0 because move ability is only for characters
                     RemoveImage(AttackerPosition[0], AttackerPosition[1]);
                 }
                 else
