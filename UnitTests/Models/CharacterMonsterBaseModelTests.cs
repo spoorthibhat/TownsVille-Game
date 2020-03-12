@@ -48,7 +48,6 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result.ListOrder);
             Assert.AreEqual(0, result.Speed);
             Assert.AreEqual(1, result.Level);
-            Assert.AreEqual(0, result.ExperiencePoints);
             Assert.AreEqual(1, result.CurrentHealth);
             Assert.AreEqual(1, result.MaxHealth);
             Assert.AreEqual(300, result.ExperienceTotal);
@@ -79,7 +78,6 @@ namespace UnitTests.Models
             result.ListOrder = 200;
             result.Speed = 300;
             result.Level = 400;
-            result.ExperiencePoints = 500;
             result.CurrentHealth = 600;
             result.MaxHealth = 700;
             result.ExperienceTotal = 800;
@@ -105,7 +103,6 @@ namespace UnitTests.Models
             Assert.AreEqual(200, result.ListOrder);
             Assert.AreEqual(300, result.Speed);
             Assert.AreEqual(400, result.Level);
-            Assert.AreEqual(500, result.ExperiencePoints);
             Assert.AreEqual(600, result.CurrentHealth);
             Assert.AreEqual(700, result.MaxHealth);
             Assert.AreEqual(800, result.ExperienceTotal);

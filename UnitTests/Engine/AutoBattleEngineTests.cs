@@ -84,7 +84,7 @@ namespace UnitTests.Engine
                                 Speed = -1,
                                 Level = 10,
                                 CurrentHealth = 11,
-                                ExperiencePoints = 1,
+                                ExperienceTotal = 1,
                                 Name = "Mike",
                                 ListOrder = 1,
                             });
