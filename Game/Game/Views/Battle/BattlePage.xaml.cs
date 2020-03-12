@@ -11,24 +11,24 @@ using System.Diagnostics;
 
 namespace Game.Views
 {
-	/// <summary>
-	/// The Main Game Page
-	/// </summary>
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BattlePage: ContentPage
-	{
+    /// <summary>
+    /// The Main Game Page
+    /// </summary>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class BattlePage : ContentPage
+    {
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         public List<PlayerInfoModel> SelectedCharacterList;
-        public Dictionary<PlayerInfoModel, int> SelectedCharacterMap = new Dictionary<PlayerInfoModel, int>();
+        public Dictionary<String, int> SelectedCharacterMap = new Dictionary<String, int>();
 
-        public List<PlayerInfoModel> SelectedMonsterList ;
-        public Dictionary<PlayerInfoModel, int> SelectedMonsterMap = new Dictionary<PlayerInfoModel, int>();
+        public List<PlayerInfoModel> SelectedMonsterList;
+        public Dictionary<String, int> SelectedMonsterMap = new Dictionary<String, int>();
 
         public PlayerInfoModel CurrentPlayer;
 
-       // public BattleEngine Battle;
+        // public BattleEngine Battle;
         public bool UseSpecialAbility = false;
 
         public int[] AttackerPosition = new int[2];
@@ -37,11 +37,11 @@ namespace Game.Views
         /// <summary>
         /// Constructor
         /// </summary>
-        public BattlePage (int ThemeIndex)
-		{
-			InitializeComponent ();
+        public BattlePage(int ThemeIndex)
+        {
+            InitializeComponent();
             SetTheme(ThemeIndex);
-            
+
             //Battle = new BattleEngine();
             foreach (CharacterModel Character in BattleEngineViewModel.Instance.SelectedCharacters)
             {
@@ -54,7 +54,7 @@ namespace Game.Views
 
             if (EngineViewModel.IFeelGood == true)
             {
-                foreach ( PlayerInfoModel character in SelectedCharacterList)
+                foreach (PlayerInfoModel character in SelectedCharacterList)
                 {
                     character.Attack += 20;
                 }
@@ -93,7 +93,7 @@ namespace Game.Views
             for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
             {
                 AddImage(i, 0, SelectedCharacterList[i].ImageURI);
-                SelectedCharacterMap.Add(SelectedCharacterList[i], i);
+                SelectedCharacterMap.Add(SelectedCharacterList[i].Guid, i);
             }
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Game.Views
             for (int i = 0; i < SelectedMonsterList.Count; i++)
             {
                 AddImage(i, 5, SelectedMonsterList[i].ImageURI);
-                SelectedMonsterMap.Add(SelectedMonsterList[i], i);
+                SelectedMonsterMap.Add(SelectedMonsterList[i].Guid, i);
             }
         }
         /// <summary>
@@ -127,7 +127,7 @@ namespace Game.Views
             EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, isSpecialAbilityUsedForAttack);
             GameMessage();
             //Check if Defender Died 
-            if(EngineViewModel.Engine.CurrentDefender.Alive == false)
+            if (EngineViewModel.Engine.CurrentDefender.Alive == false)
             {
                 ShowPlayerIsDead();
             }
@@ -256,7 +256,7 @@ namespace Game.Views
         /// </summary>
         private void ShowPlayerIsDead()
         {
-            Frame DefenderFrame = GetFrame(DefenderPosition[0] , DefenderPosition[1]);
+            Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
             DefenderFrame.BackgroundColor = Color.Red;
             DefenderFrame.IsVisible = true;
         }
@@ -314,7 +314,7 @@ namespace Game.Views
             }
             if (EngineViewModel.Engine.CurrentDefender != null && EngineViewModel.Engine.CurrentDefender.Alive == true)
             {
-                Frame DefenderFrame = GetFrame(DefenderPosition[0] , DefenderPosition[1]);
+                Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
                 DefenderFrame.IsVisible = false;
             }
         }
@@ -327,12 +327,12 @@ namespace Game.Views
             if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Character)
             {
                 DefenderPosition[1] = 0;
-                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender];
+                DefenderPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentDefender.Guid];
             }
             if (EngineViewModel.Engine.CurrentDefender.PlayerType == PlayerTypeEnum.Monster)
             {
                 DefenderPosition[1] = 5;
-                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender];
+                DefenderPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentDefender.Guid];
             }
             Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
             DefenderFrame.BackgroundColor = Color.CornflowerBlue;
@@ -347,14 +347,14 @@ namespace Game.Views
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
                 AttackerPosition[1] = 0;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder;
+                AttackerPosition[0] = SelectedCharacterMap[EngineViewModel.Engine.CurrentAttacker.Guid];
             }
             if (EngineViewModel.Engine.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 AttackerPosition[1] = 5;
-                AttackerPosition[0] = EngineViewModel.Engine.CurrentAttacker.ListOrder - EngineViewModel.Engine.CharacterList.Count;
+                AttackerPosition[0] = SelectedMonsterMap[EngineViewModel.Engine.CurrentAttacker.Guid];
             }
-            Frame AttackerFrame = GetFrame(AttackerPosition[0],AttackerPosition[1]);
+            Frame AttackerFrame = GetFrame(AttackerPosition[0], AttackerPosition[1]);
             AttackerFrame.BackgroundColor = Color.CornflowerBlue;
             AttackerFrame.IsVisible = true;
         }
@@ -422,7 +422,7 @@ namespace Game.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
-		{
+        {
             playBattle(false);
 
         }
@@ -449,11 +449,11 @@ namespace Game.Views
         async void PickItemsButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new PickItemsPage()));
-           
+
             RoundOverDisplay.IsVisible = false;
 
             GameUIDisplay.IsVisible = true;
-            
+
         }
         /// <summary>
         /// Close Round Over Display and Show Battle grid
