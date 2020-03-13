@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Product>TownsVille Game</Product>
+    <Description>Powerpuff girls save the city</Description>
+    <Copyright>2020</Copyright>
+    <Company>Seattle University</Company>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
