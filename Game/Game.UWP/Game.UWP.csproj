@@ -106,6 +106,8 @@
   <ItemGroup>
     <Content Include="absorbing_shoes.png" />
     <Content Include="amoeba_boys.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
     <Content Include="AutoBattle.PNG" />
     <Content Include="backward_arrow.png" />
     <Content Include="battleboard.jpg" />
