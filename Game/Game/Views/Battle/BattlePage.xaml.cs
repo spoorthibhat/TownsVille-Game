@@ -26,6 +26,8 @@ namespace Game.Views
         public List<PlayerInfoModel> SelectedMonsterList;
         public Dictionary<String, int> SelectedMonsterMap = new Dictionary<String, int>();
 
+        public Dictionary<String, bool> SpecialAbilityMap = new Dictionary<String, bool>();
+
         public PlayerInfoModel CurrentPlayer;
 
         // public BattleEngine Battle;
@@ -94,6 +96,7 @@ namespace Game.Views
             {
                 AddImage(i, 0, SelectedCharacterList[i].ImageURI);
                 SelectedCharacterMap.Add(SelectedCharacterList[i].Guid, i);
+                SpecialAbilityMap.Add(SelectedCharacterList[i].Guid, true);
             }
         }
         /// <summary>
@@ -195,13 +198,6 @@ namespace Game.Views
             EngineViewModel.Engine.PlayerCurrent = EngineViewModel.Engine.GetNextPlayerTurn(RoundNumber); //get the attacker
             EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.PlayerCurrent;
             SetCurrentAttacker();
-            // Added NEW
-            SpecialAbility.IsEnabled = false;
-
-            if (EngineViewModel.Engine.CurrentAttacker.SpecialAbility != SpecialAbilityEnum.Unknown && EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
-            {
-                SpecialAbility.IsEnabled = true;
-            }
 
             CurrentPlayer = EngineViewModel.Engine.CurrentAttacker;
             CheckPlayerAbilities();
@@ -246,12 +242,20 @@ namespace Game.Views
                 ForwardButton.IsVisible = false;
                 UpButton.IsVisible = false;
                 DownButton.IsVisible = false;
+                SpecialAbility.IsEnabled = false;
                 return;
             }
             BackwardButton.IsVisible = true;
             ForwardButton.IsVisible = true;
             UpButton.IsVisible = true;
             DownButton.IsVisible = true;
+
+            if (EngineViewModel.Engine.CurrentAttacker.SpecialAbility != SpecialAbilityEnum.Unknown && SpecialAbilityMap[EngineViewModel.Engine.CurrentAttacker.Guid] == true)
+            {
+                SpecialAbility.IsEnabled = true;
+                return;
+            }
+            SpecialAbility.IsEnabled = false;
         }
         /// <summary>
         /// Modify UI to show player is Dead
@@ -443,18 +447,14 @@ namespace Game.Views
         }
         /// <summary>
         /// Special Ability Action
+        /// Update Special ability map 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
-            //Just for testing
+            SpecialAbilityMap[EngineViewModel.Engine.CurrentAttacker.Guid] = false;
             playBattle(true);
-            EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed = false;
-            if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == false)
-            {
-                SpecialAbility.IsEnabled = false;
-            }
         }
         /// <summary>
         /// Navigate to pick items page
