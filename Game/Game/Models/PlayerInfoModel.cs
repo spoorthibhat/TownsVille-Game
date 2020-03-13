@@ -36,6 +36,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
+            SpecialAbility = data.SpecialAbility;
+            ISSpecialAbilityNotUsed = data.ISSpecialAbilityNotUsed;
 
             // Set the strings for the items
             Head = data.Head;
@@ -69,6 +71,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.GetCurrentHealthTotal;
             MaxHealth = data.GetMaxHealthTotal;
+            SpecialAbility = data.SpecialAbility;
+            ISSpecialAbilityNotUsed = data.ISSpecialAbilityNotUsed;
 
             // Set the strings for the items
             Head = data.Head;
