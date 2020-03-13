@@ -258,6 +258,7 @@ namespace Game.Views
         /// </summary>
         private void ShowPlayerIsDead()
         {
+            AddImageOpacity(DefenderPosition[0], DefenderPosition[1]);
             Frame DefenderFrame = GetFrame(DefenderPosition[0], DefenderPosition[1]);
             DefenderFrame.BackgroundColor = Color.Red;
             DefenderFrame.IsVisible = true;
@@ -280,6 +281,18 @@ namespace Game.Views
             foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == row && Grid.GetColumn(child) == column))
             {
                 child.IsVisible = false;
+            }
+        }
+        /// <summary>
+        /// Adding opacity to Image at a given position
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        private void AddImageOpacity(int row, int column)
+        {
+            foreach (var child in BattleGrid.Children.Where(child => Grid.GetRow(child) == row && Grid.GetColumn(child) == column))
+            {
+                child.Opacity = 0.5;
             }
         }
         /// <summary>
@@ -498,12 +511,10 @@ namespace Game.Views
         /// <param name="message"></param>
         public void GameMessage()
         {
-            BattleMessages.Text = string.Empty;
+            ClearMessages();
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
-
-            Debug.WriteLine(BattleMessages.Text);
-
+            
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);

@@ -239,22 +239,7 @@ namespace Game.Services
                 CurrentHealth = 30,
                 Speed = 10
 
-        },
-        new CharacterModel{
-                Name = "Hacker 47",
-                Description = "Select me to see Hack#47 doing Max Damage",
-                ImageURI = "default_character.png",
-                Level = 2,
-                SpecialAbility = SpecialAbilityEnum.Unknown,
-                Head = HeadList[1].Id,
-                PrimaryHand = PrimaryHandList[0].Id,
-                Attack = 10,
-                Defense = 0,
-                MaxHealth = 30,
-                CurrentHealth = 30,
-                Speed = 15
-
-        },
+            },
             new CharacterModel{
                 Name = "Bubbles",
                 Description = "She is the emotional glue of the superhero trio",
