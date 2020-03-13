@@ -92,10 +92,12 @@ namespace Game.Views
         private void LoadCharacters()
         {
             SelectedCharacterMap.Clear();
+            SpecialAbilityMap.Clear();
             for (int i = 0; i < SelectedCharacterList.Count && SelectedCharacterList[i].Alive; i++)
             {
                 AddImage(i, 0, SelectedCharacterList[i].ImageURI);
                 SelectedCharacterMap.Add(SelectedCharacterList[i].Guid, i);
+               
                 SpecialAbilityMap.Add(SelectedCharacterList[i].Guid, true);
             }
         }
