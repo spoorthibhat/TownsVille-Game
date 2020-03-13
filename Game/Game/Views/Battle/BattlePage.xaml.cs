@@ -514,7 +514,12 @@ namespace Game.Views
             ClearMessages();
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
-            
+
+            if (SpecialAbility.IsEnabled)
+            {
+                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.GetSpecialAbilityMessage(), BattleMessages.Text);
+            }
+
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);
