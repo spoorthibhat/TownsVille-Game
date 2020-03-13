@@ -195,8 +195,10 @@ namespace Game.Views
             EngineViewModel.Engine.PlayerCurrent = EngineViewModel.Engine.GetNextPlayerTurn(RoundNumber); //get the attacker
             EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.PlayerCurrent;
             SetCurrentAttacker();
+            // Added NEW
+            SpecialAbility.IsEnabled = false;
 
-            if (EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
+            if (EngineViewModel.Engine.CurrentAttacker.SpecialAbility != SpecialAbilityEnum.Unknown && EngineViewModel.Engine.CurrentAttacker.ISSpecialAbilityNotUsed == true)
             {
                 SpecialAbility.IsEnabled = true;
             }
