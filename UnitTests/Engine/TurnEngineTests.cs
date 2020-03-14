@@ -234,12 +234,17 @@ namespace UnitTests.Engine
 
             DiceHelper.EnableRandomValues();
             DiceHelper.SetForcedRandomValue(3); // Always roll a 3.
-            
+
             // Act
+            Engine.CharacterHitValue = 20;
+            Engine.CurrentAttacker = new PlayerInfoModel();
+            Engine.CurrentAttacker.PlayerType = PlayerTypeEnum.Character;
             var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
 
             // Reset
             DiceHelper.DisableRandomValues();
+            Engine.CharacterHitValue = 0;
+            
 
             // Assert
             Assert.AreEqual(HitStatusEnum.Hit, result);
@@ -296,10 +301,12 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(20);
 
             // Act
+            Engine.CharacterHitValue = 20;
             var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
 
             // Reset
             DiceHelper.DisableRandomValues();
+            Engine.CharacterHitValue = 0;
 
             // Assert
             Assert.AreEqual(HitStatusEnum.Hit, result);
