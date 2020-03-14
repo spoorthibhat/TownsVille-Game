@@ -443,7 +443,7 @@ namespace Game.Engine
 
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
-           // myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+            myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
 
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
@@ -475,13 +475,14 @@ namespace Game.Engine
         {
             var d20 = DiceHelper.RollDice(1, 20);
             //Hack #3, Sets the attaker with a HitValue
-            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Character && CharacterHitValue != 0)
+            
+            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Character && this.CharacterHitValue != 0)
             {
-                d20 = CharacterHitValue;
+                d20 = this.CharacterHitValue;
             }
-            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Monster && MonsterHitValue != 0)
+            if (CurrentAttacker.PlayerType == PlayerTypeEnum.Monster && this.MonsterHitValue != 0)
             {
-                d20 = MonsterHitValue;
+                d20 = this.MonsterHitValue;
             }
 
             // Hack #48 When roll matches secret number, Character should die
