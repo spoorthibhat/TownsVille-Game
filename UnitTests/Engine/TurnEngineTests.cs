@@ -261,6 +261,8 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(2);
 
             // Act
+            Engine.CurrentAttacker = new PlayerInfoModel();
+            Engine.CurrentAttacker.PlayerType = PlayerTypeEnum.Character;
             var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
 
             // Reset
@@ -281,6 +283,8 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(1);
 
             // Act
+            Engine.CurrentAttacker = new PlayerInfoModel();
+            Engine.CurrentAttacker.PlayerType = PlayerTypeEnum.Character;
             var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
 
             // Reset
@@ -301,6 +305,8 @@ namespace UnitTests.Engine
             DiceHelper.SetForcedRandomValue(20);
 
             // Act
+            Engine.CurrentAttacker = new PlayerInfoModel();
+            Engine.CurrentAttacker.PlayerType = PlayerTypeEnum.Character;
             Engine.CharacterHitValue = 20;
             var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
 
