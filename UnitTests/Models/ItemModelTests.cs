@@ -95,7 +95,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual("This is an Item , Item Description for Unknown with Unknown+0 , Damage : 0 , Range : 0", result);
+            Assert.AreEqual("This is an Item , Item Description for Head with Attack+0 , Damage : 0 , Range : 0", result);
         }
 
     }
