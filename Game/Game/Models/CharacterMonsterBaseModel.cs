@@ -395,7 +395,7 @@ namespace Game.Models
 
             return false;
 
-            return false;
+           
         }
 
         /// <summary>
