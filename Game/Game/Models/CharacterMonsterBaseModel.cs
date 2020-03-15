@@ -368,6 +368,7 @@ namespace Game.Models
                 // If the Level is > Experience for the Index, increment the Level.
                 if (LevelTableHelper.Instance.LevelDetailsList[i].Experience <= ExperienceTotal)
                 {
+                    
                     var NewLevel = LevelTableHelper.Instance.LevelDetailsList[i].Level;
 
                     // When leveling up, the current health is adjusted up by an offset of the MaxHealth, rather than full restore
@@ -386,6 +387,10 @@ namespace Game.Models
                     CurrentHealth = (MaxHealth - (OldMaxHealth - OldCurrentHealth));
 
                     // Set the new level
+                    if (NewLevel < Level)
+                    {
+                        return false;
+                    }
                     Level = NewLevel;
 
                     // Done, exit

@@ -316,7 +316,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void CharacterMonsterBaseModel_LevelUp_Should_Pass()
+        public void CharacterMonsterBaseModel_LevelUp__neg_exp_Should_Fail()
         {
             // Arrange
             var data = new CharacterMonsterBaseModel<CharacterModel>();
@@ -330,7 +330,7 @@ namespace UnitTests.Models
             data.Level = 1; //default value
             data.ExperienceTotal = 300; // default value
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
 
         [Test]
@@ -359,7 +359,7 @@ namespace UnitTests.Models
 
             // Act
             data.Level = 29;
-            data.ExperienceTotal = 300;
+            data.ExperienceTotal = 355001;
             var result = data.LevelUp();
 
             // Reset
