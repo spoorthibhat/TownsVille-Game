@@ -37,8 +37,6 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
-        /*
-        
         [Test]
         public async Task ItemService_GetItemsFromServerGetAsync_Valid_0_Should_Pass()
         {
@@ -52,9 +50,7 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(true, result.Count()>1);
         }
-        
 
-            
         [Test]
         public async Task ItemService_GetItemsFromServerGetAsync_Valid_1_Should_Pass()
         {
@@ -118,29 +114,27 @@ namespace UnitTests.Services
             Assert.AreEqual(true, result.Count() == 10);
         }
 
-        [Test]
-        public async Task ItemService_GetItemsFromServerPostAsync_InValid_Should_Fail()
-        {
-            // Arrange
-            var number = 10;
-            var level = 6;  // Max Value of 6
-            var attribute = AttributeEnum.Unknown;  // Any Attribute
-            var location = ItemLocationEnum.Unknown;    // Any Location
-            var random = true;  // Random between 1 and Level
-            var updateDataBase = true;  // Add them to the DB
-            var category = 0;   // What category to filter down to, 0 is all
+        //[Test]
+        //public async Task ItemService_GetItemsFromServerPostAsync_InValid_Should_Fail()
+        //{
+        //    // Arrange
+        //    var number = -1;
+        //    var level = -1;  // Max Value of 6
+        //    var attribute = AttributeEnum.Unknown;  // Any Attribute
+        //    var location = ItemLocationEnum.Unknown;    // Any Location
+        //    var random = true;  // Random between 1 and Level
+        //    var updateDataBase = true;  // Add them to the DB
+        //    var category = 0;   // What category to filter down to, 0 is all
 
-            // will return shoes value 10 of speed.
+        //    // will return shoes value 10 of speed.
 
-            // Act
-            var result = await ItemService.GetItemsFromServerPostAsync(-1, -1, attribute, location, -1, random, updateDataBase);
+        //    // Act
+        //    var result = await ItemService.GetItemsFromServerPostAsync(number,level, attribute, location, category, random, updateDataBase);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.AreEqual(true, result.Count()==0);
-        }
-        */
+        //    // Assert
+        //    Assert.AreEqual(true, result.Count()==0);
+        //}
     }
-
 }
