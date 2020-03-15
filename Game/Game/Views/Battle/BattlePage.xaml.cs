@@ -127,7 +127,7 @@ namespace Game.Views
         /// <summary>
         /// Game logic method, called when attacker attacks defender
         /// </summary>
-        public async void playBattle(bool isSpecialAbilityUsedForAttack)
+        public void playBattle(bool isSpecialAbilityUsedForAttack)
         {
             EngineViewModel.Engine.TurnAsAttack(EngineViewModel.Engine.CurrentAttacker, EngineViewModel.Engine.CurrentDefender, isSpecialAbilityUsedForAttack);
             GameMessage();
