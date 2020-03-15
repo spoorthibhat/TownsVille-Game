@@ -240,17 +240,17 @@ namespace Game.Views
         {
             if (CurrentPlayer.PlayerType == PlayerTypeEnum.Monster)
             {
-                BackwardButton.IsVisible = false;
-                ForwardButton.IsVisible = false;
-                UpButton.IsVisible = false;
-                DownButton.IsVisible = false;
+                BackwardButton.IsEnabled = false;
+                ForwardButton.IsEnabled = false;
+                UpButton.IsEnabled = false;
+                DownButton.IsEnabled = false;
                 SpecialAbility.IsEnabled = false;
                 return;
             }
-            BackwardButton.IsVisible = true;
-            ForwardButton.IsVisible = true;
-            UpButton.IsVisible = true;
-            DownButton.IsVisible = true;
+            BackwardButton.IsEnabled = true;
+            ForwardButton.IsEnabled = true;
+            UpButton.IsEnabled = true;
+            DownButton.IsEnabled = true;
 
             if (EngineViewModel.Engine.CurrentAttacker.SpecialAbility != SpecialAbilityEnum.Unknown && SpecialAbilityMap[EngineViewModel.Engine.CurrentAttacker.Guid] == true)
             {

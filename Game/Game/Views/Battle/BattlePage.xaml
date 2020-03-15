@@ -15,7 +15,7 @@
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
                     AbsoluteLayout.LayoutFlags="All"
                     HorizontalOptions="FillAndExpand">
-                <StackLayout 
+                <StackLayout
                     Style="{StaticResource VerticalStack}"
                     x:Name="GameUIDisplay" >
                     <Grid x:Name="BattleGrid">
@@ -74,6 +74,32 @@
                         </Frame>
 
                     </Grid>
+
+                    <!-- Game chat log -->
+                    <StackLayout
+                        Style="{StaticResource VerticalStack}" 
+                        HeightRequest="100"
+                        MinimumHeightRequest="100"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="End">
+                        <StackLayout x:Name="MessageDisplayBox" 
+                            IsVisible="true"
+                            Style="{StaticResource VerticalStack}"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+
+                            <Label x:Name="BattleMessages" 
+                                    HorizontalOptions="FillAndExpand" 
+                                    LineBreakMode="WordWrap" 
+                                    MaxLines="4"
+                                    LineHeight="1"
+                                    CharacterSpacing="1"
+                                    Style="{StaticResource LabelStyle}"
+                                    FontSize="Micro"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
                     <StackLayout Orientation="Horizontal" HeightRequest="150" HorizontalOptions="CenterAndExpand">
                         <Grid WidthRequest="150">
                             <Grid.RowDefinitions>
@@ -86,6 +112,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
+                            
                             <ImageButton x:Name="BackwardButton" Source="backward_arrow.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Clicked="MoveBack_Clicked"/>
                             <ImageButton x:Name="ForwardButton" Source="forward_arrow.png" Grid.Row="1" Grid.Column="2" HorizontalOptions="Start" Clicked="MoveFront_Clicked"/>
                             <ImageButton x:Name="UpButton" Source="up_arrow.png" Grid.Row="0" Grid.Column="1" Clicked="MoveUp_Clicked"/>
@@ -95,23 +122,19 @@
                         <Button Clicked="AttackButton_Clicked" Text="Attack" Style="{StaticResource PrimaryButtonStyle}"></Button>
 
                     </StackLayout>
-                    <StackLayout x:Name="MessageDisplayBox" 
-                            IsVisible="true"
-                            Style="{StaticResource VerticalStack}" 
-                                    VerticalOptions="StartAndExpand"
-                                    HorizontalOptions="CenterAndExpand">
-
-                        <Label x:Name="BattleMessages" 
-                                    HorizontalOptions="FillAndExpand" 
-                                    LineBreakMode="WordWrap" 
-                                    MaxLines="3"
-                                    LineHeight="1"
-                                    CharacterSpacing="1"
-                                    Style="{StaticResource LabelStyle}"
-                                    FontSize="Micro"/>
-                    </StackLayout>
+                    
 
                 </StackLayout>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             </StackLayout>
             <StackLayout 
                     Style="{StaticResource VerticalStack}"
