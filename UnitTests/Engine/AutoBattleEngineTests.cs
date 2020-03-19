@@ -114,5 +114,48 @@ namespace UnitTests.Engine
             //Assert
             Assert.AreEqual(true, Engine.WasReincarnated);
         }
+
+        [Test]
+        public void AutoBattleEngine_RunAutoBattle_Character_UsedSpecialAblity_Pass()
+        {
+            //Arrange
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = -1,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                            });
+            var MonsterPlayer = new PlayerInfoModel(
+                          new CharacterModel
+                          {
+                              Speed = -1,
+                              Level = 10,
+                              CurrentHealth = 11,
+                              ExperienceTotal = 1,
+                              Name = "Monster",
+                              ListOrder = 1,
+                          });
+
+            Engine.CharacterList.Add(CharacterPlayerMike);
+            Engine.MonsterList.Add(MonsterPlayer);
+            Engine.UseSpecialAbility = true;
+
+
+            //Act
+            // Have dice rull 19
+            DiceHelper.EnableRandomValues();
+            DiceHelper.SetForcedRandomValue(19);
+            var result = Engine.Attack(CharacterPlayerMike);
+
+            //Reset
+            DiceHelper.DisableRandomValues();
+            //Assert
+            Assert.AreEqual(false, CharacterPlayerMike.ISSpecialAbilityNotUsed);
+        }
     }
 }
