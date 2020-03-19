@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.Services;
 using System;
 using System.Collections.Generic;
@@ -98,7 +99,8 @@ namespace Game.ViewModels
             {
                 return 0;
             }
-            return (level * 10 + level);
+            // Roll the Dice and reset the Health
+            return DiceHelper.RollDice(level, 10);
         }
 
         #region DataSourceManagement
