@@ -18,6 +18,7 @@ namespace Game.Engine
     /// </summary>
     public class AutoBattleEngine : BattleEngine
     {
+        public bool WasReincarnated { get; set; } = false;
 
         #region Algrorithm
         // Prepare for Battle
@@ -103,6 +104,7 @@ namespace Game.Engine
                             CharacterList.Add(BattleScore.CharacterModelDeathList[0]);
                             BattleMessagesModel.ReincarnatedCharName = BattleScore.CharacterModelDeathList[0].Name;
                             Debug.WriteLine(BattleMessagesModel.GetReincarnatedPlayerMessage());
+                            WasReincarnated = true;
                         }
 
                     }
