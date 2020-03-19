@@ -154,6 +154,7 @@ namespace Game.Views
                 RoundOver();
 
                 EngineViewModel.Engine.NewRound(); // new round begun
+                //character reincarnates in round 2 if debug switch reincarnate is true 
                 if (EngineViewModel.Engine.BattleScore.RoundCount == 2 && EngineViewModel.ExtraLife == true)
                 {
                     if (EngineViewModel.Engine.BattleScore.CharacterModelDeathList.Count() > 0)
