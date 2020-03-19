@@ -37,6 +37,9 @@ namespace Game.Engine
         // Player currently engaged
         public PlayerInfoModel PlayerCurrent;
 
+        //use special ability to attack
+        public bool UseSpecialAbility { get; set; } = false;
+
         // Current Round State
         public RoundEnum RoundStateEnum = RoundEnum.Unknown;
 
