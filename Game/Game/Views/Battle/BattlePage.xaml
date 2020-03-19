@@ -4,6 +4,15 @@
              x:Class="Game.Views.BattlePage"
              x:Name="BattleScreen"
              Title="Battle Time!">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MessageLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <AbsoluteLayout
@@ -94,7 +103,7 @@
                                     MaxLines="4"
                                     LineHeight="1"
                                     CharacterSpacing="1"
-                                    Style="{StaticResource LabelStyle}"
+                                    Style="{StaticResource MessageLabelStyle}"
                                     FontSize="Micro"/>
                         </StackLayout>
                     </StackLayout>
