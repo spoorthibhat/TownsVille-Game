@@ -13,7 +13,10 @@
 
         // Name of the Attacker
         public string AttackerName = string.Empty;
-        
+
+        // Name of the Reincarnatedcharacter name
+        public string ReincarnatedCharName = string.Empty;
+
         // Name of who the target was
         public string TargetName = string.Empty;
         
@@ -110,6 +113,11 @@
         public string GetSpecialAbilityMessage()
         {
             return AttackerName + " using Special Ability to attack " + TargetName;
+        }
+
+        public string GetReincarnatedPlayerMessage()
+        {
+            return ReincarnatedCharName + " reincarnated";
         }
 
         /// <summary>
