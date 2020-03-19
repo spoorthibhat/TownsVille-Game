@@ -34,6 +34,8 @@ namespace Game.Engine
         // Turn Over
         #endregion Algrorithm
 
+        
+
         /// <summary>
         /// CharacterModel Attacks...
         /// </summary>
@@ -74,7 +76,7 @@ namespace Game.Engine
             }
 
             // Do Attack
-            bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
+            UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
             TurnAsAttack(Attacker,Target, UseSpecialAbility);
 
             CurrentAttacker = new PlayerInfoModel(Attacker);
@@ -189,10 +191,15 @@ namespace Game.Engine
                // bool UseSpecialAbility = RollToUseSpecialAbilityOnTarget();
                 if(UseSpecialAbility)
                 {
-                    Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
+                    if (Attacker.ISSpecialAbilityNotUsed = true)
+                    {
+                        Debug.WriteLine(BattleMessagesModel.GetSpecialAbilityMessage());
+                        AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
+                    }
+                    
                 }
-                AttackScore = Attacker.Level + Attacker.GetAttack(UseSpecialAbility);
-                
+               
+                UseSpecialAbility = false;
             }
 
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
