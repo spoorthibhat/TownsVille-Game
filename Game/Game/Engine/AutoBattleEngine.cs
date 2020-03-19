@@ -18,6 +18,7 @@ namespace Game.Engine
     /// </summary>
     public class AutoBattleEngine : BattleEngine
     {
+        //Added property WasReincarnated for testing purpose
         public bool WasReincarnated { get; set; } = false;
 
         #region Algrorithm
