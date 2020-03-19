@@ -31,7 +31,6 @@ namespace Game.Views
                 new HomeMenuItemModel {Id = MenuItemEnum.Game, Title="Game" },
                 new HomeMenuItemModel {Id = MenuItemEnum.About, Title="About" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Townsville, Title="Townsville City" },
-                new HomeMenuItemModel {Id = MenuItemEnum.Battle, Title="Battle" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Items, Title="Items" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Score, Title="Score" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Characters, Title="Characters" },
