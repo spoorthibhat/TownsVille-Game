@@ -18,6 +18,7 @@ namespace Game.Engine
     /// </summary>
     public class AutoBattleEngine : BattleEngine
     {
+
         #region Algrorithm
         // Prepare for Battle
         // Pick 6 Characters
@@ -74,6 +75,7 @@ namespace Game.Engine
             // Fight Loop. Continue until Game is Over...
             do
             {
+                
                 // Check for excessive duration.
                 if (DetectInfinateLoop())
                 {
@@ -92,6 +94,17 @@ namespace Game.Engine
                 {
                     NewRound();
                     Debug.WriteLine("New Round");
+                    if (BattleScore.RoundCount == 2)
+                    {
+                        if (BattleScore.CharacterModelDeathList.Count > 0)
+                        {
+                            BattleScore.CharacterModelDeathList[0].Alive = true;
+                            CharacterList.Add(BattleScore.CharacterModelDeathList[0]);
+                            BattleMessagesModel.ReincarnatedCharName = BattleScore.CharacterModelDeathList[0].Name;
+                            Debug.WriteLine(BattleMessagesModel.GetReincarnatedPlayerMessage());
+                        }
+
+                    }
                 }
 
             } while (RoundCondition != RoundEnum.GameOver);

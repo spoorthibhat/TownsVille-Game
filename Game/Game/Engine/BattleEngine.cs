@@ -1,5 +1,6 @@
 ﻿
 using Game.Models;
+using System.Diagnostics;
 
 namespace Game.Engine
 {
@@ -35,6 +36,7 @@ namespace Game.Engine
             {
                 AutoBattle = isAutoBattle
             };
+          
 
             BattleRunning = true;
 
