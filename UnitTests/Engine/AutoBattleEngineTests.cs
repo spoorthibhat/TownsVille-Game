@@ -99,5 +99,20 @@ namespace UnitTests.Engine
             //Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void AutoBattleEngine_RunAutoBattle_Character_Reincarnate_in_Round2_should_Pass()
+        {
+            //Arrange
+
+           
+            //Act
+            var result = Engine.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, Engine.WasReincarnated);
+        }
     }
 }
