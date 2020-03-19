@@ -129,6 +129,18 @@
                                 Text="Post"
                                 Clicked="GetItemsPost_Command"/>
                         </StackLayout>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+
+                            <Label
+                                Text="Reincarnate Character"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="ExtraLife"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="ExtraLife_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
 
                         <Label Text="Character Settings" />
 
@@ -194,18 +206,7 @@
                                 IsToggled="False"/>
                         </StackLayout>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-
-                            <Label
-                                Text="Use Extra Life"
-                                Style="{DynamicResource DebugSwitchLabel}"/>
-
-                            <Switch
-                                x:Name="ExtraLife"
-                                HorizontalOptions="EndAndExpand"
-                                Toggled="ExtraLife_OnToggled"
-                                IsToggled="False"/>
-                        </StackLayout>
+                      
 
                         <Label Text="Monster Settings" />
 
