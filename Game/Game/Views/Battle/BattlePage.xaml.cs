@@ -31,7 +31,7 @@ namespace Game.Views
         public PlayerInfoModel CurrentPlayer;
 
         // public BattleEngine Battle;
-        public bool UseSpecialAbility = false;
+        public bool isSpecialAbilityUsedForAttack = false;
 
         public int[] AttackerPosition = new int[2];
         public int[] DefenderPosition = new int[2];
@@ -459,7 +459,8 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
         {
-            playBattle(false);
+            isSpecialAbilityUsedForAttack = false;
+            playBattle(isSpecialAbilityUsedForAttack);
 
         }
         /// <summary>
@@ -470,8 +471,9 @@ namespace Game.Views
         /// <param name="e"></param>
         void SpecialAbilityButton_Clicked(object sender, EventArgs e)
         {
+            isSpecialAbilityUsedForAttack = true;
             SpecialAbilityMap[EngineViewModel.Engine.CurrentAttacker.Guid] = false;
-            playBattle(true);
+            playBattle(isSpecialAbilityUsedForAttack);
         }
         /// <summary>
         /// Navigate to pick items page
@@ -532,7 +534,7 @@ namespace Game.Views
             // Output The Message that happened.
             BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.TurnMessage, BattleMessages.Text);
 
-            if (SpecialAbility.IsEnabled)
+            if (isSpecialAbilityUsedForAttack)
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.GetSpecialAbilityMessage(), BattleMessages.Text);
             }
