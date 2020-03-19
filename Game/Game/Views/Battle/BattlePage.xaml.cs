@@ -154,13 +154,15 @@ namespace Game.Views
                 RoundOver();
 
                 EngineViewModel.Engine.NewRound(); // new round begun
-                //character reincarnates in round 2 if debug switch reincarnate is true 
+                //character reincarnates in round 2 if debug switch extra life is true 
                 if (EngineViewModel.Engine.BattleScore.RoundCount == 2 && EngineViewModel.ExtraLife == true)
                 {
                     if (EngineViewModel.Engine.BattleScore.CharacterModelDeathList.Count() > 0)
                     {
                         EngineViewModel.Engine.BattleScore.CharacterModelDeathList[0].Alive = true;
                         SelectedCharacterList.Add(EngineViewModel.Engine.BattleScore.CharacterModelDeathList[0]);
+                        EngineViewModel.Engine.BattleMessagesModel.ReincarnatedCharName = EngineViewModel.Engine.BattleScore.CharacterModelDeathList[0].Name;
+                        BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.GetReincarnatedPlayerMessage(), BattleMessages.Text);
                     }
                     
 
@@ -534,6 +536,10 @@ namespace Game.Views
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.GetSpecialAbilityMessage(), BattleMessages.Text);
             }
+            /*if (EngineViewModel.Engine.BattleScore.RoundCount == 2 && EngineViewModel.ExtraLife == true)
+            { 
+                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessagesModel.GetReincarnatedPlayerMessage(), BattleMessages.Text);
+            }*/
 
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessagesModel.LevelUpMessage))
             {
