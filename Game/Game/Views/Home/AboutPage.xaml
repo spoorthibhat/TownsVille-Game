@@ -96,8 +96,7 @@
                 <StackLayout Style="{StaticResource VerticalStack}" Padding="5,0,0,0">
 
                     <Label Text="More Debug Settings to come..." />
-                    <Label Text="Character Settings" />
-                    
+
                     <StackLayout Style="{StaticResource VerticalStack}">
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
                             <Label
@@ -130,6 +129,8 @@
                                 Text="Post"
                                 Clicked="GetItemsPost_Command"/>
                         </StackLayout>
+
+                        <Label Text="Character Settings" />
 
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
                             <Label
@@ -164,9 +165,9 @@
                                 x:Name="CharacterForceMiss"
                                 HorizontalOptions="EndAndExpand"
                                 Toggled="CharacterForceMiss_OnToggled"
-                                IsToggled="False"/> 
+                                IsToggled="False"/>
                         </StackLayout>
-                        
+
                         <StackLayout Style="{StaticResource HorizontalStack}">
 
                             <Label
@@ -193,10 +194,20 @@
                                 IsToggled="False"/>
                         </StackLayout>
 
-                    </StackLayout>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
 
-                    <Label Text="Monster Settings" />
-                    <StackLayout Style="{StaticResource VerticalStack}">
+                            <Label
+                                Text="Use Extra Life"
+                                Style="{DynamicResource DebugSwitchLabel}"/>
+
+                            <Switch
+                                x:Name="ExtraLife"
+                                HorizontalOptions="EndAndExpand"
+                                Toggled="ExtraLife_OnToggled"
+                                IsToggled="False"/>
+                        </StackLayout>
+
+                        <Label Text="Monster Settings" />
 
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
                             <Label
@@ -246,10 +257,7 @@
                                 Toggled="MonsterForceHit_OnToggled"
                                 IsToggled="False"/>
                         </StackLayout>
-
                     </StackLayout>
-
-
                 </StackLayout>
             </StackLayout>
         </StackLayout>

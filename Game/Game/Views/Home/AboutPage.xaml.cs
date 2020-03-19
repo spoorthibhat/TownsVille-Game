@@ -157,13 +157,24 @@ namespace Game.Views
             BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
             EngineViewModel.Engine.MonsterHitValue = 20;
         }
-
+        /// <summary>
+        /// Send message to set IFeelGood 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void IFeelGood_OnToggled(object sender, ToggledEventArgs e)
         {
             MessagingCenter.Send(this, "IFeelGood", true);
         }
-
-
+        /// <summary>
+        /// Send message to set ExtraLife 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExtraLife_OnToggled(object sender, ToggledEventArgs e)
+        {
+            MessagingCenter.Send(this, "ExtraLife", true);
+        }
         /// <summary>
         /// Example of how to call for Items using HttpGet
         /// </summary>

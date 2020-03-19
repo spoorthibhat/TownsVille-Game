@@ -51,7 +51,7 @@ namespace Game.ViewModels
         /// </summary>
         public Engine.BattleEngine Engine = new Engine.BattleEngine();
         public bool IFeelGood { get; set; } = false;
-
+        public bool ExtraLife { get; set; } = false;
         /// <summary>
         /// Auto Battle Engine (used for scneario testing)
         /// </summary>
@@ -73,6 +73,10 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<AboutPage, bool>(this, "IFeelGood", async (obj, data) =>
             {
                 IFeelGood = true;
+            });
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "ExtraLife", async (obj, data) =>
+            {
+                ExtraLife = true;
             });
 
         }
