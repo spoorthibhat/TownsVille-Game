@@ -98,7 +98,11 @@ namespace Game.Models
         [Ignore]
         // Return the Attack with Item Bonus
         public int GetAttackItemBonus { get { return GetItemBonus(AttributeEnum.Attack); } }
-        
+
+        [Ignore]
+        // Return the Attack with SpecialAbility Bonus
+        public int GetAttackSpecialAbilityBonus { get { return GetSpecialAbilityBonus(this.SpecialAbility); } }
+
         [Ignore]
         // Return the Total of All Attack
         public int GetAttackTotal { get { return GetAttack(); } }
@@ -271,11 +275,26 @@ namespace Game.Models
             // Attack Bonus from Level
             myReturn += GetAttackLevelBonus;
 
+            if (SpecialAbilityToBeUsedInAttack && ISSpecialAbilityNotUsed)
+            {
+                // Get Attack bonus from Special Ability
+                myReturn += GetAttackSpecialAbilityBonus;
+                ISSpecialAbilityNotUsed = false;
+
+                return myReturn;
+            }
+
             AttackWithGoSUItem = false;
             // Get Attack bonus from Items
             myReturn += GetAttackItemBonus;
 
             return myReturn;
+        }
+
+        // Return the specialAbility value
+        public int GetSpecialAbilityBonus(SpecialAbilityEnum specialAbilityEnum)
+        {
+            return (int)specialAbilityEnum;
         }
 
         /// <summary>
