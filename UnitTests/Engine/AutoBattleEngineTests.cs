@@ -95,6 +95,7 @@ namespace UnitTests.Engine
             var result = Engine.RunAutoBattle();
 
             //Reset
+            Engine.CharacterList.Clear();
 
             //Assert
             Assert.IsNotNull(result);
