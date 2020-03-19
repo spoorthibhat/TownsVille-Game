@@ -94,6 +94,7 @@ namespace Game.Engine
                 {
                     NewRound();
                     Debug.WriteLine("New Round");
+                    //if round is 2 reincarnate any character
                     if (BattleScore.RoundCount == 2)
                     {
                         if (BattleScore.CharacterModelDeathList.Count > 0)
