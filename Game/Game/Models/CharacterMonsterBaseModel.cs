@@ -436,7 +436,7 @@ namespace Game.Models
             this.Attack = LevelTableHelper.Instance.LevelDetailsList[Level].Attack;
             this.Speed = LevelTableHelper.Instance.LevelDetailsList[Level].Speed;
             this.Defense = LevelTableHelper.Instance.LevelDetailsList[Level].Defense;
-            this.MaxHealth = Level * 10 + Level;
+            this.MaxHealth = MonsterIndexViewModel.Instance.GetPlayerMaxHealth(this.Level);
             this.CurrentHealth = this.MaxHealth;
             return true;
         }
