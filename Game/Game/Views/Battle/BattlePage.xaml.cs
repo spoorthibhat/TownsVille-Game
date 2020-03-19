@@ -72,6 +72,7 @@ namespace Game.Views
                     }
                 }
             }
+            
 
             LoadPlayers();
 
@@ -153,12 +154,23 @@ namespace Game.Views
                 RoundOver();
 
                 EngineViewModel.Engine.NewRound(); // new round begun
+                if (EngineViewModel.Engine.BattleScore.RoundCount == 2 && EngineViewModel.ExtraLife == true)
+                {
+                    if (EngineViewModel.Engine.BattleScore.CharacterModelDeathList.Count() > 0)
+                    {
+                        EngineViewModel.Engine.BattleScore.CharacterModelDeathList[0].Alive = true;
+                        SelectedCharacterList.Add(EngineViewModel.Engine.BattleScore.CharacterModelDeathList[0]);
+                    }
+                    
+
+                }
                 SelectedMonsterList = EngineViewModel.Engine.MonsterList; // initialize monsters based on alive characters
 
                 ResetBoard();
                 LoadPlayers();
 
             }
+           
             PickPlayers(); // pick attacker and defender for next turn
         }
         /// <summary>
