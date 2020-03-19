@@ -115,9 +115,13 @@
             return AttackerName + " using Special Ability to attack " + TargetName;
         }
 
+        /// <summary>
+        /// Returns string Character re-incarnated
+        /// </summary>
+        /// <returns></returns>
         public string GetReincarnatedPlayerMessage()
         {
-            return ReincarnatedCharName + " reincarnated";
+            return ReincarnatedCharName + " Reincarnated";
         }
 
         /// <summary>
