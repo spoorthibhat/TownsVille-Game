@@ -13,6 +13,14 @@
                 HorizontalOptions="Center">
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <Label 
+                        Text="GamesVille"
+                        Style="{StaticResource HeaderStyle}"
+                        
+                        />
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
                          Source="powerpuff_girls.png"
                          Style="{StaticResource ImageLargeStyle}"
